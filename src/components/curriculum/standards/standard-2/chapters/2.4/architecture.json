@@ -1,0 +1,17 @@
+{
+  "standard": 2,
+  "chapter": 4,
+  "title": "Understanding Tax Deductions and Credits",
+  "description": "An exploration of how tax deductions and credits work, their differences, and strategic ways to use them to reduce tax liability.",
+  "learning_objectives": [
+    "Distinguish between tax deductions and tax credits",
+    "Explain how deductions and credits impact your tax liability", 
+    "Identify common deductions and credits you may qualify for",
+    "Apply tax planning strategies to minimize taxes",
+    "Make informed decisions for future tax planning"
+  ],
+  "content_density": "standard",
+  "template_format": "case-study",
+  "day1_day2_connection": "complementary",
+  "skill_builder": "tax_calculation"
+}

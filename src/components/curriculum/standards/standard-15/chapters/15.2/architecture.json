@@ -1,0 +1,21 @@
+{
+  "standard": 15,
+  "chapter": 2,
+  "title": "Resume Building and Personal Branding",
+  "description": "This chapter focuses on developing effective resumes and establishing a cohesive personal brand for career advancement.",
+  "learning_objectives": [
+    "Identify the essential components of an effective resume",
+    "Recognize the importance of personal branding in career development",
+    "Develop strategies for highlighting skills and experiences in a resume format",
+    "Understand how to tailor resumes for different career opportunities",
+    "Create a framework for a personal brand that aligns with career goals"
+  ],
+  "content_density": "standard",
+  "template_format": "project-based",
+  "day1_day2_connection": "extension",
+  "skill_builder": {
+    "id": "resume-builder",
+    "title": "Resume Builder",
+    "description": "Interactive resume creation tool with feedback and templates"
+  }
+}

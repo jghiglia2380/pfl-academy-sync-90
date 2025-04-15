@@ -1,0 +1,17 @@
+{
+  "standard": 2,
+  "chapter": 3,
+  "title": "Understanding Tax Filing Requirements",
+  "description": "An exploration of who needs to file taxes, necessary tax forms, filing statuses, and key deadlines.",
+  "learning_objectives": [
+    "Determine who needs to file a tax return based on income thresholds, age, and filing status",
+    "Identify common tax forms including W-2s, 1099s, and Form 1040",
+    "Understand how different filing statuses affect your tax obligations",
+    "Recognize important tax deadlines and consequences of missing them",
+    "Explain when filing might benefit you even if it's not required"
+  ],
+  "content_density": "standard",
+  "template_format": "project-based",
+  "day1_day2_connection": "extension",
+  "skill_builder": "tax_forms"
+}

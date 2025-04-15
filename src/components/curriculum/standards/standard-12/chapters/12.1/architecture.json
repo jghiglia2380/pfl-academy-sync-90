@@ -1,0 +1,21 @@
+{
+  "standard": 12,
+  "chapter": 1,
+  "title": "Understanding the Risks of Gambling",
+  "description": "This chapter explores the mathematics behind gambling, including probability concepts, the house edge, and expected value calculations, helping students evaluate gambling activities and understand their potential financial consequences.",
+  "learning_objectives": [
+    "Understand and calculate probability in various gambling scenarios",
+    "Distinguish between independent and dependent events in gambling activities",
+    "Explain the concept of house edge and how it ensures profits for gambling organizers",
+    "Calculate expected value to determine potential financial outcomes of gambling",
+    "Recognize the gambler's fallacy and other common misconceptions about gambling"
+  ],
+  "content_density": "standard",
+  "template_format": "standard",
+  "day1_day2_connection": "complementary",
+  "skill_builder": {
+    "id": "gambling-entertainment-analysis",
+    "title": "Viewing Gambling as a Form of Entertainment",
+    "description": "An interactive activity where students analyze different types of gambling activities as forms of entertainment rather than methods to make money, evaluating their costs and potential consequences."
+  }
+}

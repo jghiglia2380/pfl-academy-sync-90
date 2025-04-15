@@ -1,0 +1,40 @@
+{
+  "standard": 14,
+  "chapter": 1,
+  "title": "Charitable Giving and Financial Planning",
+  "description": "This chapter explores how charitable giving can be integrated into financial planning, covering various forms of contributions (monetary, volunteering, in-kind, planned giving) and how these align with personal values and financial goals. Students learn to develop giving strategies that create positive impact while maintaining financial well-being.",
+  "learning_objectives": [
+    "Understand various forms of charitable giving (monetary, in-kind, volunteering, planned giving)",
+    "Learn how charitable giving can be incorporated into financial planning",
+    "Explore the personal and societal benefits of charitable giving",
+    "Reflect on non-monetary ways to contribute to their community"
+  ],
+  "content_density": "standard",
+  "template_format": "standard",
+  "day1_day2_connection": "complementary",
+  "skill_builder": {
+    "id": "personal_giving_plan",
+    "title": "Personal Charitable Giving Plan",
+    "description": "In this activity, students create a personalized charitable giving plan that aligns with their values, interests, and resources. They select causes they care about, determine appropriate contribution types, set realistic goals, and explain their giving strategy."
+  },
+  "key_terms": [
+    "Charitable Giving",
+    "Monetary Donation",
+    "In-Kind Donation",
+    "Planned Giving",
+    "Tax Deduction",
+    "Volunteerism",
+    "Legacy"
+  ],
+  "interactive_elements": [
+    "Charitable Giving Types Infographic",
+    "Giving Motivation Explorer",
+    "Charitable Budget Calculator",
+    "Tax Benefits Visualizer",
+    "Non-Monetary Giving Idea Generator",
+    "Charity Evaluation Research Guide",
+    "Community Impact Project Planner"
+  ],
+  "author": "PFL Academy Curriculum Team",
+  "last_updated": "2025-03-27"
+}

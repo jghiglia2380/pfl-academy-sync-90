@@ -1,0 +1,18 @@
+{
+  "standard": 8,
+  "chapter": 1,
+  "title": "Credit Card Use and Management",
+  "description": "This chapter explores how credit cards work, important credit card terminology, and strategies for responsible credit card management. Students will learn to evaluate different credit card options based on features like APR, rewards, and fees, and develop personal credit card usage plans that avoid debt traps.",
+  "learning_objectives": [
+    "Understand key credit card terminology including APR, minimum payment, and grace period",
+    "Compare different credit card features and determine which best match personal spending habits",
+    "Calculate the true cost of carrying a credit card balance",
+    "Analyze real-world examples of responsible and irresponsible credit card usage",
+    "Develop strategies for responsible credit card management",
+    "Create a personal credit card management plan"
+  ],
+  "template_format": "standard",
+  "content_density": "standard",
+  "day1_day2_connection": "complementary",
+  "skill_builder": "credit_card_manager"
+}

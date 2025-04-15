@@ -1,0 +1,19 @@
+{
+  "standard": 6,
+  "chapter": 1,
+  "title": "Planning for Retirement",
+  "description": "This chapter explores retirement planning strategies, including different retirement accounts, the relationship between risk and return, and how to develop a personalized retirement strategy based on individual goals and time horizons.",
+  "learning_objectives": [
+    "Differentiate between saving and investing strategies",
+    "Identify key financial concepts like liquidity, risk tolerance, and opportunity cost",
+    "Explain the relationship between risk and return",
+    "Develop financial strategies based on time horizons and goals",
+    "Understand how diversification helps manage risk",
+    "Compare different retirement accounts and their features",
+    "Create a personalized retirement strategy"
+  ],
+  "template_format": "project-based",
+  "content_density": "standard",
+  "day1_day2_connection": "extension",
+  "skill_builder": "retirement_planner"
+}

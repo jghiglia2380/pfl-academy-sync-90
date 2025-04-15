@@ -1,0 +1,21 @@
+{
+  "standard": 10,
+  "chapter": 1,
+  "title": "Renting vs. Owning - Making Informed Housing Decisions",
+  "description": "This chapter explores the financial and lifestyle implications of renting versus owning a home, helping students develop the skills to make informed housing decisions based on their personal circumstances and goals.",
+  "learning_objectives": [
+    "Compare the financial implications of renting versus owning a home",
+    "Identify key factors that influence housing decisions",
+    "Evaluate how personal circumstances affect housing choices",
+    "Analyze the long-term financial impact of different housing options",
+    "Apply critical thinking to housing scenarios based on different life situations"
+  ],
+  "content_density": "standard",
+  "template_format": "standard",
+  "day1_day2_connection": "complementary",
+  "skill_builder": {
+    "id": "housing-priorities-comparison",
+    "title": "Comparing Housing Options Based on Priorities",
+    "description": "An interactive activity where students evaluate the pros and cons of different housing options based on their top three personal priorities."
+  }
+}

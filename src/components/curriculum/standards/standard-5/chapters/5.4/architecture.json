@@ -1,0 +1,17 @@
+{
+  "standard": 5,
+  "chapter": 4,
+  "title": "Time is Money – Developing a Savings and Investment Strategy",
+  "description": "This chapter helps students understand how time horizons, risk tolerance, and inflation impact savings and investment strategies, enabling them to create financial plans aligned with their personal goals.",
+  "learning_objectives": [
+    "Understand how time horizons affect investment choices",
+    "Apply risk tolerance assessment to financial decision-making",
+    "Evaluate different asset classes for various financial goals",
+    "Create diversified investment strategies for different time horizons",
+    "Analyze the impact of inflation on long-term financial planning"
+  ],
+  "template_format": "project-based",
+  "content_density": "complex",
+  "day1_day2_connection": "extension",
+  "skill_builder": "strategy_selector"
+}

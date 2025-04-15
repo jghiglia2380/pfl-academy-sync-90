@@ -1,0 +1,18 @@
+{
+  "standard": 7,
+  "chapter": 1,
+  "title": "Understanding the Cost of Borrowing",
+  "description": "This chapter explores the various costs associated with borrowing money, including interest rates, fees, and loan terms. Students will learn to differentiate between secured and unsecured credit, compare installment and non-installment credit, and make informed borrowing decisions.",
+  "learning_objectives": [
+    "Define key borrowing terms including principal, interest rate, APR, and collateral",
+    "Distinguish between secured and unsecured credit",
+    "Compare installment and non-installment credit options",
+    "Calculate the total cost of loans with different terms and interest rates",
+    "Evaluate when borrowing is appropriate versus when it should be avoided",
+    "Develop strategies to minimize borrowing costs"
+  ],
+  "template_format": "standard",
+  "content_density": "standard",
+  "day1_day2_connection": "complementary",
+  "skill_builder": "loan_calculator"
+}

@@ -1,0 +1,21 @@
+{
+  "standard": 10,
+  "chapter": 2,
+  "title": "Understanding the Costs and Responsibilities of Renting",
+  "description": "This chapter explores the financial implications and legal responsibilities associated with renting a property, helping students make informed decisions about lease agreements, understand the true costs of renting, and know their rights and responsibilities as tenants.",
+  "learning_objectives": [
+    "Identify and explain the key components of a lease agreement",
+    "Calculate the true costs associated with renting, including rent, security deposits, utilities, and other fees",
+    "Evaluate the advantages and disadvantages of renting compared to other housing options",
+    "Determine personal priorities when selecting a rental property",
+    "Understand tenant rights and responsibilities in various rental situations"
+  ],
+  "content_density": "standard",
+  "template_format": "standard",
+  "day1_day2_connection": "complementary",
+  "skill_builder": {
+    "id": "rental-property-comparison",
+    "title": "Rental Property Comparison Checklist",
+    "description": "An interactive activity where students create a personalized checklist for comparing rental properties based on their priorities and use it to evaluate different rental options."
+  }
+}

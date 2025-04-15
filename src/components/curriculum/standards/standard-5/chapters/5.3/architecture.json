@@ -1,0 +1,17 @@
+{
+  "standard": 5,
+  "chapter": 3,
+  "title": "Evaluating Saving and Investment Strategies",
+  "description": "This chapter helps students understand and compare different saving and investment options, focusing on the relationship between risk and return to make informed financial decisions aligned with their goals.",
+  "learning_objectives": [
+    "Compare the risks and returns of various saving and investment options",
+    "Evaluate which financial strategies align with different time horizons and goals",
+    "Apply decision-making criteria to select appropriate saving and investment vehicles",
+    "Create a personalized investment strategy based on financial goals and risk tolerance",
+    "Analyze how different strategies balance risk and potential returns"
+  ],
+  "template_format": "standard",
+  "content_density": "complex",
+  "day1_day2_connection": "complementary",
+  "skill_builder": "portfolio_builder"
+}

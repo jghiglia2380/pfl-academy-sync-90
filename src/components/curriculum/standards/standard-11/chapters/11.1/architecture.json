@@ -1,0 +1,21 @@
+{
+  "standard": 11,
+  "chapter": 1,
+  "title": "Understanding and Managing Risk",
+  "description": "This chapter introduces students to the fundamental concepts of risk, types of risk they may face in life, and strategies for effective risk management including avoidance, reduction, acceptance, and transfer.",
+  "learning_objectives": [
+    "Define risk and explain its presence in everyday life and financial decisions",
+    "Identify different types of risk (personal, property, liability, financial)",
+    "Analyze the four main risk management strategies (avoidance, reduction, acceptance, transfer)",
+    "Apply appropriate risk management strategies to different scenarios",
+    "Evaluate their own risk tolerance and how it affects their decision-making"
+  ],
+  "content_density": "standard",
+  "template_format": "standard",
+  "day1_day2_connection": "complementary",
+  "skill_builder": {
+    "id": "risk-scenario-analysis",
+    "title": "Risk Scenario Analysis",
+    "description": "An interactive activity where students analyze different types of risk and determine the best management approach for specific scenarios."
+  }
+}

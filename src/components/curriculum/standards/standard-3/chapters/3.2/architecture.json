@@ -1,0 +1,16 @@
+{
+  "standard": 3,
+  "chapter": 2,
+  "title": "Choosing and Evaluating Financial Service Providers",
+  "description": "This chapter focuses on understanding how to evaluate and select appropriate financial service providers based on individual needs and financial goals.",
+  "learning_objectives": [
+    "Analyze and compare different types of financial service providers",
+    "Evaluate factors like fees, interest rates, accessibility, and services when choosing providers",
+    "Calculate the long-term impact of fees and rates on financial outcomes",
+    "Create personalized plans for selecting financial service providers aligned with specific financial goals"
+  ],
+  "template_format": "project-based",
+  "content_density": "standard",
+  "day1_day2_connection": "extension",
+  "skill_builder": "provider_comparison_calculator"
+}

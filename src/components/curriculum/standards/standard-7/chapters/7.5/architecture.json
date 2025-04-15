@@ -1,0 +1,19 @@
+{
+  "standard": 7,
+  "chapter": 5,
+  "title": "Understanding Student Loans",
+  "description": "This chapter explores federal and private student loan options, their features, and long-term implications. Students will learn strategies for responsible borrowing, analyze repayment options, and develop personalized repayment plans based on educational pathways and career goals.",
+  "learning_objectives": [
+    "Understand the key differences between federal and private student loans",
+    "Analyze the long-term financial implications of student loan debt",
+    "Learn strategies for managing student loan debt responsibly",
+    "Research and compare the costs of different educational pathways",
+    "Calculate potential student loan debt based on educational choices",
+    "Develop a personalized post-graduation repayment strategy",
+    "Evaluate the financial impact of student loans on future financial goals"
+  ],
+  "template_format": "project-based",
+  "content_density": "standard",
+  "day1_day2_connection": "extension",
+  "skill_builder": "student_loan_planner"
+}

@@ -1,0 +1,21 @@
+{
+  "standard": 15,
+  "chapter": 4,
+  "title": "Interview Skills and Workplace Readiness",
+  "description": "This chapter focuses on effective interview preparation, professional workplace expectations, and strategies for successful career transitions.",
+  "learning_objectives": [
+    "Develop effective strategies for preparing for job interviews",
+    "Practice responding to common interview questions with the STAR method",
+    "Understand professional workplace expectations and etiquette",
+    "Learn techniques for managing interview anxiety and stress",
+    "Develop strategies for post-interview follow-up and evaluation"
+  ],
+  "content_density": "standard",
+  "template_format": "case-study",
+  "day1_day2_connection": "complementary",
+  "skill_builder": {
+    "id": "interview-simulator",
+    "title": "Interview Simulator",
+    "description": "Interactive interview practice tool with feedback and common questions"
+  }
+}

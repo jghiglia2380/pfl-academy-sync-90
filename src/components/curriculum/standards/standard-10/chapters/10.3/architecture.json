@@ -1,0 +1,21 @@
+{
+  "standard": 10,
+  "chapter": 3,
+  "title": "Understanding Home Buying",
+  "description": "This chapter explores the home buying process, different types of mortgages, the costs associated with purchasing and maintaining a home, and how homeownership fits into long-term financial planning.",
+  "learning_objectives": [
+    "Identify key terms and concepts related to home buying and mortgages",
+    "Compare different types of mortgages and their advantages and disadvantages",
+    "Calculate the true costs of homeownership beyond the purchase price",
+    "Evaluate whether homeownership aligns with your financial goals and lifestyle choices",
+    "Develop a basic timeline for preparing to purchase a home"
+  ],
+  "content_density": "standard",
+  "template_format": "standard",
+  "day1_day2_connection": "complementary",
+  "skill_builder": {
+    "id": "homeownership-readiness-evaluation",
+    "title": "Homeownership Readiness Evaluation",
+    "description": "An interactive activity where students assess their readiness for homeownership across different timeframes and identify steps to improve their readiness."
+  }
+}

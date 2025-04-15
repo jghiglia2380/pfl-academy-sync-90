@@ -1,0 +1,17 @@
+{
+  "standard": 3,
+  "chapter": 1,
+  "title": "Understanding Financial Service Providers",
+  "description": "An exploration of different types of financial service providers, their functions, and how to determine which providers best suit various financial needs.",
+  "learning_objectives": [
+    "Identify different types of financial service providers and their primary functions",
+    "Compare and contrast banks versus credit unions",
+    "Evaluate which financial service providers best suit different financial needs",
+    "Analyze real-world scenarios to determine appropriate financial service providers",
+    "Create a personalized financial service provider plan"
+  ],
+  "content_density": "standard",
+  "template_format": "standard",
+  "day1_day2_connection": "complementary",
+  "skill_builder": "provider_comparison"
+}

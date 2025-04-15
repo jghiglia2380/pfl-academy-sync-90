@@ -1,0 +1,294 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2025-03-18",
+  "architecture_overview": {
+    "template_formats": {
+      "standard": {
+        "description": "Multiple independent activities with variety of exercises and interactions",
+        "use_case": "General topics that benefit from diverse exploration approaches",
+        "day1_structure": "Standard introduction, key concepts, activities with defined sections",
+        "day2_structure": "Multiple learning stations with distinct activities"
+      },
+      "project-based": {
+        "description": "Centered around a single extended project with progressive development",
+        "use_case": "Application-focused topics requiring sustained engagement",
+        "day1_structure": "Standard introduction, key concepts, but sets foundation for project",
+        "day2_structure": "Workshop format with project stages and deliverables"
+      },
+      "case-study": {
+        "description": "Built around analyzing a detailed case study with in-depth analysis",
+        "use_case": "Topics benefiting from real-world contexts and analysis",
+        "day1_structure": "Standard introduction, key concepts, with case introduction",
+        "day2_structure": "Analytical framework with case breakdown and application"
+      }
+    },
+    "content_densities": {
+      "basic": {
+        "description": "Introductory and accessible with focus on fundamentals",
+        "use_case": "New or unfamiliar topics requiring more scaffolding",
+        "complexity_level": "Lower reading level, more visual aids, explicit connections",
+        "activity_count": "Fewer complex activities, more guided practice"
+      },
+      "standard": {
+        "description": "Balanced approach with moderate complexity",
+        "use_case": "Topics with some assumed prior knowledge",
+        "complexity_level": "Grade-appropriate reading, balanced text and visual content",
+        "activity_count": "Standard mix of activities and complexity"
+      },
+      "complex": {
+        "description": "Advanced concepts with in-depth analysis",
+        "use_case": "Topics building on strong prior knowledge",
+        "complexity_level": "Higher reading level, more nuanced concepts, implicit connections",
+        "activity_count": "More complex activities, higher cognitive demand"
+      }
+    },
+    "day1_day2_connections": {
+      "extension": {
+        "description": "Day 2 is a direct continuation of Day 1",
+        "use_case": "Topics requiring extended exploration time",
+        "day2_approach": "Continues with same concepts and adds depth",
+        "transition": "Clear continuation with explicit references to Day 1"
+      },
+      "complementary": {
+        "description": "Day 2 reinforces Day 1 concepts with distinct activities",
+        "use_case": "Most topics with balanced theory and application",
+        "day2_approach": "New activities applying the same core concepts",
+        "transition": "Brief review before new but related activities"
+      },
+      "alternative": {
+        "description": "Day 2 explores alternative approaches to same content",
+        "use_case": "Topics with multiple valid perspectives or methods",
+        "day2_approach": "Fresh perspective or methodology on same content area",
+        "transition": "Contrasting approach with connections to Day 1"
+      }
+    }
+  },
+  "standards": {
+    "1": {
+      "title": "Careers",
+      "description": "Career planning, education, taxes, goals, and income management",
+      "learning_progression": "Builds foundation for personal financial understanding through career lens",
+      "chapters": {
+        "1.1": {
+          "title": "Jobs vs. Careers",
+          "template_format": "project-based",
+          "content_density": "standard",
+          "day1_day2_connection": "complementary",
+          "skill_builder": "career_path",
+          "rationale": "Project-based format suits career planning well; students create comprehensive career path in Day 2"
+        },
+        "1.2": {
+          "title": "Paying for Post-Secondary Education",
+          "template_format": "standard",
+          "content_density": "complex",
+          "day1_day2_connection": "complementary",
+          "skill_builder": "fafsa",
+          "rationale": "Standard format allows exploration of multiple funding sources; complex density needed for financial aid concepts"
+        },
+        "1.3": {
+          "title": "Income and Taxes",
+          "template_format": "case-study",
+          "content_density": "standard",
+          "day1_day2_connection": "complementary",
+          "skill_builder": "w4",
+          "rationale": "Case-study format ideal for exploring paycheck breakdowns and tax implications in realistic context"
+        },
+        "1.4": {
+          "title": "Financial Goal Setting",
+          "template_format": "project-based",
+          "content_density": "standard",
+          "day1_day2_connection": "extension",
+          "skill_builder": "smart_goals",
+          "rationale": "Project-based approach allows students to develop complete SMART goal framework with extension to implementation"
+        },
+        "1.5": {
+          "title": "Managing Your Income Effectively",
+          "template_format": "standard",
+          "content_density": "standard",
+          "day1_day2_connection": "complementary",
+          "skill_builder": "budget",
+          "rationale": "Standard format allows exploration of multiple income management strategies with complementary application activities"
+        }
+      }
+    },
+    "2": {
+      "title": "Taxes",
+      "description": "Tax systems, rates, requirements, credits, and compliance",
+      "learning_progression": "Builds comprehensive understanding of tax systems and requirements",
+      "chapters": {
+        "2.1": {
+          "title": "Understanding Federal and State Taxes",
+          "template_format": "standard",
+          "content_density": "standard",
+          "day1_day2_connection": "complementary",
+          "skill_builder": "tax_calculation",
+          "rationale": "Standard format allows comparison of different tax systems with complementary application activities"
+        },
+        "2.2": {
+          "title": "Understanding Tax Brackets and Tax Rates",
+          "template_format": "case-study",
+          "content_density": "complex",
+          "day1_day2_connection": "complementary",
+          "skill_builder": "tax_calculation",
+          "rationale": "Case-study approach helps illustrate progressive taxation through realistic scenarios; complex density needed for nuanced tax concepts"
+        },
+        "2.3": {
+          "title": "Understanding Tax Filing Requirements",
+          "template_format": "project-based",
+          "content_density": "standard",
+          "day1_day2_connection": "extension",
+          "skill_builder": "tax_forms",
+          "rationale": "Project-based approach allows students to work through tax filing process with extended application in Day 2"
+        },
+        "2.4": {
+          "title": "Understanding Tax Credits",
+          "template_format": "case-study",
+          "content_density": "standard",
+          "day1_day2_connection": "complementary",
+          "skill_builder": "tax_calculation",
+          "rationale": "Case-study format ideal for illustrating how tax credits apply in different scenarios"
+        },
+        "2.5": {
+          "title": "Understanding Tax Compliance",
+          "template_format": "case-study",
+          "content_density": "standard",
+          "day1_day2_connection": "alternative",
+          "skill_builder": "tax_avoidance",
+          "rationale": "Case-study approach helps students distinguish compliance vs. avoidance vs. evasion; alternative day2 explores different perspectives"
+        }
+      }
+    },
+    "3": {
+      "title": "Providers",
+      "description": "Financial services providers and selection",
+      "learning_progression": "Introduces concepts of financial service providers and selection criteria",
+      "chapters": {
+        "3.1": {
+          "title": "Financial Services Providers",
+          "template_format": "standard",
+          "content_density": "standard",
+          "day1_day2_connection": "complementary",
+          "skill_builder": "provider_comparison",
+          "rationale": "Standard format allows exploration of multiple provider types with comparative analysis"
+        },
+        "3.2": {
+          "title": "Selecting Financial Services Providers",
+          "template_format": "project-based",
+          "content_density": "standard",
+          "day1_day2_connection": "extension",
+          "skill_builder": "provider_selection",
+          "rationale": "Project-based approach supports creation of selection framework with extension to actual provider evaluation"
+        }
+      }
+    },
+    "4": {
+      "title": "Account",
+      "description": "Account types and management tools",
+      "learning_progression": "Builds understanding of financial accounts and management systems",
+      "chapters": {
+        "4.1": {
+          "title": "Financial Account Tools",
+          "template_format": "standard",
+          "content_density": "basic",
+          "day1_day2_connection": "complementary",
+          "skill_builder": "account_management",
+          "rationale": "Standard format allows exploration of diverse account tools; basic density ensures accessibility for this foundational topic"
+        }
+      }
+    },
+    "5": {
+      "title": "Investing",
+      "description": "Investing concepts, strategies, and approaches",
+      "learning_progression": "Builds comprehensive understanding of investment principles and strategies",
+      "chapters": {
+        "5.1": {
+          "title": "Understanding Investing",
+          "template_format": "standard",
+          "content_density": "basic",
+          "day1_day2_connection": "complementary",
+          "skill_builder": "investment_basics",
+          "rationale": "Standard format introduces multiple investment concepts; basic density ensures accessibility for new investors"
+        },
+        "5.2": {
+          "title": "Rule of 72",
+          "template_format": "case-study",
+          "content_density": "standard",
+          "day1_day2_connection": "complementary",
+          "skill_builder": "compound_interest",
+          "rationale": "Case-study format illustrates rule of 72 through practical scenarios with complementary applications"
+        },
+        "5.3": {
+          "title": "Investment Strategies",
+          "template_format": "standard",
+          "content_density": "complex",
+          "day1_day2_connection": "complementary",
+          "skill_builder": "portfolio_builder",
+          "rationale": "Standard format allows comparison of different strategies; complex density appropriate for sophisticated investment concepts"
+        },
+        "5.4": {
+          "title": "Investment Strategy Selection",
+          "template_format": "project-based",
+          "content_density": "complex",
+          "day1_day2_connection": "extension",
+          "skill_builder": "strategy_selector",
+          "rationale": "Project-based approach allows development of personalized strategy with extension to implementation planning"
+        },
+        "5.5": {
+          "title": "Investment Types",
+          "template_format": "standard",
+          "content_density": "standard",
+          "day1_day2_connection": "complementary",
+          "skill_builder": "investment_comparison",
+          "rationale": "Standard format ideal for comparing different investment vehicles with complementary risk-return analysis"
+        }
+      }
+    },
+    "15": {
+      "title": "Career Readiness",
+      "description": "Career exploration, job application skills, and entrepreneurship",
+      "learning_progression": "Prepares students for career success through practical skills and real-world applications",
+      "chapters": {
+        "15.1": {
+          "title": "Career Exploration and Goal Setting",
+          "template_format": "project-based",
+          "content_density": "basic",
+          "day1_day2_connection": "extension",
+          "skill_builder": "career_explorer",
+          "rationale": "Project-based approach supports personal career exploration with day-to-day extension for deeper application"
+        },
+        "15.2": {
+          "title": "Resume Building and Personal Branding",
+          "template_format": "project-based",
+          "content_density": "standard",
+          "day1_day2_connection": "extension",
+          "skill_builder": "resume_builder",
+          "rationale": "Project-based format allows creation of personal resume with extension to digital presence and portfolio"
+        },
+        "15.3": {
+          "title": "Job Application Process",
+          "template_format": "case-study",
+          "content_density": "standard",
+          "day1_day2_connection": "extension",
+          "skill_builder": "application_simulator",
+          "rationale": "Case-study approach examines real job applications with extension to interactive workshop"
+        },
+        "15.4": {
+          "title": "Interview Skills and Workplace Readiness",
+          "template_format": "case-study",
+          "content_density": "standard",
+          "day1_day2_connection": "complementary",
+          "skill_builder": "interview_simulator",
+          "rationale": "Case-study approach provides realistic interview scenarios with complementary practice activities"
+        },
+        "15.5": {
+          "title": "Entrepreneurship and Side Hustles",
+          "template_format": "project-based",
+          "content_density": "standard",
+          "day1_day2_connection": "extension",
+          "skill_builder": "business_plan_builder",
+          "rationale": "Project-based format supports entrepreneurial idea development with extension to minimum viable product creation"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "standard": 4,
+  "chapter": 1,
+  "title": "Understanding and Using Banking Tools",
+  "description": "This chapter focuses on practical knowledge of banking tools, transaction tracking, and fee avoidance strategies to help students effectively manage their finances.",
+  "learning_objectives": [
+    "Use various banking tools such as ATMs, debit cards, checks, and online banking services",
+    "Track and manage financial transactions effectively",
+    "Reconcile personal financial records with bank statements",
+    "Identify and avoid common banking fees",
+    "Develop personalized strategies for banking account management"
+  ],
+  "template_format": "standard",
+  "content_density": "basic",
+  "day1_day2_connection": "complementary",
+  "skill_builder": "check_register_reconciliation"
+}

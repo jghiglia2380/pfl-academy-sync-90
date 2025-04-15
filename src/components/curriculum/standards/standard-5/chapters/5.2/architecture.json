@@ -1,0 +1,17 @@
+{
+  "standard": 5,
+  "chapter": 2,
+  "title": "Understanding the Power of Compound Interest and the Rule of 72",
+  "description": "This chapter explores how compound interest works, introduces the Rule of 72 for estimating investment doubling time, and helps students apply these concepts to make informed financial decisions.",
+  "learning_objectives": [
+    "Differentiate between simple and compound interest",
+    "Apply the Rule of 72 to estimate investment doubling time",
+    "Calculate compound interest growth using various parameters",
+    "Analyze the impact of time horizons on investment outcomes",
+    "Evaluate opportunity costs in financial decision-making"
+  ],
+  "template_format": "case-study",
+  "content_density": "standard",
+  "day1_day2_connection": "complementary",
+  "skill_builder": "compound_interest"
+}

@@ -1,0 +1,17 @@
+{
+  "standard": 2,
+  "chapter": 5,
+  "title": "Tax Planning and Compliance",
+  "description": "An exploration of legal tax planning strategies, compliance requirements, and how tax planning needs evolve through different life stages.",
+  "learning_objectives": [
+    "Differentiate between legal tax planning and illegal tax evasion",
+    "Identify core tax planning strategies for different life stages",
+    "Recognize common tax mistakes that lead to penalties",
+    "Apply basic tax planning principles to personal financial decisions",
+    "Create a simple tax planning and compliance checklist"
+  ],
+  "content_density": "standard",
+  "template_format": "case-study",
+  "day1_day2_connection": "extension",
+  "skill_builder": "tax_planning_checklist"
+}

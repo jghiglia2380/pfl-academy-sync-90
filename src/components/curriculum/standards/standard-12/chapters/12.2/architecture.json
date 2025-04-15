@@ -1,0 +1,21 @@
+{
+  "standard": 12,
+  "chapter": 2,
+  "title": "The Costs and Benefits of Gambling",
+  "description": "This chapter explores the financial and social implications of gambling at both individual and community levels, helping students understand gambling as entertainment rather than a way to make money and recognize strategies for responsible gambling.",
+  "learning_objectives": [
+    "Understand the financial and social implications of gambling at both individual and community levels",
+    "Recognize gambling as entertainment rather than a source of financial gain",
+    "Think critically about the risks and benefits associated with gambling",
+    "Identify the concepts of problem and pathological gambling and their effects on personal and community well-being",
+    "Develop strategies for responsible gambling practices"
+  ],
+  "content_density": "standard",
+  "template_format": "standard",
+  "day1_day2_connection": "complementary",
+  "skill_builder": {
+    "id": "responsible-gambling-plan",
+    "title": "Developing a Plan for Responsible Gambling",
+    "description": "An interactive activity where students create a responsible gambling plan by setting a budget and time limit, developing strategies for keeping gambling enjoyable, and designing a poster to identify problem gambling signs."
+  }
+}

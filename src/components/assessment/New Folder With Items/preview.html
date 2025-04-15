@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment Library</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .assessment-card {
+            transition: all 0.2s ease-in-out;
+        }
+        .assessment-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.1), 0 2px 4px -1px rgba(79, 70, 229, 0.06);
+        }
+        .question-type-badge {
+            transition: all 0.2s ease-in-out;
+        }
+        .question-type-badge.multiple-choice {
+            background-color: #E0E7FF;
+            color: #4338CA;
+        }
+        .question-type-badge.short-response {
+            background-color: #D1FAE5;
+            color: #065F46;
+        }
+        .question-type-badge.situational {
+            background-color: #FEF3C7;
+            color: #92400E;
+        }
+        .question-type-badge.fill-blank {
+            background-color: #FEE2E2;
+            color: #991B1B;
+        }
+        .ai-support-badge {
+            background-color: #F3E8FF;
+            color: #7E22CE;
+        }
+        .draggable {
+            cursor: grab;
+        }
+        .draggable:active {
+            cursor: grabbing;
+        }
+        .dropzone {
+            border: 2px dashed #E5E7EB;
+            transition: all 0.2s ease-in-out;
+        }
+        .dropzone.drag-over {
+            border-color: #6366F1;
+            background-color: #EEF2FF;
+        }
+        .assessment-type-tab {
+            transition: all 0.2s ease-in-out;
+        }
+        .assessment-type-tab.active {
+            background-color: #EEF2FF;
+            color: #4F46E5;
+            border-color: #4F46E5;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <!-- Header -->
+            <div class="px-6 py-4 border-b border-gray-200">
+                <div class="flex justify-between items-center">
+                    <h1 class="text-2xl font-bold text-gray-900">Assessment Library</h1>
+                    <div class="flex space-x-4">
+                        <button class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
+                            <i class="fas fa-save mr-2"></i>Save Configuration
+                        </button>
+                        <button class="px-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
+                            <i class="fas fa-plus mr-2"></i>Create Custom Assessment
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="flex">
+                <!-- Left Sidebar - Assessment Types -->
+                <div class="w-1/4 border-r border-gray-200 p-4">
+                    <div class="space-y-4">
+                        <h2 class="text-lg font-semibold text-gray-900">Assessment Types</h2>
+                        <div class="space-y-2">
+                            <button class="w-full text-left px-4 py-2 rounded-lg bg-indigo-50 text-indigo-700 font-medium assessment-type-tab active">
+                                <i class="fas fa-clipboard-check mr-2"></i>Standard Quizzes
+                            </button>
+                            <button class="w-full text-left px-4 py-2 rounded-lg hover:bg-gray-50 text-gray-700 assessment-type-tab">
+                                <i class="fas fa-book mr-2"></i>Mid-Terms
+                            </button>
+                            <button class="w-full text-left px-4 py-2 rounded-lg hover:bg-gray-50 text-gray-700 assessment-type-tab">
+                                <i class="fas fa-graduation-cap mr-2"></i>Finals
+                            </button>
+                            <button class="w-full text-left px-4 py-2 rounded-lg hover:bg-gray-50 text-gray-700 assessment-type-tab">
+                                <i class="fas fa-project-diagram mr-2"></i>Projects
+                            </button>
+                        </div>
+
+                        <!-- Question Type Legend -->
+                        <div class="pt-4 border-t border-gray-200">
+                            <h2 class="text-lg font-semibold text-gray-900 mb-2">Question Types</h2>
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-between p-2 bg-indigo-50 rounded-lg">
+                                    <span class="text-sm font-medium text-indigo-700">Multiple Choice</span>
+                                    <span class="question-type-badge multiple-choice px-2 py-1 rounded-full text-xs font-medium">MC</span>
+                                </div>
+                                <div class="flex items-center justify-between p-2 bg-green-50 rounded-lg">
+                                    <span class="text-sm font-medium text-green-700">Short Response</span>
+                                    <span class="question-type-badge short-response px-2 py-1 rounded-full text-xs font-medium">SR</span>
+                                </div>
+                                <div class="flex items-center justify-between p-2 bg-yellow-50 rounded-lg">
+                                    <span class="text-sm font-medium text-yellow-700">Situational</span>
+                                    <span class="question-type-badge situational px-2 py-1 rounded-full text-xs font-medium">ST</span>
+                                </div>
+                                <div class="flex items-center justify-between p-2 bg-red-50 rounded-lg">
+                                    <span class="text-sm font-medium text-red-700">Fill in Blank</span>
+                                    <span class="question-type-badge fill-blank px-2 py-1 rounded-full text-xs font-medium">FB</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-gray-200">
+                            <h2 class="text-lg font-semibold text-gray-900 mb-2">AI Support Settings</h2>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Grading Mode</label>
+                                    <div class="space-y-2">
+                                        <label class="flex items-center">
+                                            <input type="radio" name="grading-mode" value="full-ai" class="rounded-full border-gray-300 text-indigo-600 focus:ring-indigo-500" checked>
+                                            <span class="ml-2 text-sm text-gray-700">Full AI Grading</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="grading-mode" value="ai-review" class="rounded-full border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                            <span class="ml-2 text-sm text-gray-700">AI with Teacher Review</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="grading-mode" value="manual" class="rounded-full border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                            <span class="ml-2 text-sm text-gray-700">Manual Grading</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Assessment AI Assistance</label>
+                                    <div class="space-y-2">
+                                        <label class="flex items-center">
+                                            <input type="checkbox" id="ai-feedback" class="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" checked>
+                                            <span class="ml-2 text-sm text-gray-700">Enable AI Feedback</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="checkbox" id="answer-guidance" class="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                            <span class="ml-2 text-sm text-gray-700">Enable Answer Guidance</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="p-3 bg-gray-50 rounded-lg">
+                                    <p class="text-xs text-gray-500">
+                                        <i class="fas fa-info-circle mr-1"></i>
+                                        Note: AI nudging for reflection prompts and skill builder activities is managed separately in the curriculum settings.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AI Support Features -->
+                        <div class="pt-4 border-t border-gray-200">
+                            <h2 class="text-lg font-semibold text-gray-900 mb-2">AI Support Features</h2>
+                            <ul class="space-y-2 text-sm text-gray-500">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    Automatic grading for all question types
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    Optional AI guidance for student responses
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    Teacher override capabilities
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    Knowledge base integration for edge cases
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Content Area -->
+                <div class="w-3/4 p-6">
+                    <!-- Assessment List -->
+                    <div class="mb-8">
+                        <h2 class="text-lg font-semibold text-gray-900 mb-4">Available Assessments</h2>
+                        <div class="grid grid-cols-2 gap-4">
+                            <!-- Standard 1 Quiz -->
+                            <div class="assessment-card bg-white p-4 rounded-lg border border-gray-200 shadow-sm draggable" draggable="true">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-sm font-medium text-gray-900">Standard 1: Jobs vs. Careers</h3>
+                                    <div class="flex space-x-2">
+                                        <span class="question-type-badge multiple-choice px-2 py-1 rounded-full text-xs font-medium">MC</span>
+                                        <span class="question-type-badge short-response px-2 py-1 rounded-full text-xs font-medium">SR</span>
+                                        <span class="question-type-badge situational px-2 py-1 rounded-full text-xs font-medium">ST</span>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-500 mb-3">5 chapters - 12 questions (10-15 mins)</p>
+                                <div class="flex items-center text-xs text-gray-500">
+                                    <span class="mr-4"><i class="fas fa-robot mr-1"></i>AI Grading</span>
+                                    <span class="ai-support-badge px-2 py-1 rounded-full text-xs font-medium">Student Support Enabled</span>
+                                </div>
+                            </div>
+
+                            <!-- Standard 2 Quiz -->
+                            <div class="assessment-card bg-white p-4 rounded-lg border border-gray-200 shadow-sm draggable" draggable="true">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-sm font-medium text-gray-900">Standard 2: Taxes</h3>
+                                    <div class="flex space-x-2">
+                                        <span class="question-type-badge multiple-choice px-2 py-1 rounded-full text-xs font-medium">MC</span>
+                                        <span class="question-type-badge fill-blank px-2 py-1 rounded-full text-xs font-medium">FB</span>
+                                        <span class="question-type-badge situational px-2 py-1 rounded-full text-xs font-medium">ST</span>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-500 mb-3">5 chapters - 12 questions (10-15 mins)</p>
+                                <div class="flex items-center text-xs text-gray-500">
+                                    <span class="mr-4"><i class="fas fa-robot mr-1"></i>AI Grading</span>
+                                    <span class="ai-support-badge px-2 py-1 rounded-full text-xs font-medium">Student Support Enabled</span>
+                                </div>
+                            </div>
+
+                            <!-- Standard 3 Quiz -->
+                            <div class="assessment-card bg-white p-4 rounded-lg border border-gray-200 shadow-sm draggable" draggable="true">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-sm font-medium text-gray-900">Standard 3: Financial Service Providers</h3>
+                                    <div class="flex space-x-2">
+                                        <span class="question-type-badge multiple-choice px-2 py-1 rounded-full text-xs font-medium">MC</span>
+                                        <span class="question-type-badge short-response px-2 py-1 rounded-full text-xs font-medium">SR</span>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-500 mb-3">2 chapters - 8 questions (8-10 mins)</p>
+                                <div class="flex items-center text-xs text-gray-500">
+                                    <span class="mr-4"><i class="fas fa-robot mr-1"></i>AI Grading</span>
+                                    <span class="ai-support-badge px-2 py-1 rounded-full text-xs font-medium">Student Support Enabled</span>
+                                </div>
+                            </div>
+
+                            <!-- Standard 4 Quiz -->
+                            <div class="assessment-card bg-white p-4 rounded-lg border border-gray-200 shadow-sm draggable" draggable="true">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-sm font-medium text-gray-900">Standard 4: Managing a Bank Account</h3>
+                                    <div class="flex space-x-2">
+                                        <span class="question-type-badge multiple-choice px-2 py-1 rounded-full text-xs font-medium">MC</span>
+                                        <span class="question-type-badge situational px-2 py-1 rounded-full text-xs font-medium">ST</span>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-500 mb-3">1 chapter - 6 questions (5-8 mins)</p>
+                                <div class="flex items-center text-xs text-gray-500">
+                                    <span class="mr-4"><i class="fas fa-robot mr-1"></i>AI Grading</span>
+                                    <span class="ai-support-badge px-2 py-1 rounded-full text-xs font-medium">Student Support Enabled</span>
+                                </div>
+                            </div>
+
+                            <!-- Standard 5 Quiz -->
+                            <div class="assessment-card bg-white p-4 rounded-lg border border-gray-200 shadow-sm draggable" draggable="true">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-sm font-medium text-gray-900">Standard 5: Saving and Investing</h3>
+                                    <div class="flex space-x-2">
+                                        <span class="question-type-badge multiple-choice px-2 py-1 rounded-full text-xs font-medium">MC</span>
+                                        <span class="question-type-badge short-response px-2 py-1 rounded-full text-xs font-medium">SR</span>
+                                        <span class="question-type-badge situational px-2 py-1 rounded-full text-xs font-medium">ST</span>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-500 mb-3">5 chapters - 12 questions (10-15 mins)</p>
+                                <div class="flex items-center text-xs text-gray-500">
+                                    <span class="mr-4"><i class="fas fa-robot mr-1"></i>AI Grading</span>
+                                    <span class="ai-support-badge px-2 py-1 rounded-full text-xs font-medium">Student Support Enabled</span>
+                                </div>
+                            </div>
+
+                            <!-- Standard 6 Quiz -->
+                            <div class="assessment-card bg-white p-4 rounded-lg border border-gray-200 shadow-sm draggable" draggable="true">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-sm font-medium text-gray-900">Standard 6: Retirement Planning</h3>
+                                    <div class="flex space-x-2">
+                                        <span class="question-type-badge multiple-choice px-2 py-1 rounded-full text-xs font-medium">MC</span>
+                                        <span class="question-type-badge short-response px-2 py-1 rounded-full text-xs font-medium">SR</span>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-500 mb-3">2 chapters - 8 questions (8-10 mins)</p>
+                                <div class="flex items-center text-xs text-gray-500">
+                                    <span class="mr-4"><i class="fas fa-robot mr-1"></i>AI Grading</span>
+                                    <span class="ai-support-badge px-2 py-1 rounded-full text-xs font-medium">Student Support Enabled</span>
+                                </div>
+                            </div>
+
+                            <!-- Standard 7 Quiz -->
+                            <div class="assessment-card bg-white p-4 rounded-lg border border-gray-200 shadow-sm draggable" draggable="true">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-sm font-medium text-gray-900">Standard 7: Borrowing Money</h3>
+                                    <div class="flex space-x-2">
+                                        <span class="question-type-badge multiple-choice px-2 py-1 rounded-full text-xs font-medium">MC</span>
+                                        <span class="question-type-badge short-response px-2 py-1 rounded-full text-xs font-medium">SR</span>
+                                        <span class="question-type-badge situational px-2 py-1 rounded-full text-xs font-medium">ST</span>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-500 mb-3">5 chapters - 12 questions (10-15 mins)</p>
+                                <div class="flex items-center text-xs text-gray-500">
+                                    <span class="mr-4"><i class="fas fa-robot mr-1"></i>AI Grading</span>
+                                    <span class="ai-support-badge px-2 py-1 rounded-full text-xs font-medium">Student Support Enabled</span>
+                                </div>
+                            </div>
+
+                            <!-- Standard 8 Quiz -->
+                            <div class="assessment-card bg-white p-4 rounded-lg border border-gray-200 shadow-sm draggable" draggable="true">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-sm font-medium text-gray-900">Standard 8: Credit Cards and Online Shopping</h3>
+                                    <div class="flex space-x-2">
+                                        <span class="question-type-badge multiple-choice px-2 py-1 rounded-full text-xs font-medium">MC</span>
+                                        <span class="question-type-badge situational px-2 py-1 rounded-full text-xs font-medium">ST</span>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-500 mb-3">2 chapters - 8 questions (8-10 mins)</p>
+                                <div class="flex items-center text-xs text-gray-500">
+                                    <span class="mr-4"><i class="fas fa-robot mr-1"></i>AI Grading</span>
+                                    <span class="ai-support-badge px-2 py-1 rounded-full text-xs font-medium">Student Support Enabled</span>
+                                </div>
+                            </div>
+
+                            <!-- Standard 9 Quiz -->
+                            <div class="assessment-card bg-white p-4 rounded-lg border border-gray-200 shadow-sm draggable" draggable="true">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-sm font-medium text-gray-900">Standard 9: Fraud and Identity Theft</h3>
+                                    <div class="flex space-x-2">
+                                        <span class="question-type-badge multiple-choice px-2 py-1 rounded-full text-xs font-medium">MC</span>
+                                        <span class="question-type-badge situational px-2 py-1 rounded-full text-xs font-medium">ST</span>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-500 mb-3">2 chapters - 8 questions (8-10 mins)</p>
+                                <div class="flex items-center text-xs text-gray-500">
+                                    <span class="mr-4"><i class="fas fa-robot mr-1"></i>AI Grading</span>
+                                    <span class="ai-support-badge px-2 py-1 rounded-full text-xs font-medium">Student Support Enabled</span>
+                                </div>
+                            </div>
+
+                            <!-- Standard 10 Quiz -->
+                            <div class="assessment-card bg-white p-4 rounded-lg border border-gray-200 shadow-sm draggable" draggable="true">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-sm font-medium text-gray-900">Standard 10: Renting vs. Buying</h3>
+                                    <div class="flex space-x-2">
+                                        <span class="question-type-badge multiple-choice px-2 py-1 rounded-full text-xs font-medium">MC</span>
+                                        <span class="question-type-badge short-response px-2 py-1 rounded-full text-xs font-medium">SR</span>
+                                        <span class="question-type-badge situational px-2 py-1 rounded-full text-xs font-medium">ST</span>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-500 mb-3">3 chapters - 10 questions (8-12 mins)</p>
+                                <div class="flex items-center text-xs text-gray-500">
+                                    <span class="mr-4"><i class="fas fa-robot mr-1"></i>AI Grading</span>
+                                    <span class="ai-support-badge px-2 py-1 rounded-full text-xs font-medium">Student Support Enabled</span>
+                                </div>
+                            </div>
+
+                            <!-- Standard 11 Quiz -->
+                            <div class="assessment-card bg-white p-4 rounded-lg border border-gray-200 shadow-sm draggable" draggable="true">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-sm font-medium text-gray-900">Standard 11: Risk Management and Insurance</h3>
+                                    <div class="flex space-x-2">
+                                        <span class="question-type-badge multiple-choice px-2 py-1 rounded-full text-xs font-medium">MC</span>
+                                        <span class="question-type-badge short-response px-2 py-1 rounded-full text-xs font-medium">SR</span>
+                                        <span class="question-type-badge situational px-2 py-1 rounded-full text-xs font-medium">ST</span>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-500 mb-3">3 chapters - 10 questions (8-12 mins)</p>
+                                <div class="flex items-center text-xs text-gray-500">
+                                    <span class="mr-4"><i class="fas fa-robot mr-1"></i>AI Grading</span>
+                                    <span class="ai-support-badge px-2 py-1 rounded-full text-xs font-medium">Student Support Enabled</span>
+                                </div>
+                            </div>
+
+                            <!-- Standard 12 Quiz -->
+                            <div class="assessment-card bg-white p-4 rounded-lg border border-gray-200 shadow-sm draggable" draggable="true">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-sm font-medium text-gray-900">Standard 12: Gambling</h3>
+                                    <div class="flex space-x-2">
+                                        <span class="question-type-badge multiple-choice px-2 py-1 rounded-full text-xs font-medium">MC</span>
+                                        <span class="question-type-badge situational px-2 py-1 rounded-full text-xs font-medium">ST</span>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-500 mb-3">2 chapters - 8 questions (8-10 mins)</p>
+                                <div class="flex items-center text-xs text-gray-500">
+                                    <span class="mr-4"><i class="fas fa-robot mr-1"></i>AI Grading</span>
+                                    <span class="ai-support-badge px-2 py-1 rounded-full text-xs font-medium">Student Support Enabled</span>
+                                </div>
+                            </div>
+
+                            <!-- Standard 13 Quiz -->
+                            <div class="assessment-card bg-white p-4 rounded-lg border border-gray-200 shadow-sm draggable" draggable="true">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-sm font-medium text-gray-900">Standard 13: Bankruptcy (Debt Management)</h3>
+                                    <div class="flex space-x-2">
+                                        <span class="question-type-badge multiple-choice px-2 py-1 rounded-full text-xs font-medium">MC</span>
+                                        <span class="question-type-badge short-response px-2 py-1 rounded-full text-xs font-medium">SR</span>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-500 mb-3">1 chapter - 6 questions (5-8 mins)</p>
+                                <div class="flex items-center text-xs text-gray-500">
+                                    <span class="mr-4"><i class="fas fa-robot mr-1"></i>AI Grading</span>
+                                    <span class="ai-support-badge px-2 py-1 rounded-full text-xs font-medium">Student Support Enabled</span>
+                                </div>
+                            </div>
+
+                            <!-- Standard 14 Quiz -->
+                            <div class="assessment-card bg-white p-4 rounded-lg border border-gray-200 shadow-sm draggable" draggable="true">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-sm font-medium text-gray-900">Standard 14: Charitable Contributions</h3>
+                                    <div class="flex space-x-2">
+                                        <span class="question-type-badge multiple-choice px-2 py-1 rounded-full text-xs font-medium">MC</span>
+                                        <span class="question-type-badge short-response px-2 py-1 rounded-full text-xs font-medium">SR</span>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-500 mb-3">2 chapters - 8 questions (8-10 mins)</p>
+                                <div class="flex items-center text-xs text-gray-500">
+                                    <span class="mr-4"><i class="fas fa-robot mr-1"></i>AI Grading</span>
+                                    <span class="ai-support-badge px-2 py-1 rounded-full text-xs font-medium">Student Support Enabled</span>
+                                </div>
+                            </div>
+
+                            <!-- Standard 15 Quiz -->
+                            <div class="assessment-card bg-white p-4 rounded-lg border border-gray-200 shadow-sm draggable" draggable="true">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-sm font-medium text-gray-900">Standard 15: Career Readiness</h3>
+                                    <div class="flex space-x-2">
+                                        <span class="question-type-badge multiple-choice px-2 py-1 rounded-full text-xs font-medium">MC</span>
+                                        <span class="question-type-badge short-response px-2 py-1 rounded-full text-xs font-medium">SR</span>
+                                        <span class="question-type-badge situational px-2 py-1 rounded-full text-xs font-medium">ST</span>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-500 mb-3">5 chapters - 12 questions (10-15 mins)</p>
+                                <div class="flex items-center text-xs text-gray-500">
+                                    <span class="mr-4"><i class="fas fa-robot mr-1"></i>AI Grading</span>
+                                    <span class="ai-support-badge px-2 py-1 rounded-full text-xs font-medium">Student Support Enabled</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Assessment Type Tabs
+        document.querySelectorAll('.assessment-type-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.assessment-type-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        });
+
+        // AI Support Settings
+        const gradingModeRadios = document.querySelectorAll('input[name="grading-mode"]');
+        const aiFeedbackCheckbox = document.getElementById('ai-feedback');
+        const answerGuidanceCheckbox = document.getElementById('answer-guidance');
+
+        // Function to update assessment cards based on AI settings
+        function updateAssessmentCards() {
+            const gradingMode = document.querySelector('input[name="grading-mode"]:checked').value;
+            const aiFeedbackEnabled = aiFeedbackCheckbox.checked;
+            const answerGuidanceEnabled = answerGuidanceCheckbox.checked;
+
+            document.querySelectorAll('.assessment-card').forEach(card => {
+                const aiBadge = card.querySelector('.fa-robot').parentElement;
+                const supportBadge = card.querySelector('.ai-support-badge');
+
+                // Update grading mode text
+                switch(gradingMode) {
+                    case 'full-ai':
+                        aiBadge.innerHTML = '<i class="fas fa-robot mr-1"></i>Full AI Grading';
+                        break;
+                    case 'ai-review':
+                        aiBadge.innerHTML = '<i class="fas fa-robot mr-1"></i>AI with Review';
+                        break;
+                    case 'manual':
+                        aiBadge.innerHTML = '<i class="fas fa-user-check mr-1"></i>Manual Grading';
+                        break;
+                }
+
+                // Update support badge
+                if (aiFeedbackEnabled || answerGuidanceEnabled) {
+                    supportBadge.textContent = 'Student Support Enabled';
+                    supportBadge.classList.remove('hidden');
+                } else {
+                    supportBadge.classList.add('hidden');
+                }
+            });
+
+            // Save settings to backend (placeholder for actual implementation)
+            saveAISettings({
+                gradingMode,
+                aiFeedbackEnabled,
+                answerGuidanceEnabled
+            });
+        }
+
+        // Event listeners for AI settings
+        gradingModeRadios.forEach(radio => {
+            radio.addEventListener('change', updateAssessmentCards);
+        });
+
+        aiFeedbackCheckbox.addEventListener('change', updateAssessmentCards);
+        answerGuidanceCheckbox.addEventListener('change', updateAssessmentCards);
+
+        // Function to save settings to backend
+        async function saveAISettings(settings) {
+            try {
+                // Placeholder for actual API call
+                const response = await fetch('/api/assessment/settings', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(settings)
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to save settings');
+                }
+
+                // Show success message
+                showNotification('Settings saved successfully', 'success');
+            } catch (error) {
+                console.error('Error saving settings:', error);
+                showNotification('Failed to save settings', 'error');
+            }
+        }
+
+        // Function to show notifications
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 p-4 rounded-lg shadow-lg ${
+                type === 'success' ? 'bg-green-500' : 'bg-red-500'
+            } text-white`;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Initialize assessment cards with current settings
+        updateAssessmentCards();
+
+        // Drag and Drop Functionality
+        document.querySelectorAll('.draggable').forEach(draggable => {
+            draggable.addEventListener('dragstart', (e) => {
+                draggable.classList.add('opacity-50');
+                e.dataTransfer.setData('text/plain', draggable.innerHTML);
+            });
+
+            draggable.addEventListener('dragend', () => {
+                draggable.classList.remove('opacity-50');
+            });
+        });
+
+        document.querySelectorAll('.dropzone').forEach(dropzone => {
+            dropzone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dropzone.classList.add('drag-over');
+            });
+
+            dropzone.addEventListener('dragleave', () => {
+                dropzone.classList.remove('drag-over');
+            });
+
+            dropzone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dropzone.classList.remove('drag-over');
+                const data = e.dataTransfer.getData('text/plain');
+                const assessmentElement = document.createElement('div');
+                assessmentElement.className = 'assessment-card bg-white p-4 rounded-lg border border-gray-200 shadow-sm mb-2';
+                assessmentElement.innerHTML = data;
+                
+                // Clear placeholder text if it exists
+                if (dropzone.querySelector('p')) {
+                    dropzone.innerHTML = '';
+                }
+                
+                dropzone.appendChild(assessmentElement);
+            });
+        });
+    </script>
+</body>
+</html> 

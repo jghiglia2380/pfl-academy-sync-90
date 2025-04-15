@@ -1,0 +1,20 @@
+{
+  "standard": 11,
+  "chapter": 3,
+  "title": "Managing Insurance Costs",
+  "description": "This chapter explores how to effectively manage insurance costs by understanding key components like deductibles, co-payments, and co-insurance, and how to balance premium costs with coverage needs to make informed financial decisions.",
+  "learning_objectives": [
+    "Understand the basic components of insurance policies, including deductibles, co-payments, and co-insurance",
+    "Recognize how different insurance terms impact out-of-pocket costs and financial stability",
+    "Learn strategies for selecting insurance policies that balance premium costs with coverage needs",
+    "Analyze real-world scenarios to apply these concepts in a practical context"
+  ],
+  "content_density": "standard",
+  "template_format": "standard",
+  "day1_day2_connection": "complementary",
+  "skill_builder": {
+    "id": "insurance-cost-calculation",
+    "title": "Understanding Deductibles, Co-Insurance, and Co-Payments",
+    "description": "An interactive exercise where students calculate out-of-pocket medical expenses by applying insurance concepts such as deductibles, co-insurance, and co-insurance caps."
+  }
+}

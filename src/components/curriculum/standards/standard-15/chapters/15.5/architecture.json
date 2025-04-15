@@ -1,0 +1,21 @@
+{
+  "standard": 15,
+  "chapter": 5,
+  "title": "Entrepreneurship and Side Hustles",
+  "description": "This chapter focuses on exploring entrepreneurial opportunities, developing business plans, and balancing independent ventures with traditional employment.",
+  "learning_objectives": [
+    "Identify entrepreneurial opportunities aligned with personal skills and interests",
+    "Understand the essential components of a business plan",
+    "Develop strategies for balancing side hustles with traditional employment",
+    "Learn about customer discovery and minimum viable product development",
+    "Explore financial planning and resource allocation for new ventures"
+  ],
+  "content_density": "standard",
+  "template_format": "project-based",
+  "day1_day2_connection": "extension",
+  "skill_builder": {
+    "id": "business-plan-builder",
+    "title": "Business Plan Builder",
+    "description": "Interactive business plan development tool with financial projections"
+  }
+}

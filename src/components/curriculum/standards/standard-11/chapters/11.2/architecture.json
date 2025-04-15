@@ -1,0 +1,20 @@
+{
+  "standard": 11,
+  "chapter": 2,
+  "title": "Insurance as a Risk Management Tool",
+  "description": "This chapter explores how insurance functions as a risk transfer mechanism and covers the various types of insurance products, their key components, and how they protect against different kinds of financial risks.",
+  "learning_objectives": [
+    "Understand the key concepts of insurance, such as premiums, deductibles, coverage limits, and exclusions",
+    "Identify the different types of insurance and their specific purposes (health, auto, home, renters, life, disability, and liability)",
+    "Recognize how insurance fits into an overall risk management strategy and how it provides financial protection",
+    "Apply this knowledge to make informed decisions about insurance needs for the future"
+  ],
+  "content_density": "standard",
+  "template_format": "standard",
+  "day1_day2_connection": "complementary",
+  "skill_builder": {
+    "id": "insurance-type-identification",
+    "title": "Identifying Insurance Types",
+    "description": "An interactive activity where students match different insurance types to real-life situations that require specific coverage."
+  }
+}

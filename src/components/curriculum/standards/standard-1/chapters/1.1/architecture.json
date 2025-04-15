@@ -1,0 +1,21 @@
+{
+  "standard": 1,
+  "chapter": 1,
+  "title": "Jobs vs. Careers",
+  "description": "An exploration of how strategic career planning impacts long-term financial outcomes compared to simply having jobs, with a focus on building career capital and mapping personal career paths.",
+  "learning_objectives": [
+    "Differentiate between a job and a career",
+    "Identify how career paths affect long-term financial outcomes",
+    "Evaluate personal interests and skills in relation to potential career paths",
+    "Develop preliminary career path strategies for financial success",
+    "Analyze the financial impact of different career decisions over time"
+  ],
+  "content_density": "standard",
+  "template_format": "standard",
+  "day1_day2_connection": "complementary",
+  "skill_builder": {
+    "id": "career_path_planner",
+    "title": "Career Path Planner",
+    "description": "An interactive activity where students develop strategic career path plans that align with their interests and financial goals."
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "standard": 5,
+  "chapter": 5,
+  "title": "Understanding Monetary Risks in Saving and Investing",
+  "description": "This chapter explores the various risks associated with saving and investing money, including market risk, financial risk, inflation risk, and fraud risk, and teaches students strategies for managing these risks based on their personal risk tolerance.",
+  "learning_objectives": [
+    "Define different types of financial risks in saving and investing",
+    "Analyze how various risks can affect savings and investments",
+    "Explain the concept of risk tolerance and how it varies among individuals",
+    "Apply diversification and asset allocation strategies to manage financial risks",
+    "Develop a personalized risk management plan aligned with financial goals"
+  ],
+  "template_format": "standard",
+  "content_density": "standard",
+  "day1_day2_connection": "complementary",
+  "skill_builder": "risk_tolerance_assessment"
+}

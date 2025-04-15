@@ -1,0 +1,18 @@
+{
+  "standard": 8,
+  "chapter": 2,
+  "title": "Online Shopping",
+  "description": "This chapter explores the benefits and risks of online shopping, teaches strategies to protect personal information, and helps students develop skills to make smart purchasing decisions in the digital marketplace.",
+  "learning_objectives": [
+    "Understand the benefits and risks of online shopping",
+    "Learn how to protect personal information and avoid fraud when shopping online",
+    "Develop strategies for making informed purchasing decisions",
+    "Compare online vs. in-store purchasing options",
+    "Identify security features that indicate safe online transactions",
+    "Create a personalized plan for making smart online purchases"
+  ],
+  "template_format": "case-study",
+  "content_density": "standard",
+  "day1_day2_connection": "complementary",
+  "skill_builder": "online_shopping_analyzer"
+}

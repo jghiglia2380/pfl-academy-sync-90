@@ -1,0 +1,42 @@
+{
+  "standard": 13,
+  "chapter": 1,
+  "title": "Strategies for Managing High Levels of Debt",
+  "description": "This chapter explores various approaches to managing overwhelming debt, including debt management plans, debt consolidation, debt settlement, and bankruptcy. Students learn to evaluate different strategies, understand their long-term impacts, and develop skills for rebuilding credit after financial setbacks.",
+  "learning_objectives": [
+    "Identify various strategies for managing high levels of debt",
+    "Understand the advantages and disadvantages of debt management options",
+    "Recognize the long-term effects of bankruptcy on personal finances and credit",
+    "Explore alternatives to bankruptcy and understand when it may be necessary",
+    "Discuss ways to rebuild credit after financial setbacks"
+  ],
+  "content_density": "standard",
+  "template_format": "project-based",
+  "day1_day2_connection": "extension",
+  "skill_builder": {
+    "id": "debt_reduction_planner",
+    "title": "Debt Reduction Planner",
+    "description": "An interactive tool that helps students create personalized debt management plans for various scenarios, evaluate bankruptcy options, and develop credit rebuilding strategies."
+  },
+  "key_terms": [
+    "Debt Management Plan (DMP)",
+    "Debt Consolidation",
+    "Debt Settlement",
+    "Wage Garnishment",
+    "Repossession",
+    "Chapter 7 Bankruptcy",
+    "Chapter 13 Bankruptcy",
+    "Credit Counseling",
+    "Secured Credit Cards"
+  ],
+  "interactive_elements": [
+    "Debt Management Strategies Comparison Chart",
+    "Debt Consolidation Calculator",
+    "Credit Rebuilding Roadmap",
+    "Chapter 7 vs. Chapter 13 Bankruptcy Comparison",
+    "Debt Reduction Planning Workshop",
+    "Credit Rebuilding Simulation"
+  ],
+  "author": "PFL Academy Curriculum Team",
+  "last_updated": "2025-03-27"
+}

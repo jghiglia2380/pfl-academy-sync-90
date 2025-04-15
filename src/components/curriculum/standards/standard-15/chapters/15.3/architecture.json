@@ -1,0 +1,21 @@
+{
+  "standard": 15,
+  "chapter": 3,
+  "title": "Job Application Process",
+  "description": "This chapter focuses on effective job search strategies and techniques for creating successful application materials tailored to specific positions.",
+  "learning_objectives": [
+    "Identify effective strategies for finding job opportunities across different industries",
+    "Understand how to read and interpret job descriptions and requirements",
+    "Develop techniques for customizing application materials for specific positions",
+    "Learn best practices for completing online applications and navigating applicant tracking systems",
+    "Recognize the importance of networking in the job search process"
+  ],
+  "content_density": "standard",
+  "template_format": "case-study",
+  "day1_day2_connection": "extension",
+  "skill_builder": {
+    "id": "application-simulator",
+    "title": "Application Simulator",
+    "description": "Interactive job application system simulator with ATS optimization"
+  }
+}

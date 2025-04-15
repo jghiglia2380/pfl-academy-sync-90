@@ -1,0 +1,21 @@
+{
+  "standard": 14,
+  "chapter": 2,
+  "title": "Checking Out Charitable Groups",
+  "description": "This chapter focuses on researching and evaluating charitable organizations to ensure informed giving decisions. Students learn how to assess transparency, financial health, and effectiveness of nonprofits.",
+  "learning_objectives": [
+    "Understand the importance of researching charitable organizations before donating",
+    "Evaluate the transparency and financial health of nonprofit organizations",
+    "Apply the PACED decision-making model to compare charitable organizations",
+    "Use charity evaluation tools to assess organization effectiveness",
+    "Align charitable giving decisions with personal values and goals"
+  ],
+  "template_format": "case-study",
+  "content_density": "standard",
+  "day1_day2_connection": "complementary",
+  "skill_builder": {
+    "id": "charity_evaluator",
+    "title": "Charity Evaluation Tool",
+    "description": "An interactive tool that helps students research and evaluate charitable organizations based on transparency, financial health, and impact."
+  }
+}

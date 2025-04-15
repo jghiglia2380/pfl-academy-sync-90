@@ -1,0 +1,17 @@
+{
+  "standard": 5,
+  "chapter": 1,
+  "title": "Saving and Investing",
+  "description": "This chapter covers the fundamental differences between saving and investing strategies and helps students make informed decisions about financial growth options based on their goals and time horizons.",
+  "learning_objectives": [
+    "Differentiate between saving and investing",
+    "Apply the SMART framework to set effective financial goals",
+    "Understand how compounding works to grow money over time",
+    "Evaluate risk and reward in financial decisions",
+    "Analyze opportunity costs when making financial choices"
+  ],
+  "template_format": "standard",
+  "content_density": "basic",
+  "day1_day2_connection": "complementary",
+  "skill_builder": "investment_basics"
+}

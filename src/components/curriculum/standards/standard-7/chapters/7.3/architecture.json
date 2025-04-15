@@ -1,0 +1,18 @@
+{
+  "standard": 7,
+  "chapter": 3,
+  "title": "Understanding Credit Scores",
+  "description": "This chapter explores the importance of credit scores, how they are calculated, and their impact on various aspects of life. Students will learn to identify actions that improve or harm credit scores and understand the long-term effects of credit behavior on financial opportunities.",
+  "learning_objectives": [
+    "Understand the components that make up a credit score",
+    "Identify the five factors that influence FICO scores and their relative importance",
+    "Recognize how credit scores impact various aspects of life beyond loan approvals",
+    "Analyze how specific financial behaviors affect credit scores",
+    "Create a personal credit-building strategy",
+    "Evaluate the cost of poor credit over time"
+  ],
+  "template_format": "standard",
+  "content_density": "standard",
+  "day1_day2_connection": "complementary",
+  "skill_builder": "credit_score_simulator"
+}

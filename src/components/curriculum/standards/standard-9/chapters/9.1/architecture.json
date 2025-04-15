@@ -1,0 +1,21 @@
+{
+  "standard": 9,
+  "chapter": 1,
+  "title": "Protecting Yourself from Consumer Fraud",
+  "description": "An exploration of common types of consumer fraud and practical strategies for protecting personal and financial information from scams.",
+  "learning_objectives": [
+    "Identify different types of consumer fraud including phishing, spoofing, and identity theft",
+    "Recognize warning signs of potential scams and fraudulent activities",
+    "Apply strategies to protect personal and financial information",
+    "Understand consumer rights and resources for reporting suspected fraud",
+    "Develop skills to educate others about avoiding consumer fraud"
+  ],
+  "content_density": "standard",
+  "template_format": "standard",
+  "day1_day2_connection": "complementary",
+  "skill_builder": {
+    "id": "phishing-recognition",
+    "title": "Recognizing a Phishing Scam",
+    "description": "An interactive activity where students analyze phishing scenarios and develop strategies for identifying and avoiding similar scams."
+  }
+}

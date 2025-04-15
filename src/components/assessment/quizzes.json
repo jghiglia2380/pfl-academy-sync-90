@@ -1,0 +1,397 @@
+{
+    "standard-1": {
+        "title": "Standard 1: Jobs vs. Careers",
+        "questionCount": 12,
+        "time": "10-15 mins",
+        "types": ["MC", "SR", "ST"],
+        "questions": [
+            {
+                "type": "MC",
+                "question": "What is the main difference between a job and a career?",
+                "options": [
+                    "A) A job is temporary, a career is long-term",
+                    "B) A job pays more than a career",
+                    "C) A career requires education, a job does not",
+                    "D) There is no difference"
+                ],
+                "correct": "A"
+            },
+            {
+                "type": "SR",
+                "question": "Explain how career planning can impact your financial future.",
+                "maxLength": 250
+            },
+            {
+                "type": "ST",
+                "question": "You are offered two job opportunities: one with higher pay but no benefits, and another with lower pay but full benefits. Which would you choose and why?",
+                "maxLength": 500
+            }
+        ]
+    },
+    "standard-2": {
+        "title": "Standard 2: Taxes",
+        "questionCount": 12,
+        "time": "10-15 mins",
+        "types": ["MC", "FB", "ST"],
+        "questions": [
+            {
+                "type": "MC",
+                "question": "What is the purpose of filing a tax return?",
+                "options": [
+                    "A) To report income and calculate tax liability",
+                    "B) To request a tax refund",
+                    "C) To avoid paying taxes",
+                    "D) To get a job"
+                ],
+                "correct": "A"
+            },
+            {
+                "type": "FB",
+                "question": "The three main types of taxes are __________, __________, and __________.",
+                "answers": ["income", "sales", "property"]
+            },
+            {
+                "type": "ST",
+                "question": "You receive your first paycheck and notice that taxes have been withheld. Explain why this happens and how it affects your take-home pay.",
+                "maxLength": 500
+            }
+        ]
+    },
+    "standard-3": {
+        "title": "Standard 3: Financial Service Providers",
+        "questionCount": 8,
+        "time": "8-10 mins",
+        "types": ["MC", "SR"],
+        "questions": [
+            {
+                "type": "MC",
+                "question": "Which financial service provider typically offers the highest interest rates on savings accounts?",
+                "options": [
+                    "A) Traditional banks",
+                    "B) Credit unions",
+                    "C) Online banks",
+                    "D) Investment firms"
+                ],
+                "correct": "C"
+            },
+            {
+                "type": "SR",
+                "question": "Explain the difference between a bank and a credit union.",
+                "maxLength": 250
+            }
+        ]
+    },
+    "standard-4": {
+        "title": "Standard 4: Managing a Bank Account",
+        "questionCount": 6,
+        "time": "5-8 mins",
+        "types": ["MC", "ST"],
+        "questions": [
+            {
+                "type": "MC",
+                "question": "What is the purpose of maintaining a minimum balance in a checking account?",
+                "options": [
+                    "A) To earn interest",
+                    "B) To avoid fees",
+                    "C) To qualify for loans",
+                    "D) To build credit"
+                ],
+                "correct": "B"
+            },
+            {
+                "type": "ST",
+                "question": "Your checking account balance is $100. You write a check for $150. What happens next?",
+                "maxLength": 250
+            }
+        ]
+    },
+    "standard-5": {
+        "title": "Standard 5: Saving and Investing",
+        "questionCount": 12,
+        "time": "10-15 mins",
+        "types": ["MC", "SR", "ST"],
+        "questions": [
+            {
+                "type": "MC",
+                "question": "What is the main difference between saving and investing?",
+                "options": [
+                    "A) Saving is for short-term goals, investing is for long-term goals",
+                    "B) Saving earns more interest than investing",
+                    "C) Investing is safer than saving",
+                    "D) There is no difference"
+                ],
+                "correct": "A"
+            },
+            {
+                "type": "SR",
+                "question": "Explain the concept of compound interest and why it's important for long-term savings.",
+                "maxLength": 250
+            },
+            {
+                "type": "ST",
+                "question": "You have $1,000 to either save or invest. What would you do and why?",
+                "maxLength": 500
+            }
+        ]
+    },
+    "standard-6": {
+        "title": "Standard 6: Retirement Planning",
+        "questionCount": 8,
+        "time": "8-10 mins",
+        "types": ["MC", "SR"],
+        "questions": [
+            {
+                "type": "MC",
+                "question": "What is the main advantage of starting retirement savings early?",
+                "options": [
+                    "A) Higher interest rates",
+                    "B) More time for compound interest to work",
+                    "C) Lower taxes",
+                    "D) Better investment options"
+                ],
+                "correct": "B"
+            },
+            {
+                "type": "SR",
+                "question": "Explain why Social Security might not be enough for retirement.",
+                "maxLength": 250
+            }
+        ]
+    },
+    "standard-7": {
+        "title": "Standard 7: Borrowing Money",
+        "questionCount": 12,
+        "time": "10-15 mins",
+        "types": ["MC", "SR", "ST"],
+        "questions": [
+            {
+                "type": "MC",
+                "question": "What is the most important factor in determining your credit score?",
+                "options": [
+                    "A) Payment history",
+                    "B) Income level",
+                    "C) Age",
+                    "D) Education"
+                ],
+                "correct": "A"
+            },
+            {
+                "type": "SR",
+                "question": "Explain the concept of interest rates and how they affect borrowing costs.",
+                "maxLength": 250
+            },
+            {
+                "type": "ST",
+                "question": "You need to borrow $5,000. Compare getting a personal loan vs. using a credit card.",
+                "maxLength": 500
+            }
+        ]
+    },
+    "standard-8": {
+        "title": "Standard 8: Credit Cards and Online Shopping",
+        "questionCount": 8,
+        "time": "8-10 mins",
+        "types": ["MC", "ST"],
+        "questions": [
+            {
+                "type": "MC",
+                "question": "What is the safest way to make online purchases?",
+                "options": [
+                    "A) Using a credit card",
+                    "B) Using a debit card",
+                    "C) Using cash",
+                    "D) Using a check"
+                ],
+                "correct": "A"
+            },
+            {
+                "type": "ST",
+                "question": "You notice unauthorized charges on your credit card. What steps should you take?",
+                "maxLength": 500
+            }
+        ]
+    },
+    "standard-9": {
+        "title": "Standard 9: Fraud and Identity Theft",
+        "questionCount": 8,
+        "time": "8-10 mins",
+        "types": ["MC", "ST"],
+        "questions": [
+            {
+                "type": "MC",
+                "question": "What is the most common way identity thieves get personal information?",
+                "options": [
+                    "A) Through social media",
+                    "B) Through phone calls",
+                    "C) Through email",
+                    "D) Through mail"
+                ],
+                "correct": "C"
+            },
+            {
+                "type": "ST",
+                "question": "You receive an email asking for your bank account information. How do you respond?",
+                "maxLength": 500
+            }
+        ]
+    },
+    "standard-10": {
+        "title": "Standard 10: Renting vs. Buying",
+        "questionCount": 10,
+        "time": "8-12 mins",
+        "types": ["MC", "SR", "ST"],
+        "questions": [
+            {
+                "type": "MC",
+                "question": "What is the main advantage of renting over buying a home?",
+                "options": [
+                    "A) Building equity",
+                    "B) Lower monthly payments",
+                    "C) More flexibility",
+                    "D) Tax benefits"
+                ],
+                "correct": "C"
+            },
+            {
+                "type": "SR",
+                "question": "Explain the concept of a mortgage and how it works.",
+                "maxLength": 250
+            },
+            {
+                "type": "ST",
+                "question": "Compare the long-term costs of renting vs. buying a home.",
+                "maxLength": 500
+            }
+        ]
+    },
+    "standard-11": {
+        "title": "Standard 11: Risk Management and Insurance",
+        "questionCount": 10,
+        "time": "8-12 mins",
+        "types": ["MC", "SR", "ST"],
+        "questions": [
+            {
+                "type": "MC",
+                "question": "What is the purpose of insurance?",
+                "options": [
+                    "A) To make money",
+                    "B) To transfer risk",
+                    "C) To avoid taxes",
+                    "D) To build credit"
+                ],
+                "correct": "B"
+            },
+            {
+                "type": "SR",
+                "question": "Explain the difference between term and whole life insurance.",
+                "maxLength": 250
+            },
+            {
+                "type": "ST",
+                "question": "You're buying your first car. What types of insurance should you consider?",
+                "maxLength": 500
+            }
+        ]
+    },
+    "standard-12": {
+        "title": "Standard 12: Gambling",
+        "questionCount": 8,
+        "time": "8-10 mins",
+        "types": ["MC", "ST"],
+        "questions": [
+            {
+                "type": "MC",
+                "question": "What is the most important thing to remember about gambling?",
+                "options": [
+                    "A) The house always wins",
+                    "B) You can make a living from it",
+                    "C) It's a good way to save money",
+                    "D) It's risk-free"
+                ],
+                "correct": "A"
+            },
+            {
+                "type": "ST",
+                "question": "A friend asks to borrow money to gamble. How do you respond?",
+                "maxLength": 500
+            }
+        ]
+    },
+    "standard-13": {
+        "title": "Standard 13: Bankruptcy (Debt Management)",
+        "questionCount": 6,
+        "time": "5-8 mins",
+        "types": ["MC", "SR"],
+        "questions": [
+            {
+                "type": "MC",
+                "question": "What is the last resort for managing overwhelming debt?",
+                "options": [
+                    "A) Credit counseling",
+                    "B) Debt consolidation",
+                    "C) Bankruptcy",
+                    "D) Ignoring the debt"
+                ],
+                "correct": "C"
+            },
+            {
+                "type": "SR",
+                "question": "Explain the consequences of filing for bankruptcy.",
+                "maxLength": 250
+            }
+        ]
+    },
+    "standard-14": {
+        "title": "Standard 14: Charitable Contributions",
+        "questionCount": 8,
+        "time": "8-10 mins",
+        "types": ["MC", "SR"],
+        "questions": [
+            {
+                "type": "MC",
+                "question": "What is the main benefit of donating to charity?",
+                "options": [
+                    "A) Tax deductions",
+                    "B) Helping others",
+                    "C) Building credit",
+                    "D) Earning interest"
+                ],
+                "correct": "B"
+            },
+            {
+                "type": "SR",
+                "question": "Explain how to research a charity before donating.",
+                "maxLength": 250
+            }
+        ]
+    },
+    "standard-15": {
+        "title": "Standard 15: Career Readiness",
+        "questionCount": 12,
+        "time": "10-15 mins",
+        "types": ["MC", "SR", "ST"],
+        "questions": [
+            {
+                "type": "MC",
+                "question": "What is the most important skill for career success?",
+                "options": [
+                    "A) Technical skills",
+                    "B) Communication skills",
+                    "C) Physical strength",
+                    "D) Artistic ability"
+                ],
+                "correct": "B"
+            },
+            {
+                "type": "SR",
+                "question": "Explain the importance of networking in career development.",
+                "maxLength": 250
+            },
+            {
+                "type": "ST",
+                "question": "You're offered a job with a higher salary but less work-life balance. How do you decide?",
+                "maxLength": 500
+            }
+        ]
+    }
+} 
