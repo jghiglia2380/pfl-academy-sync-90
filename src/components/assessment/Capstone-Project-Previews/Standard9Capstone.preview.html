@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumer Protection & Identity Theft Prevention Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --primary-green: #059669;
+            --primary-purple: #7c3aed;
+            --primary-red: #dc2626;
+            --neutral-50: #f8fafc;
+            --neutral-100: #f1f5f9;
+            --neutral-200: #e2e8f0;
+            --neutral-700: #334155;
+            --neutral-800: #1e293b;
+            --neutral-900: #0f172a;
+        }
+
+        body { 
+            background: linear-gradient(135deg, var(--neutral-50) 0%, var(--neutral-100) 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--neutral-800);
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border: 1px solid var(--neutral-200);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .badge-blue { 
+            background-color: #dbeafe; 
+            color: var(--primary-blue);
+            border: 1px solid #bfdbfe;
+        }
+
+        .badge-red { 
+            background-color: #fee2e2; 
+            color: var(--primary-red);
+            border: 1px solid #fecaca;
+        }
+
+        .badge-purple { 
+            background-color: #f3e8ff; 
+            color: var(--primary-purple);
+            border: 1px solid #e9d5ff;
+        }
+
+        .task-bar {
+            border-left: 4px solid;
+            padding: 1.25rem;
+            margin-bottom: 1.25rem;
+            background: var(--neutral-50);
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .task-bar.blue { 
+            border-color: var(--primary-blue);
+            background: linear-gradient(to right, #f0f7ff, white);
+        }
+
+        .task-bar.red { 
+            border-color: var(--primary-red);
+            background: linear-gradient(to right, #fef2f2, white);
+        }
+
+        .task-bar.purple { 
+            border-color: var(--primary-purple);
+            background: linear-gradient(to right, #f5f3ff, white);
+        }
+
+        .email-preview {
+            font-family: Arial, sans-serif;
+            border: 1px solid #ddd;
+            padding: 1rem;
+            background: white;
+            border-radius: 4px;
+            max-width: 600px;
+            margin: 1rem 0;
+        }
+
+        .email-header {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-post {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: white;
+            max-width: 500px;
+            margin: 1rem 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        .post-header {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .post-content {
+            padding: 12px;
+        }
+
+        .post-image {
+            width: 100%;
+            height: auto;
+            background: #f0f0f0;
+            display: block;
+        }
+
+        .response-area {
+            border: 2px solid var(--neutral-200);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            margin: 1rem 0;
+            background: white;
+        }
+
+        .hint-box {
+            background: #f0f7ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-size: 0.875rem;
+            color: var(--primary-blue);
+        }
+    </style>
+</head>
+<body>
+    <div class="max-w-5xl mx-auto">
+        <!-- Project Header -->
+        <div class="project-card">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Consumer Protection & Identity Theft Prevention Project</h1>
+            <h2 class="text-xl text-gray-600 mb-4">Standard 9: Consumer Protection</h2>
+            
+            <div class="flex flex-wrap gap-3 mb-6">
+                <span class="badge badge-blue">
+                    <i class="fas fa-clock mr-2"></i>45 Minutes
+                </span>
+                <span class="badge badge-green">
+                    <i class="fas fa-file-alt mr-2"></i>Written Analysis
+                </span>
+                <span class="badge badge-yellow">
+                    <i class="fas fa-calculator mr-2"></i>Calculations Required
+                </span>
+            </div>
+
+            <p class="text-gray-700 text-lg mb-4">
+                In this capstone project, you will analyze real-world fraud scenarios, identify potential threats, and develop comprehensive protection strategies. You'll demonstrate your ability to recognize common scams, protect personal information, and create effective response plans for various security threats.
+            </p>
+
+            <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                <h3 class="font-semibold text-blue-900 mb-2">Required Materials:</h3>
+                <ul class="text-blue-800 space-y-1">
+                    <li><i class="fas fa-laptop mr-2"></i>Computer with internet access</li>
+                    <li><i class="fas fa-file-alt mr-2"></i>Digital document for responses</li>
+                    <li><i class="fas fa-shield-alt mr-2"></i>Security checklist template (provided)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Project Tasks -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Project Tasks</h2>
+
+            <div class="task-bar blue">
+                <h3 class="font-semibold text-gray-800 mb-2">Fraud Detection Analysis (15 minutes)</h3>
+                <p class="text-gray-600 mb-3">Analyze potential fraud scenarios and identify red flags</p>
+                <ul class="space-y-2 text-gray-600">
+                    <li><i class="fas fa-angle-right text-blue-500 mr-2"></i>Review suspicious email communication</li>
+                    <li><i class="fas fa-angle-right text-blue-500 mr-2"></i>Analyze social media investment scam</li>
+                    <li><i class="fas fa-angle-right text-blue-500 mr-2"></i>Identify specific warning signs</li>
+                    <li><i class="fas fa-angle-right text-blue-500 mr-2"></i>Document potential consequences</li>
+                    <li><i class="fas fa-angle-right text-blue-500 mr-2"></i>Propose prevention strategies</li>
+                </ul>
+            </div>
+
+            <div class="task-bar red">
+                <h3 class="font-semibold text-gray-800 mb-2">Identity Theft Prevention (15 minutes)</h3>
+                <p class="text-gray-600 mb-3">Evaluate identity theft risks and develop protection measures</p>
+                <ul class="space-y-2 text-gray-600">
+                    <li><i class="fas fa-angle-right text-red-500 mr-2"></i>Assess personal information vulnerabilities</li>
+                    <li><i class="fas fa-angle-right text-red-500 mr-2"></i>Review data breach scenario</li>
+                    <li><i class="fas fa-angle-right text-red-500 mr-2"></i>Create security enhancement plan</li>
+                    <li><i class="fas fa-angle-right text-red-500 mr-2"></i>Recommend monitoring tools</li>
+                    <li><i class="fas fa-angle-right text-red-500 mr-2"></i>Outline preventive measures</li>
+                </ul>
+            </div>
+
+            <div class="task-bar purple">
+                <h3 class="font-semibold text-gray-800 mb-2">Response Planning (15 minutes)</h3>
+                <p class="text-gray-600 mb-3">Develop comprehensive response plans for security incidents</p>
+                <ul class="space-y-2 text-gray-600">
+                    <li><i class="fas fa-angle-right text-purple-500 mr-2"></i>Create incident response timeline</li>
+                    <li><i class="fas fa-angle-right text-purple-500 mr-2"></i>List immediate action steps</li>
+                    <li><i class="fas fa-angle-right text-purple-500 mr-2"></i>Identify reporting authorities</li>
+                    <li><i class="fas fa-angle-right text-purple-500 mr-2"></i>Document recovery procedures</li>
+                    <li><i class="fas fa-angle-right text-purple-500 mr-2"></i>Develop future prevention strategies</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Scenarios Section -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Scenarios</h2>
+            
+            <div class="grid grid-cols-1 gap-6">
+                <!-- Scenario 1: Multi-Channel Fraud Analysis -->
+                <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                    <h3 class="font-medium text-gray-800 mb-3">Scenario 1: Multi-Channel Fraud Analysis</h3>
+                    
+                    <!-- Scenario Content -->
+                    <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                        <div class="email-preview mb-4">
+                            <div class="email-header">
+                                <p><strong>From:</strong> SecureBank Security Team &lt;security-alert@secure-bank-verify.net&gt;</p>
+                                <p><strong>To:</strong> Valued Customer</p>
+                                <p><strong>Subject:</strong> ⚠️ URGENT: Suspicious Activity Detected</p>
+                            </div>
+                            <div class="email-body">
+                                <p>Dear Valued Customer,</p>
+                                <p>We have detected unusual activity on your SecureBank account. For your protection, your account access has been temporarily limited.</p>
+                                <p><strong>Click here to verify your identity and restore access: [LINK]</strong></p>
+                            </div>
+                        </div>
+
+                        <div class="social-post mb-4">
+                            <div class="post-header">
+                                <img src="profile-placeholder.jpg" class="w-10 h-10 rounded-full mr-3">
+                                <div>
+                                    <p class="font-medium">@TechSupport_Help</p>
+                                    <p class="text-sm text-gray-500">2 hours ago</p>
+                                </div>
+                            </div>
+                            <div class="post-content">
+                                <p>Having account issues? Our support team is here 24/7! DM us your account details and we'll help restore access immediately.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Analysis Questions -->
+                    <div class="space-y-4 mb-4">
+                        <h4 class="font-medium">Analysis Questions:</h4>
+                        <ol class="space-y-2 list-decimal list-inside text-gray-700">
+                            <li>Identify at least 3 red flags in the email and social media post that indicate potential fraud.</li>
+                            <li>Explain how these communications attempt to exploit common psychological triggers.</li>
+                            <li>Outline the proper steps for verifying legitimate bank communications.</li>
+                        </ol>
+                    </div>
+
+                    <!-- Response Areas -->
+                    <div class="space-y-4">
+                        <div class="response-area">
+                            <label class="block font-medium text-gray-700 mb-2">Red Flags Analysis</label>
+                            <textarea
+                                class="w-full h-32 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="List and explain at least 3 red flags you identified..."
+                            ></textarea>
+                        </div>
+
+                        <div class="response-area">
+                            <label class="block font-medium text-gray-700 mb-2">Psychological Triggers Analysis</label>
+                            <textarea
+                                class="w-full h-32 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="Explain how these communications exploit psychological triggers..."
+                            ></textarea>
+                        </div>
+
+                        <div class="response-area">
+                            <label class="block font-medium text-gray-700 mb-2">Verification Steps</label>
+                            <textarea
+                                class="w-full h-32 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="Outline the proper steps for verifying legitimate communications..."
+                            ></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scenario 2: Investment Fraud -->
+                <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                    <h3 class="font-medium text-gray-800 mb-3">Scenario 2: Cryptocurrency Investment Analysis</h3>
+                    
+                    <!-- Scenario Content -->
+                    <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                        <div class="social-post mb-4">
+                            <div class="post-header">
+                                <img src="profile-placeholder.jpg" class="w-10 h-10 rounded-full mr-3">
+                                <div>
+                                    <p class="font-medium">@CryptoMillionaire</p>
+                                    <p class="text-sm text-gray-500">10 minutes ago</p>
+                                </div>
+                            </div>
+                            <div class="post-content">
+                                <p>🚀 HUGE OPPORTUNITY! My AI-powered crypto trading bot has been crushing it! 20%+ gains every month like clockwork. Limited spots available - join my exclusive investment group now! Don't miss out on the future of finance! 💰</p>
+                                <img src="crypto-chart.jpg" class="post-image mt-2" alt="Cryptocurrency price chart showing upward trend">
+                                <p class="text-sm text-gray-500 mt-2">Likes: 3.2K | Comments: 842 | Shares: 1.5K</p>
+                            </div>
+                        </div>
+
+                        <p class="mb-3">Investment Details from DM:</p>
+                        <ul class="space-y-2">
+                            <li>• "Proprietary AI algorithm that predicts market movements"</li>
+                            <li>• "Minimum investment: $5,000 in Bitcoin or Ethereum"</li>
+                            <li>• "Special 48-hour offer: Early investors get bonus tokens"</li>
+                            <li>• "Join 10,000+ successful traders in our private group"</li>
+                            <li>• "100% automated - the bot does all the work!"</li>
+                        </ul>
+                    </div>
+
+                    <!-- Analysis Questions -->
+                    <div class="space-y-4 mb-4">
+                        <h4 class="font-medium">Analysis Requirements:</h4>
+                        <ol class="space-y-2 list-decimal list-inside text-gray-700">
+                            <li>Identify red flags in this cryptocurrency investment opportunity.</li>
+                            <li>Calculate potential losses for an investor who invests the minimum amount.</li>
+                            <li>Create a framework for evaluating cryptocurrency investment claims.</li>
+                        </ol>
+                    </div>
+
+                    <!-- Response Areas -->
+                    <div class="space-y-4">
+                        <div class="response-area">
+                            <label class="block font-medium text-gray-700 mb-2">Red Flags Analysis</label>
+                            <textarea
+                                class="w-full h-32 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="Identify and explain the red flags present in this investment opportunity..."
+                            ></textarea>
+                        </div>
+
+                        <div class="response-area">
+                            <label class="block font-medium text-gray-700 mb-2">Loss Calculation</label>
+                            <textarea
+                                class="w-full h-32 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="Show your calculations for potential investor losses..."
+                            ></textarea>
+                        </div>
+
+                        <div class="response-area">
+                            <label class="block font-medium text-gray-700 mb-2">Evaluation Framework</label>
+                            <textarea
+                                class="w-full h-32 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="Create a framework for evaluating cryptocurrency investment opportunities..."
+                            ></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scenario 3: Data Breach Response -->
+                <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                    <h3 class="font-medium text-gray-800 mb-3">Scenario 3: Data Breach Response</h3>
+                    
+                    <!-- Scenario Content -->
+                    <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                        <p class="mb-3">Breach Notification:</p>
+                        <p>A major retailer has reported a data breach affecting 100,000 customers. The compromised data includes:</p>
+                        <ul class="space-y-2 mt-2">
+                            <li>• Full names and addresses</li>
+                            <li>• Credit card numbers (last 4 digits only)</li>
+                            <li>• Purchase history from the past 6 months</li>
+                            <li>• Email addresses and phone numbers</li>
+                        </ul>
+                    </div>
+
+                    <!-- Analysis Questions -->
+                    <div class="space-y-4 mb-4">
+                        <h4 class="font-medium">Response Plan Development:</h4>
+                        <ol class="space-y-2 list-decimal list-inside text-gray-700">
+                            <li>Create a prioritized checklist of immediate actions for affected customers.</li>
+                            <li>Develop a 90-day monitoring and protection plan.</li>
+                            <li>Design a template for documenting suspicious activity and communications with authorities.</li>
+                        </ol>
+                    </div>
+
+                    <!-- Response Areas -->
+                    <div class="space-y-4">
+                        <div class="response-area">
+                            <label class="block font-medium text-gray-700 mb-2">Immediate Actions Checklist</label>
+                            <textarea
+                                class="w-full h-32 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="Create a prioritized checklist of immediate actions..."
+                            ></textarea>
+                        </div>
+
+                        <div class="response-area">
+                            <label class="block font-medium text-gray-700 mb-2">90-Day Monitoring Plan</label>
+                            <textarea
+                                class="w-full h-32 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="Develop a comprehensive 90-day monitoring and protection plan..."
+                            ></textarea>
+                        </div>
+
+                        <div class="response-area">
+                            <label class="block font-medium text-gray-700 mb-2">Documentation Template</label>
+                            <textarea
+                                class="w-full h-32 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="Design a template for documenting suspicious activity..."
+                            ></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submission Requirements -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+                <i class="fas fa-file-upload text-green-600 mr-2"></i>Submission Requirements
+            </h2>
+            <div class="space-y-4">
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <h3 class="font-semibold text-gray-800 mb-2">Format Requirements:</h3>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>Complete all scenario analyses</li>
+                        <li>Provide detailed explanations for identified risks</li>
+                        <li>Include specific, actionable prevention strategies</li>
+                        <li>Document response plans with clear timelines</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <h3 class="font-semibold text-gray-800 mb-2">Required Components:</h3>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>Fraud detection analysis for each scenario</li>
+                        <li>Identity theft prevention strategies</li>
+                        <li>Comprehensive response plans</li>
+                        <li>Risk mitigation recommendations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Evaluation Criteria -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Evaluation Criteria</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="p-4 bg-blue-50 rounded-lg">
+                    <h3 class="font-medium text-blue-900 mb-2">Fraud Analysis (35%)</h3>
+                    <ul class="text-blue-800 space-y-2">
+                        <li>• Identification of red flags</li>
+                        <li>• Understanding of fraud tactics</li>
+                        <li>• Prevention strategy quality</li>
+                    </ul>
+                </div>
+                
+                <div class="p-4 bg-purple-50 rounded-lg">
+                    <h3 class="font-medium text-purple-900 mb-2">Identity Protection (35%)</h3>
+                    <ul class="text-purple-800 space-y-2">
+                        <li>• Risk assessment accuracy</li>
+                        <li>• Protection measure effectiveness</li>
+                        <li>• Monitoring plan completeness</li>
+                    </ul>
+                </div>
+                
+                <div class="p-4 bg-red-50 rounded-lg">
+                    <h3 class="font-medium text-red-900 mb-2">Response Planning (30%)</h3>
+                    <ul class="text-red-800 space-y-2">
+                        <li>• Action plan clarity</li>
+                        <li>• Timeline appropriateness</li>
+                        <li>• Documentation thoroughness</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submission Controls -->
+        <div class="bg-gray-100 rounded-lg p-6 border border-gray-200">
+            <div class="flex justify-between items-center">
+                <button class="bg-gray-200 text-gray-700 px-6 py-2 rounded-md hover:bg-gray-300 transition-colors flex items-center shadow-sm">
+                    <i class="fas fa-save mr-2"></i>
+                    Save Draft
+                </button>
+                <button class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors flex items-center shadow-sm">
+                    <i class="fas fa-paper-plane mr-2"></i>
+                    Submit Project
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

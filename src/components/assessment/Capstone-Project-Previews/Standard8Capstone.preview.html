@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standard 8 Capstone Project - Credit Cards and Online Shopping</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --primary-indigo: #4f46e5;
+            --primary-purple: #7c3aed;
+            --accent-green: #059669;
+            --accent-yellow: #d97706;
+            --neutral-50: #f8fafc;
+            --neutral-100: #f1f5f9;
+            --neutral-200: #e2e8f0;
+            --neutral-700: #334155;
+            --neutral-800: #1e293b;
+            --neutral-900: #0f172a;
+        }
+
+        body { 
+            background: linear-gradient(135deg, var(--neutral-50) 0%, var(--neutral-100) 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--neutral-800);
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border: 1px solid var(--neutral-200);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .badge-blue { 
+            background-color: #dbeafe; 
+            color: var(--primary-blue);
+            border: 1px solid #bfdbfe;
+        }
+
+        .badge-green { 
+            background-color: #dcfce7; 
+            color: var(--accent-green);
+            border: 1px solid #bbf7d0;
+        }
+
+        .badge-yellow { 
+            background-color: #fef3c7; 
+            color: var(--accent-yellow);
+            border: 1px solid #fde68a;
+        }
+
+        .task-card {
+            border-left: 4px solid;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            background: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--neutral-200);
+        }
+
+        .task-card.analysis { 
+            border-left-color: var(--primary-blue);
+            background: linear-gradient(to right, #f0f7ff 0%, white 50%);
+        }
+
+        .task-card.security { 
+            border-left-color: var(--accent-green);
+            background: linear-gradient(to right, #f0fdf4 0%, white 50%);
+        }
+
+        .task-card.strategy { 
+            border-left-color: var(--primary-purple);
+            background: linear-gradient(to right, #f5f3ff 0%, white 50%);
+        }
+
+        .response-area {
+            background: white;
+            border: 1px solid var(--neutral-200);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: all 0.2s ease-in-out;
+        }
+
+        .response-area:hover {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-color: var(--primary-blue);
+        }
+
+        .response-area label {
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            color: var(--neutral-800);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--neutral-100);
+        }
+
+        .response-area label i {
+            margin-right: 0.5rem;
+            color: var(--primary-blue);
+        }
+
+        .calculation-field {
+            background: var(--neutral-50);
+            padding: 1.25rem;
+            border-radius: 0.75rem;
+            margin: 0.75rem 0;
+            border: 1px solid var(--neutral-200);
+            transition: all 0.2s ease-in-out;
+        }
+
+        .calculation-field:hover {
+            border-color: var(--primary-indigo);
+            background: linear-gradient(to right, var(--neutral-50), white);
+        }
+
+        .calculation-field p {
+            color: var(--neutral-700);
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .calculation-field p i {
+            margin-right: 0.5rem;
+            color: var(--primary-indigo);
+        }
+
+        textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--neutral-200);
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            transition: all 0.2s ease-in-out;
+            resize: vertical;
+            min-height: 100px;
+            background: white;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        textarea::placeholder {
+            color: var(--neutral-400);
+        }
+
+        .response-area .hint {
+            font-size: 0.875rem;
+            color: var(--neutral-600);
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px dashed var(--neutral-200);
+        }
+
+        .scenario-card {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--neutral-200);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .requirements-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            margin-top: 1rem;
+        }
+
+        .requirements-box h3 {
+            color: var(--primary-blue);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .save-draft {
+            background: var(--neutral-100);
+            color: var(--neutral-700);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            border: 1px solid var(--neutral-200);
+        }
+
+        .save-draft:hover {
+            background: var(--neutral-200);
+        }
+
+        .submit-final {
+            background: var(--primary-blue);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .submit-final:hover {
+            background: #1d4ed8;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--neutral-900);
+            letter-spacing: -0.025em;
+        }
+
+        h2 {
+            font-size: 1.875rem;
+            font-weight: 600;
+            color: var(--neutral-800);
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--neutral-700);
+        }
+
+        .section-header {
+            border-bottom: 2px solid var(--neutral-200);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-box {
+            background: #f0f7ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            color: var(--primary-blue);
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            background: var(--accent-green);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            z-index: 50;
+        }
+
+        /* Evaluation criteria styling */
+        .criteria-card {
+            background: var(--neutral-50);
+            border: 1px solid var(--neutral-200);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+        }
+
+        .criteria-item {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 0;
+            color: var(--neutral-700);
+        }
+
+        .criteria-icon {
+            color: var(--accent-green);
+            margin-right: 0.75rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="max-w-5xl mx-auto">
+        <!-- Project Header -->
+        <div class="project-card">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Smart Shopping Project</h1>
+            <p class="text-xl text-gray-600 mb-4">Standard 8: Credit Cards and Online Shopping</p>
+            <div class="flex gap-2 mb-6">
+                <span class="badge badge-blue">
+                    <i class="fas fa-clock mr-2"></i>45 Minutes
+                </span>
+                <span class="badge badge-green">
+                    <i class="fas fa-file-alt mr-2"></i>Written Analysis
+                </span>
+                <span class="badge badge-yellow">
+                    <i class="fas fa-calculator mr-2"></i>Calculations Required
+                </span>
+            </div>
+            <p class="text-gray-700 text-lg mb-4">
+                In this capstone project, you will demonstrate your understanding of credit card management and online shopping
+                through comprehensive analysis, critical thinking, and strategic planning. You will evaluate real-world scenarios,
+                perform cost comparisons, and develop secure shopping strategies.
+            </p>
+            <div class="bg-blue-50 p-4 rounded-lg">
+                <h3 class="font-semibold text-blue-900 mb-2">Required Materials:</h3>
+                <ul class="text-blue-800 space-y-1">
+                    <li><i class="fas fa-calculator mr-2"></i>Calculator</li>
+                    <li><i class="fas fa-file-alt mr-2"></i>Word processor or paper for written responses</li>
+                    <li><i class="fas fa-table mr-2"></i>Spreadsheet software (optional but recommended)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Project Tasks -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Project Tasks</h2>
+            
+            <div class="task-card analysis">
+                <h3 class="font-medium text-gray-800 mb-2">Credit Card Analysis (15 minutes)</h3>
+                <p class="text-gray-600 mb-3">Calculate and compare costs for different credit card scenarios</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Calculate APR and total interest costs</li>
+                    <li>Compare rewards and benefits</li>
+                    <li>Evaluate annual fees and other charges</li>
+                    <li>Make recommendations based on usage patterns</li>
+                </ul>
+            </div>
+
+            <div class="task-card security">
+                <h3 class="font-medium text-gray-800 mb-2">Online Shopping Security (15 minutes)</h3>
+                <p class="text-gray-600 mb-3">Research and evaluate security measures for online shopping</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Assess website security features</li>
+                    <li>Identify potential fraud risks</li>
+                    <li>Compare payment method security</li>
+                    <li>Develop safety protocols</li>
+                </ul>
+            </div>
+
+            <div class="task-card strategy">
+                <h3 class="font-medium text-gray-800 mb-2">Digital Purchase Strategy (15 minutes)</h3>
+                <p class="text-gray-600 mb-3">Create a decision-making framework for online purchases</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Develop evaluation criteria</li>
+                    <li>Plan payment approach</li>
+                    <li>Set security measures</li>
+                    <li>Document procedures</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Credit Card Analysis Section -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Credit Card Analysis</h2>
+            
+            <!-- Credit Card Options Reference -->
+            <div class="bg-gray-50 p-4 rounded-lg mb-6">
+                <h3 class="text-lg font-medium text-gray-800 mb-4">Credit Card Options</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h5 class="font-medium text-blue-800 mb-3">Rewards Plus Card</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-percent text-green-500 mt-1 mr-2"></i>
+                                <span>APR: 18.99%</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-dollar-sign text-yellow-500 mt-1 mr-2"></i>
+                                <span>Annual Fee: $95</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-gift text-green-500 mt-1 mr-2"></i>
+                                <span>Rewards: 3% on dining and travel</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-award text-blue-500 mt-1 mr-2"></i>
+                                <span>Sign-up Bonus: $200 after $1,000 spend</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-plane text-purple-500 mt-1 mr-2"></i>
+                                <span>Additional Benefits: Travel insurance</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h5 class="font-medium text-purple-800 mb-3">Cash Back Basic</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-percent text-green-500 mt-1 mr-2"></i>
+                                <span>APR: 15.99%</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-dollar-sign text-green-500 mt-1 mr-2"></i>
+                                <span>Annual Fee: $0</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-gift text-green-500 mt-1 mr-2"></i>
+                                <span>Rewards: 2% on all purchases</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-award text-blue-500 mt-1 mr-2"></i>
+                                <span>Sign-up Bonus: $100 after $500 spend</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-shield-alt text-purple-500 mt-1 mr-2"></i>
+                                <span>Additional Benefits: Extended warranty</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h5 class="font-medium text-indigo-800 mb-3">Low Rate Card</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-percent text-green-500 mt-1 mr-2"></i>
+                                <span>APR: 12.99%</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-dollar-sign text-green-500 mt-1 mr-2"></i>
+                                <span>Annual Fee: $0</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times-circle text-red-500 mt-1 mr-2"></i>
+                                <span>Rewards: None</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-percentage text-blue-500 mt-1 mr-2"></i>
+                                <span>Sign-up Bonus: 0% APR for 15 months</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-exchange-alt text-purple-500 mt-1 mr-2"></i>
+                                <span>Additional Benefits: Balance transfers</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scenario 1 and Response -->
+            <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                <h4 class="font-medium text-gray-800 mb-4">Scenario 1: Large Purchase Financing</h4>
+                <p class="text-sm text-gray-600 mb-4">
+                    You are planning to purchase new furniture for $2,500. Calculate and compare the total cost using each credit card option under these conditions:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h5 class="font-medium text-blue-800 mb-3">Payment Terms</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-calendar text-blue-500 mt-1 mr-2"></i>
+                                <span>12 month payment plan</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-equals text-blue-500 mt-1 mr-2"></i>
+                                <span>Equal monthly payments</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h5 class="font-medium text-purple-800 mb-3">Cost Factors</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-dollar-sign text-purple-500 mt-1 mr-2"></i>
+                                <span>Include annual fees</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-gift text-purple-500 mt-1 mr-2"></i>
+                                <span>Factor in rewards/bonuses</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h5 class="font-medium text-indigo-800 mb-3">Assumptions</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Will meet bonus requirements</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-clock text-indigo-500 mt-1 mr-2"></i>
+                                <span>Regular payment schedule</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-6 bg-blue-100 p-4 rounded-lg border border-blue-200">
+                    <h5 class="font-medium text-blue-900 mb-2">Required Calculations:</h5>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <ul class="text-sm text-blue-900 space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-calculator text-blue-500 mr-2"></i>
+                                Monthly payment amount for each card
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-chart-line text-blue-500 mr-2"></i>
+                                Total interest paid over 12 months
+                            </li>
+                        </ul>
+                        <ul class="text-sm text-blue-900 space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-coins text-blue-500 mr-2"></i>
+                                Net cost after rewards/bonuses
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-percentage text-blue-500 mr-2"></i>
+                                Effective interest rate including fees
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="response-area mb-8">
+                <label class="block">
+                    <i class="fas fa-calculator"></i>
+                    1.1 Large Purchase Analysis
+                </label>
+                <div class="calculation-field">
+                    <p>
+                        <i class="fas fa-pencil-alt"></i>
+                        Show your calculations for Scenario 1:
+                    </p>
+                    <textarea
+                        name="largePurchaseCalc"
+                        rows="4"
+                        class="font-mono"
+                        placeholder="Show your calculations for monthly payments, total interest, and net costs for each card option..."
+                    ></textarea>
+                    <div class="hint">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Include detailed calculations for each card option, showing all steps
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scenario 2 and Response -->
+            <div class="bg-purple-50 p-4 rounded-lg mb-6">
+                <h4 class="font-medium text-gray-800 mb-4">Scenario 2: Regular Monthly Spending</h4>
+                <p class="text-sm text-gray-600 mb-4">
+                    Analyze the following monthly spending pattern and determine the best card option:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h5 class="font-medium text-blue-800 mb-3">Dining & Entertainment</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-utensils text-purple-500 mt-1 mr-2"></i>
+                                <span>Dining out: $400/month</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-film text-blue-500 mt-1 mr-2"></i>
+                                <span>Entertainment: $150/month</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-chart-line text-green-500 mt-1 mr-2"></i>
+                                <span>Category rewards potential: High</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h5 class="font-medium text-purple-800 mb-3">Travel & Transit</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-plane text-indigo-500 mt-1 mr-2"></i>
+                                <span>Travel expenses: $200/month</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-train text-blue-500 mt-1 mr-2"></i>
+                                <span>Transit costs: $100/month</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-percentage text-green-500 mt-1 mr-2"></i>
+                                <span>Bonus category eligible</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h5 class="font-medium text-indigo-800 mb-3">General Spending</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-shopping-cart text-blue-500 mt-1 mr-2"></i>
+                                <span>General purchases: $1,000/month</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-credit-card text-green-500 mt-1 mr-2"></i>
+                                <span>Pay full balance each month</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Consistent monthly pattern</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-6 bg-purple-100 p-4 rounded-lg border border-purple-200">
+                    <h5 class="font-medium text-purple-900 mb-2">Required Calculations:</h5>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <ul class="text-sm text-purple-900 space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-calculator text-purple-500 mr-2"></i>
+                                Monthly rewards earned with each card
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-calendar text-purple-500 mr-2"></i>
+                                Annual rewards total for each card
+                            </li>
+                        </ul>
+                        <ul class="text-sm text-purple-900 space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-coins text-purple-500 mr-2"></i>
+                                Net value after annual fees
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-gift text-purple-500 mr-2"></i>
+                                First-year total value with bonus
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="response-area mb-8">
+                <label class="block">
+                    <i class="fas fa-chart-line"></i>
+                    1.2 Monthly Spending Analysis
+                </label>
+                <div class="calculation-field">
+                    <p>
+                        <i class="fas fa-pencil-alt"></i>
+                        Show your calculations for Scenario 2:
+                    </p>
+                    <textarea
+                        name="monthlySpendingCalc"
+                        rows="4"
+                        class="font-mono"
+                        placeholder="Show your calculations for rewards earnings and net value for each card..."
+                    ></textarea>
+                    <div class="hint">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Break down rewards calculations by spending category
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scenario 3 and Response -->
+            <div class="bg-indigo-50 p-4 rounded-lg mb-6">
+                <h4 class="font-medium text-gray-800 mb-4">Scenario 3: Balance Transfer Evaluation</h4>
+                <p class="text-sm text-gray-600 mb-4">
+                    You have an existing credit card balance of $3,000 at 22% APR. Compare these options:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h5 class="font-medium text-blue-800 mb-3">Current Card Status</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-dollar-sign text-red-500 mt-1 mr-2"></i>
+                                <span>Balance: $3,000</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-percent text-red-500 mt-1 mr-2"></i>
+                                <span>APR: 22%</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-money-bill-wave text-green-500 mt-1 mr-2"></i>
+                                <span>Monthly payment: $300</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h5 class="font-medium text-purple-800 mb-3">Balance Transfer Option</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-percent text-green-500 mt-1 mr-2"></i>
+                                <span>New APR: 0% for 15 months</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-exchange-alt text-yellow-500 mt-1 mr-2"></i>
+                                <span>Transfer fee: 3%</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-money-bill-wave text-green-500 mt-1 mr-2"></i>
+                                <span>Same monthly payment: $300</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h5 class="font-medium text-indigo-800 mb-3">Payment Terms</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-calendar-alt text-blue-500 mt-1 mr-2"></i>
+                                <span>Fixed monthly payments</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-tasks text-purple-500 mt-1 mr-2"></i>
+                                <span>Pay until balance cleared</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-ban text-red-500 mt-1 mr-2"></i>
+                                <span>No new purchases added</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-6 bg-indigo-100 p-4 rounded-lg border border-indigo-200">
+                    <h5 class="font-medium text-indigo-900 mb-2">Required Calculations:</h5>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <ul class="text-sm text-indigo-900 space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-calendar-check text-indigo-500 mr-2"></i>
+                                Total months to pay off each option
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-chart-pie text-indigo-500 mr-2"></i>
+                                Total interest paid for each option
+                            </li>
+                        </ul>
+                        <ul class="text-sm text-indigo-900 space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-exchange-alt text-indigo-500 mr-2"></i>
+                                Impact of balance transfer fee
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-piggy-bank text-indigo-500 mr-2"></i>
+                                Total savings or cost difference
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="response-area mb-8">
+                <label class="block">
+                    <i class="fas fa-exchange-alt"></i>
+                    1.3 Balance Transfer Analysis
+                </label>
+                <div class="calculation-field">
+                    <p>
+                        <i class="fas fa-pencil-alt"></i>
+                        Show your calculations for Scenario 3:
+                    </p>
+                    <textarea
+                        name="balanceTransferCalc"
+                        rows="4"
+                        class="font-mono"
+                        placeholder="Show your calculations comparing balance transfer options..."
+                    ></textarea>
+                    <div class="hint">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Include transfer fees and total interest savings in your calculations
+                    </div>
+                </div>
+            </div>
+
+            <!-- Final Recommendation Response -->
+            <div class="response-area">
+                <label class="block">
+                    <i class="fas fa-lightbulb"></i>
+                    1.4 Comprehensive Recommendation
+                </label>
+                <textarea
+                    name="creditCardRecommendation"
+                    rows="4"
+                    placeholder="Based on your analysis of all three scenarios, provide comprehensive recommendations for each situation..."
+                ></textarea>
+                <div class="hint">
+                    <i class="fas fa-info-circle mr-1"></i>
+                    Support your recommendations with specific findings from your analysis
+                </div>
+            </div>
+        </div>
+
+        <!-- Online Shopping Security Section -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Online Shopping Security</h2>
+
+            <!-- Scenario 1 and Response -->
+            <div class="bg-green-50 p-4 rounded-lg mb-6">
+                <h4 class="font-medium text-gray-800 mb-4">Scenario 1: Retailer Comparison</h4>
+                <p class="text-sm text-gray-600 mb-4">
+                    Compare the following online retailers for security features and risks:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h5 class="font-medium text-blue-800 mb-3">Major E-commerce Platform</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-shield-alt text-green-500 mt-1 mr-2"></i>
+                                <span>HTTPS encryption</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-key text-green-500 mt-1 mr-2"></i>
+                                <span>Two-factor authentication available</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-lock text-green-500 mt-1 mr-2"></i>
+                                <span>Secure payment gateway</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-user-shield text-green-500 mt-1 mr-2"></i>
+                                <span>24/7 fraud monitoring</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h5 class="font-medium text-purple-800 mb-3">Small Specialty Shop</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-shield-alt text-yellow-500 mt-1 mr-2"></i>
+                                <span>Basic SSL certificate</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-credit-card text-yellow-500 mt-1 mr-2"></i>
+                                <span>Limited payment options</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times-circle text-red-500 mt-1 mr-2"></i>
+                                <span>No two-factor authentication</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-envelope text-yellow-500 mt-1 mr-2"></i>
+                                <span>Email-only support</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h5 class="font-medium text-indigo-800 mb-3">Marketplace Seller</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-shield-alt text-blue-500 mt-1 mr-2"></i>
+                                <span>Platform-provided security</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-star-half-alt text-yellow-500 mt-1 mr-2"></i>
+                                <span>Mixed customer reviews</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-history text-yellow-500 mt-1 mr-2"></i>
+                                <span>Limited seller history</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-umbrella text-blue-500 mt-1 mr-2"></i>
+                                <span>Platform buyer protection</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-6 bg-blue-50 p-4 rounded-lg border border-blue-100">
+                    <h5 class="font-medium text-blue-900 mb-2">Analysis Requirements:</h5>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <ul class="text-sm text-blue-800 space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                                Compare security features of each retailer
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                                Identify potential risks and vulnerabilities
+                            </li>
+                        </ul>
+                        <ul class="text-sm text-blue-800 space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                                Evaluate buyer protection measures
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                                Recommend security precautions for each
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="response-area mb-8">
+                <label class="block">
+                    <i class="fas fa-shield-alt"></i>
+                    2.1 Retailer Security Analysis
+                </label>
+                <div class="calculation-field">
+                    <p>
+                        <i class="fas fa-pencil-alt"></i>
+                        Analyze security features and risks for each retailer:
+                    </p>
+                    <textarea
+                        name="retailerSecurityAnalysis"
+                        rows="4"
+                        class="font-mono"
+                        placeholder="Compare and analyze the security features, risks, and protection measures for each retailer..."
+                    ></textarea>
+                    <div class="hint">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Include specific examples of security measures and their effectiveness
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scenario 2 and Response -->
+            <div class="bg-purple-50 p-4 rounded-lg mb-6">
+                <h4 class="font-medium text-gray-800 mb-4">Scenario 2: Payment Security</h4>
+                <p class="text-sm text-gray-600 mb-4">
+                    Evaluate the security features and risks of different payment methods:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h5 class="font-medium text-blue-800 mb-3">Credit Card</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-shield-alt text-green-500 mt-1 mr-2"></i>
+                                <span>Fraud protection up to $50</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-chart-line text-green-500 mt-1 mr-2"></i>
+                                <span>Real-time monitoring</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-credit-card text-green-500 mt-1 mr-2"></i>
+                                <span>Temporary virtual card numbers available</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h5 class="font-medium text-purple-800 mb-3">Digital Wallet</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-random text-green-500 mt-1 mr-2"></i>
+                                <span>Tokenized transactions</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-fingerprint text-green-500 mt-1 mr-2"></i>
+                                <span>Biometric authentication</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-eye-slash text-green-500 mt-1 mr-2"></i>
+                                <span>No direct card number exposure</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h5 class="font-medium text-indigo-800 mb-3">Bank Transfer</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-university text-yellow-500 mt-1 mr-2"></i>
+                                <span>Direct account access required</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-shield-alt text-red-500 mt-1 mr-2"></i>
+                                <span>Limited fraud protection</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-undo text-red-500 mt-1 mr-2"></i>
+                                <span>No transaction reversibility</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-6 bg-purple-100 p-4 rounded-lg border border-purple-200">
+                    <h5 class="font-medium text-purple-900 mb-2">Analysis Requirements:</h5>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <ul class="text-sm text-purple-900 space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                                Compare security features of each payment method
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                                Analyze fraud protection coverage
+                            </li>
+                        </ul>
+                        <ul class="text-sm text-purple-900 space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                                Evaluate dispute resolution processes
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                                Recommend best practices for each method
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="response-area mb-8">
+                <label class="block">
+                    <i class="fas fa-credit-card"></i>
+                    2.2 Payment Method Security Analysis
+                </label>
+                <div class="calculation-field">
+                    <p>
+                        <i class="fas fa-pencil-alt"></i>
+                        Compare security features of each payment method:
+                    </p>
+                    <textarea
+                        name="paymentSecurityAnalysis"
+                        rows="4"
+                        class="font-mono"
+                        placeholder="Analyze the security features, risks, and protection measures for each payment method..."
+                    ></textarea>
+                    <div class="hint">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Consider fraud protection, authentication methods, and risk levels
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security Protocol Response -->
+            <div class="response-area mb-8">
+                <label class="block">
+                    <i class="fas fa-lock"></i>
+                    2.3 Security Protocol Development
+                </label>
+                <div class="calculation-field">
+                    <p>
+                        <i class="fas fa-pencil-alt"></i>
+                        Develop comprehensive security protocols:
+                    </p>
+                    <textarea
+                        name="securityProtocol"
+                        rows="4"
+                        class="font-mono"
+                        placeholder="Develop a comprehensive security protocol incorporating best practices from both scenarios..."
+                    ></textarea>
+                    <div class="hint">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Include step-by-step procedures for secure online shopping
+                    </div>
+                </div>
+            </div>
+
+            <!-- Risk Mitigation Response -->
+            <div class="response-area">
+                <label class="block">
+                    <i class="fas fa-user-shield"></i>
+                    2.4 Risk Mitigation Recommendations
+                </label>
+                <textarea
+                    name="riskMitigation"
+                    rows="4"
+                    placeholder="Provide specific recommendations for mitigating risks identified in your analysis..."
+                ></textarea>
+                <div class="hint">
+                    <i class="fas fa-info-circle mr-1"></i>
+                    Support your recommendations with evidence from your analysis
+                </div>
+            </div>
+        </div>
+
+        <!-- Digital Purchase Strategy Section -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Digital Purchase Strategy</h2>
+
+            <!-- Scenario and Matrix Response -->
+            <div class="bg-indigo-50 p-4 rounded-lg mb-6">
+                <h4 class="font-medium text-gray-800 mb-4">High-Value Electronics Purchase</h4>
+                <p class="text-sm text-gray-600 mb-4">
+                    You need to purchase a gaming laptop with the following options:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h5 class="font-medium text-blue-800 mb-3">Major Electronics Retailer</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-tag text-blue-500 mt-1 mr-2"></i>
+                                <span>Price: $1,299.99</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-truck text-green-500 mt-1 mr-2"></i>
+                                <span>Free shipping (5-7 days)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-shield-alt text-purple-500 mt-1 mr-2"></i>
+                                <span>Store extended warranty ($199)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-sync text-blue-500 mt-1 mr-2"></i>
+                                <span>Price matching available</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-store text-green-500 mt-1 mr-2"></i>
+                                <span>Physical store pickup option</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h5 class="font-medium text-purple-800 mb-3">Online Marketplace</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-tag text-green-500 mt-1 mr-2"></i>
+                                <span>Price: $1,199.99</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-truck-fast text-blue-500 mt-1 mr-2"></i>
+                                <span>$29.99 expedited shipping (2-3 days)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-shield-alt text-purple-500 mt-1 mr-2"></i>
+                                <span>Third-party warranty ($149)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-user-shield text-blue-500 mt-1 mr-2"></i>
+                                <span>Marketplace protection program</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-star text-yellow-500 mt-1 mr-2"></i>
+                                <span>Highly rated seller (98% positive)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h5 class="font-medium text-indigo-800 mb-3">Manufacturer Direct</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-tag text-yellow-500 mt-1 mr-2"></i>
+                                <span>Price: $1,349.99</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-truck text-blue-500 mt-1 mr-2"></i>
+                                <span>Free shipping (7-10 days)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-shield-alt text-green-500 mt-1 mr-2"></i>
+                                <span>Manufacturer warranty included</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-graduation-cap text-purple-500 mt-1 mr-2"></i>
+                                <span>Student discount available (10%)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-sliders-h text-blue-500 mt-1 mr-2"></i>
+                                <span>Custom configuration options</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-6 bg-indigo-100 p-4 rounded-lg border border-indigo-200">
+                    <h5 class="font-medium text-indigo-900 mb-2">Strategy Requirements:</h5>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <ul class="text-sm text-indigo-900 space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-table text-indigo-500 mr-2"></i>
+                                Create a decision matrix comparing all factors
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-calculator text-indigo-500 mr-2"></i>
+                                Analyze total cost of ownership
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-shield-alt text-indigo-500 mr-2"></i>
+                                Evaluate warranty and protection options
+                            </li>
+                        </ul>
+                        <ul class="text-sm text-indigo-900 space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-clock text-indigo-500 mr-2"></i>
+                                Consider timing and delivery needs
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-clipboard-check text-indigo-500 mr-2"></i>
+                                Develop a complete purchase plan
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="response-area mb-8">
+                <label class="block">
+                    <i class="fas fa-table"></i>
+                    3.1 Decision Matrix
+                </label>
+                <div class="calculation-field">
+                    <p>
+                        <i class="fas fa-pencil-alt"></i>
+                        Create a detailed comparison matrix:
+                    </p>
+                    <textarea
+                        name="decisionMatrix"
+                        rows="6"
+                        class="font-mono"
+                        placeholder="Create a structured comparison of all options, including prices, warranties, shipping, protection, and other relevant factors..."
+                    ></textarea>
+                    <div class="hint">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Use a clear format with columns for each option and rows for comparison factors
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cost Analysis Response -->
+            <div class="response-area mb-8">
+                <label class="block">
+                    <i class="fas fa-calculator"></i>
+                    3.2 Total Cost Analysis
+                </label>
+                <div class="calculation-field">
+                    <p>
+                        <i class="fas fa-pencil-alt"></i>
+                        Calculate total cost of ownership:
+                    </p>
+                    <textarea
+                        name="totalCostAnalysis"
+                        rows="4"
+                        class="font-mono"
+                        placeholder="Calculate and compare total costs including price, shipping, warranties, and any available discounts..."
+                    ></textarea>
+                    <div class="hint">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Include all costs and potential savings for each option
+                    </div>
+                </div>
+            </div>
+
+            <!-- Strategy Response -->
+            <div class="response-area mb-8">
+                <label class="block">
+                    <i class="fas fa-chess"></i>
+                    3.3 Purchase Strategy
+                </label>
+                <div class="calculation-field">
+                    <p>
+                        <i class="fas fa-pencil-alt"></i>
+                        Outline your complete purchase strategy:
+                    </p>
+                    <textarea
+                        name="purchaseStrategy"
+                        rows="4"
+                        class="font-mono"
+                        placeholder="Detail your complete purchase strategy, including chosen retailer, timing, payment method, and protection plans..."
+                    ></textarea>
+                    <div class="hint">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Explain the reasoning behind each strategic decision
+                    </div>
+                </div>
+            </div>
+
+            <!-- Risk Mitigation Response -->
+            <div class="response-area">
+                <label class="block">
+                    <i class="fas fa-shield-alt"></i>
+                    3.4 Risk Mitigation Plan
+                </label>
+                <div class="calculation-field">
+                    <p>
+                        <i class="fas fa-pencil-alt"></i>
+                        Document your risk management approach:
+                    </p>
+                    <textarea
+                        name="riskMitigation"
+                        rows="4"
+                        class="font-mono"
+                        placeholder="Outline your risk mitigation strategy, including protection measures, documentation plans, and backup options..."
+                    ></textarea>
+                    <div class="hint">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Address potential risks and contingency plans for each step
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submission Requirements -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+                <i class="fas fa-file-upload text-green-600 mr-2"></i>Submission Requirements
+            </h2>
+            <div class="space-y-4">
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-gray-800 mb-2">Format Requirements:</h3>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>All calculations must be shown and clearly labeled</li>
+                        <li>Written analysis must be clear, concise, and professional</li>
+                        <li>Use specific examples to support your recommendations</li>
+                        <li>Organize your work using clear headings and sections</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-gray-800 mb-2">Required Components:</h3>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>Completed credit card comparison with calculations</li>
+                        <li>Security analysis for each retailer and payment method</li>
+                        <li>Comprehensive purchase decision framework</li>
+                        <li>Detailed risk mitigation strategy</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Evaluation Criteria -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Evaluation Criteria</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-medium text-gray-800 mb-2">Credit Card Analysis (35%)</h3>
+                    <ul class="text-sm text-gray-700 space-y-1">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Interest calculations
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Feature comparison
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Cost-benefit analysis
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Recommendation rationale
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-medium text-gray-800 mb-2">Security Assessment (35%)</h3>
+                    <ul class="text-sm text-gray-700 space-y-1">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Risk identification
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Security feature analysis
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Payment method evaluation
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Protection strategies
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-medium text-gray-800 mb-2">Strategy Development (30%)</h3>
+                    <ul class="text-sm text-gray-700 space-y-1">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Decision framework
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Implementation plan
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Risk mitigation
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Process documentation
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submission Controls -->
+        <div class="project-card">
+            <div class="flex justify-between items-center">
+                <div class="space-y-2">
+                    <div class="text-sm text-gray-600">
+                        <i class="fas fa-clock mr-1"></i>
+                        Last saved: <span id="last-saved">Never</span>
+                    </div>
+                    <div class="text-sm text-gray-600">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        You can save your work and return to it later
+                    </div>
+                </div>
+                <div class="space-x-4">
+                    <button type="button" class="save-draft" onclick="saveDraft()">
+                        <i class="fas fa-save mr-2"></i>Save Draft
+                    </button>
+                    <button type="submit" class="submit-final">
+                        <i class="fas fa-paper-plane mr-2"></i>Submit Project
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Auto-save draft every 30 seconds
+        let autoSaveInterval = setInterval(() => {
+            saveDraft();
+        }, 30000);
+
+        // Save draft function
+        function saveDraft() {
+            const formData = new FormData(document.getElementById('capstoneForm'));
+            const draftData = Object.fromEntries(formData.entries());
+            
+            // Save to localStorage
+            localStorage.setItem('standard8CapstoneData', JSON.stringify(draftData));
+            
+            // Show save confirmation
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded-md flex items-center';
+            toast.innerHTML = '<i class="fas fa-check-circle mr-2"></i>Draft saved!';
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+
+            // Update last saved time
+            document.getElementById('last-saved').textContent = new Date().toLocaleTimeString();
+        }
+
+        // Load draft on page load
+        window.addEventListener('load', () => {
+            const savedData = localStorage.getItem('standard8CapstoneData');
+            if (savedData) {
+                const draftData = JSON.parse(savedData);
+                const form = document.getElementById('capstoneForm');
+                
+                Object.entries(draftData).forEach(([name, value]) => {
+                    const field = form.elements[name];
+                    if (field) {
+                        field.value = value;
+                    }
+                });
+            }
+        });
+
+        // Handle form submission
+        document.getElementById('capstoneForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Clear auto-save interval
+            clearInterval(autoSaveInterval);
+            
+            // Clear draft data
+            localStorage.removeItem('standard8CapstoneData');
+            
+            // Submit form data
+            const formData = new FormData(e.target);
+            const submissionData = Object.fromEntries(formData.entries());
+            
+            // TODO: Send to server
+            console.log('Submitting:', submissionData);
+        });
+    </script>
+</body>
+</html> 

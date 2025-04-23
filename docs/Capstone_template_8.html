@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone Project Template</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --primary-green: #059669;
+            --primary-purple: #7c3aed;
+            --neutral-50: #f8fafc;
+            --neutral-100: #f1f5f9;
+            --neutral-200: #e2e8f0;
+            --neutral-700: #334155;
+            --neutral-800: #1e293b;
+            --neutral-900: #0f172a;
+        }
+
+        body { 
+            background: linear-gradient(135deg, var(--neutral-50) 0%, var(--neutral-100) 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--neutral-800);
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border: 1px solid var(--neutral-200);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .badge-blue { 
+            background-color: #dbeafe; 
+            color: var(--primary-blue);
+            border: 1px solid #bfdbfe;
+        }
+
+        .badge-green { 
+            background-color: #dcfce7; 
+            color: var(--primary-green);
+            border: 1px solid #bbf7d0;
+        }
+
+        .badge-yellow { 
+            background-color: #fef3c7; 
+            color: #92400e;
+            border: 1px solid #fde68a;
+        }
+
+        .task-bar {
+            border-left: 4px solid;
+            padding: 1.25rem;
+            margin-bottom: 1.25rem;
+            background: var(--neutral-50);
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .task-bar.blue { 
+            border-color: var(--primary-blue);
+            background: linear-gradient(to right, #f0f7ff, white);
+        }
+
+        .task-bar.green { 
+            border-color: var(--primary-green);
+            background: linear-gradient(to right, #f0fdf4, white);
+        }
+
+        .task-bar.purple { 
+            border-color: var(--primary-purple);
+            background: linear-gradient(to right, #f5f3ff, white);
+        }
+
+        .response-area {
+            border: 2px solid var(--neutral-200);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            margin: 1rem 0;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .calculation-field {
+            font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+            background: var(--neutral-50);
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            margin: 0.75rem 0;
+            border: 1px solid var(--neutral-200);
+        }
+
+        .matrix-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            border: 1px solid var(--neutral-200);
+        }
+
+        .matrix-table th, .matrix-table td {
+            border: 1px solid var(--neutral-200);
+            padding: 0.75rem;
+        }
+
+        .matrix-table th {
+            background: var(--neutral-50);
+            font-weight: 600;
+            color: var(--neutral-700);
+        }
+
+        .matrix-table td {
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="max-w-5xl mx-auto">
+        <!-- Project Header -->
+        <div class="project-card">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">[Project Title]</h1>
+            <h2 class="text-xl text-gray-600 mb-4">Standard [X]: [Standard Title]</h2>
+            
+            <div class="flex gap-3 mb-6">
+                <span class="badge badge-blue">
+                    <i class="fas fa-clock mr-2"></i>45 Minutes
+                </span>
+                <span class="badge badge-green">
+                    <i class="fas fa-calculator mr-2"></i>Calculations
+                </span>
+                <span class="badge badge-yellow">
+                    <i class="fas fa-file-alt mr-2"></i>Analysis
+                </span>
+            </div>
+
+            <p class="text-gray-700 text-lg mb-4">
+                [Project Description: A brief overview of what students will accomplish in this capstone project, emphasizing key learning objectives and practical applications.]
+            </p>
+
+            <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                <h3 class="font-semibold text-blue-900 mb-2">Required Materials:</h3>
+                <ul class="text-blue-800 space-y-1">
+                    <li><i class="fas fa-calculator mr-2"></i>Calculator</li>
+                    <li><i class="fas fa-file-alt mr-2"></i>Worksheet or digital document</li>
+                    <li><i class="fas fa-table mr-2"></i>Spreadsheet software (optional)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Project Tasks -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Project Tasks</h2>
+
+            <div class="task-bar blue">
+                <h3 class="font-semibold text-gray-800 mb-2">[Task 1 Title] (15 minutes)</h3>
+                <p class="text-gray-600 mb-3">[Brief task description]</p>
+                <ul class="space-y-2 text-gray-600">
+                    <li><i class="fas fa-angle-right text-blue-500 mr-2"></i>[Subtask 1]</li>
+                    <li><i class="fas fa-angle-right text-blue-500 mr-2"></i>[Subtask 2]</li>
+                    <li><i class="fas fa-angle-right text-blue-500 mr-2"></i>[Subtask 3]</li>
+                    <li><i class="fas fa-angle-right text-blue-500 mr-2"></i>[Subtask 4]</li>
+                    <li><i class="fas fa-angle-right text-blue-500 mr-2"></i>[Subtask 5]</li>
+                </ul>
+            </div>
+
+            <div class="task-bar green">
+                <h3 class="font-semibold text-gray-800 mb-2">[Task 2 Title] (15 minutes)</h3>
+                <p class="text-gray-600 mb-3">[Brief task description]</p>
+                <ul class="space-y-2 text-gray-600">
+                    <li><i class="fas fa-angle-right text-green-500 mr-2"></i>[Subtask 1]</li>
+                    <li><i class="fas fa-angle-right text-green-500 mr-2"></i>[Subtask 2]</li>
+                    <li><i class="fas fa-angle-right text-green-500 mr-2"></i>[Subtask 3]</li>
+                    <li><i class="fas fa-angle-right text-green-500 mr-2"></i>[Subtask 4]</li>
+                    <li><i class="fas fa-angle-right text-green-500 mr-2"></i>[Subtask 5]</li>
+                </ul>
+            </div>
+
+            <div class="task-bar purple">
+                <h3 class="font-semibold text-gray-800 mb-2">[Task 3 Title] (15 minutes)</h3>
+                <p class="text-gray-600 mb-3">[Brief task description]</p>
+                <ul class="space-y-2 text-gray-600">
+                    <li><i class="fas fa-angle-right text-purple-500 mr-2"></i>[Subtask 1]</li>
+                    <li><i class="fas fa-angle-right text-purple-500 mr-2"></i>[Subtask 2]</li>
+                    <li><i class="fas fa-angle-right text-purple-500 mr-2"></i>[Subtask 3]</li>
+                    <li><i class="fas fa-angle-right text-purple-500 mr-2"></i>[Subtask 4]</li>
+                    <li><i class="fas fa-angle-right text-purple-500 mr-2"></i>[Subtask 5]</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Scenarios Section -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Scenarios</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Scenario 1 -->
+                <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                    <h3 class="font-medium text-gray-800 mb-3">Scenario 1: [Title]</h3>
+                    <div class="bg-gray-50 p-4 rounded-md mb-4 border border-gray-100">
+                        <ul class="text-sm text-gray-700 space-y-2">
+                            <li>[Detail 1]</li>
+                            <li>[Detail 2]</li>
+                            <li>[Detail 3]</li>
+                            <li>[Detail 4]</li>
+                            <li>[Detail 5]</li>
+                        </ul>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block font-medium text-gray-800 mb-2">Analysis:</label>
+                            <textarea class="w-full p-3 border border-gray-200 rounded-md shadow-inner" rows="4" placeholder="[Analysis prompt]"></textarea>
+                        </div>
+                        <div>
+                            <label class="block font-medium text-gray-800 mb-2">Calculations:</label>
+                            <div class="calculation-field">
+                                [Calculation template or formula]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scenario 2 -->
+                <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                    <h3 class="font-medium text-gray-800 mb-3">Scenario 2: [Title]</h3>
+                    <div class="bg-gray-50 p-4 rounded-md mb-4 border border-gray-100">
+                        <ul class="text-sm text-gray-700 space-y-2">
+                            <li>[Detail 1]</li>
+                            <li>[Detail 2]</li>
+                            <li>[Detail 3]</li>
+                            <li>[Detail 4]</li>
+                            <li>[Detail 5]</li>
+                        </ul>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block font-medium text-gray-800 mb-2">Analysis:</label>
+                            <textarea class="w-full p-3 border border-gray-200 rounded-md shadow-inner" rows="4" placeholder="[Analysis prompt]"></textarea>
+                        </div>
+                        <div>
+                            <label class="block font-medium text-gray-800 mb-2">Calculations:</label>
+                            <div class="calculation-field">
+                                [Calculation template or formula]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submission Requirements -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+                <i class="fas fa-file-upload text-green-600 mr-2"></i>Submission Requirements
+            </h2>
+            <div class="space-y-4">
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <h3 class="font-semibold text-gray-800 mb-2">Format Requirements:</h3>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>Show all calculations clearly</li>
+                        <li>Include explanations for your analysis</li>
+                        <li>Use proper formatting and organization</li>
+                        <li>Cite any external resources used</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <h3 class="font-semibold text-gray-800 mb-2">Required Components:</h3>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>Completed calculations for all scenarios</li>
+                        <li>Detailed analysis for each case</li>
+                        <li>Supporting evidence and reasoning</li>
+                        <li>Final recommendations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Evaluation Criteria -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+                <i class="fas fa-star text-yellow-600 mr-2"></i>Evaluation Criteria
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-blue-50 rounded-lg p-4 border border-blue-100">
+                    <h3 class="font-semibold text-blue-900 mb-2">Calculations (35%)</h3>
+                    <ul class="text-blue-800 space-y-2">
+                        <li><i class="fas fa-check-circle mr-2"></i>Accuracy</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Completeness</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Show work</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Proper formulas</li>
+                    </ul>
+                </div>
+                <div class="bg-green-50 rounded-lg p-4 border border-green-100">
+                    <h3 class="font-semibold text-green-900 mb-2">Analysis (35%)</h3>
+                    <ul class="text-green-800 space-y-2">
+                        <li><i class="fas fa-check-circle mr-2"></i>Depth</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Clarity</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Reasoning</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Support</li>
+                    </ul>
+                </div>
+                <div class="bg-purple-50 rounded-lg p-4 border border-purple-100">
+                    <h3 class="font-semibold text-purple-900 mb-2">Presentation (30%)</h3>
+                    <ul class="text-purple-800 space-y-2">
+                        <li><i class="fas fa-check-circle mr-2"></i>Organization</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Formatting</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Completeness</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Professionalism</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submission Controls -->
+        <div class="bg-gray-100 rounded-lg p-6 border border-gray-200">
+            <div class="flex justify-between items-center">
+                <button class="bg-gray-200 text-gray-700 px-6 py-2 rounded-md hover:bg-gray-300 transition-colors flex items-center shadow-sm">
+                    <i class="fas fa-save mr-2"></i>
+                    Save Draft
+                </button>
+                <button class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors flex items-center shadow-sm">
+                    <i class="fas fa-paper-plane mr-2"></i>
+                    Submit Project
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

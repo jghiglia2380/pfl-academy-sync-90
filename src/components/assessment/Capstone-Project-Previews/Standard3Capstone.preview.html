@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standard 3 Capstone Project - Financial Service Providers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .project-card {
+            @apply bg-white rounded-xl shadow-lg p-8 mb-8;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .task-card {
+            @apply border-l-4 p-6 mb-6 bg-white rounded-lg shadow-md;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .badge {
+            @apply px-4 py-1.5 rounded-full text-sm font-semibold shadow-sm;
+        }
+        .badge-blue {
+            @apply bg-blue-100 text-blue-800;
+        }
+        .badge-green {
+            @apply bg-green-100 text-green-800;
+        }
+        .badge-yellow {
+            @apply bg-yellow-100 text-yellow-800;
+        }
+        .task-card.analysis {
+            border-color: #3b82f6;
+            background: linear-gradient(to right, #f0f7ff, white);
+        }
+        .task-card.scenarios {
+            border-color: #22c55e;
+            background: linear-gradient(to right, #f0fdf4, white);
+        }
+        .task-card.recommendations {
+            border-color: #8b5cf6;
+            background: linear-gradient(to right, #f5f3ff, white);
+        }
+        .response-area {
+            @apply border-2 rounded-xl p-6 my-4 bg-white shadow-sm;
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+        .calculation-field {
+            @apply font-mono bg-gray-50 p-3 rounded-lg my-2 shadow-inner;
+        }
+        .matrix-table {
+            @apply w-full border-collapse my-4 shadow-sm;
+        }
+        .matrix-table th, .matrix-table td {
+            @apply border p-3;
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+        .matrix-table th {
+            @apply bg-gray-50 font-semibold text-gray-700;
+        }
+        .matrix-table tr:hover {
+            @apply bg-gray-50;
+        }
+        .save-draft {
+            @apply bg-gray-100 text-gray-700 px-6 py-2 rounded-lg shadow-sm hover:bg-gray-200 transition-colors;
+        }
+        .submit-final {
+            @apply bg-blue-600 text-white px-6 py-2 rounded-lg shadow-sm hover:bg-blue-700 transition-colors;
+        }
+        input[type="text"], input[type="number"], textarea {
+            @apply rounded-lg border-gray-300 shadow-sm;
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"]:focus, input[type="number"]:focus, textarea:focus {
+            @apply ring-2 ring-blue-500 border-blue-500;
+        }
+        .data-table {
+            @apply w-full border-collapse rounded-xl overflow-hidden shadow-md my-6;
+        }
+        .data-table th {
+            @apply bg-gray-50 text-left p-4 font-semibold text-gray-700;
+        }
+        .data-table td {
+            @apply p-4 border-t border-gray-100;
+        }
+        .data-table tr:hover {
+            @apply bg-gray-50;
+        }
+        .info-card {
+            @apply bg-gray-50 p-6 rounded-xl shadow-sm;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="max-w-5xl mx-auto">
+        <!-- Header -->
+        <div class="project-card">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Financial Services Evaluation Project</h1>
+            <p class="text-xl text-gray-600 mb-4">Standard 3: Financial Service Providers and Account Management</p>
+            <div class="flex gap-2 mb-6">
+                <span class="badge badge-blue">
+                    <i class="fas fa-clock mr-2"></i>45 Minutes
+                </span>
+                <span class="badge badge-green">
+                    <i class="fas fa-file-alt mr-2"></i>Written Analysis
+                </span>
+                <span class="badge badge-yellow">
+                    <i class="fas fa-calculator mr-2"></i>Calculations Required
+                </span>
+            </div>
+            <p class="text-gray-700 text-lg mb-4">
+                In this capstone project, you will evaluate and compare different financial service providers
+                to make informed recommendations based on specific client needs and circumstances. You'll analyze
+                fees, services, accessibility, and technology features to determine the best fit for various scenarios.
+            </p>
+            <div class="bg-blue-50 p-4 rounded-lg">
+                <h3 class="font-semibold text-blue-900 mb-2">Required Materials:</h3>
+                <ul class="text-blue-800 space-y-1">
+                    <li><i class="fas fa-calculator mr-2"></i>Calculator</li>
+                    <li><i class="fas fa-file-alt mr-2"></i>Word processor or paper for written responses</li>
+                    <li><i class="fas fa-table mr-2"></i>Spreadsheet software (optional but recommended)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Reference Data Section -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+                <i class="fas fa-database text-blue-600 mr-2"></i>Reference Data for Analysis
+            </h2>
+
+            <!-- Financial Institution Types -->
+            <div class="mb-8">
+                <h3 class="font-semibold text-gray-800 mb-4">Financial Institution Comparison Data</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white border border-gray-200">
+                        <thead>
+                            <tr class="bg-gray-50">
+                                <th class="px-4 py-2 border">Feature</th>
+                                <th class="px-4 py-2 border">Traditional Bank</th>
+                                <th class="px-4 py-2 border">Credit Union</th>
+                                <th class="px-4 py-2 border">Online Bank</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="px-4 py-2 border">Avg. Checking Fee</td>
+                                <td class="px-4 py-2 border">$12/month</td>
+                                <td class="px-4 py-2 border">$5/month</td>
+                                <td class="px-4 py-2 border">$0/month</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border">Savings APY</td>
+                                <td class="px-4 py-2 border">0.01-0.05%</td>
+                                <td class="px-4 py-2 border">0.05-0.15%</td>
+                                <td class="px-4 py-2 border">3.50-4.50%</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border">Min. Balance</td>
+                                <td class="px-4 py-2 border">$1,500</td>
+                                <td class="px-4 py-2 border">$500</td>
+                                <td class="px-4 py-2 border">$0</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border">ATM Network</td>
+                                <td class="px-4 py-2 border">Large proprietary</td>
+                                <td class="px-4 py-2 border">Shared CO-OP</td>
+                                <td class="px-4 py-2 border">Reimbursed fees</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border">Branch Access</td>
+                                <td class="px-4 py-2 border">Extensive</td>
+                                <td class="px-4 py-2 border">Limited</td>
+                                <td class="px-4 py-2 border">None</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Account Features -->
+            <div class="mb-8">
+                <h3 class="font-semibold text-gray-800 mb-4">Common Account Features and Services</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-medium text-gray-800 mb-2">Basic Services</h4>
+                        <ul class="text-sm text-gray-700 space-y-1">
+                            <li>Direct deposit</li>
+                            <li>Online bill pay</li>
+                            <li>Mobile check deposit</li>
+                            <li>Debit card access</li>
+                            <li>Online/mobile banking</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-medium text-gray-800 mb-2">Premium Features</h4>
+                        <ul class="text-sm text-gray-700 space-y-1">
+                            <li>Overdraft protection</li>
+                            <li>Foreign transaction support</li>
+                            <li>Investment services</li>
+                            <li>Safe deposit boxes</li>
+                            <li>Personal banker access</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fee Structures -->
+            <div class="mb-8">
+                <h3 class="font-semibold text-gray-800 mb-4">Common Fee Structures</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white border border-gray-200">
+                        <thead>
+                            <tr class="bg-gray-50">
+                                <th class="px-4 py-2 border">Fee Type</th>
+                                <th class="px-4 py-2 border">Typical Range</th>
+                                <th class="px-4 py-2 border">How to Avoid</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="px-4 py-2 border">Monthly Maintenance</td>
+                                <td class="px-4 py-2 border">$0-25</td>
+                                <td class="px-4 py-2 border">Minimum balance or direct deposit</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border">Overdraft</td>
+                                <td class="px-4 py-2 border">$25-35</td>
+                                <td class="px-4 py-2 border">Balance alerts, buffer amount</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border">ATM (out of network)</td>
+                                <td class="px-4 py-2 border">$2-5</td>
+                                <td class="px-4 py-2 border">Use in-network ATMs</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border">Wire Transfer</td>
+                                <td class="px-4 py-2 border">$15-50</td>
+                                <td class="px-4 py-2 border">ACH transfer when possible</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Digital Banking Features -->
+            <div class="mb-8">
+                <h3 class="font-semibold text-gray-800 mb-4">Digital Banking Capabilities</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-medium text-gray-800 mb-2">Security Features</h4>
+                        <ul class="text-sm text-gray-700 space-y-1">
+                            <li>Two-factor authentication</li>
+                            <li>Biometric login</li>
+                            <li>Instant card freeze</li>
+                            <li>Fraud alerts</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-medium text-gray-800 mb-2">Money Management</h4>
+                        <ul class="text-sm text-gray-700 space-y-1">
+                            <li>Spending analytics</li>
+                            <li>Budgeting tools</li>
+                            <li>Bill management</li>
+                            <li>Savings goals</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-medium text-gray-800 mb-2">Payment Features</h4>
+                        <ul class="text-sm text-gray-700 space-y-1">
+                            <li>P2P payments</li>
+                            <li>Mobile wallet integration</li>
+                            <li>International transfers</li>
+                            <li>Bill splitting</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Tasks -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+                <i class="fas fa-tasks text-blue-600 mr-2"></i>Project Tasks
+            </h2>
+            
+            <div class="task-card analysis">
+                <h3 class="font-semibold text-gray-800 mb-2">Part 1: Provider Analysis (15 minutes)</h3>
+                <p class="text-gray-600 mb-3">Compare and analyze different financial service providers:</p>
+                
+                <div class="bg-white rounded-lg border border-gray-200 p-6 mb-4">
+                    <h4 class="font-medium text-gray-800 mb-4">Provider Comparison Matrix</h4>
+                    <div class="overflow-x-auto">
+                        <table class="w-full border-collapse">
+                            <thead>
+                                <tr>
+                                    <th class="border border-gray-300 bg-gray-50 p-3 text-left">Criteria</th>
+                                    <th class="border border-gray-300 bg-gray-50 p-3 text-left">Traditional Bank</th>
+                                    <th class="border border-gray-300 bg-gray-50 p-3 text-left">Credit Union</th>
+                                    <th class="border border-gray-300 bg-gray-50 p-3 text-left">Online Bank</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border border-gray-300 p-3">Monthly Fees</td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md"></td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md"></td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md"></td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 p-3">Interest Rates</td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md"></td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md"></td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md"></td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 p-3">Accessibility</td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md"></td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md"></td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md"></td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 p-3">Digital Features</td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md"></td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md"></td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mt-6">
+                        <label class="block font-medium text-gray-700 mb-2">Analysis Summary</label>
+                        <textarea rows="4" class="w-full p-3 border border-gray-300 rounded-md" placeholder="Summarize your analysis of the different providers..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-card scenarios">
+                <h3 class="font-semibold text-gray-800 mb-2">Part 2: Case Study Analysis (15 minutes)</h3>
+                <p class="text-gray-600 mb-3">Analyze the following client scenarios and recommend appropriate providers:</p>
+
+                <div class="bg-white rounded-lg border border-gray-200 p-6 mb-4">
+                    <h4 class="font-medium text-gray-800 mb-4">Scenario 1: College Student</h4>
+                    <div class="bg-gray-50 p-4 rounded-md mb-4">
+                        <ul class="text-sm text-gray-700 space-y-2">
+                            <li>Part-time income: $800/month</li>
+                            <li>Needs: Low fees, mobile banking</li>
+                            <li>Location: Moving between home and college</li>
+                            <li>Goals: Building savings, managing expenses</li>
+                        </ul>
+                    </div>
+                    <textarea rows="4" class="w-full p-3 border border-gray-300 rounded-md" placeholder="Analyze this scenario and recommend a provider..."></textarea>
+                </div>
+
+                <div class="bg-white rounded-lg border border-gray-200 p-6 mb-4">
+                    <h4 class="font-medium text-gray-800 mb-4">Scenario 2: Small Business Owner</h4>
+                    <div class="bg-gray-50 p-4 rounded-md mb-4">
+                        <ul class="text-sm text-gray-700 space-y-2">
+                            <li>Monthly transactions: 200+</li>
+                            <li>Needs: Merchant services, business loans</li>
+                            <li>Location: Local retail store</li>
+                            <li>Goals: Growth financing, cash management</li>
+                        </ul>
+                    </div>
+                    <textarea rows="4" class="w-full p-3 border border-gray-300 rounded-md" placeholder="Analyze this scenario and recommend a provider..."></textarea>
+                </div>
+            </div>
+
+            <div class="task-card recommendations">
+                <h3 class="font-semibold text-gray-800 mb-2">Part 3: Recommendations & Implementation (15 minutes)</h3>
+                <p class="text-gray-600 mb-3">Develop detailed recommendations and implementation plans:</p>
+
+                <div class="bg-white rounded-lg border border-gray-200 p-6 mb-4">
+                    <h4 class="font-medium text-gray-800 mb-4">Provider Selection Criteria</h4>
+                    <div class="overflow-x-auto">
+                        <table class="w-full border-collapse">
+                            <thead>
+                                <tr>
+                                    <th class="border border-gray-300 bg-gray-50 p-3 text-left">Criteria</th>
+                                    <th class="border border-gray-300 bg-gray-50 p-3 text-left">Weight</th>
+                                    <th class="border border-gray-300 bg-gray-50 p-3 text-left">Justification</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border border-gray-300 p-3">Cost</td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md" placeholder="%"></td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md"></td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 p-3">Accessibility</td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md" placeholder="%"></td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md"></td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 p-3">Features</td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md" placeholder="%"></td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mt-6">
+                        <label class="block font-medium text-gray-700 mb-2">Implementation Plan</label>
+                        <textarea rows="4" class="w-full p-3 border border-gray-300 rounded-md" placeholder="Outline the steps for implementing your recommendations..."></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Evaluation Criteria -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+                <i class="fas fa-star text-yellow-600 mr-2"></i>Evaluation Criteria
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-blue-50 rounded-lg p-4">
+                    <h3 class="font-semibold text-blue-900 mb-2">Analysis (35%)</h3>
+                    <ul class="text-blue-800 space-y-2">
+                        <li><i class="fas fa-check-circle mr-2"></i>Provider comparison depth</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Fee analysis accuracy</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Feature evaluation</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Data interpretation</li>
+                    </ul>
+                </div>
+                <div class="bg-green-50 rounded-lg p-4">
+                    <h3 class="font-semibold text-green-900 mb-2">Case Studies (35%)</h3>
+                    <ul class="text-green-800 space-y-2">
+                        <li><i class="fas fa-check-circle mr-2"></i>Scenario understanding</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Solution relevance</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Recommendation quality</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Justification clarity</li>
+                    </ul>
+                </div>
+                <div class="bg-purple-50 rounded-lg p-4">
+                    <h3 class="font-semibold text-purple-900 mb-2">Implementation (30%)</h3>
+                    <ul class="text-purple-800 space-y-2">
+                        <li><i class="fas fa-check-circle mr-2"></i>Plan practicality</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Step clarity</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Risk consideration</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Timeline realism</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submission Controls -->
+        <div class="project-card">
+            <div class="flex justify-between items-center">
+                <div class="space-y-2">
+                    <div class="text-sm text-gray-600">
+                        <i class="fas fa-clock mr-1"></i>
+                        Last saved: <span id="last-saved">Never</span>
+                    </div>
+                    <div class="text-sm text-gray-600">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        You can save your work and return to it later
+                    </div>
+                </div>
+                <div class="space-x-4">
+                    <button type="button" class="save-draft px-4 py-2 rounded-lg">
+                        Save Draft
+                    </button>
+                    <button type="submit" class="submit-final px-4 py-2 rounded-lg">
+                        Submit for Grading
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add client-side functionality for:
+        // 1. Auto-saving drafts
+        // 2. Form validation
+        // 3. Calculation helpers
+        // 4. Rich text formatting
+        // 5. File attachment handling
+    </script>
+</body>
+</html> 

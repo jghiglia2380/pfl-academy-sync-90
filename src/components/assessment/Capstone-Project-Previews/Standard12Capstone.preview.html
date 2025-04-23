@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standard 12 Capstone Project - Gambling Risk Analysis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { 
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            margin-bottom: 2rem;
+            padding: 2rem;
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+        }
+        .badge-blue {
+            background-color: #dbeafe;
+            color: #1e40af;
+        }
+        .badge-green {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+        .badge-yellow {
+            background-color: #fef9c3;
+            color: #854d0e;
+        }
+        .task-card {
+            border-left: 4px solid;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: #f8fafc;
+            border-radius: 0.5rem;
+        }
+        .task-card.analysis { border-color: #3b82f6; }
+        .task-card.planning { border-color: #22c55e; }
+        .task-card.strategy { border-color: #8b5cf6; }
+        .response-area {
+            border: 2px solid #e2e8f0;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin: 1rem 0;
+            background: white;
+        }
+        .calculation-field {
+            font-family: monospace;
+            background: #f8fafc;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            margin: 0.5rem 0;
+        }
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        .matrix-table th, .matrix-table td {
+            border: 1px solid #e2e8f0;
+            padding: 0.5rem;
+        }
+        .matrix-table th {
+            background: #f8fafc;
+        }
+    </style>
+</head>
+<body>
+    <div class="max-w-5xl mx-auto">
+        <!-- Project Header -->
+        <div class="project-card">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Gambling Risk Analysis Project</h1>
+            <h2 class="text-xl text-gray-600 mb-4">Standard 12: Understanding Gambling Risks</h2>
+            
+            <div class="flex gap-3 mb-6">
+                <span class="badge badge-blue">
+                    <i class="fas fa-clock mr-2"></i>45 Minutes
+                </span>
+                <span class="badge badge-green">
+                    <i class="fas fa-calculator mr-2"></i>Calculations
+                </span>
+                <span class="badge badge-yellow">
+                    <i class="fas fa-file-alt mr-2"></i>Analysis
+                </span>
+            </div>
+
+            <p class="text-gray-700 text-lg mb-4">
+                In this capstone project, you will analyze gambling scenarios through mathematical probability, 
+                expected value calculations, and risk assessment. You'll evaluate gambling activities as forms 
+                of entertainment while understanding their financial implications and potential risks.
+            </p>
+
+            <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                <h3 class="font-semibold text-blue-900 mb-2">What You'll Need:</h3>
+                <ul class="text-blue-800 space-y-1">
+                    <li><i class="fas fa-calculator mr-2"></i>Calculator</li>
+                    <li><i class="fas fa-file-alt mr-2"></i>Worksheet or digital document</li>
+                    <li><i class="fas fa-brain mr-2"></i>Your thinking cap!</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Project Tasks -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Project Tasks</h2>
+            
+            <div class="task-card analysis mb-6">
+                <h3 class="font-semibold text-gray-800 mb-3">Task 1: Probability Analysis (15 minutes)</h3>
+                <p class="text-gray-700 mb-4">Let's analyze the mathematical probabilities and expected values of different gambling activities:</p>
+                <ul class="text-gray-700 space-y-2">
+                    <li><i class="fas fa-angle-right mr-2"></i>Calculate probabilities for common casino games</li>
+                    <li><i class="fas fa-angle-right mr-2"></i>Determine expected values for different bets</li>
+                    <li><i class="fas fa-angle-right mr-2"></i>Compare house edges across games</li>
+                    <li><i class="fas fa-angle-right mr-2"></i>Identify games with best/worst odds</li>
+                </ul>
+            </div>
+
+            <div class="task-card planning mb-6">
+                <h3 class="font-semibold text-gray-800 mb-3">Task 2: Risk Assessment (15 minutes)</h3>
+                <p class="text-gray-700 mb-4">Figure out the potential risks and their impact:</p>
+                <ul class="text-gray-700 space-y-2">
+                    <li><i class="fas fa-angle-right mr-2"></i>Identify financial risks of different games</li>
+                    <li><i class="fas fa-angle-right mr-2"></i>Calculate potential losses over time</li>
+                    <li><i class="fas fa-angle-right mr-2"></i>Assess psychological risk factors</li>
+                    <li><i class="fas fa-angle-right mr-2"></i>Evaluate impact on personal/family finances</li>
+                </ul>
+            </div>
+
+            <div class="task-card strategy mb-6">
+                <h3 class="font-semibold text-gray-800 mb-3">Task 3: Responsible Gambling Plan (15 minutes)</h3>
+                <p class="text-gray-700 mb-4">Create a plan for responsible gambling:</p>
+                <ul class="text-gray-700 space-y-2">
+                    <li><i class="fas fa-angle-right mr-2"></i>Set clear budget limits</li>
+                    <li><i class="fas fa-angle-right mr-2"></i>Establish time management rules</li>
+                    <li><i class="fas fa-angle-right mr-2"></i>Define risk mitigation strategies</li>
+                    <li><i class="fas fa-angle-right mr-2"></i>Plan for monitoring and adjustment</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Scenarios -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Project Scenarios</h2>
+            
+            <!-- Scenario 1: Understanding Game Odds -->
+            <div class="task-card analysis mb-8">
+                <h3 class="font-semibold text-gray-800 mb-3">Scenario 1: Understanding Game Odds</h3>
+                <p class="text-gray-700 mb-4">
+                    Your friend is curious about how gambling games work and has asked you to help explain 
+                    the math behind them. Using what you've learned about probability, let's analyze some 
+                    common games to understand why "the house always wins."
+                </p>
+
+                <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                    <h5 class="font-medium text-blue-900 mb-2">Key Probability Concepts</h5>
+                    <ul class="list-disc list-inside text-blue-800 mb-3">
+                        <li>Probability = Number of favorable outcomes ÷ Total number of possible outcomes</li>
+                        <li>Expected Value = (Probability × Win Amount) - (Probability of Loss × Loss Amount)</li>
+                        <li>Example: Flipping a coin
+                            <ul class="list-disc list-inside ml-4">
+                                <li>Probability of heads = 1 ÷ 2 = 0.5 or 50%</li>
+                                <li>If you win $2 on heads and lose $1 on tails:</li>
+                                <li>Expected Value = (0.5 × $2) - (0.5 × $1) = $1 - $0.50 = $0.50</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="response-area">
+                        <h4 class="font-medium text-gray-800 mb-2">Game Examples</h4>
+                        
+                        <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                            <h5 class="font-medium text-blue-900 mb-2">Simple Dice Game</h5>
+                            <ul class="list-disc list-inside text-blue-800 mb-3">
+                                <li>Roll two dice</li>
+                                <li>Win $5 if you roll a 7</li>
+                                <li>Win $2 if you roll an 11</li>
+                                <li>Costs $1 to play</li>
+                                <li>Example calculation:
+                                    <ul class="list-disc list-inside ml-4">
+                                        <li>Ways to roll a 7: (1,6), (2,5), (3,4), (4,3), (5,2), (6,1) = 6 ways</li>
+                                        <li>Total possible outcomes: 6 × 6 = 36</li>
+                                        <li>Probability of rolling 7 = 6/36 = 1/6</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-green-50 p-4 rounded-lg mb-4">
+                            <h5 class="font-medium text-green-900 mb-2">Coin Flip Game</h5>
+                            <ul class="list-disc list-inside text-green-800 mb-3">
+                                <li>Flip three coins</li>
+                                <li>Win $8 if all three are heads</li>
+                                <li>Win $1 if two are heads</li>
+                                <li>Costs $1 to play</li>
+                                <li>Example calculation:
+                                    <ul class="list-disc list-inside ml-4">
+                                        <li>Probability of all heads = 1/2 × 1/2 × 1/2 = 1/8</li>
+                                        <li>Ways to get exactly two heads: (H,H,T), (H,T,H), (T,H,H) = 3 ways</li>
+                                        <li>Probability of two heads = 3/8</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-yellow-50 p-4 rounded-lg mb-4">
+                            <h5 class="font-medium text-yellow-900 mb-2">Number Guessing Game</h5>
+                            <ul class="list-disc list-inside text-yellow-800 mb-3">
+                                <li>Pick a number between 1-10</li>
+                                <li>Win $9 if you guess correctly</li>
+                                <li>Costs $1 to play</li>
+                                <li>Example calculation:
+                                    <ul class="list-disc list-inside ml-4">
+                                        <li>Only one correct number out of ten possible numbers</li>
+                                        <li>Probability = 1/10 = 0.10 or 10%</li>
+                                        <li>Expected Value = (0.1 × $9) - (0.9 × $1)</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="calculation-field">
+                            <p class="text-sm text-gray-500 mb-2">Your Analysis:</p>
+                            <ol class="list-decimal list-inside text-gray-700 mb-4">
+                                <li>For each game:
+                                    <ul class="list-disc list-inside ml-4">
+                                        <li>List all possible outcomes</li>
+                                        <li>Count favorable outcomes</li>
+                                        <li>Calculate probability of winning</li>
+                                        <li>Calculate expected value per play</li>
+                                    </ul>
+                                </li>
+                                <li>If you played 100 times, how much would you expect to win or lose?</li>
+                                <li>Which game gives you the best odds? Why?</li>
+                                <li>Explain why these games favor the house</li>
+                            </ol>
+                            <textarea class="w-full p-2 border rounded" rows="8" placeholder="Show your work and explain your thinking..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scenario 2: State Lottery -->
+            <div class="task-card planning mb-8">
+                <h3 class="font-semibold text-gray-800 mb-3">Scenario 2: State Lottery</h3>
+                <p class="text-gray-700 mb-4">
+                    You've probably seen lottery tickets being sold at stores. Let's look at how the lottery 
+                    works and why it's important to understand the odds before spending money on tickets.
+                </p>
+                
+                <div class="space-y-4">
+                    <div class="response-area">
+                        <h4 class="font-medium text-gray-800 mb-2">Lottery Game Details</h4>
+                        
+                        <div class="bg-purple-50 p-4 rounded-lg mb-4">
+                            <h5 class="font-medium text-purple-900 mb-2">How It Works</h5>
+                            <ul class="list-disc list-inside text-purple-800 mb-3">
+                                <li>Pick 3 numbers (0-9)</li>
+                                <li>Each ticket costs $1</li>
+                                <li>Win $500 if you match all numbers in order</li>
+                                <li>Win $80 if you match all numbers in any order</li>
+                                <li>Win $10 if you match two numbers</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-indigo-50 p-4 rounded-lg mb-4">
+                            <h5 class="font-medium text-indigo-900 mb-2">Example Spending</h5>
+                            <ul class="list-disc list-inside text-indigo-800">
+                                <li>Someone spends $5 every week on tickets</li>
+                                <li>That's about $260 per year</li>
+                                <li>Could buy:
+                                    <ul class="list-disc list-inside ml-4">
+                                        <li>A new gaming console</li>
+                                        <li>Several months of streaming services</li>
+                                        <li>New clothes or shoes</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="calculation-field">
+                            <p class="text-sm text-gray-500 mb-2">Your Analysis:</p>
+                            <ol class="list-decimal list-inside text-gray-700 mb-4">
+                                <li>What are the odds of winning each prize?</li>
+                                <li>How much would someone expect to lose in a year?</li>
+                                <li>What else could they do with that money?</li>
+                                <li>Why do you think people still play despite the odds?</li>
+                            </ol>
+                            <textarea class="w-full p-2 border rounded" rows="6" placeholder="Show your calculations and explain your thinking..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scenario 3: Making Smart Choices -->
+            <div class="task-card strategy">
+                <h3 class="font-semibold text-gray-800 mb-3">Scenario 3: Making Smart Choices</h3>
+                <p class="text-gray-700 mb-4">
+                    Your friend Sara just got her first part-time job making $12 per hour, working 15 hours 
+                    per week. She's excited about having her own money and is thinking about buying some 
+                    lottery tickets or trying some gambling games online. Help her make smart decisions about 
+                    her money.
+                </p>
+                
+                <div class="space-y-4">
+                    <div class="response-area">
+                        <h4 class="font-medium text-gray-800 mb-2">Sara's Situation</h4>
+                        
+                        <div class="bg-teal-50 p-4 rounded-lg mb-4">
+                            <h5 class="font-medium text-teal-900 mb-2">Monthly Money</h5>
+                            <ul class="list-disc list-inside text-teal-800">
+                                <li>Income: About $720 per month</li>
+                                <li>Wants to:
+                                    <ul class="list-disc list-inside ml-4">
+                                        <li>Save for a car ($5000 goal)</li>
+                                        <li>Have money for food and movies with friends</li>
+                                        <li>Start saving for college</li>
+                                        <li>Buy some new clothes</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-red-50 p-4 rounded-lg mb-4">
+                            <h5 class="font-medium text-red-900 mb-2">Gambling Interest</h5>
+                            <ul class="list-disc list-inside text-red-800">
+                                <li>Thinking of spending $20/week on games</li>
+                                <li>Saw someone win $500 online</li>
+                                <li>Friends say it's an easy way to make money</li>
+                            </ul>
+                        </div>
+
+                        <div class="calculation-field">
+                            <p class="text-sm text-gray-500 mb-2">Help Sara Make a Plan:</p>
+                            <ol class="list-decimal list-inside text-gray-700 mb-4">
+                                <li>Calculate how long it would take to save for the car:
+                                    <ul class="list-disc list-inside ml-4">
+                                        <li>Without gambling</li>
+                                        <li>If spending $20/week on games</li>
+                                    </ul>
+                                </li>
+                                <li>List better ways to use the $20/week</li>
+                                <li>Explain the risks of gambling to Sara</li>
+                                <li>Suggest fun alternatives within her budget</li>
+                            </ol>
+                            <textarea class="w-full p-2 border rounded" rows="6" placeholder="Show your calculations and write your advice to Sara..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submission Requirements -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+                <i class="fas fa-file-upload text-green-600 mr-2"></i>Submission Requirements
+            </h2>
+            <div class="space-y-4">
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <h3 class="font-semibold text-gray-800 mb-2">Format Requirements:</h3>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>Show all probability and expected value calculations</li>
+                        <li>Include detailed risk assessments</li>
+                        <li>Provide clear, actionable recommendations</li>
+                        <li>Use proper mathematical notation</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <h3 class="font-semibold text-gray-800 mb-2">Required Components:</h3>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>Probability analysis for all scenarios</li>
+                        <li>Financial risk assessment</li>
+                        <li>Psychological risk evaluation</li>
+                        <li>Comprehensive responsible gambling plan</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Evaluation Criteria -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+                <i class="fas fa-star text-yellow-600 mr-2"></i>Evaluation Criteria
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-blue-50 rounded-lg p-4 border border-blue-100">
+                    <h3 class="font-semibold text-blue-900 mb-2">Mathematical Analysis (35%)</h3>
+                    <ul class="text-blue-800 space-y-2">
+                        <li><i class="fas fa-check-circle mr-2"></i>Probability calculations</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Expected value analysis</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Financial projections</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Statistical accuracy</li>
+                    </ul>
+                </div>
+                <div class="bg-green-50 rounded-lg p-4 border border-green-100">
+                    <h3 class="font-semibold text-green-900 mb-2">Risk Assessment (35%)</h3>
+                    <ul class="text-green-800 space-y-2">
+                        <li><i class="fas fa-check-circle mr-2"></i>Financial risk analysis</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Psychological evaluation</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Impact assessment</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Warning sign identification</li>
+                    </ul>
+                </div>
+                <div class="bg-yellow-50 rounded-lg p-4 border border-yellow-100">
+                    <h3 class="font-semibold text-yellow-900 mb-2">Planning (30%)</h3>
+                    <ul class="text-yellow-800 space-y-2">
+                        <li><i class="fas fa-check-circle mr-2"></i>Budget development</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Implementation strategy</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Monitoring plan</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Resource identification</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

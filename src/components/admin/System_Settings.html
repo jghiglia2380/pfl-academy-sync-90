@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Settings - PFL Academy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f9fafb;
+        }
+        
+        .settings-card {
+            transition: all 0.3s ease;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .settings-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 48px;
+            height: 24px;
+        }
+        
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+        
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .toggle-slider {
+            background-color: #4f46e5;
+        }
+        
+        input:checked + .toggle-slider:before {
+            transform: translateX(24px);
+        }
+
+        /* Color picker styles */
+        .color-picker {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 50px;
+            height: 30px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+        .color-picker::-webkit-color-swatch {
+            border-radius: 5px;
+            border: 1px solid #e5e7eb;
+        }
+        .color-picker::-moz-color-swatch {
+            border-radius: 5px;
+            border: 1px solid #e5e7eb;
+        }
+
+        /* Custom file input */
+        .custom-file-input {
+            position: relative;
+            display: inline-block;
+        }
+        .custom-file-input input[type="file"] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        /* Help tooltip */
+        .help-tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .help-tooltip .tooltip-text {
+            visibility: hidden;
+            width: 200px;
+            background-color: #374151;
+            color: white;
+            text-align: center;
+            border-radius: 6px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.75rem;
+            line-height: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .help-tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="flex items-center">
+                        <div class="flex justify-center items-center h-10 w-10 rounded bg-indigo-600 text-white font-bold">
+                            PFL
+                        </div>
+                        <span class="ml-3 text-xl font-bold text-gray-900">PFL Academy</span>
+                    </div>
+                    <nav class="hidden md:flex items-center space-x-8 ml-10">
+                        <a href="#" class="text-gray-700 font-medium hover:text-indigo-600 text-sm">Home</a>
+                        <a href="/curriculum" class="text-gray-700 font-medium hover:text-indigo-600 text-sm">Curriculum</a>
+                        <a href="/users" class="text-gray-700 font-medium hover:text-indigo-600 text-sm">Users</a>
+                        <a href="/analytics" class="text-gray-700 font-medium hover:text-indigo-600 text-sm">Analytics</a>
+                        <a href="#" class="text-indigo-600 font-medium text-sm">System</a>
+                    </nav>
+                </div>
+                <div class="flex items-center">
+                    <div class="flex items-center text-gray-700">
+                        <span class="hidden md:inline-block mr-2 text-sm">District Admin</span>
+                        <div class="relative">
+                            <button class="flex items-center justify-center rounded-full bg-indigo-100 h-8 w-8 focus:outline-none">
+                                <span class="text-sm font-medium text-indigo-800">DA</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="bg-white border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="flex-1 min-w-0">
+                    <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl">System Settings</h1>
+                    <p class="mt-2 text-gray-600">Configure global platform settings, integrations, and customization options.</p>
+                </div>
+                <div class="mt-4 md:mt-0 md:ml-4 flex space-x-3">
+                    <button class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <i class="fa-solid fa-rotate-left mr-2"></i>
+                        Reset to Defaults
+                    </button>
+                    <button id="saveSettingsBtn" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <i class="fa-solid fa-save mr-2"></i>
+                        Save Changes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <!-- Settings Tabs -->
+        <div class="mb-6">
+            <div class="hidden sm:block">
+                <div class="border-b border-gray-200">
+                    <nav class="-mb-px flex space-x-8" aria-label="Tabs">
+                        <a href="#" class="border-indigo-500 text-indigo-600 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" data-tab="account" aria-current="page">
+                            Account & Authentication
+                        </a>
+                        <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" data-tab="platform">
+                            Platform Configuration
+                        </a>
+                        <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" data-tab="integration">
+                            Integration Settings
+                        </a>
+                        <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" data-tab="notification">
+                            Notification Configuration
+                        </a>
+                        <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" data-tab="data">
+                            Data Management
+                        </a>
+                        <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" data-tab="branding">
+                            Branding & Customization
+                        </a>
+                    </nav>
+                </div>
+            </div>
+            
+            <!-- Mobile dropdown selector for tabs -->
+            <div class="sm:hidden">
+                <label for="tabs" class="sr-only">Select a tab</label>
+                <select id="tabs" name="tabs" class="block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500">
+                    <option value="account">Account & Authentication</option>
+                    <option value="platform">Platform Configuration</option>
+                    <option value="integration">Integration Settings</option>
+                    <option value="notification">Notification Configuration</option>
+                    <option value="data">Data Management</option>
+                    <option value="branding">Branding & Customization</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Tab Content: Account & Authentication -->
+        <div class="tab-content active" id="account-tab">
+            <div class="grid grid-cols-1 gap-6">
+                <!-- User Roles & Permissions -->
+                <div class="settings-card bg-white p-5 border border-gray-200">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">User Roles & Permissions</h3>
+                    
+                    <div class="overflow-hidden">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Role
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Content Access
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        User Management
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Settings Access
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Analytics Access
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Actions
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <!-- District Admin Role -->
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm font-medium text-gray-900">District Admin</div>
+                                        <div class="text-xs text-gray-500">Highest access level</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="text-sm text-gray-900">Full Access</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="text-sm text-gray-900">Full Access</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="text-sm text-gray-900">Full Access</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="text-sm text-gray-900">Full Access</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                        <button class="text-indigo-600 hover:text-indigo-900">Edit</button>
+                                    </td>
+                                </tr>
+                                
+                                <!-- School Admin Role -->
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm font-medium text-gray-900">School Admin</div>
+                                        <div class="text-xs text-gray-500">School-level access</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="text-sm text-gray-900">School Content</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="text-sm text-gray-900">School Users</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="text-sm text-gray-900">Limited Access</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="text-sm text-gray-900">School Analytics</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                        <button class="text-indigo-600 hover:text-indigo-900">Edit</button>
+                                    </td>
+                                </tr>
+                                
+                                <!-- Teacher Role -->
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm font-medium text-gray-900">Teacher</div>
+                                        <div class="text-xs text-gray-500">Class-level access</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="text-sm text-gray-900">Assigned Classes</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="text-sm text-gray-900">Class Students</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="text-sm text-gray-900">No Access</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="text-sm text-gray-900">Class Analytics</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                        <button class="text-indigo-600 hover:text-indigo-900">Edit</button>
+                                    </td>
+                                </tr>
+                                
+                                <!-- Student Role -->
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm font-medium text-gray-900">Student</div>
+                                        <div class="text-xs text-gray-500">Individual access</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="text-sm text-gray-900">Assigned Content</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="text-sm text-gray-900">No Access</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="text-sm text-gray-900">No Access</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="text-sm text-gray-900">Own Progress</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                        <button class="text-indigo-600 hover:text-indigo-900">Edit</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="mt-4 flex justify-end">
+                        <button class="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                            <i class="fa-solid fa-plus mr-2"></i>
+                            Add Custom Role
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Password Policy -->
+                <div class="settings-card bg-white p-5 border border-gray-200">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">Password Policy</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">
+                                    Minimum Password Length
+                                </label>
+                                <div class="flex items-center">
+                                    <input type="number" min="8" max="30" value="12" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-20 sm:text-sm border-gray-300 rounded-md">
+                                    <span class="ml-2 text-sm text-gray-500">characters</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">
+                                    Password Expiration
+                                </label>
+                                <div class="flex items-center">
+                                    <input type="number" min="0" max="365" value="90" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-20 sm:text-sm border-gray-300 rounded-md">
+                                    <span class="ml-2 text-sm text-gray-500">days (0 = never)</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">
+                                    Failed Login Attempts Before Lockout
+                                </label>
+                                <div class="flex items-center">
+                                    <input type="number" min="1" max="10" value="5" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-20 sm:text-sm border-gray-300 rounded-md">
+                                    <span class="ml-2 text-sm text-gray-500">attempts</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <input id="complexityCheck" type="checkbox" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" checked>
+                                <label for="complexityCheck" class="ml-2 block text-sm text-gray-700">
+                                    Require password complexity (uppercase, lowercase, numbers, special characters)
+                                </label>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <input id="historyCheck" type="checkbox" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" checked>
+                                <label for="historyCheck" class="ml-2 block text-sm text-gray-700">
+                                    Prevent password reuse (last 5 passwords)
+                                </label>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <input id="studentResetCheck" type="checkbox" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" checked>
+                                <label for="studentResetCheck" class="ml-2 block text-sm text-gray-700">
+                                    Allow teachers to reset student passwords
+                                </label>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <input id="selfServiceCheck" type="checkbox" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" checked>
+                                <label for="selfServiceCheck" class="ml-2 block text-sm text-gray-700">
+                                    Enable self-service password reset
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Single Sign-On Configuration -->
+                <div class="settings-card bg-white p-5 border border-gray-200">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-medium text-gray-900">Single Sign-On Configuration</h3>
+                        <div class="flex items-center">
+                            <span class="mr-2 text-sm text-gray-700">Enable SSO</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Google SSO -->
+                        <div class="border rounded-lg p-4">
+                            <div class="flex justify-between items-center mb-3">
+                                <div class="flex items-center">
+                                    <div class="h-8 w-8 rounded-full bg-white border border-gray-200 flex items-center justify-center mr-2">
+                                        <i class="fa-brands fa-google text-red-500"></i>
+                                    </div>
+                                    <h4 class="text-sm font-medium text-gray-900">Google</h4>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="space-y-3 mt-4">
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-700 mb-1">Client ID</label>
+                                    <input type="text" value="123456789012-abcdefg.apps.googleusercontent.com" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-700 mb-1">Client Secret</label>
+                                    <input type="password" value="•••••••••••••••••" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                </div>
+                                <button class="text-xs text-indigo-600 font-medium">Test Connection</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Microsoft SSO -->
+                        <div class="border rounded-lg p-4">
+                            <div class="flex justify-between items-center mb-3">
+                                <div class="flex items-center">
+                                    <div class="h-8 w-8 rounded-full bg-white border border-gray-200 flex items-center justify-center mr-2">
+                                        <i class="fa-brands fa-microsoft text-blue-500"></i>
+                                    </div>
+                                    <h4 class="text-sm font-medium text-gray-900">Microsoft</h4>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="space-y-3 mt-4">
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-700 mb-1">Client ID</label>
+                                    <input type="text" value="12345678-1234-1234-1234-123456789012" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-700 mb-1">Client Secret</label>
+                                    <input type="password" value="•••••••••••••••••" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                </div>
+                                <button class="text-xs text-indigo-600 font-medium">Test Connection</button>
+                            </div>
+                        </div>
+                        
+                        <!-- SAML SSO -->
+                        <div class="border rounded-lg p-4">
+                            <div class="flex justify-between items-center mb-3">
+                                <div class="flex items-center">
+                                    <div class="h-8 w-8 rounded-full bg-white border border-gray-200 flex items-center justify-center mr-2">
+                                        <i class="fa-solid fa-key text-yellow-500"></i>
+                                    </div>
+                                    <h4 class="text-sm font-medium text-gray-900">Custom SAML</h4>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="space-y-3 mt-4 opacity-50">
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-700 mb-1">Identity Provider URL</label>
+                                    <input type="text" placeholder="https://idp.example.com/saml" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" disabled>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-700 mb-1">Certificate</label>
+                                    <div class="mt-1 flex">
+                                        <div class="custom-file-input">
+                                            <button class="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-sm text-xs leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50" disabled>
+                                                <i class="fa-solid fa-upload mr-1"></i>
+                                                Upload Certificate
+                                            </button>
+                                            <input type="file" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="text-xs text-gray-400 font-medium cursor-not-allowed">Configure SAML</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Multi-Factor Authentication -->
+                <div class="settings-

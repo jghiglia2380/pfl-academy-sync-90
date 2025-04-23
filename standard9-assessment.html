@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standard 9 - Investment and Savings Planning</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .response-area {
+            @apply bg-white p-6 rounded-lg shadow-sm border border-gray-200 mb-6;
+        }
+        .calculation-field {
+            @apply mt-4;
+        }
+        .calculation-field textarea {
+            @apply w-full p-3 border border-gray-300 rounded-md mt-2;
+        }
+        .hint {
+            @apply text-sm text-gray-500 mt-2;
+        }
+        .investment-option {
+            @apply bg-white p-4 rounded-lg shadow-sm border border-gray-200;
+        }
+        .scenario-card {
+            @apply bg-white p-4 rounded-lg shadow-sm border border-gray-200;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <header class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-800">Standard 9 - Investment and Savings Planning</h1>
+            <p class="text-gray-600 mt-2">Analyze investment options and develop comprehensive savings strategies</p>
+        </header>
+
+        <!-- Investment Analysis Section -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">1. Investment Analysis</h2>
+            
+            <!-- Investment Options -->
+            <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                <h4 class="font-medium text-gray-800 mb-4">Investment Options</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="investment-option">
+                        <h5 class="font-medium text-blue-800 mb-3">Stocks</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-chart-line text-green-500 mt-1 mr-2"></i>
+                                <span>Expected Return: 7-10%</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-exclamation-triangle text-red-500 mt-1 mr-2"></i>
+                                <span>Risk Level: High</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-dollar-sign text-yellow-500 mt-1 mr-2"></i>
+                                <span>Minimum Investment: $100</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="investment-option">
+                        <h5 class="font-medium text-blue-800 mb-3">Bonds</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-chart-line text-green-500 mt-1 mr-2"></i>
+                                <span>Expected Return: 3-5%</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-exclamation-triangle text-yellow-500 mt-1 mr-2"></i>
+                                <span>Risk Level: Low</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-dollar-sign text-yellow-500 mt-1 mr-2"></i>
+                                <span>Minimum Investment: $1,000</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="investment-option">
+                        <h5 class="font-medium text-blue-800 mb-3">Mutual Funds</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-chart-line text-green-500 mt-1 mr-2"></i>
+                                <span>Expected Return: 5-8%</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-exclamation-triangle text-orange-500 mt-1 mr-2"></i>
+                                <span>Risk Level: Medium</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-dollar-sign text-yellow-500 mt-1 mr-2"></i>
+                                <span>Minimum Investment: $500</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analysis Sections -->
+            <div class="response-area">
+                <label class="block">
+                    <i class="fas fa-calculator"></i>
+                    1.1 Investment Option Analysis
+                </label>
+                <div class="calculation-field">
+                    <p>
+                        <i class="fas fa-pencil-alt"></i>
+                        Analyze each investment option:
+                    </p>
+                    <textarea rows="4" placeholder="Calculate and analyze the potential returns and risks for each investment option..."></textarea>
+                    <div class="hint">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Consider factors such as expected returns, risk levels, and investment minimums
+                    </div>
+                </div>
+            </div>
+
+            <div class="response-area">
+                <label class="block">
+                    <i class="fas fa-shield-alt"></i>
+                    1.2 Risk Assessment
+                </label>
+                <div class="calculation-field">
+                    <p>
+                        <i class="fas fa-pencil-alt"></i>
+                        Evaluate risk factors:
+                    </p>
+                    <textarea rows="4" placeholder="Assess the risk factors associated with each investment option..."></textarea>
+                    <div class="hint">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Consider market volatility, economic conditions, and personal risk tolerance
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Retirement Planning Section -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">2. Retirement Planning</h2>
+            
+            <!-- Retirement Scenarios -->
+            <div class="bg-green-50 p-4 rounded-lg mb-6">
+                <h4 class="font-medium text-gray-800 mb-4">Retirement Scenarios</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="scenario-card">
+                        <h5 class="font-medium text-blue-800 mb-3">Early Career</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-user text-purple-500 mt-1 mr-2"></i>
+                                <span>Current Age: 25</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-piggy-bank text-green-500 mt-1 mr-2"></i>
+                                <span>Current Savings: $0</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-plus-circle text-orange-500 mt-1 mr-2"></i>
+                                <span>Annual Contribution: $6,000</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="scenario-card">
+                        <h5 class="font-medium text-blue-800 mb-3">Mid Career</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-user text-purple-500 mt-1 mr-2"></i>
+                                <span>Current Age: 35</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-piggy-bank text-green-500 mt-1 mr-2"></i>
+                                <span>Current Savings: $50,000</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-plus-circle text-orange-500 mt-1 mr-2"></i>
+                                <span>Annual Contribution: $12,000</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="scenario-card">
+                        <h5 class="font-medium text-blue-800 mb-3">Late Career</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-user text-purple-500 mt-1 mr-2"></i>
+                                <span>Current Age: 45</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-piggy-bank text-green-500 mt-1 mr-2"></i>
+                                <span>Current Savings: $150,000</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-plus-circle text-orange-500 mt-1 mr-2"></i>
+                                <span>Annual Contribution: $18,000</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analysis Sections -->
+            <div class="response-area">
+                <label class="block">
+                    <i class="fas fa-calculator"></i>
+                    2.1 Scenario Analysis
+                </label>
+                <div class="calculation-field">
+                    <p>
+                        <i class="fas fa-pencil-alt"></i>
+                        Analyze each retirement scenario:
+                    </p>
+                    <textarea rows="4" placeholder="Calculate and analyze the retirement savings potential for each scenario..."></textarea>
+                    <div class="hint">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Consider factors such as compound growth, inflation, and retirement duration
+                    </div>
+                </div>
+            </div>
+
+            <div class="response-area">
+                <label class="block">
+                    <i class="fas fa-piggy-bank"></i>
+                    2.2 Savings Strategy
+                </label>
+                <div class="calculation-field">
+                    <p>
+                        <i class="fas fa-pencil-alt"></i>
+                        Develop a savings strategy:
+                    </p>
+                    <textarea rows="4" placeholder="Outline a comprehensive savings strategy for each scenario..."></textarea>
+                    <div class="hint">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Consider contribution amounts, investment vehicles, and tax implications
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Planning Section -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">3. Education Planning</h2>
+            
+            <!-- Education Scenarios -->
+            <div class="bg-purple-50 p-4 rounded-lg mb-6">
+                <h4 class="font-medium text-gray-800 mb-4">Education Scenarios</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="scenario-card">
+                        <h5 class="font-medium text-blue-800 mb-3">Public University</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-graduation-cap text-purple-500 mt-1 mr-2"></i>
+                                <span>Annual Cost: $25,000</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-clock text-blue-500 mt-1 mr-2"></i>
+                                <span>Years Until College: 10</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-chart-line text-green-500 mt-1 mr-2"></i>
+                                <span>Inflation Rate: 5%</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="scenario-card">
+                        <h5 class="font-medium text-blue-800 mb-3">Private University</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-graduation-cap text-purple-500 mt-1 mr-2"></i>
+                                <span>Annual Cost: $50,000</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-clock text-blue-500 mt-1 mr-2"></i>
+                                <span>Years Until College: 10</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-chart-line text-green-500 mt-1 mr-2"></i>
+                                <span>Inflation Rate: 5%</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="scenario-card">
+                        <h5 class="font-medium text-blue-800 mb-3">Community College</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-graduation-cap text-purple-500 mt-1 mr-2"></i>
+                                <span>Annual Cost: $10,000</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-clock text-blue-500 mt-1 mr-2"></i>
+                                <span>Years Until College: 10</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-chart-line text-green-500 mt-1 mr-2"></i>
+                                <span>Inflation Rate: 5%</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analysis Sections -->
+            <div class="response-area">
+                <label class="block">
+                    <i class="fas fa-calculator"></i>
+                    3.1 Cost Analysis
+                </label>
+                <div class="calculation-field">
+                    <p>
+                        <i class="fas fa-pencil-alt"></i>
+                        Analyze education costs:
+                    </p>
+                    <textarea rows="4" placeholder="Calculate and analyze the total cost for each education scenario..."></textarea>
+                    <div class="hint">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Consider tuition, fees, room and board, and inflation
+                    </div>
+                </div>
+            </div>
+
+            <div class="response-area">
+                <label class="block">
+                    <i class="fas fa-piggy-bank"></i>
+                    3.2 Savings Plan
+                </label>
+                <div class="calculation-field">
+                    <p>
+                        <i class="fas fa-pencil-alt"></i>
+                        Develop a savings plan:
+                    </p>
+                    <textarea rows="4" placeholder="Outline a comprehensive savings plan for education..."></textarea>
+                    <div class="hint">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Consider savings vehicles, contribution amounts, and investment strategies
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Emergency Fund Section -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">4. Emergency Fund</h2>
+            
+            <!-- Emergency Fund Scenarios -->
+            <div class="bg-yellow-50 p-4 rounded-lg mb-6">
+                <h4 class="font-medium text-gray-800 mb-4">Emergency Fund Scenarios</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="scenario-card">
+                        <h5 class="font-medium text-blue-800 mb-3">Single Income</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-home text-purple-500 mt-1 mr-2"></i>
+                                <span>Monthly Expenses: $3,000</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-bullseye text-blue-500 mt-1 mr-2"></i>
+                                <span>Target Months: 6</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-piggy-bank text-green-500 mt-1 mr-2"></i>
+                                <span>Current Savings: $5,000</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="scenario-card">
+                        <h5 class="font-medium text-blue-800 mb-3">Dual Income</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-home text-purple-500 mt-1 mr-2"></i>
+                                <span>Monthly Expenses: $5,000</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-bullseye text-blue-500 mt-1 mr-2"></i>
+                                <span>Target Months: 6</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-piggy-bank text-green-500 mt-1 mr-2"></i>
+                                <span>Current Savings: $10,000</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="scenario-card">
+                        <h5 class="font-medium text-blue-800 mb-3">Family with Children</h5>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-home text-purple-500 mt-1 mr-2"></i>
+                                <span>Monthly Expenses: $7,000</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-bullseye text-blue-500 mt-1 mr-2"></i>
+                                <span>Target Months: 6</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-piggy-bank text-green-500 mt-1 mr-2"></i>
+                                <span>Current Savings: $15,000</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analysis Sections -->
+            <div class="response-area">
+                <label class="block">
+                    <i class="fas fa-calculator"></i>
+                    4.1 Fund Analysis
+                </label>
+                <div class="calculation-field">
+                    <p>
+                        <i class="fas fa-pencil-alt"></i>
+                        Analyze emergency fund needs:
+                    </p>
+                    <textarea rows="4" placeholder="Calculate and analyze the emergency fund requirements for each scenario..."></textarea>
+                    <div class="hint">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Consider monthly expenses, target months, and current savings
+                    </div>
+                </div>
+            </div>
+
+            <div class="response-area">
+                <label class="block">
+                    <i class="fas fa-piggy-bank"></i>
+                    4.2 Savings Strategy
+                </label>
+                <div class="calculation-field">
+                    <p>
+                        <i class="fas fa-pencil-alt"></i>
+                        Develop a savings strategy:
+                    </p>
+                    <textarea rows="4" placeholder="Outline a comprehensive strategy for building emergency funds..."></textarea>
+                    <div class="hint">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Consider savings vehicles, contribution amounts, and liquidity needs
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Submission Controls -->
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <div class="flex justify-between items-center">
+                <button class="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600">
+                    <i class="fas fa-save mr-2"></i>
+                    Save Draft
+                </button>
+                <button class="bg-green-500 text-white px-6 py-2 rounded-md hover:bg-green-600">
+                    <i class="fas fa-paper-plane mr-2"></i>
+                    Submit Assessment
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

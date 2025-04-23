@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standard 14 Capstone Project - Charitable Giving and Financial Planning</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --primary-indigo: #4f46e5;
+            --primary-purple: #7c3aed;
+            --accent-green: #059669;
+            --accent-yellow: #d97706;
+            --neutral-50: #f8fafc;
+            --neutral-100: #f1f5f9;
+            --neutral-200: #e2e8f0;
+            --neutral-700: #334155;
+            --neutral-800: #1e293b;
+            --neutral-900: #0f172a;
+        }
+
+        body { 
+            background: linear-gradient(135deg, var(--neutral-50) 0%, var(--neutral-100) 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--neutral-800);
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border: 1px solid var(--neutral-200);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .badge-blue { 
+            background-color: #dbeafe; 
+            color: var(--primary-blue);
+            border: 1px solid #bfdbfe;
+        }
+
+        .badge-green { 
+            background-color: #dcfce7; 
+            color: var(--accent-green);
+            border: 1px solid #bbf7d0;
+        }
+
+        .badge-yellow { 
+            background-color: #fef3c7; 
+            color: var(--accent-yellow);
+            border: 1px solid #fde68a;
+        }
+
+        .task-card {
+            border-left: 4px solid;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .task-card.evaluation { 
+            border-color: var(--primary-blue);
+            background: linear-gradient(to right, #f0f7ff, white);
+        }
+
+        .task-card.planning { 
+            border-color: var(--accent-green);
+            background: linear-gradient(to right, #f0fdf4, white);
+        }
+
+        .task-card.impact { 
+            border-color: var(--primary-purple);
+            background: linear-gradient(to right, #f5f3ff, white);
+        }
+
+        .response-area {
+            border: 2px solid var(--neutral-200);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            margin: 1rem 0;
+            background: white;
+        }
+
+        .calculation-field {
+            font-family: monospace;
+            background: var(--neutral-50);
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            margin: 0.75rem 0;
+        }
+
+        .hint {
+            color: var(--neutral-700);
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .hint i {
+            margin-right: 0.5rem;
+            color: var(--primary-blue);
+        }
+
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .matrix-table th, .matrix-table td {
+            border: 1px solid var(--neutral-200);
+            padding: 0.75rem;
+        }
+
+        .matrix-table th {
+            background: var(--neutral-50);
+            font-weight: 600;
+        }
+
+        .submit-final {
+            background: var(--primary-blue);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .submit-final:hover {
+            background: #1d4ed8;
+        }
+
+        .chart-container {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            margin: 1rem 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .student-connection {
+            background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+            border: 1px solid #fed7aa;
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+
+        .impact-card {
+            border: 1px solid var(--neutral-200);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            margin: 1rem 0;
+            background: white;
+            transition: transform 0.2s;
+        }
+
+        .impact-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="max-w-5xl mx-auto">
+        <!-- Project Header -->
+        <div class="project-card">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Strategic Giving Project</h1>
+            <p class="text-xl text-gray-600 mb-4">Standard 14: Charitable Giving and Financial Planning</p>
+            <div class="flex gap-2 mb-6">
+                <span class="badge badge-blue">
+                    <i class="fas fa-clock mr-2"></i>45 Minutes
+                </span>
+                <span class="badge badge-green">
+                    <i class="fas fa-file-alt mr-2"></i>Written Analysis
+                </span>
+                <span class="badge badge-yellow">
+                    <i class="fas fa-calculator mr-2"></i>Calculations Required
+                </span>
+            </div>
+            <p class="text-gray-700 text-lg mb-4">
+                In this capstone project, you will demonstrate your understanding of charitable giving and financial planning
+                through comprehensive analysis, critical thinking, and strategic planning. You will evaluate charitable organizations,
+                develop giving strategies, and analyze the impact of your contributions.
+            </p>
+            <div class="bg-blue-50 p-4 rounded-lg">
+                <h3 class="font-semibold text-blue-900 mb-2">Required Materials:</h3>
+                <ul class="text-blue-800 space-y-1">
+                    <li><i class="fas fa-calculator mr-2"></i>Calculator</li>
+                    <li><i class="fas fa-file-alt mr-2"></i>Word processor or paper for written responses</li>
+                    <li><i class="fas fa-table mr-2"></i>Spreadsheet software (optional but recommended)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Add Student Connection Section after Project Header -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+                <i class="fas fa-users text-orange-600 mr-2"></i>Making It Personal
+            </h2>
+            <div class="student-connection">
+                <p class="text-gray-700 mb-4">
+                    Before diving into the analysis, take a moment to reflect on your experiences and interests in community service and giving:
+                </p>
+                <div class="space-y-6">
+                    <!-- Past Experiences Section -->
+                    <div class="bg-white rounded-lg p-4">
+                        <h3 class="font-medium text-gray-800 mb-2">
+                            <i class="fas fa-history text-blue-500 mr-2"></i>Your Service Journey
+                        </h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Past Experiences</label>
+                                <textarea
+                                    class="w-full p-3 border rounded"
+                                    rows="3"
+                                    placeholder="What volunteer or community service activities have you participated in through school or other organizations? If you haven't had the opportunity yet, what types of activities interest you?"
+                                    data-auto-save="true"
+                                    aria-label="Service experience reflection"
+                                ></textarea>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Impact Reflection</label>
+                                <textarea
+                                    class="w-full p-3 border rounded"
+                                    rows="3"
+                                    placeholder="How did your service impact others? How did it impact you? If you haven't volunteered yet, what impact would you like to make?"
+                                    data-auto-save="true"
+                                    aria-label="Impact reflection"
+                                ></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Future Interests Section -->
+                    <div class="bg-white rounded-lg p-4">
+                        <h3 class="font-medium text-gray-800 mb-2">
+                            <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>Your Giving Vision
+                        </h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Causes You Care About</label>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="flex items-center">
+                                        <input type="checkbox" id="education" class="mr-2" data-auto-save="true">
+                                        <label for="education">Education & Youth Development</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" id="environment" class="mr-2" data-auto-save="true">
+                                        <label for="environment">Environmental Conservation</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" id="health" class="mr-2" data-auto-save="true">
+                                        <label for="health">Health & Wellness</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" id="social" class="mr-2" data-auto-save="true">
+                                        <label for="social">Social Justice</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" id="arts" class="mr-2" data-auto-save="true">
+                                        <label for="arts">Arts & Culture</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" id="other" class="mr-2" data-auto-save="true">
+                                        <label for="other">Other</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Ways to Give</label>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="flex items-center">
+                                        <input type="checkbox" id="money" class="mr-2" data-auto-save="true">
+                                        <label for="money">Financial Donations</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" id="time" class="mr-2" data-auto-save="true">
+                                        <label for="time">Volunteer Time</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" id="skills" class="mr-2" data-auto-save="true">
+                                        <label for="skills">Skills & Expertise</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" id="advocacy" class="mr-2" data-auto-save="true">
+                                        <label for="advocacy">Advocacy & Awareness</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Future Giving Goals</label>
+                                <textarea
+                                    class="w-full p-3 border rounded"
+                                    rows="3"
+                                    placeholder="What impact would you like to make in your community? How do you see yourself contributing in the future?"
+                                    data-auto-save="true"
+                                    aria-label="Future giving goals"
+                                ></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Personal Values Section -->
+                    <div class="bg-white rounded-lg p-4">
+                        <h3 class="font-medium text-gray-800 mb-2">
+                            <i class="fas fa-heart text-red-500 mr-2"></i>Your Values
+                        </h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">What matters most to you?</label>
+                                <textarea
+                                    class="w-full p-3 border rounded"
+                                    rows="3"
+                                    placeholder="What values guide your decisions about giving and community involvement? How do you want to make a difference?"
+                                    data-auto-save="true"
+                                    aria-label="Personal values reflection"
+                                ></textarea>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Your Ideal Impact</label>
+                                <textarea
+                                    class="w-full p-3 border rounded"
+                                    rows="3"
+                                    placeholder="Describe the kind of impact you'd like to have on your community. What would success look like to you?"
+                                    data-auto-save="true"
+                                    aria-label="Ideal impact reflection"
+                                ></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Tasks -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Project Tasks</h2>
+            
+            <div class="space-y-6">
+                <!-- Task 1 -->
+                <div class="bg-gradient-to-r from-blue-50 to-white border-l-4 border-blue-500 p-4">
+                    <h3 class="font-semibold text-gray-800">Task 1: Organization Comparison (15 minutes)</h3>
+                    <p class="text-gray-600 mt-2">Compare two youth education organizations using their annual reports.</p>
+                    <ul class="text-gray-700 mt-2 space-y-1">
+                        <li>• Review annual reports and financial statements</li>
+                        <li>• Compare program outcomes and reach</li>
+                        <li>• Evaluate cost per student served</li>
+                        <li>• Assess organizational stability</li>
+                    </ul>
+                </div>
+
+                <!-- Task 2 -->
+                <div class="bg-gradient-to-r from-green-50 to-white border-l-4 border-green-500 p-4">
+                    <h3 class="font-semibold text-gray-800">Task 2: Personal Giving Plan (15 minutes)</h3>
+                    <p class="text-gray-600 mt-2">Create a monthly giving plan with $5,000 annual budget:</p>
+                    <ul class="text-gray-700 mt-2 space-y-1">
+                        <li>• Plan monthly contribution schedule</li>
+                        <li>• Calculate tax deduction benefits</li>
+                        <li>• Balance giving with emergency savings</li>
+                        <li>• Consider volunteer time commitments</li>
+                    </ul>
+                </div>
+
+                <!-- Task 3 -->
+                <div class="bg-gradient-to-r from-purple-50 to-white border-l-4 border-purple-500 p-4">
+                    <h3 class="font-semibold text-gray-800">Task 3: Community Impact (15 minutes)</h3>
+                    <p class="text-gray-600 mt-2">Evaluate the impact of your giving plan:</p>
+                    <ul class="text-gray-700 mt-2 space-y-1">
+                        <li>• Estimate number of students benefited</li>
+                        <li>• Project program hours funded</li>
+                        <li>• Calculate cost-effectiveness</li>
+                        <li>• Assess long-term community benefits</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <form id="capstoneForm" class="max-w-5xl mx-auto">
+            <!-- Scenario 1: Organization Comparison -->
+            <div class="project-card">
+                <div class="task-card evaluation">
+                    <h3 class="font-semibold text-gray-800 mb-2">Scenario 1: Organization Comparison</h3>
+                    <p class="text-gray-600 mb-4">Compare two youth education organizations using their annual reports.</p>
+
+                    <div class="bg-blue-50 rounded-lg p-6">
+                        <h4 class="font-medium text-gray-800 mb-3">Visual Comparison</h4>
+                        <div class="comparison-grid">
+                            <!-- Budget Allocation Chart -->
+                            <div class="chart-container">
+                                <h5 class="font-medium text-gray-800 mb-2">Budget Allocation</h5>
+                                <canvas id="budgetChart"></canvas>
+                            </div>
+                            <!-- Impact Metrics Chart -->
+                            <div class="chart-container">
+                                <h5 class="font-medium text-gray-800 mb-2">Program Impact</h5>
+                                <canvas id="impactChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <h4 class="font-medium text-gray-800 mb-3">Financial Data</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-white p-4 rounded-lg shadow-sm">
+                                    <h5 class="font-medium text-blue-800 mb-3">Future Leaders Initiative (FLI)</h5>
+                                    <ul class="text-sm text-gray-600 space-y-2">
+                                        <li class="flex items-center">
+                                            <i class="fas fa-dollar-sign text-blue-500 w-6"></i>
+                                            <span>Annual Budget: $500,000</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-chart-pie text-blue-500 w-6"></i>
+                                            <span>Program Costs: $400,000</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-building text-blue-500 w-6"></i>
+                                            <span>Admin Costs: $75,000</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-bullhorn text-blue-500 w-6"></i>
+                                            <span>Fundraising: $25,000</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-users text-blue-500 w-6"></i>
+                                            <span>Students: 200 annually</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-clock text-blue-500 w-6"></i>
+                                            <span>Program Hours: 960 per student</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg shadow-sm">
+                                    <h5 class="font-medium text-green-800 mb-3">Community Education Foundation (CEF)</h5>
+                                    <ul class="text-sm text-gray-600 space-y-2">
+                                        <li class="flex items-center">
+                                            <i class="fas fa-dollar-sign text-green-500 w-6"></i>
+                                            <span>Annual Budget: $1,200,000</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-chart-pie text-green-500 w-6"></i>
+                                            <span>Program Costs: $900,000</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-building text-green-500 w-6"></i>
+                                            <span>Admin Costs: $200,000</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-bullhorn text-green-500 w-6"></i>
+                                            <span>Fundraising: $100,000</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-users text-green-500 w-6"></i>
+                                            <span>Students: 500 annually</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-clock text-green-500 w-6"></i>
+                                            <span>Program Hours: 720 per student</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <h4 class="font-medium text-gray-800 mb-3">1.1 Financial Analysis</h4>
+                            <div class="bg-white rounded-lg p-4">
+                                <p class="text-gray-700 mb-4">Using the financial data provided, calculate and compare:</p>
+                                <table class="w-full">
+                                    <thead class="bg-gray-50">
+                                        <tr>
+                                            <th class="text-left p-3">Metric</th>
+                                            <th class="text-left p-3">FLI</th>
+                                            <th class="text-left p-3">CEF</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="border-t">
+                                            <td class="p-3">Program Expense Ratio (%)</td>
+                                            <td class="p-3"><input type="number" step="0.01" class="w-full p-2 border rounded"></td>
+                                            <td class="p-3"><input type="number" step="0.01" class="w-full p-2 border rounded"></td>
+                                        </tr>
+                                        <tr class="border-t">
+                                            <td class="p-3">Cost per Student ($)</td>
+                                            <td class="p-3"><input type="number" step="0.01" class="w-full p-2 border rounded"></td>
+                                            <td class="p-3"><input type="number" step="0.01" class="w-full p-2 border rounded"></td>
+                                        </tr>
+                                        <tr class="border-t">
+                                            <td class="p-3">Cost per Program Hour ($)</td>
+                                            <td class="p-3"><input type="number" step="0.01" class="w-full p-2 border rounded"></td>
+                                            <td class="p-3"><input type="number" step="0.01" class="w-full p-2 border rounded"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <h4 class="font-medium text-gray-800 mb-3">1.2 Program Effectiveness</h4>
+                            <div class="bg-white rounded-lg p-4">
+                                <p class="text-gray-700 mb-4">Compare the effectiveness of each organization's programs:</p>
+                                <textarea
+                                    class="w-full p-3 border rounded"
+                                    rows="4"
+                                    placeholder="Analyze program hours, cost efficiency, and student reach..."
+                                ></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scenario 2: Personal Giving Plan -->
+            <div class="project-card">
+                <div class="task-card planning" data-scaffolding-section="scenario2">
+                    <h3 class="font-semibold text-gray-800 mb-2">Scenario 2: Personal Giving Plan (15 minutes)</h3>
+                    <p class="text-gray-600 mb-4">You are a financial advisor helping a client, Sarah Chen, develop a strategic charitable giving plan. Sarah has set aside $5,000 for annual charitable giving and wants to maximize both the impact of her donations and the tax benefits.</p>
+
+                    <div class="bg-green-50 rounded-lg p-6">
+                        <!-- Add Visual Planning Tools -->
+                        <div class="mb-6">
+                            <h4 class="font-medium text-gray-800 mb-3">Visual Planning Tools</h4>
+                            <div class="comparison-grid">
+                                <!-- Monthly Giving Planner -->
+                                <div class="chart-container">
+                                    <h5 class="font-medium text-gray-800 mb-2">Monthly Giving Plan</h5>
+                                    <canvas id="monthlyGivingChart"></canvas>
+                                </div>
+                                <!-- Tax Impact Calculator -->
+                                <div class="chart-container">
+                                    <h5 class="font-medium text-gray-800 mb-2">Tax Benefit Visualization</h5>
+                                    <canvas id="taxBenefitChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <h4 class="font-medium text-gray-800 mb-3">Client Profile:</h4>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                <li>Annual Income: $85,000</li>
+                                <li>Tax Bracket: 24%</li>
+                                <li>Current Emergency Fund: $15,000</li>
+                                <li>Available Time for Volunteering: 5 hours/month</li>
+                                <li>Preferred Causes: Youth Education & Community Development</li>
+                            </ul>
+                        </div>
+
+                        <h4 class="font-medium text-gray-800 mb-3">2.1 Budget Integration</h4>
+                        <div class="bg-white rounded-lg p-4">
+                            <p class="text-gray-700 mb-4">Create a comprehensive giving budget that considers:</p>
+                            <div class="space-y-4" data-scaffolding-component="budget-planning">
+                                <div class="hint-container" data-hint-level="guided">
+                                    <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
+                                    <span class="text-sm text-gray-600">Consider how monthly vs. lump-sum donations might affect both the organizations and your client's cash flow.</span>
+                                </div>
+                                <table class="w-full">
+                                    <thead class="bg-gray-50">
+                                        <tr>
+                                            <th class="text-left p-3">Budget Component</th>
+                                            <th class="text-left p-3">Amount ($)</th>
+                                            <th class="text-left p-3">Percentage (%)</th>
+                                            <th class="text-left p-3">Tax Impact</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="border-t">
+                                            <td class="p-3">Monthly Allocation</td>
+                                            <td class="p-3"><input type="number" class="w-full p-2 border rounded" data-auto-save="true" aria-label="Monthly allocation amount"></td>
+                                            <td class="p-3"><input type="number" step="0.01" class="w-full p-2 border rounded" data-auto-save="true" aria-label="Monthly allocation percentage"></td>
+                                            <td class="p-3"><input type="number" step="0.01" class="w-full p-2 border rounded" data-auto-save="true" aria-label="Monthly tax impact"></td>
+                                        </tr>
+                                        <tr class="border-t">
+                                            <td class="p-3">Year-End Giving</td>
+                                            <td class="p-3"><input type="number" class="w-full p-2 border rounded" data-auto-save="true" aria-label="Year-end giving amount"></td>
+                                            <td class="p-3"><input type="number" step="0.01" class="w-full p-2 border rounded" data-auto-save="true" aria-label="Year-end giving percentage"></td>
+                                            <td class="p-3"><input type="number" step="0.01" class="w-full p-2 border rounded" data-auto-save="true" aria-label="Year-end tax impact"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="sample-answer-container mt-4" data-sample-answer="budget" style="display: none;">
+                                    <div class="bg-blue-50 p-4 rounded-lg">
+                                        <h5 class="font-medium text-blue-800 mb-2">Sample Calculation:</h5>
+                                        <p class="text-sm text-blue-700">Monthly Allocation = ($5,000 × 75%) ÷ 12 = $312.50<br>
+                                        Tax Savings = $5,000 × 24% = $1,200</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <h4 class="font-medium text-gray-800 mb-3">2.2 Strategic Planning Considerations</h4>
+                            <div class="bg-white rounded-lg p-4">
+                                <div class="space-y-4" data-scaffolding-component="strategy-planning">
+                                    <p class="text-gray-700">Address the following in your strategy:</p>
+                                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                        <li>Balance between FLI and CEF based on their efficiency metrics</li>
+                                        <li>Timing of donations to maximize tax benefits</li>
+                                        <li>Integration of volunteer hours with monetary contributions</li>
+                                        <li>Emergency fund maintenance strategy</li>
+                                    </ul>
+                                    <textarea
+                                        class="w-full p-3 border rounded"
+                                        rows="6"
+                                        placeholder="Develop your strategic giving plan..."
+                                        data-auto-save="true"
+                                        aria-label="Strategic giving plan"
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scenario 3: Community Impact -->
+            <div class="project-card">
+                <div class="task-card impact" data-scaffolding-section="scenario3">
+                    <h3 class="font-semibold text-gray-800 mb-2">Scenario 3: Community Impact Analysis (15 minutes)</h3>
+                    <p class="text-gray-600 mb-4">Based on your giving plan from Scenario 2, conduct a detailed analysis of the potential community impact over a 3-year period. Consider both quantitative metrics and qualitative outcomes.</p>
+
+                    <div class="bg-purple-50 rounded-lg p-6">
+                        <!-- Add Impact Visualization -->
+                        <div class="mb-6">
+                            <h4 class="font-medium text-gray-800 mb-3">Impact Visualization</h4>
+                            <div class="comparison-grid">
+                                <div class="impact-card">
+                                    <h5 class="font-medium text-blue-800 mb-2">Direct Impact</h5>
+                                    <canvas id="directImpactChart"></canvas>
+                                </div>
+                                <div class="impact-card">
+                                    <h5 class="font-medium text-green-800 mb-2">Community Ripple Effect</h5>
+                                    <canvas id="rippleEffectChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <h4 class="font-medium text-gray-800 mb-3">Impact Metrics Framework:</h4>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                <li>Student Success Rate: 85% program completion</li>
+                                <li>Employment Impact: 70% of graduates find related employment</li>
+                                <li>Community Engagement: 45% of graduates volunteer locally</li>
+                                <li>Economic Impact: $25,000 average salary increase per graduate</li>
+                            </ul>
+                        </div>
+
+                        <h4 class="font-medium text-gray-800 mb-3">3.1 Quantitative Impact Analysis</h4>
+                        <div class="bg-white rounded-lg p-4">
+                            <div class="space-y-4" data-scaffolding-component="impact-analysis">
+                                <div class="hint-container" data-hint-level="guided">
+                                    <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
+                                    <span class="text-sm text-gray-600">Consider both direct program outcomes and indirect community benefits in your calculations.</span>
+                                </div>
+                                <table class="w-full">
+                                    <thead class="bg-gray-50">
+                                        <tr>
+                                            <th class="text-left p-3">Impact Metric</th>
+                                            <th class="text-left p-3">Year 1</th>
+                                            <th class="text-left p-3">Year 2</th>
+                                            <th class="text-left p-3">Year 3</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="border-t">
+                                            <td class="p-3">Students Impacted</td>
+                                            <td class="p-3"><input type="number" class="w-full p-2 border rounded" data-auto-save="true" aria-label="Year 1 students impacted"></td>
+                                            <td class="p-3"><input type="number" class="w-full p-2 border rounded" data-auto-save="true" aria-label="Year 2 students impacted"></td>
+                                            <td class="p-3"><input type="number" class="w-full p-2 border rounded" data-auto-save="true" aria-label="Year 3 students impacted"></td>
+                                        </tr>
+                                        <tr class="border-t">
+                                            <td class="p-3">Economic Benefit ($)</td>
+                                            <td class="p-3"><input type="number" class="w-full p-2 border rounded" data-auto-save="true" aria-label="Year 1 economic benefit"></td>
+                                            <td class="p-3"><input type="number" class="w-full p-2 border rounded" data-auto-save="true" aria-label="Year 2 economic benefit"></td>
+                                            <td class="p-3"><input type="number" class="w-full p-2 border rounded" data-auto-save="true" aria-label="Year 3 economic benefit"></td>
+                                        </tr>
+                                        <tr class="border-t">
+                                            <td class="p-3">Volunteer Hours Generated</td>
+                                            <td class="p-3"><input type="number" class="w-full p-2 border rounded" data-auto-save="true" aria-label="Year 1 volunteer hours"></td>
+                                            <td class="p-3"><input type="number" class="w-full p-2 border rounded" data-auto-save="true" aria-label="Year 2 volunteer hours"></td>
+                                            <td class="p-3"><input type="number" class="w-full p-2 border rounded" data-auto-save="true" aria-label="Year 3 volunteer hours"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <h4 class="font-medium text-gray-800 mb-3">3.2 Long-term Community Impact</h4>
+                            <div class="bg-white rounded-lg p-4">
+                                <div class="space-y-4" data-scaffolding-component="impact-assessment">
+                                    <p class="text-gray-700">Analyze the following aspects:</p>
+                                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                        <li>Multiplier effect of education investment</li>
+                                        <li>Intergenerational impact on families</li>
+                                        <li>Community economic development</li>
+                                        <li>Social capital development</li>
+                                    </ul>
+                                    <textarea
+                                        class="w-full p-3 border rounded"
+                                        rows="6"
+                                        placeholder="Evaluate the long-term community impact..."
+                                        data-auto-save="true"
+                                        aria-label="Long-term community impact analysis"
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submission Requirements -->
+            <div class="project-card">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+                    <i class="fas fa-file-upload text-green-600 mr-2"></i>Submission Requirements
+                </h2>
+                <div class="space-y-4">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-gray-800 mb-2">Format Requirements:</h3>
+                        <ul class="list-disc list-inside text-gray-700">
+                            <li>All calculations must be shown and clearly labeled</li>
+                            <li>Written analysis must be clear, concise, and professional</li>
+                            <li>Use specific examples to support your recommendations</li>
+                            <li>Organize your work using clear headings and sections</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-gray-800 mb-2">Required Components:</h3>
+                        <ul class="list-disc list-inside text-gray-700">
+                            <li>Completed charity evaluation with calculations</li>
+                            <li>Detailed giving budget and strategy</li>
+                            <li>Comprehensive impact analysis</li>
+                            <li>Long-term benefit assessment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Evaluation Criteria -->
+            <div class="project-card">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+                    <i class="fas fa-clipboard-check text-blue-600 mr-2"></i>Evaluation Criteria
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-gray-800 mb-3">Charity Evaluation (35%)</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-center text-gray-700">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Thorough financial analysis
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Comprehensive impact assessment
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Clear evaluation criteria
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Organization comparison
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-gray-800 mb-3">Strategic Planning (35%)</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-center text-gray-700">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Realistic budget integration
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Well-reasoned allocation strategy
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Consideration of tax implications
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Implementation timeline
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-gray-800 mb-3">Impact Analysis (30%)</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-center text-gray-700">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Quantitative impact calculations
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Long-term benefit assessment
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Sustainability considerations
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Community impact metrics
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Save and Submit Buttons -->
+            <div class="flex justify-between items-center mt-6">
+                <div class="text-gray-600">
+                    <p class="flex items-center">
+                        <i class="fas fa-clock mr-2"></i>
+                        Last saved: <span id="last-saved">Never</span>
+                    </p>
+                    <p class="text-sm mt-1">You can save your work and return to it later</p>
+                </div>
+                <div class="flex gap-4">
+                    <button type="button" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200">
+                        <i class="fas fa-save mr-2"></i>Save Draft
+                    </button>
+                    <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+                        <i class="fas fa-paper-plane mr-2"></i>Submit Project
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Auto-save draft every 30 seconds
+        let autoSaveInterval = setInterval(() => {
+            saveDraft();
+        }, 30000);
+
+        // Save draft function
+        function saveDraft() {
+            const formData = new FormData(document.getElementById('capstoneForm'));
+            const draftData = Object.fromEntries(formData.entries());
+            
+            // Save to localStorage
+            localStorage.setItem('standard14CapstoneData', JSON.stringify(draftData));
+            
+            // Show save confirmation
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded-md flex items-center';
+            toast.innerHTML = '<i class="fas fa-check-circle mr-2"></i>Draft saved!';
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+
+            // Update last saved time
+            document.getElementById('last-saved').textContent = new Date().toLocaleTimeString();
+        }
+
+        // Load draft on page load
+        window.addEventListener('load', () => {
+            const savedData = localStorage.getItem('standard14CapstoneData');
+            if (savedData) {
+                const draftData = JSON.parse(savedData);
+                const form = document.getElementById('capstoneForm');
+                
+                Object.entries(draftData).forEach(([name, value]) => {
+                    const field = form.elements[name];
+                    if (field) {
+                        field.value = value;
+                    }
+                });
+            }
+        });
+
+        // Handle form submission
+        document.getElementById('capstoneForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Clear auto-save interval
+            clearInterval(autoSaveInterval);
+            
+            // Clear draft data
+            localStorage.removeItem('standard14CapstoneData');
+            
+            // Submit form data
+            const formData = new FormData(e.target);
+            const submissionData = Object.fromEntries(formData.entries());
+            
+            // TODO: Send to server
+            console.log('Submitting:', submissionData);
+        });
+
+        // Initialize Charts
+        window.addEventListener('load', () => {
+            // Budget Allocation Chart
+            new Chart(document.getElementById('budgetChart'), {
+                type: 'pie',
+                data: {
+                    labels: ['Program Costs', 'Admin Costs', 'Fundraising'],
+                    datasets: [{
+                        data: [80, 15, 5],
+                        backgroundColor: ['#3b82f6', '#10b981', '#f59e0b']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        },
+                        title: {
+                            display: true,
+                            text: 'Typical Nonprofit Budget Distribution'
+                        }
+                    }
+                }
+            });
+
+            // Program Impact Chart
+            new Chart(document.getElementById('impactChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['FLI', 'CEF'],
+                    datasets: [{
+                        label: 'Students Served',
+                        data: [200, 500],
+                        backgroundColor: '#3b82f6'
+                    }, {
+                        label: 'Program Hours per Student',
+                        data: [960, 720],
+                        backgroundColor: '#10b981'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Monthly Giving Chart
+            new Chart(document.getElementById('monthlyGivingChart'), {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'Monthly Giving',
+                        data: [312.5, 312.5, 312.5, 312.5, 312.5, 312.5, 312.5, 312.5, 312.5, 312.5, 312.5, 1312.5],
+                        borderColor: '#3b82f6',
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Amount ($)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Tax Benefit Chart
+            new Chart(document.getElementById('taxBenefitChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Donation', 'Tax Savings', 'Net Cost'],
+                    datasets: [{
+                        data: [5000, 1200, 3800],
+                        backgroundColor: ['#3b82f6', '#10b981', '#f59e0b']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Amount ($)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Direct Impact Chart
+            new Chart(document.getElementById('directImpactChart'), {
+                type: 'line',
+                data: {
+                    labels: ['Year 1', 'Year 2', 'Year 3'],
+                    datasets: [{
+                        label: 'Students Impacted',
+                        data: [50, 110, 180],
+                        borderColor: '#3b82f6',
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Ripple Effect Chart
+            new Chart(document.getElementById('rippleEffectChart'), {
+                type: 'radar',
+                data: {
+                    labels: ['Education', 'Employment', 'Community Service', 'Economic Growth', 'Social Impact'],
+                    datasets: [{
+                        label: 'Impact Score',
+                        data: [85, 70, 45, 60, 75],
+                        backgroundColor: 'rgba(124, 58, 237, 0.2)',
+                        borderColor: '#7c3aed',
+                        pointBackgroundColor: '#7c3aed'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

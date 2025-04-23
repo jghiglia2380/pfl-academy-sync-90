@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standard 2 Capstone Project - Money Management and Financial Decisions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .project-card {
+            @apply bg-white rounded-xl shadow-lg p-8 mb-8;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .task-card {
+            @apply border-l-4 p-6 mb-6 bg-white rounded-lg shadow-md;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .badge {
+            @apply px-4 py-1.5 rounded-full text-sm font-semibold shadow-sm;
+        }
+        .badge-blue {
+            @apply bg-blue-100 text-blue-800;
+        }
+        .badge-green {
+            @apply bg-green-100 text-green-800;
+        }
+        .badge-yellow {
+            @apply bg-yellow-100 text-yellow-800;
+        }
+        .task-card.spending {
+            border-color: #3b82f6;
+            background: linear-gradient(to right, #f0f7ff, white);
+        }
+        .task-card.savings {
+            border-color: #22c55e;
+            background: linear-gradient(to right, #f0fdf4, white);
+        }
+        .task-card.decisions {
+            border-color: #8b5cf6;
+            background: linear-gradient(to right, #f5f3ff, white);
+        }
+        .response-area {
+            @apply border-2 rounded-xl p-6 my-4 bg-white shadow-sm;
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+        .calculation-field {
+            @apply font-mono bg-gray-50 p-3 rounded-lg my-2 shadow-inner;
+        }
+        .matrix-table {
+            @apply w-full border-collapse my-4 shadow-sm;
+        }
+        .matrix-table th, .matrix-table td {
+            @apply border p-3;
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+        .matrix-table th {
+            @apply bg-gray-50 font-semibold text-gray-700;
+        }
+        .matrix-table tr:hover {
+            @apply bg-gray-50;
+        }
+        .save-draft {
+            @apply bg-gray-100 text-gray-700 px-6 py-2 rounded-lg shadow-sm hover:bg-gray-200 transition-colors;
+        }
+        .submit-final {
+            @apply bg-blue-600 text-white px-6 py-2 rounded-lg shadow-sm hover:bg-blue-700 transition-colors;
+        }
+        input[type="text"], input[type="number"], textarea {
+            @apply rounded-lg border-gray-300 shadow-sm;
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"]:focus, input[type="number"]:focus, textarea:focus {
+            @apply ring-2 ring-blue-500 border-blue-500;
+        }
+        .data-table {
+            @apply w-full border-collapse rounded-xl overflow-hidden shadow-md my-6;
+        }
+        .data-table th {
+            @apply bg-gray-50 text-left p-4 font-semibold text-gray-700;
+        }
+        .data-table td {
+            @apply p-4 border-t border-gray-100;
+        }
+        .data-table tr:hover {
+            @apply bg-gray-50;
+        }
+        .info-card {
+            @apply bg-gray-50 p-6 rounded-xl shadow-sm;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="max-w-5xl mx-auto">
+        <!-- Header -->
+        <div class="project-card">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Financial Decision Making</h1>
+            <p class="text-xl text-gray-600 mb-4">Standard 2: Money Management and Financial Decisions</p>
+            <div class="flex gap-2 mb-6">
+                <span class="badge badge-blue">
+                    <i class="fas fa-clock mr-2"></i>45 Minutes
+                </span>
+                <span class="badge badge-green">
+                    <i class="fas fa-file-alt mr-2"></i>Written Analysis
+                </span>
+                <span class="badge badge-yellow">
+                    <i class="fas fa-calculator mr-2"></i>Calculations Required
+                </span>
+            </div>
+            <p class="text-gray-700 text-lg mb-4">
+                In this capstone project, you will demonstrate your understanding of money management and financial 
+                decision-making through analysis of spending patterns, savings strategies, and financial choices.
+            </p>
+            <div class="bg-blue-50 p-4 rounded-lg">
+                <h3 class="font-semibold text-blue-900 mb-2">Required Materials:</h3>
+                <ul class="text-blue-800 space-y-1">
+                    <li><i class="fas fa-calculator mr-2"></i>Calculator</li>
+                    <li><i class="fas fa-file-alt mr-2"></i>Word processor or paper for written responses</li>
+                    <li><i class="fas fa-table mr-2"></i>Spreadsheet software (optional but recommended)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Reference Data Section -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+                <i class="fas fa-database text-blue-600 mr-2"></i>Reference Data for Analysis
+            </h2>
+
+            <!-- Spending Categories -->
+            <div class="mb-8">
+                <h3 class="font-semibold text-gray-800 mb-4">Common Spending Categories and Average Monthly Costs</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white border border-gray-200">
+                        <thead>
+                            <tr class="bg-gray-50">
+                                <th class="px-4 py-2 border">Category</th>
+                                <th class="px-4 py-2 border">Average Cost</th>
+                                <th class="px-4 py-2 border">Range</th>
+                                <th class="px-4 py-2 border">Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="px-4 py-2 border">Housing</td>
+                                <td class="px-4 py-2 border">$1,500</td>
+                                <td class="px-4 py-2 border">$1,000-$2,500</td>
+                                <td class="px-4 py-2 border">Rent/mortgage, utilities, maintenance</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border">Transportation</td>
+                                <td class="px-4 py-2 border">$400</td>
+                                <td class="px-4 py-2 border">$200-$800</td>
+                                <td class="px-4 py-2 border">Car payment, gas, maintenance, insurance</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border">Food</td>
+                                <td class="px-4 py-2 border">$550</td>
+                                <td class="px-4 py-2 border">$400-$800</td>
+                                <td class="px-4 py-2 border">Groceries and dining out</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border">Entertainment</td>
+                                <td class="px-4 py-2 border">$250</td>
+                                <td class="px-4 py-2 border">$100-$500</td>
+                                <td class="px-4 py-2 border">Streaming, hobbies, social activities</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Savings Options -->
+            <div class="mb-8">
+                <h3 class="font-semibold text-gray-800 mb-4">Savings and Investment Options</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white border border-gray-200">
+                        <thead>
+                            <tr class="bg-gray-50">
+                                <th class="px-4 py-2 border">Account Type</th>
+                                <th class="px-4 py-2 border">Average APY</th>
+                                <th class="px-4 py-2 border">Min. Balance</th>
+                                <th class="px-4 py-2 border">Key Features</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="px-4 py-2 border">High-Yield Savings</td>
+                                <td class="px-4 py-2 border">4.50%</td>
+                                <td class="px-4 py-2 border">$0</td>
+                                <td class="px-4 py-2 border">Easy access, FDIC insured</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border">Certificate of Deposit</td>
+                                <td class="px-4 py-2 border">5.00%</td>
+                                <td class="px-4 py-2 border">$500</td>
+                                <td class="px-4 py-2 border">Fixed term, higher rates</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border">Money Market</td>
+                                <td class="px-4 py-2 border">4.25%</td>
+                                <td class="px-4 py-2 border">$2,500</td>
+                                <td class="px-4 py-2 border">Check writing, higher yields</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border">Retirement (IRA)</td>
+                                <td class="px-4 py-2 border">7-10%*</td>
+                                <td class="px-4 py-2 border">$0</td>
+                                <td class="px-4 py-2 border">Tax advantages, long-term growth</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="text-sm text-gray-600 mt-2">*Historical average annual return, actual returns may vary</p>
+                </div>
+            </div>
+
+            <!-- Financial Decision Scenarios -->
+            <div class="mb-8">
+                <h3 class="font-semibold text-gray-800 mb-4">Common Financial Decisions</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-medium text-gray-800 mb-2">Transportation Options</h4>
+                        <table class="w-full text-sm">
+                            <tr>
+                                <td class="py-1 font-medium">New Car</td>
+                                <td class="py-1">$25,000 + financing</td>
+                            </tr>
+                            <tr>
+                                <td class="py-1 font-medium">Used Car</td>
+                                <td class="py-1">$15,000 + lower insurance</td>
+                            </tr>
+                            <tr>
+                                <td class="py-1 font-medium">Public Transit</td>
+                                <td class="py-1">$100/month pass</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-medium text-gray-800 mb-2">Housing Choices</h4>
+                        <table class="w-full text-sm">
+                            <tr>
+                                <td class="py-1 font-medium">Rent</td>
+                                <td class="py-1">$1,500/month + utilities</td>
+                            </tr>
+                            <tr>
+                                <td class="py-1 font-medium">Buy</td>
+                                <td class="py-1">$250,000 + maintenance</td>
+                            </tr>
+                            <tr>
+                                <td class="py-1 font-medium">Shared Housing</td>
+                                <td class="py-1">$800/month all inclusive</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Market Context -->
+            <div class="mb-8">
+                <h3 class="font-semibold text-gray-800 mb-4">Current Market Context</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-medium text-gray-800 mb-2">Interest Rates</h4>
+                        <ul class="text-sm text-gray-700 space-y-1">
+                            <li>Mortgage Rates: 6.8%</li>
+                            <li>Auto Loan Rates: 5.5%</li>
+                            <li>Credit Card APR: 20.5%</li>
+                            <li>Student Loan Rates: 5.5%</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-medium text-gray-800 mb-2">Market Indicators</h4>
+                        <ul class="text-sm text-gray-700 space-y-1">
+                            <li>Housing Market: Seller's Market</li>
+                            <li>Stock Market: Moderate Growth</li>
+                            <li>Job Market: Strong</li>
+                            <li>Consumer Confidence: Moderate</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Tasks -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+                <i class="fas fa-tasks text-blue-600 mr-2"></i>Project Tasks
+            </h2>
+            
+            <div class="task-card spending">
+                <h3 class="font-semibold text-gray-800 mb-2">Part 1: Spending Analysis (15 minutes)</h3>
+                <p class="text-gray-600 mb-3">Analyze spending patterns and identify areas for optimization:</p>
+                
+                <div class="bg-white rounded-lg border border-gray-200 p-6 mb-4">
+                    <h4 class="font-medium text-gray-800 mb-4">Current Spending Analysis</h4>
+                    <div class="overflow-x-auto">
+                        <table class="w-full border-collapse">
+                            <thead>
+                                <tr>
+                                    <th class="border border-gray-300 bg-gray-50 p-3 text-left">Category</th>
+                                    <th class="border border-gray-300 bg-gray-50 p-3 text-left">Current Monthly Spending</th>
+                                    <th class="border border-gray-300 bg-gray-50 p-3 text-left">Comparison to Average</th>
+                                    <th class="border border-gray-300 bg-gray-50 p-3 text-left">Potential Savings</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border border-gray-300 p-3">Housing</td>
+                                    <td class="border border-gray-300 p-3"><input type="number" class="w-full p-2 border rounded-md" placeholder="$"></td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md"></td>
+                                    <td class="border border-gray-300 p-3"><input type="number" class="w-full p-2 border rounded-md" placeholder="$"></td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 p-3">Transportation</td>
+                                    <td class="border border-gray-300 p-3"><input type="number" class="w-full p-2 border rounded-md" placeholder="$"></td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md"></td>
+                                    <td class="border border-gray-300 p-3"><input type="number" class="w-full p-2 border rounded-md" placeholder="$"></td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 p-3">Food</td>
+                                    <td class="border border-gray-300 p-3"><input type="number" class="w-full p-2 border rounded-md" placeholder="$"></td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md"></td>
+                                    <td class="border border-gray-300 p-3"><input type="number" class="w-full p-2 border rounded-md" placeholder="$"></td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 p-3">Entertainment</td>
+                                    <td class="border border-gray-300 p-3"><input type="number" class="w-full p-2 border rounded-md" placeholder="$"></td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md"></td>
+                                    <td class="border border-gray-300 p-3"><input type="number" class="w-full p-2 border rounded-md" placeholder="$"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mt-6">
+                        <label class="block font-medium text-gray-700 mb-2">Spending Optimization Strategy</label>
+                        <textarea rows="4" class="w-full p-3 border border-gray-300 rounded-md" placeholder="Describe your strategy for optimizing spending in each category..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-card savings">
+                <h3 class="font-semibold text-gray-800 mb-2">Part 2: Savings Strategy (15 minutes)</h3>
+                <p class="text-gray-600 mb-3">Develop a comprehensive savings plan using available options:</p>
+
+                <div class="bg-white rounded-lg border border-gray-200 p-6 mb-4">
+                    <h4 class="font-medium text-gray-800 mb-4">Savings Allocation Plan</h4>
+                    <div class="overflow-x-auto">
+                        <table class="w-full border-collapse">
+                            <thead>
+                                <tr>
+                                    <th class="border border-gray-300 bg-gray-50 p-3 text-left">Account Type</th>
+                                    <th class="border border-gray-300 bg-gray-50 p-3 text-left">Monthly Contribution</th>
+                                    <th class="border border-gray-300 bg-gray-50 p-3 text-left">Expected Return</th>
+                                    <th class="border border-gray-300 bg-gray-50 p-3 text-left">Purpose/Goal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border border-gray-300 p-3">Emergency Fund</td>
+                                    <td class="border border-gray-300 p-3"><input type="number" class="w-full p-2 border rounded-md" placeholder="$"></td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md" placeholder="%"></td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md"></td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 p-3">Retirement</td>
+                                    <td class="border border-gray-300 p-3"><input type="number" class="w-full p-2 border rounded-md" placeholder="$"></td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md" placeholder="%"></td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md"></td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 p-3">Short-term Goals</td>
+                                    <td class="border border-gray-300 p-3"><input type="number" class="w-full p-2 border rounded-md" placeholder="$"></td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md" placeholder="%"></td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mt-6">
+                        <label class="block font-medium text-gray-700 mb-2">Savings Plan Justification</label>
+                        <textarea rows="4" class="w-full p-3 border border-gray-300 rounded-md" placeholder="Explain your savings allocation strategy and how it aligns with your financial goals..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-card decisions">
+                <h3 class="font-semibold text-gray-800 mb-2">Part 3: Financial Decision Making (15 minutes)</h3>
+                <p class="text-gray-600 mb-3">Analyze and make recommendations for major financial decisions:</p>
+
+                <div class="bg-white rounded-lg border border-gray-200 p-6 mb-4">
+                    <h4 class="font-medium text-gray-800 mb-4">Decision Analysis Matrix</h4>
+                    <div class="overflow-x-auto">
+                        <table class="w-full border-collapse">
+                            <thead>
+                                <tr>
+                                    <th class="border border-gray-300 bg-gray-50 p-3 text-left">Decision Type</th>
+                                    <th class="border border-gray-300 bg-gray-50 p-3 text-left">Options</th>
+                                    <th class="border border-gray-300 bg-gray-50 p-3 text-left">Pros</th>
+                                    <th class="border border-gray-300 bg-gray-50 p-3 text-left">Cons</th>
+                                    <th class="border border-gray-300 bg-gray-50 p-3 text-left">Recommendation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border border-gray-300 p-3">Transportation</td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md"></td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md"></td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md"></td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md"></td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 p-3">Housing</td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md"></td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md"></td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md"></td>
+                                    <td class="border border-gray-300 p-3"><input type="text" class="w-full p-2 border rounded-md"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mt-6">
+                        <label class="block font-medium text-gray-700 mb-2">Decision Making Process</label>
+                        <textarea rows="4" class="w-full p-3 border border-gray-300 rounded-md" placeholder="Explain your decision-making process and how you evaluated different options..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Evaluation Criteria -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+                <i class="fas fa-star text-yellow-600 mr-2"></i>Evaluation Criteria
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-blue-50 rounded-lg p-4">
+                    <h3 class="font-semibold text-blue-900 mb-2">Analysis (35%)</h3>
+                    <ul class="text-blue-800 space-y-2">
+                        <li><i class="fas fa-check-circle mr-2"></i>Spending analysis depth</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Calculation accuracy</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Pattern identification</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Data interpretation</li>
+                    </ul>
+                </div>
+                <div class="bg-green-50 rounded-lg p-4">
+                    <h3 class="font-semibold text-green-900 mb-2">Strategy (35%)</h3>
+                    <ul class="text-green-800 space-y-2">
+                        <li><i class="fas fa-check-circle mr-2"></i>Goal alignment</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Plan feasibility</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Risk consideration</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Resource allocation</li>
+                    </ul>
+                            </div>
+                <div class="bg-purple-50 rounded-lg p-4">
+                    <h3 class="font-semibold text-purple-900 mb-2">Decisions (30%)</h3>
+                    <ul class="text-purple-800 space-y-2">
+                        <li><i class="fas fa-check-circle mr-2"></i>Option evaluation</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Justification quality</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Implementation steps</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Future considerations</li>
+                    </ul>
+                            </div>
+                        </div>
+                    </div>
+
+        <!-- Submission Controls -->
+        <div class="project-card">
+            <div class="flex justify-between items-center">
+                <div class="space-y-2">
+                    <div class="text-sm text-gray-600">
+                        <i class="fas fa-clock mr-1"></i>
+                        Last saved: <span id="last-saved">Never</span>
+                    </div>
+                    <div class="text-sm text-gray-600">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        You can save your work and return to it later
+                    </div>
+                </div>
+                <div class="space-x-4">
+                    <button type="button" class="save-draft px-4 py-2 rounded-lg">
+                        Save Draft
+                    </button>
+                    <button type="submit" class="submit-final px-4 py-2 rounded-lg">
+                        Submit for Grading
+                    </button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add client-side functionality for:
+        // 1. Auto-saving drafts
+        // 2. Form validation
+        // 3. Calculation helpers
+        // 4. Rich text formatting
+        // 5. File attachment handling
+    </script>
+</body>
+</html> 

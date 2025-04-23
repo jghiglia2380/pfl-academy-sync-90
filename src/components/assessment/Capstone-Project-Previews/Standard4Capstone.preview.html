@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standard 4 Capstone Project - Credit and Borrowing Decisions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { 
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            margin-bottom: 2rem;
+            padding: 2rem;
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+        }
+        .badge-blue { background-color: #dbeafe; color: #1e40af; }
+        .badge-green { background-color: #dcfce7; color: #166534; }
+        .badge-yellow { background-color: #fef3c7; color: #92400e; }
+        .task-card {
+            border-left: 4px solid;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: #f8fafc;
+            border-radius: 0.5rem;
+        }
+        .task-card.analysis { border-color: #3b82f6; }
+        .task-card.scenarios { border-color: #22c55e; }
+        .task-card.recommendations { border-color: #8b5cf6; }
+        .response-area {
+            border: 2px solid #e2e8f0;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin: 1rem 0;
+            background: white;
+        }
+        .calculation-field {
+            font-family: monospace;
+            background: #f8fafc;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            margin: 0.5rem 0;
+        }
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        .matrix-table th, .matrix-table td {
+            border: 1px solid #e2e8f0;
+            padding: 0.5rem;
+        }
+        .matrix-table th {
+            background: #f8fafc;
+        }
+        .save-draft {
+            background: #e2e8f0;
+            color: #1e293b;
+        }
+        .submit-final {
+            background: #4f46e5;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="max-w-5xl mx-auto">
+        <!-- Header -->
+        <div class="project-card">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Credit and Borrowing Analysis Project</h1>
+            <p class="text-xl text-gray-600 mb-4">Standard 4: Credit and Borrowing Decisions</p>
+            <div class="flex gap-2 mb-6">
+                <span class="badge badge-blue">
+                    <i class="fas fa-clock mr-2"></i>45 Minutes
+                </span>
+                <span class="badge badge-green">
+                    <i class="fas fa-file-alt mr-2"></i>Written Analysis
+                </span>
+                <span class="badge badge-yellow">
+                    <i class="fas fa-calculator mr-2"></i>Calculations Required
+                </span>
+            </div>
+            <p class="text-gray-700 text-lg mb-4">
+                In this capstone project, you will demonstrate your mastery of credit management and borrowing decisions
+                through comprehensive analysis, critical thinking, and strategic planning. You will evaluate real-world
+                scenarios, perform financial calculations, and develop evidence-based recommendations.
+            </p>
+            <div class="bg-blue-50 p-4 rounded-lg">
+                <h3 class="font-semibold text-blue-900 mb-2">Required Materials:</h3>
+                <ul class="text-blue-800 space-y-1">
+                    <li><i class="fas fa-calculator mr-2"></i>Calculator</li>
+                    <li><i class="fas fa-file-alt mr-2"></i>Word processor or paper for written responses</li>
+                    <li><i class="fas fa-table mr-2"></i>Spreadsheet software (optional but recommended)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Project Tasks and Deliverables -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+                <i class="fas fa-tasks text-blue-600 mr-2"></i>Project Tasks and Deliverables
+            </h2>
+            
+            <div class="task-card analysis">
+                <h3 class="font-semibold text-gray-800 mb-2">Part 1: Credit Product Analysis (15 minutes)</h3>
+                <p class="text-gray-600 mb-3">Compare and analyze three different credit products:</p>
+                <div class="bg-white rounded p-4 mb-4">
+                    <p class="font-medium mb-2">Scenario:</p>
+                    <p class="text-sm text-gray-700">You are advising three different clients on their credit options:</p>
+                    <ul class="list-disc list-inside text-sm text-gray-700 mt-2">
+                        <li>Client A: College student looking for their first credit card</li>
+                        <li>Client B: Family looking to finance a $25,000 car purchase</li>
+                        <li>Client C: Homebuyer considering a $300,000 mortgage</li>
+                    </ul>
+                </div>
+                <p class="text-gray-700 font-medium mb-2">Required Deliverables:</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    <li>Complete a detailed comparison matrix for each scenario including:
+                        <ul class="list-circle list-inside ml-6 text-gray-600">
+                            <li>Interest rates and APR calculations</li>
+                            <li>Total cost analysis (interest, fees, insurance)</li>
+                            <li>Required credit score and income requirements</li>
+                            <li>Risk assessment for both lender and borrower</li>
+                        </ul>
+                    </li>
+                    <li>Show all calculations used in your analysis</li>
+                    <li>Provide specific product recommendations with justification</li>
+                </ul>
+            </div>
+
+            <div class="task-card scenarios">
+                <h3 class="font-semibold text-gray-800 mb-2">Part 2: Financial Impact Analysis (15 minutes)</h3>
+                <div class="bg-white rounded p-4 mb-4">
+                    <p class="font-medium mb-2">Case Study:</p>
+                    <p class="text-sm text-gray-700">The Thompson family is considering a home renovation:</p>
+                    <ul class="list-disc list-inside text-sm text-gray-700 mt-2">
+                        <li>Monthly household income: $6,500</li>
+                        <li>Current monthly debt payments: $2,000</li>
+                        <li>Renovation cost: $45,000</li>
+                        <li>Current credit score: 720</li>
+                    </ul>
+                </div>
+                <p class="text-gray-700 font-medium mb-2">Required Deliverables:</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    <li>Calculate and analyze:
+                        <ul class="list-circle list-inside ml-6 text-gray-600">
+                            <li>Current debt-to-income ratio</li>
+                            <li>Maximum affordable monthly payment</li>
+                            <li>Impact on monthly cash flow</li>
+                            <li>Break-even analysis for home value increase</li>
+                        </ul>
+                    </li>
+                    <li>Compare three financing options:
+                        <ul class="list-circle list-inside ml-6 text-gray-600">
+                            <li>Home equity loan</li>
+                            <li>Personal loan</li>
+                            <li>Credit card with 0% APR promotion</li>
+                        </ul>
+                    </li>
+                    <li>Provide a detailed 24-month cash flow projection</li>
+                </ul>
+            </div>
+
+            <div class="task-card recommendations">
+                <h3 class="font-semibold text-gray-800 mb-2">Part 3: Strategic Recommendations (15 minutes)</h3>
+                <p class="text-gray-700 font-medium mb-2">Required Deliverables:</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    <li>Develop a comprehensive recommendation for the Thompson family including:
+                        <ul class="list-circle list-inside ml-6 text-gray-600">
+                            <li>Optimal financing choice with justification</li>
+                            <li>Risk mitigation strategies</li>
+                            <li>Alternative scenarios analysis</li>
+                            <li>Impact on long-term financial goals</li>
+                        </ul>
+                    </li>
+                    <li>Create an implementation timeline including:
+                        <ul class="list-circle list-inside ml-6 text-gray-600">
+                            <li>Credit application process</li>
+                            <li>Required documentation</li>
+                            <li>Key milestones and decision points</li>
+                            <li>Contingency plans</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Submission Requirements -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+                <i class="fas fa-file-upload text-green-600 mr-2"></i>Submission Requirements
+            </h2>
+            <div class="space-y-4">
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-gray-800 mb-2">Format Requirements:</h3>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>All calculations must be shown and clearly labeled</li>
+                        <li>Written analysis must be clear, concise, and professional</li>
+                        <li>Include citations for any external data or resources used</li>
+                        <li>Organize your work using clear headings and sections</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-gray-800 mb-2">Required Components:</h3>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>Completed comparison matrices for all scenarios</li>
+                        <li>Detailed calculations and financial projections</li>
+                        <li>Written analysis and recommendations</li>
+                        <li>Implementation timeline and risk mitigation strategies</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Evaluation Criteria -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+                <i class="fas fa-star text-yellow-600 mr-2"></i>Evaluation Criteria
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-blue-50 rounded-lg p-4">
+                    <h3 class="font-semibold text-blue-900 mb-2">Analysis & Calculations (35%)</h3>
+                    <ul class="text-blue-800 space-y-2">
+                        <li><i class="fas fa-check-circle mr-2"></i>Accuracy of calculations</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Depth of financial analysis</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Comprehensiveness of comparison</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Use of appropriate financial metrics</li>
+                    </ul>
+                </div>
+                <div class="bg-green-50 rounded-lg p-4">
+                    <h3 class="font-semibold text-green-900 mb-2">Critical Thinking (35%)</h3>
+                    <ul class="text-green-800 space-y-2">
+                        <li><i class="fas fa-check-circle mr-2"></i>Scenario evaluation quality</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Risk assessment depth</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Alternative consideration</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Justification of recommendations</li>
+                    </ul>
+                </div>
+                <div class="bg-purple-50 rounded-lg p-4 md:col-span-2">
+                    <h3 class="font-semibold text-purple-900 mb-2">Professional Communication (30%)</h3>
+                    <ul class="text-purple-800 space-y-2">
+                        <li><i class="fas fa-check-circle mr-2"></i>Clarity and organization of work</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Professional presentation</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Completeness of deliverables</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Attention to detail</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reference Data Section -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+                <i class="fas fa-database text-blue-600 mr-2"></i>Reference Data for Analysis
+            </h2>
+
+            <!-- Credit Card Options -->
+            <div class="mb-8">
+                <h3 class="font-semibold text-gray-800 mb-4">Available Credit Card Options</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white border border-gray-200">
+                        <thead>
+                            <tr class="bg-gray-50">
+                                <th class="px-4 py-2 border">Card Name</th>
+                                <th class="px-4 py-2 border">Regular APR</th>
+                                <th class="px-4 py-2 border">Intro APR</th>
+                                <th class="px-4 py-2 border">Annual Fee</th>
+                                <th class="px-4 py-2 border">Credit Score Req.</th>
+                                <th class="px-4 py-2 border">Special Features</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="px-4 py-2 border">Student Rewards Plus</td>
+                                <td class="px-4 py-2 border">18.99% - 24.99%</td>
+                                <td class="px-4 py-2 border">0% for 6 months</td>
+                                <td class="px-4 py-2 border">$0</td>
+                                <td class="px-4 py-2 border">630+</td>
+                                <td class="px-4 py-2 border">3% cash back on dining and entertainment</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border">Secured Builder Card</td>
+                                <td class="px-4 py-2 border">22.99%</td>
+                                <td class="px-4 py-2 border">None</td>
+                                <td class="px-4 py-2 border">$49</td>
+                                <td class="px-4 py-2 border">No minimum</td>
+                                <td class="px-4 py-2 border">Credit building, security deposit required</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border">Cash Back College</td>
+                                <td class="px-4 py-2 border">16.99% - 22.99%</td>
+                                <td class="px-4 py-2 border">0% for 12 months</td>
+                                <td class="px-4 py-2 border">$0</td>
+                                <td class="px-4 py-2 border">670+</td>
+                                <td class="px-4 py-2 border">2% cash back on all purchases</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border">Premium Rewards</td>
+                                <td class="px-4 py-2 border">17.99% - 25.99%</td>
+                                <td class="px-4 py-2 border">None</td>
+                                <td class="px-4 py-2 border">$95</td>
+                                <td class="px-4 py-2 border">720+</td>
+                                <td class="px-4 py-2 border">Travel rewards, premium benefits</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mt-4 bg-blue-50 p-4 rounded-lg">
+                    <p class="text-sm text-blue-800">
+                        <i class="fas fa-info-circle mr-2"></i>Additional card details available in the card agreements. Consider factors such as:
+                        <ul class="list-disc list-inside mt-2">
+                            <li>Late payment fees: Up to $40</li>
+                            <li>Foreign transaction fees: 0-3%</li>
+                            <li>Balance transfer fees: 3-5%</li>
+                            <li>Cash advance fees: 5% or $10, whichever is greater</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Financing Options -->
+            <div class="mb-8">
+                <h3 class="font-semibold text-gray-800 mb-4">Home Renovation Financing Options</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white border border-gray-200">
+                        <thead>
+                            <tr class="bg-gray-50">
+                                <th class="px-4 py-2 border">Option</th>
+                                <th class="px-4 py-2 border">Interest Rate</th>
+                                <th class="px-4 py-2 border">Term Options</th>
+                                <th class="px-4 py-2 border">Requirements</th>
+                                <th class="px-4 py-2 border">Fees</th>
+                                <th class="px-4 py-2 border">Special Considerations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="px-4 py-2 border">Home Equity Loan</td>
+                                <td class="px-4 py-2 border">6.25% fixed</td>
+                                <td class="px-4 py-2 border">5-20 years</td>
+                                <td class="px-4 py-2 border">20% equity, 680+ credit score</td>
+                                <td class="px-4 py-2 border">$75 application, $125 origination</td>
+                                <td class="px-4 py-2 border">Tax-deductible interest, uses home as collateral</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border">Personal Loan</td>
+                                <td class="px-4 py-2 border">8.99% - 15.99%</td>
+                                <td class="px-4 py-2 border">2-7 years</td>
+                                <td class="px-4 py-2 border">660+ credit score</td>
+                                <td class="px-4 py-2 border">2% origination</td>
+                                <td class="px-4 py-2 border">No collateral required, faster approval</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border">0% APR Credit Card</td>
+                                <td class="px-4 py-2 border">0% for 18 months, then 16.99% - 24.99%</td>
+                                <td class="px-4 py-2 border">Revolving</td>
+                                <td class="px-4 py-2 border">720+ credit score</td>
+                                <td class="px-4 py-2 border">No annual fee</td>
+                                <td class="px-4 py-2 border">Must pay off during intro period</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mt-4 bg-blue-50 p-4 rounded-lg">
+                    <p class="text-sm text-blue-800">
+                        <i class="fas fa-info-circle mr-2"></i>Additional financing considerations:
+                        <ul class="list-disc list-inside mt-2">
+                            <li>Home Equity Loan: Current home value: $425,000, Current mortgage balance: $320,000</li>
+                            <li>Personal Loan: Rate depends on credit score and debt-to-income ratio</li>
+                            <li>Credit Card: Requires excellent payment history and available credit limit</li>
+                            <li>All options: Early payoff allowed with no penalties</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Market Data -->
+            <div class="mb-8">
+                <h3 class="font-semibold text-gray-800 mb-4">Current Market Information</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-medium text-gray-800 mb-2">Interest Rate Environment</h4>
+                        <ul class="text-sm text-gray-700 space-y-1">
+                            <li>Prime Rate: 7.50%</li>
+                            <li>Average 30-year mortgage: 6.75%</li>
+                            <li>Average personal loan: 11.84%</li>
+                            <li>Average credit card APR: 20.72%</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-medium text-gray-800 mb-2">Economic Indicators</h4>
+                        <ul class="text-sm text-gray-700 space-y-1">
+                            <li>Inflation Rate: 3.2%</li>
+                            <li>Unemployment Rate: 3.8%</li>
+                            <li>GDP Growth: 2.1%</li>
+                            <li>Consumer Confidence Index: 102.5</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form id="capstone-submission" class="max-w-5xl mx-auto">
+        <!-- Part 1: Credit Product Analysis -->
+        <div class="project-card">
+            <div class="task-card analysis">
+                <h3 class="font-semibold text-gray-800 mb-2">Part 1: Credit Product Analysis</h3>
+                
+                <div class="response-area">
+                    <h4 class="font-medium text-gray-800 mb-3">Client A: College Student Credit Card Analysis</h4>
+                    <table class="matrix-table">
+                        <thead>
+                            <tr>
+                                <th>Criteria</th>
+                                <th>Option 1</th>
+                                <th>Option 2</th>
+                                <th>Option 3</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Card Name</td>
+                                <td><input type="text" class="w-full p-1 border rounded"></td>
+                                <td><input type="text" class="w-full p-1 border rounded"></td>
+                                <td><input type="text" class="w-full p-1 border rounded"></td>
+                            </tr>
+                            <tr>
+                                <td>APR</td>
+                                <td><input type="text" class="w-full p-1 border rounded"></td>
+                                <td><input type="text" class="w-full p-1 border rounded"></td>
+                                <td><input type="text" class="w-full p-1 border rounded"></td>
+                            </tr>
+                            <!-- Add more rows for fees, requirements, etc. -->
+                        </tbody>
+                    </table>
+                    
+                    <div class="mt-4">
+                        <label class="block font-medium text-gray-700 mb-2">Calculations & Analysis</label>
+                        <div class="calculation-field">
+                            <textarea rows="4" class="w-full p-2 border rounded" placeholder="Show your APR and total cost calculations here..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <label class="block font-medium text-gray-700 mb-2">Recommendation & Justification</label>
+                        <textarea rows="3" class="w-full p-2 border rounded" placeholder="Explain your recommendation..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Similar response areas for Client B and C -->
+            </div>
+        </div>
+
+        <!-- Part 2: Financial Impact Analysis -->
+        <div class="project-card">
+            <div class="task-card scenarios">
+                <h3 class="font-semibold text-gray-800 mb-2">Part 2: Financial Impact Analysis</h3>
+                
+                <div class="response-area">
+                    <div class="calculation-field">
+                        <label class="block font-medium text-gray-700 mb-2">Debt-to-Income Ratio Calculation</label>
+                        <textarea rows="2" class="w-full p-2 border rounded" placeholder="Show your DTI calculation..."></textarea>
+                    </div>
+
+                    <div class="mt-4">
+                        <label class="block font-medium text-gray-700 mb-2">Financing Options Comparison</label>
+                        <table class="matrix-table">
+                            <thead>
+                                <tr>
+                                    <th>Criteria</th>
+                                    <th>Home Equity Loan</th>
+                                    <th>Personal Loan</th>
+                                    <th>0% APR Credit Card</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Interest Rate</td>
+                                    <td><input type="text" class="w-full p-1 border rounded"></td>
+                                    <td><input type="text" class="w-full p-1 border rounded"></td>
+                                    <td><input type="text" class="w-full p-1 border rounded"></td>
+                                </tr>
+                                <!-- Add more comparison criteria -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mt-4">
+                        <label class="block font-medium text-gray-700 mb-2">24-Month Cash Flow Projection</label>
+                        <div class="calculation-field">
+                            <textarea rows="6" class="w-full p-2 border rounded" placeholder="Provide your monthly cash flow projections..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Part 3: Strategic Recommendations -->
+        <div class="project-card">
+            <div class="task-card recommendations">
+                <h3 class="font-semibold text-gray-800 mb-2">Part 3: Strategic Recommendations</h3>
+                
+                <div class="response-area">
+                    <div class="mt-4">
+                        <label class="block font-medium text-gray-700 mb-2">Optimal Financing Recommendation</label>
+                        <textarea rows="4" class="w-full p-2 border rounded" placeholder="Explain your recommended financing choice and justification..."></textarea>
+                    </div>
+
+                    <div class="mt-4">
+                        <label class="block font-medium text-gray-700 mb-2">Risk Mitigation Strategy</label>
+                        <textarea rows="3" class="w-full p-2 border rounded" placeholder="Outline your risk mitigation approach..."></textarea>
+                    </div>
+
+                    <div class="mt-4">
+                        <label class="block font-medium text-gray-700 mb-2">Implementation Timeline</label>
+                        <table class="matrix-table">
+                            <thead>
+                                <tr>
+                                    <th>Timeline</th>
+                                    <th>Action Items</th>
+                                    <th>Key Considerations</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Week 1</td>
+                                    <td><textarea class="w-full p-1 border rounded" rows="2"></textarea></td>
+                                    <td><textarea class="w-full p-1 border rounded" rows="2"></textarea></td>
+                                </tr>
+                                <!-- Add more timeline rows -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submission Controls -->
+        <div class="project-card">
+            <div class="flex justify-between items-center">
+                <div class="space-y-2">
+                    <div class="text-sm text-gray-600">
+                        <i class="fas fa-clock mr-1"></i>
+                        Last saved: <span id="last-saved">Never</span>
+                    </div>
+                    <div class="text-sm text-gray-600">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        You can save your work and return to it later
+                    </div>
+                </div>
+                <div class="space-x-4">
+                    <button type="button" class="save-draft px-4 py-2 rounded-lg">
+                        Save Draft
+                    </button>
+                    <button type="submit" class="submit-final px-4 py-2 rounded-lg">
+                        Submit for Grading
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        // Add client-side functionality for:
+        // 1. Auto-saving drafts
+        // 2. Form validation
+        // 3. Calculation helpers
+        // 4. Rich text formatting
+        // 5. File attachment handling
+    </script>
+</body>
+</html> 

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Configuration</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .card {
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .chapter-item {
+            background: #f9fafb;
+            border-radius: 0.375rem;
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            cursor: move;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="admin-container">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-2xl font-bold text-gray-800">Curriculum Configuration</h1>
+            <div class="flex space-x-4">
+                <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                    <i class="fas fa-plus mr-2"></i>Add Standard
+                </button>
+                <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300">
+                    <i class="fas fa-cog mr-2"></i>Settings
+                </button>
+            </div>
+        </div>
+
+        <!-- Search and Filters -->
+        <div class="card mb-6">
+            <div class="flex flex-wrap gap-4">
+                <div class="flex-1 min-w-[200px]">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Search Standards</label>
+                    <input type="text" class="w-full p-2 border rounded-lg" placeholder="Search by title or code">
+                </div>
+                <div class="flex-1 min-w-[200px]">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Filter by Grade Level</label>
+                    <select class="w-full p-2 border rounded-lg">
+                        <option>All Grades</option>
+                        <option>9th Grade</option>
+                        <option>10th Grade</option>
+                        <option>11th Grade</option>
+                        <option>12th Grade</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Standards List -->
+        <div class="space-y-6">
+            <!-- Standard 1 -->
+            <div class="card">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-semibold text-gray-900">Standard 1: Financial Planning</h2>
+                    <div class="flex space-x-2">
+                        <button class="px-3 py-1 bg-blue-100 text-blue-800 rounded-lg hover:bg-blue-200">
+                            <i class="fas fa-edit mr-1"></i>Edit
+                        </button>
+                        <button class="px-3 py-1 bg-green-100 text-green-800 rounded-lg hover:bg-green-200">
+                            <i class="fas fa-plus mr-1"></i>Add Chapter
+                        </button>
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <div class="chapter-item">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">1.1: Budgeting Basics</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">Day 1</span>
+                        </div>
+                    </div>
+                    <div class="chapter-item">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">1.2: Financial Goals</span>
+                            <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">Day 2</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Standard 2 -->
+            <div class="card">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-semibold text-gray-900">Standard 2: Banking Services</h2>
+                    <div class="flex space-x-2">
+                        <button class="px-3 py-1 bg-blue-100 text-blue-800 rounded-lg hover:bg-blue-200">
+                            <i class="fas fa-edit mr-1"></i>Edit
+                        </button>
+                        <button class="px-3 py-1 bg-green-100 text-green-800 rounded-lg hover:bg-green-200">
+                            <i class="fas fa-plus mr-1"></i>Add Chapter
+                        </button>
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <div class="chapter-item">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">2.1: Types of Accounts</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">Day 1</span>
+                        </div>
+                    </div>
+                    <div class="chapter-item">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">2.2: Online Banking</span>
+                            <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">Day 2</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Save Changes Button -->
+        <div class="flex justify-end mt-6">
+            <button class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                Save Changes
+            </button>
+        </div>
+    </div>
+</body>
+</html> 

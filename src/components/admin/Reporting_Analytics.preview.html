@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics & Reporting Dashboard - PFL Academy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f9fafb;
+        }
+        
+        .analytics-card {
+            transition: all 0.3s ease;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .chart-container {
+            height: 300px;
+            position: relative;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 48px;
+            height: 24px;
+        }
+        
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+        
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .toggle-slider {
+            background-color: #4f46e5;
+        }
+        
+        input:checked + .toggle-slider:before {
+            transform: translateX(24px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="flex items-center">
+                        <div class="flex justify-center items-center h-10 w-10 rounded bg-indigo-600 text-white font-bold">
+                            PFL
+                        </div>
+                        <span class="ml-3 text-xl font-bold text-gray-900">PFL Academy</span>
+                    </div>
+                    <nav class="hidden md:flex items-center space-x-8 ml-10">
+                        <a href="#" class="text-gray-700 font-medium hover:text-indigo-600 text-sm">Home</a>
+                        <a href="/curriculum" class="text-gray-700 font-medium hover:text-indigo-600 text-sm">Curriculum</a>
+                        <a href="/users" class="text-gray-700 font-medium hover:text-indigo-600 text-sm">Users</a>
+                        <a href="#" class="text-indigo-600 font-medium text-sm">Analytics</a>
+                        <a href="/settings" class="text-gray-700 font-medium hover:text-indigo-600 text-sm">System</a>
+                    </nav>
+                </div>
+                <div class="flex items-center">
+                    <div class="flex items-center text-gray-700">
+                        <span class="hidden md:inline-block mr-2 text-sm">District Admin</span>
+                        <div class="relative">
+                            <button class="flex items-center justify-center rounded-full bg-indigo-100 h-8 w-8 focus:outline-none">
+                                <span class="text-sm font-medium text-indigo-800">DA</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="bg-white border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="flex-1 min-w-0">
+                    <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl">Reporting & Analytics</h1>
+                    <p class="mt-2 text-gray-600">Track student performance, identify trends, and make data-driven decisions.</p>
+                </div>
+                <div class="mt-4 md:mt-0 md:ml-4 flex space-x-3">
+                    <div class="dropdown relative">
+                        <button class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            <i class="fa-solid fa-download mr-2"></i>
+                            Export
+                            <i class="fa-solid fa-chevron-down ml-2"></i>
+                        </button>
+                        <!-- Dropdown menu for export options -->
+                    </div>
+                    <button class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <i class="fa-solid fa-calendar mr-2"></i>
+                        Schedule Reports
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <!-- LMS Integration Status -->
+        <div class="bg-white rounded-lg shadow-sm mb-6 p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-lg font-medium text-gray-900">LMS Integration Status</h2>
+                <button class="text-sm text-indigo-600 hover:text-indigo-900 font-medium flex items-center">
+                    <i class="fa-solid fa-gear mr-1"></i> Configure Integrations
+                </button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <!-- Canvas -->
+                <div class="border rounded-lg p-4 bg-green-50 border-green-200">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center">
+                            <img src="https://www.instructure.com/sites/default/files/image/2021-12/Canvas%20by%20Instructure%20logo%20horizontal.png" alt="Canvas" class="h-8 mr-2">
+                            <span class="font-medium">Canvas</span>
+                        </div>
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                            Connected
+                        </span>
+                    </div>
+                    <p class="mt-2 text-xs text-gray-500">Last sync: 30 minutes ago</p>
+                    <p class="text-xs text-gray-500">324 student records synced</p>
+                </div>
+                
+                <!-- Google Classroom -->
+                <div class="border rounded-lg p-4 bg-yellow-50 border-yellow-200">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center">
+                            <img src="https://www.gstatic.com/images/branding/product/2x/classroom_96dp.png" alt="Google Classroom" class="h-8 mr-2">
+                            <span class="font-medium">Google Classroom</span>
+                        </div>
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                            Partial
+                        </span>
+                    </div>
+                    <p class="mt-2 text-xs text-gray-500">2 schools pending authorization</p>
+                    <p class="text-xs text-gray-500">156 student records synced</p>
+                </div>
+                
+                <!-- Clever -->
+                <div class="border rounded-lg p-4 bg-gray-50 border-gray-200">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center">
+                            <img src="https://cdn.clever.com/s/img/favicon.ico" alt="Clever" class="h-8 mr-2">
+                            <span class="font-medium">Clever</span>
+                        </div>
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+                            Not Configured
+                        </span>
+                    </div>
+                    <p class="mt-2 text-xs text-gray-500">Click to set up integration</p>
+                </div>
+                
+                <!-- PowerSchool -->
+                <div class="border rounded-lg p-4 bg-red-50 border-red-200">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center">
+                            <img src="https://www.powerschool.com/wp-content/uploads/PowerSchool_Logo_Bug_RGB.svg" alt="PowerSchool" class="h-8 mr-2">
+                            <span class="font-medium">PowerSchool</span>
+                        </div>
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                            Error
+                        </span>
+                    </div>
+                    <p class="mt-2 text-xs text-red-500">API credentials expired</p>
+                    <button class="text-xs text-indigo-600 hover:text-indigo-900 font-medium">Troubleshoot</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filters Panel -->
+        <div class="bg-white rounded-lg shadow-sm mb-6 p-4">
+            <div class="flex flex-wrap -mx-2">
+                <div class="px-2 w-full md:w-1/4 mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Time Period</label>
+                    <select class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                        <option>Current Semester (Fall 2024)</option>
+                        <option>Previous Semester (Spring 2024)</option>
+                        <option>Last 30 Days</option>
+                        <option>Custom Range</option>
+                    </select>
+                </div>
+                
+                <div class="px-2 w-full md:w-1/4 mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">District/School</label>
+                    <select class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                        <option>All Schools</option>
+                        <option>Oklahoma City Public Schools</option>
+                        <option>Tulsa Public Schools</option>
+                        <option>Edmond Public Schools</option>
+                    </select>
+                </div>
+                
+                <div class="px-2 w-full md:w-1/4 mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Curriculum Platform</label>
+                    <select class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                        <option>All Platforms</option>
+                        <option>Synchronous 90-Hour</option>
+                        <option>Asynchronous 45-Hour</option>
+                        <option>Asynchronous 30-Hour</option>
+                    </select>
+                </div>
+                
+                <div class="px-2 w-full md:w-1/4 mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Class Period</label>
+                    <select class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                        <option>All Periods</option>
+                        <option>Period 1</option>
+                        <option>Period 2</option>
+                        <option>Period 3</option>
+                        <option>Period 4</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="flex items-center space-x-4 mt-2">
+                <button class="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none">
+                    <i class="fa-solid fa-filter mr-1"></i> Apply Filters
+                </button>
+                <button class="text-sm text-gray-500 hover:text-gray-700">
+                    Reset Filters
+                </button>
+                <label class="flex items-center text-sm text-gray-700 ml-auto">
+                    <input type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 mr-2">
+                    Auto-refresh data
+                </label>
+            </div>
+        </div>
+
+        <!-- Data View Tabs -->
+        <div class="mb-6">
+            <div class="hidden sm:block">
+                <div class="border-b border-gray-200">
+                    <nav class="-mb-px flex space-x-8" aria-label="Tabs">
+                        <a href="#" class="border-indigo-500 text-indigo-600 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" aria-current="page">
+                            Dashboard
+                        </a>
+                        <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                            Standards Performance
+                        </a>
+                        <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                            Student Progress
+                        </a>
+                        <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                            School Comparison
+                        </a>
+                        <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                            LMS Data Integration
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Tab Content -->
+        <div class="tab-content active" id="dashboard-tab">
+            <!-- District Summary Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 mb-6">
+                <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-sm font-medium text-gray-500">Active Students</h3>
+                        <div class="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center">
+                            <i class="fa-solid fa-users text-indigo-600"></i>
+                        </div>
+                    </div>
+                    <p class="text-2xl font-bold text-gray-900">2,348</p>
+                    <div class="flex items-center mt-1">
+                        <span class="text-sm text-green-600 font-medium flex items-center">
+                            <i class="fa-solid fa-arrow-up text-xs mr-1"></i>
+                            9% from last semester
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-sm font-medium text-gray-500">Average Completion Rate</h3>
+                        <div class="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center">
+                            <i class="fa-solid fa-chart-line text-indigo-600"></i>
+                        </div>
+                    </div>
+                    <p class="text-2xl font-bold text-gray-900">82%</p>
+                    <div class="flex items-center mt-1">
+                        <span class="text-sm text-green-600 font-medium flex items-center">
+                            <i class="fa-solid fa-arrow-up text-xs mr-1"></i>
+                            5% from last semester
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-sm font-medium text-gray-500">Average Assessment Score</h3>
+                        <div class="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center">
+                            <i class="fa-solid fa-graduation-cap text-indigo-600"></i>
+                        </div>
+                    </div>
+                    <p class="text-2xl font-bold text-gray-900">85%</p>
+                    <div class="flex items-center mt-1">
+                        <span class="text-sm text-amber-600 font-medium flex items-center">
+                            <i class="fa-solid fa-minus text-xs mr-1"></i>
+                            No change from last semester
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-sm font-medium text-gray-500">Grade Sync Status</h3>
+                        <div class="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center">
+                            <i class="fa-solid fa-sync text-indigo-600"></i>
+                        </div>
+                    </div>
+                    <p class="text-2xl font-bold text-gray-900">96%</p>
+                    <div class="flex items-center mt-1">
+                        <span class="text-sm text-amber-600 font-medium flex items-center">
+                            <i class="fa-solid fa-exclamation-triangle text-xs mr-1"></i>
+                            42 records need attention
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                <!-- Standards Performance Chart -->
+                <div class="analytics-card bg-white p-5 border border-gray-200">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-medium text-gray-900">Standards Performance</h3>
+                        <div class="flex items-center space-x-2">
+                            <button class="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded">All Standards</button>
+                            <button class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">Top 5</button>
+                            <button class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">Bottom 5</button>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="standardsChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- School Comparison Chart -->
+                <div class="analytics-card bg-white p-5 border border-gray-200">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-medium text-gray-900">School Comparison</h3>
+                        <select class="text-sm rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                            <option>Overall Performance</option>
+                            <option>Completion Rate</option>
+                            <option>Assessment Scores</option>
+                            <option>Engagement Time</option>
+                        </select>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="schoolsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Over Time -->
+            <div class="analytics-card bg-white p-5 border border-gray-200 mb-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-medium text-gray-900">Progress Over Time</h3>
+                    <div class="flex items-center space-x-3">
+                        <div class="flex items-center space-x-1">
+                            <div class="h-3 w-3 rounded-full bg-indigo-500"></div>
+                            <span class="text-xs text-gray-600">Completion Rate</span>
+                        </div>
+                        <div class="flex items-center space-x-1">
+                            <div class="h-3 w-3 rounded-full bg-green-500"></div>
+                            <span class="text-xs text-gray-600">Assessment Scores</span>
+                        </div>
+                        <div class="flex items-center space-x-1">
+                            <div class="h-3 w-3 rounded-full bg-yellow-500"></div>
+                            <span class="text-xs text-gray-600">Engagement Time</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="progressChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Data Synchronization & Grade Push Section -->
+            <div class="analytics-card bg-white p-5 border border-gray-200 mb-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-medium text-gray-900">Grade Data Integration</h3>
+                    <button class="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none">
+                        <i class="fa-solid fa-sync mr-1"></i> Sync Now
+                    </button>
+                </div>
+                
+                <div class="overflow-hidden">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    LMS Platform
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Last Sync
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Student Records
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Sync Status
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Actions
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <img src="https://www.instructure.com/sites/default/files/image/2021-12/Canvas%20by%20Instructure%20logo%20horizontal.png" alt="Canvas" class="h-6 mr-2">
+                                        <span class="font-medium text-gray-900">Canvas</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    30 minutes ago
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    324 / 324 (100%)
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                        Complete
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                    <a href="#" class="text-indigo-600 hover:text-indigo-900">View Details</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <img src="https://www.gstatic.com/images/branding/product/2x/classroom_96dp.png" alt="Google Classroom" class="h-6 mr-2">
+                                        <span class="font-medium text-gray-900">Google Classroom</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    1 hour ago
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    156 / 198 (79%)
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                        Partial
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Resolve Issues</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <img src="https://www.powerschool.com/wp-content/uploads/PowerSchool_Logo_Bug_RGB.svg" alt="PowerSchool" class="h-6 mr-2">
+                                        <span class="font-medium text-gray-900">PowerSchool</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    2 days ago
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    0 / 142 (0%)
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                        Failed
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Fix Authentication</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Alert & Issue Summary -->
+            <div class="bg-white rounded-lg shadow-sm mb-6 p-5 border border-gray-200">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-medium text-gray-900">Issues Requiring Attention</h3>
+                    <span class="inline-flex items
+                    <!-- Alert & Issue Summary -->
+            <div class="bg-white rounded-lg shadow-sm mb-6 p-5 border border-gray-200">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-medium text-gray-900">Issues Requiring Attention</h3>
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                        3 Critical Issues
+                    </span>
+                </div>
+                
+                <div class="space-y-3">
+                    <div class="flex items-start p-3 bg-red-50 rounded-lg border border-red-200">
+                        <div class="flex-shrink-0">
+                            <i class="fa-solid fa-triangle-exclamation text-red-500"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h4 class="text-sm font-medium text-red-800">PowerSchool Integration Failed</h4>
+                            <p class="text-sm text-red-700">API authentication token expired 2 days ago. 142 student records affected.</p>
+                            <button class="mt-1 text-xs text-indigo-600 font-medium">Update Credentials</button>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start p-3 bg-yellow-50 rounded-lg border border-yellow-200">
+                        <div class="flex-shrink-0">
+                            <i class="fa-solid fa-circle-exclamation text-yellow-500"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h4 class="text-sm font-medium text-yellow-800">Google Classroom Partial Sync</h4>
+                            <p class="text-sm text-yellow-700">2 schools need to reauthorize the integration. 42 student records pending sync.</p>
+                            <button class="mt-1 text-xs text-indigo-600 font-medium">Send Reminder</button>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start p-3 bg-yellow-50 rounded-lg border border-yellow-200">
+                        <div class="flex-shrink-0">
+                            <i class="fa-solid fa-circle-exclamation text-yellow-500"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h4 class="text-sm font-medium text-yellow-800">Grade Discrepancies in Canvas</h4>
+                            <p class="text-sm text-yellow-700">18 student records show different grades between PFL Academy and Canvas.</p>
+                            <button class="mt-1 text-xs text-indigo-600 font-medium">Reconcile Records</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grade Push Configuration -->
+            <div class="bg-white rounded-lg shadow-sm mb-6 p-5 border border-gray-200">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-medium text-gray-900">Grade Integration Configuration</h3>
+                    <button class="text-sm text-indigo-600 hover:text-indigo-900 font-medium">
+                        Edit Mappings
+                    </button>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="border rounded-lg p-4">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="text-sm font-medium text-gray-900">Canvas</h4>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Skill Builders</span>
+                                <span class="text-gray-900">→ Labs & Activities (25%)</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Quizzes</span>
+                                <span class="text-gray-900">→ Assessments (30%)</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Projects</span>
+                                <span class="text-gray-900">→ Projects (30%)</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Final Assessment</span>
+                                <span class="text-gray-900">→ Final Exam (15%)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-3 text-xs text-gray-500">
+                            Auto-sync every 6 hours
+                        </div>
+                    </div>
+                    
+                    <div class="border rounded-lg p-4">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="text-sm font-medium text-gray-900">Google Classroom</h4>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Skill Builders</span>
+                                <span class="text-gray-900">→ Classwork (25%)</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Quizzes</span>
+                                <span class="text-gray-900">→ Quizzes (35%)</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Projects</span>
+                                <span class="text-gray-900">→ Projects (25%)</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Final Assessment</span>
+                                <span class="text-gray-900">→ Final (15%)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-3 text-xs text-gray-500">
+                            Manual sync only
+                        </div>
+                    </div>
+                    
+                    <div class="border rounded-lg p-4 bg-gray-50">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="text-sm font-medium text-gray-900">PowerSchool</h4>
+                            <label class="toggle-switch">
+                                <input type="checkbox">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        
+                        <div class="space-y-2 opacity-50">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Skill Builders</span>
+                                <span class="text-gray-900">→ Not Configured</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Quizzes</span>
+                                <span class="text-gray-900">→ Not Configured</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Projects</span>
+                                <span class="text-gray-900">→ Not Configured</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Final Assessment</span>
+                                <span class="text-gray-900">→ Not Configured</span>
+                            </div>
+                        </div>
+                        
+                        <button class="mt-4 w-full text-center px-3 py-1.5 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none">
+                            Configure Integration
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Reports -->
+            <div class="bg-white rounded-lg shadow-sm mb-6 p-5 border border-gray-200">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-medium text-gray-900">Recent Reports</h3>
+                    <button class="text-sm text-indigo-600 hover:text-indigo-900 font-medium">
+                        View All Reports
+                    </button>
+                </div>
+                
+                <div class="overflow-hidden">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Report Name
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Generated
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Created By
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Format
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Actions
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm font-medium text-gray-900">Fall 2024 Progress Report</div>
+                                    <div class="text-xs text-gray-500">Performance across all schools</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    Today, 9:45 AM
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">Admin User</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
+                                        PDF
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                    <a href="#" class="text-indigo-600 hover:text-indigo-900 mr-3">Download</a>
+                                    <a href="#" class="text-gray-600 hover:text-gray-900">Share</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm font-medium text-gray-900">Student Completion Data</div>
+                                    <div class="text-xs text-gray-500">Raw completion data for all students</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    Yesterday, 2:30 PM
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">Jane Smith</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                        CSV
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                    <a href="#" class="text-indigo-600 hover:text-indigo-900 mr-3">Download</a>
+                                    <a href="#" class="text-gray-600 hover:text-gray-900">Share</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm font-medium text-gray-900">Standards Performance Analysis</div>
+                                    <div class="text-xs text-gray-500">Detailed breakdown by standard</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    Nov 1, 2024
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">System</div>
+                                    <div class="text-xs text-gray-500">(Scheduled)</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
+                                        PDF
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                    <a href="#" class="text-indigo-600 hover:text-indigo-900 mr-3">Download</a>
+                                    <a href="#" class="text-gray-600 hover:text-gray-900">Share</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Standards Performance Tab Content (Hidden) -->
+        <div class="tab-content" id="standards-tab">
+            <!-- This would contain detailed standards performance data -->
+        </div>
+
+        <!-- Student Progress Tab Content (Hidden) -->
+        <div class="tab-content" id="progress-tab">
+            <!-- This would contain detailed student progress data -->
+        </div>
+
+        <!-- School Comparison Tab Content (Hidden) -->
+        <div class="tab-content" id="comparison-tab">
+            <!-- This would contain detailed school comparison data -->
+        </div>
+
+        <!-- LMS Data Integration Tab Content (Hidden) -->
+        <div class="tab-content" id="lms-tab">
+            <!-- This would contain detailed LMS integration settings -->
+        </div>
+    </main>
+
+    <!-- Sample Chart Initialization Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Standards Performance Chart
+            const standardsCtx = document.getElementById('standardsChart').getContext('2d');
+            new Chart(standardsCtx, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        'Standard 1: Careers',
+                        'Standard 2: Taxes',
+                        'Standard 3: Providers',
+                        'Standard 5: Investing',
+                        'Standard 7: Borrowing',
+                        'Standard 15: Career Readiness'
+                    ],
+                    datasets: [{
+                        label: 'Average Score (%)',
+                        data: [92, 78, 85, 90, 82, 89],
+                        backgroundColor: [
+                            'rgba(79, 70, 229, 0.7)',
+                            'rgba(79, 70, 229, 0.7)',
+                            'rgba(79, 70, 229, 0.7)',
+                            'rgba(79, 70, 229, 0.7)',
+                            'rgba(79, 70, 229, 0.7)',
+                            'rgba(79, 70, 229, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(79, 70, 229, 1)',
+                            'rgba(79, 70, 229, 1)',
+                            'rgba(79, 70, 229, 1)',
+                            'rgba(79, 70, 229, 1)',
+                            'rgba(79, 70, 229, 1)',
+                            'rgba(79, 70, 229, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+
+            // School Comparison Chart
+            const schoolsCtx = document.getElementById('schoolsChart').getContext('2d');
+            new Chart(schoolsCtx, {
+                type: 'horizontalBar',
+                data: {
+                    labels: [
+                        'Washington High School', 
+                        'Jefferson High School', 
+                        'Lincoln High School', 
+                        'Roosevelt High School'
+                    ],
+                    datasets: [{
+                        label: 'Overall Performance',
+                        data: [87, 82, 76, 85],
+                        backgroundColor: 'rgba(16, 185, 129, 0.7)',
+                        borderColor: 'rgba(16, 185, 129, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+
+            // Progress Over Time Chart
+            const progressCtx = document.getElementById('progressChart').getContext('2d');
+            new Chart(progressCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6', 'Week 7', 'Week 8'],
+                    datasets: [
+                        {
+                            label: 'Completion Rate',
+                            data: [15, 30, 45, 50, 60, 70, 75, 82],
+                            borderColor: 'rgba(79, 70, 229, 1)',
+                            backgroundColor: 'rgba(79, 70, 229, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        },
+                        {
+                            label: 'Assessment Scores',
+                            data: [null, 76, null, 79, null, 82, null, 85],
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            backgroundColor: 'transparent',
+                            tension: 0.4
+                        },
+                        {
+                            label: 'Engagement (min/day)',
+                            data: [25, 32, 28, 35, 30, 38, 42, 45],
+                            borderColor: 'rgba(245, 158, 11, 1)',
+                            backgroundColor: 'transparent',
+                            tension: 0.4,
+                            yAxisID: 'engagement'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            title: {
+                                display: true,
+                                text: 'Percentage (%)'
+                            }
+                        },
+                        engagement: {
+                            position: 'right',
+                            beginAtZero: true,
+                            max: 60,
+                            title: {
+                                display: true,
+                                text: 'Minutes'
+                            },
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Tab Switching
+            const tabs = document.querySelectorAll('nav[aria-label="Tabs"] a');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach((tab, index) => {
+                tab.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // Update tab styles
+                    tabs.forEach(t => {
+                        t.classList.remove('border-indigo-500', 'text-indigo-600');
+                        t.classList.add('border-transparent', 'text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
+                    });
+                    
+                    tab.classList.add('border-indigo-500', 'text-indigo-600');
+                    tab.classList.remove('border-transparent', 'text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
+                    
+                    // Show corresponding tab content
+                    tabContents.forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    tabContents[index].classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standard 11 Capstone Project - Risk Management and Insurance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { 
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            margin-bottom: 2rem;
+            padding: 2rem;
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+        }
+        .badge-blue {
+            background-color: #dbeafe;
+            color: #1e40af;
+        }
+        .badge-green {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+        .badge-yellow {
+            background-color: #fef9c3;
+            color: #854d0e;
+        }
+        .task-card {
+            border-left: 4px solid;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: #f8fafc;
+            border-radius: 0.5rem;
+        }
+        .task-card.analysis { border-color: #3b82f6; }
+        .task-card.planning { border-color: #22c55e; }
+        .task-card.strategy { border-color: #8b5cf6; }
+        .response-area {
+            border: 2px solid #e2e8f0;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin: 1rem 0;
+            background: white;
+        }
+        .calculation-field {
+            font-family: monospace;
+            background: #f8fafc;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            margin: 0.5rem 0;
+        }
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        .matrix-table th, .matrix-table td {
+            border: 1px solid #e2e8f0;
+            padding: 0.5rem;
+        }
+        .matrix-table th {
+            background: #f8fafc;
+        }
+    </style>
+</head>
+<body>
+    <div class="max-w-5xl mx-auto">
+        <!-- Project Overview Update -->
+        <div class="project-card">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Protecting What Matters: Your Risk and Insurance Plan</h1>
+            <h2 class="text-xl text-gray-600 mb-4">Standard 11: Understanding Risk Management and Insurance</h2>
+            
+            <div class="flex gap-3 mb-6">
+                <span class="badge badge-blue">
+                    <i class="fas fa-clock mr-2"></i>45 Minutes
+                </span>
+                <span class="badge badge-green">
+                    <i class="fas fa-file-alt mr-2"></i>Written Plan
+                </span>
+                <span class="badge badge-yellow">
+                    <i class="fas fa-calculator mr-2"></i>Basic Math
+                </span>
+            </div>
+
+            <p class="text-gray-700 text-lg mb-4">
+                In this project, you'll create a practical plan to protect yourself and your family from everyday risks. You'll learn how insurance works, figure out what coverage you need, and make a simple plan to stay protected. Don't worry - we'll break it down into easy steps!
+            </p>
+
+            <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                <h3 class="font-semibold text-blue-900 mb-2">What You'll Need:</h3>
+                <ul class="text-blue-800 space-y-1">
+                    <li><i class="fas fa-calculator mr-2"></i>Basic calculator</li>
+                    <li><i class="fas fa-pencil-alt mr-2"></i>Something to write with</li>
+                    <li><i class="fas fa-paper-plane mr-2"></i>Your thinking cap!</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Task Overview Update -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Your Tasks</h2>
+            
+            <!-- Risk Assessment Overview -->
+            <div class="task-card analysis">
+                <h3 class="font-medium text-gray-800 mb-3">Task 1: Spot the Risks (15 minutes)</h3>
+                <p class="text-gray-700 mb-4">
+                    Let's identify what could go wrong and how big of a deal it might be
+                </p>
+                <ul class="text-gray-600 space-y-2">
+                    <li><i class="fas fa-angle-right text-blue-500 mr-2"></i>Make a list of possible problems (like car accidents or injuries)</li>
+                    <li><i class="fas fa-angle-right text-blue-500 mr-2"></i>Rate how likely they are to happen (1-3 scale)</li>
+                    <li><i class="fas fa-angle-right text-blue-500 mr-2"></i>Think about how bad it would be if they happened</li>
+                    <li><i class="fas fa-angle-right text-blue-500 mr-2"></i>Circle the ones that worry you most</li>
+                </ul>
+            </div>
+
+            <!-- Insurance Analysis Overview -->
+            <div class="task-card planning">
+                <h3 class="font-medium text-gray-800 mb-3">Task 2: Insurance Check (15 minutes)</h3>
+                <p class="text-gray-700 mb-4">
+                    Figure out what insurance you need and what it might cost
+                </p>
+                <ul class="text-gray-600 space-y-2">
+                    <li><i class="fas fa-angle-right text-green-500 mr-2"></i>Match each risk to a type of insurance</li>
+                    <li><i class="fas fa-angle-right text-green-500 mr-2"></i>Look at basic insurance costs</li>
+                    <li><i class="fas fa-angle-right text-green-500 mr-2"></i>Find what's missing in current coverage</li>
+                    <li><i class="fas fa-angle-right text-green-500 mr-2"></i>Pick what's most important to get first</li>
+                </ul>
+            </div>
+
+            <!-- Protection Plan Overview -->
+            <div class="task-card strategy">
+                <h3 class="font-medium text-gray-800 mb-3">Task 3: Make Your Plan (15 minutes)</h3>
+                <p class="text-gray-700 mb-4">
+                    Create a simple plan to protect yourself and your stuff
+                </p>
+                <ul class="text-gray-600 space-y-2">
+                    <li><i class="fas fa-angle-right text-purple-500 mr-2"></i>List your top 3 protection needs</li>
+                    <li><i class="fas fa-angle-right text-purple-500 mr-2"></i>Write down when you'll get each one</li>
+                    <li><i class="fas fa-angle-right text-purple-500 mr-2"></i>Figure out how much to save each month</li>
+                    <li><i class="fas fa-angle-right text-purple-500 mr-2"></i>Plan how to check if it's working</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Scenario 1 and Analysis -->
+        <div class="project-card">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">Scenario 1: First Job, First Car</h3>
+            <!-- Scenario 1 Details -->
+            <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                <p class="text-gray-700">Meet Jordan, who just started their first job:</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div>
+                        <h5 class="font-medium text-gray-800 mb-2">About Jordan:</h5>
+                        <ul class="list-disc list-inside text-gray-600">
+                            <li>Age: 18</li>
+                            <li>Job: Restaurant server</li>
+                            <li>Makes: $2,000/month</li>
+                            <li>Savings: $500</li>
+                            <li>Lives with parents</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-medium text-gray-800 mb-2">What Jordan Owns:</h5>
+                        <ul class="list-disc list-inside text-gray-600">
+                            <li>Used car worth $8,000</li>
+                            <li>Phone worth $800</li>
+                            <li>Laptop worth $600</li>
+                            <li>Monthly phone bill: $60</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <h5 class="font-medium text-gray-800 mb-2">Current Insurance:</h5>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li>Still on parents' health insurance</li>
+                        <li>Basic car insurance (minimum required)</li>
+                        <li>No other insurance</li>
+                    </ul>
+                </div>
+                <div class="mt-4">
+                    <h5 class="font-medium text-gray-800 mb-2">What's Going On:</h5>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li>Drives to work and college classes</li>
+                        <li>Wants to move out next year</li>
+                        <li>Saving for college expenses</li>
+                        <li>Phone screen is cracked</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Scenario 1 Analysis Section -->
+            <div class="bg-white p-6 rounded-lg border border-gray-200">
+                <h4 class="text-lg font-semibold text-gray-800 mb-4">Your Analysis - Jordan's Situation</h4>
+                
+                <!-- Task 1 Response -->
+                <div class="mb-6">
+                    <h5 class="font-medium text-gray-800 mb-3">Task 1: Spot the Risks</h5>
+                    
+                    <div class="space-y-4">
+                        <div class="response-area">
+                            <label class="block font-medium text-gray-700 mb-2">1. List three risks Jordan faces with their car:</label>
+                            <textarea class="w-full p-3 border border-gray-200 rounded-md" rows="3" placeholder="Example: Getting in an accident while driving to work..."></textarea>
+                        </div>
+
+                        <div class="response-area">
+                            <label class="block font-medium text-gray-700 mb-2">2. Rate each risk (1=not likely, 2=maybe, 3=very likely):</label>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <p class="text-sm text-gray-600">Risk 1 Rating: _____</p>
+                                    <p class="text-sm text-gray-600">Risk 2 Rating: _____</p>
+                                    <p class="text-sm text-gray-600">Risk 3 Rating: _____</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-600">Why did you give these ratings?</p>
+                                    <textarea class="w-full p-2 border border-gray-200 rounded-md" rows="2"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="response-area">
+                            <label class="block font-medium text-gray-700 mb-2">3. What would it cost if these risks happened?</label>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <p class="text-sm text-gray-600">Risk 1: $________</p>
+                                    <p class="text-sm text-gray-600">Risk 2: $________</p>
+                                    <p class="text-sm text-gray-600">Risk 3: $________</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-600">How did you estimate these costs?</p>
+                                    <textarea class="w-full p-2 border border-gray-200 rounded-md" rows="2"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Task 2 Response -->
+                <div class="mb-6">
+                    <h5 class="font-medium text-gray-800 mb-3">Task 2: Insurance Check</h5>
+                    
+                    <div class="space-y-4">
+                        <div class="response-area">
+                            <label class="block font-medium text-gray-700 mb-2">4. What insurance does Jordan need most? Pick 2 and explain why:</label>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <p class="text-sm text-gray-600">First Choice: ________________</p>
+                                    <p class="text-sm text-gray-600">Why?</p>
+                                    <textarea class="w-full p-2 border border-gray-200 rounded-md" rows="2"></textarea>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-600">Second Choice: ________________</p>
+                                    <p class="text-sm text-gray-600">Why?</p>
+                                    <textarea class="w-full p-2 border border-gray-200 rounded-md" rows="2"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="response-area">
+                            <label class="block font-medium text-gray-700 mb-2">5. Monthly Budget for Insurance:</label>
+                            <div class="calculation-field p-4">
+                                <p class="text-sm text-gray-600 mb-2">Jordan's Monthly Income: $2,000</p>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <p class="text-sm text-gray-600">Current Expenses:</p>
+                                        <p class="text-sm text-gray-600">Phone bill: $60</p>
+                                        <p class="text-sm text-gray-600">Other expenses: $________</p>
+                                        <p class="text-sm text-gray-600">Money for insurance: $________</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">Show your math:</p>
+                                        <textarea class="w-full p-2 border border-gray-200 rounded-md" rows="3"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Task 3 Response -->
+                <div class="mb-6">
+                    <h5 class="font-medium text-gray-800 mb-3">Task 3: Make Your Plan</h5>
+                    
+                    <div class="space-y-4">
+                        <div class="response-area">
+                            <label class="block font-medium text-gray-700 mb-2">6. Write your 3-step plan for Jordan:</label>
+                            <div class="mb-2">
+                                <p class="text-sm text-gray-600">Step 1: What to do right now</p>
+                                <textarea class="w-full p-2 border border-gray-200 rounded-md" rows="2"></textarea>
+                            </div>
+                            <div class="mb-2">
+                                <p class="text-sm text-gray-600">Step 2: What to do in 1-3 months</p>
+                                <textarea class="w-full p-2 border border-gray-200 rounded-md" rows="2"></textarea>
+                            </div>
+                            <div class="mb-2">
+                                <p class="text-sm text-gray-600">Step 3: What to do in 4-6 months</p>
+                                <textarea class="w-full p-2 border border-gray-200 rounded-md" rows="2"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scenario 2 and Analysis -->
+        <div class="project-card">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">Scenario 2: The Martinez Family</h3>
+            <!-- Scenario 2 Details -->
+            <div class="bg-green-50 p-4 rounded-lg mb-6">
+                <p class="text-gray-700">Meet the Martinez family:</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div>
+                        <h5 class="font-medium text-gray-800 mb-2">The Family:</h5>
+                        <ul class="list-disc list-inside text-gray-600">
+                            <li>Parents: Ana and Miguel</li>
+                            <li>Kids: Tommy (8) and Lisa (5)</li>
+                            <li>Family income: $4,000/month</li>
+                            <li>Rent: $1,200/month</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-medium text-gray-800 mb-2">What They Own:</h5>
+                        <ul class="list-disc list-inside text-gray-600">
+                            <li>Two cars (2015 and 2018)</li>
+                            <li>TV and gaming console</li>
+                            <li>Basic furniture</li>
+                            <li>Some jewelry</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <h5 class="font-medium text-gray-800 mb-2">Current Insurance:</h5>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li>Basic health insurance through work</li>
+                        <li>Minimum car insurance</li>
+                        <li>No renter's insurance</li>
+                        <li>No life insurance</li>
+                    </ul>
+                </div>
+                <div class="mt-4">
+                    <h5 class="font-medium text-gray-800 mb-2">What's Going On:</h5>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li>Tommy has asthma</li>
+                        <li>Ana works from home</li>
+                        <li>Miguel drives Uber on weekends</li>
+                        <li>Want to buy a house someday</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Scenario 2 Analysis Section -->
+            <div class="bg-white p-6 rounded-lg border border-gray-200">
+                <h4 class="text-lg font-semibold text-gray-800 mb-4">Your Analysis - The Martinez Family</h4>
+                
+                <!-- Task 1 Response -->
+                <div class="mb-6">
+                    <h5 class="font-medium text-gray-800 mb-3">Task 1: Spot the Risks</h5>
+                    
+                    <div class="space-y-4">
+                        <div class="response-area">
+                            <label class="block font-medium text-gray-700 mb-2">1. What are three biggest risks for the Martinez family?</label>
+                            <textarea class="w-full p-3 border border-gray-200 rounded-md" rows="3" placeholder="Example: Tommy's asthma could require expensive medical care..."></textarea>
+                        </div>
+
+                        <div class="response-area">
+                            <label class="block font-medium text-gray-700 mb-2">2. Rate each risk (1=not likely, 2=maybe, 3=very likely):</label>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <p class="text-sm text-gray-600">Risk 1 Rating: _____</p>
+                                    <p class="text-sm text-gray-600">Risk 2 Rating: _____</p>
+                                    <p class="text-sm text-gray-600">Risk 3 Rating: _____</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-600">Why did you give these ratings?</p>
+                                    <textarea class="w-full p-2 border border-gray-200 rounded-md" rows="2"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="response-area">
+                            <label class="block font-medium text-gray-700 mb-2">3. What could these risks cost the family?</label>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <p class="text-sm text-gray-600">Risk 1: $________</p>
+                                    <p class="text-sm text-gray-600">Risk 2: $________</p>
+                                    <p class="text-sm text-gray-600">Risk 3: $________</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-600">How did you estimate these costs?</p>
+                                    <textarea class="w-full p-2 border border-gray-200 rounded-md" rows="2"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Task 2 Response -->
+                <div class="mb-6">
+                    <h5 class="font-medium text-gray-800 mb-3">Task 2: Insurance Check</h5>
+                    
+                    <div class="space-y-4">
+                        <div class="response-area">
+                            <label class="block font-medium text-gray-700 mb-2">4. What two types of insurance should the family get or improve?</label>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <p class="text-sm text-gray-600">First Choice: ________________</p>
+                                    <p class="text-sm text-gray-600">Why?</p>
+                                    <textarea class="w-full p-2 border border-gray-200 rounded-md" rows="2"></textarea>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-600">Second Choice: ________________</p>
+                                    <p class="text-sm text-gray-600">Why?</p>
+                                    <textarea class="w-full p-2 border border-gray-200 rounded-md" rows="2"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="response-area">
+                            <label class="block font-medium text-gray-700 mb-2">5. Monthly Budget for Insurance:</label>
+                            <div class="calculation-field p-4">
+                                <p class="text-sm text-gray-600 mb-2">Family's Monthly Income: $4,000</p>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <p class="text-sm text-gray-600">Current Expenses:</p>
+                                        <p class="text-sm text-gray-600">Rent: $1,200</p>
+                                        <p class="text-sm text-gray-600">Other expenses: $________</p>
+                                        <p class="text-sm text-gray-600">Money for insurance: $________</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">Show your math:</p>
+                                        <textarea class="w-full p-2 border border-gray-200 rounded-md" rows="3"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Task 3 Response -->
+                <div class="mb-6">
+                    <h5 class="font-medium text-gray-800 mb-3">Task 3: Make Your Plan</h5>
+                    
+                    <div class="space-y-4">
+                        <div class="response-area">
+                            <label class="block font-medium text-gray-700 mb-2">6. Write your 3-step plan for the Martinez family:</label>
+                            <div class="mb-2">
+                                <p class="text-sm text-gray-600">Step 1: What to do right now</p>
+                                <textarea class="w-full p-2 border border-gray-200 rounded-md" rows="2"></textarea>
+                            </div>
+                            <div class="mb-2">
+                                <p class="text-sm text-gray-600">Step 2: What to do in 1-3 months</p>
+                                <textarea class="w-full p-2 border border-gray-200 rounded-md" rows="2"></textarea>
+                            </div>
+                            <div class="mb-2">
+                                <p class="text-sm text-gray-600">Step 3: What to do in 4-6 months</p>
+                                <textarea class="w-full p-2 border border-gray-200 rounded-md" rows="2"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submission Requirements Update -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+                <i class="fas fa-file-upload text-green-600 mr-2"></i>How to Submit Your Work
+            </h2>
+            <div class="space-y-4">
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <h3 class="font-semibold text-gray-800 mb-2">For Each Scenario, Include:</h3>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>Your list of possible risks</li>
+                        <li>Which insurance types they need most</li>
+                        <li>A simple monthly budget showing insurance costs</li>
+                        <li>Your step-by-step protection plan</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Evaluation Criteria Update -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+                <i class="fas fa-star text-yellow-600 mr-2"></i>How You'll Be Graded
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-blue-50 rounded-lg p-4 border border-blue-100">
+                    <h3 class="font-semibold text-blue-900 mb-2">Finding Risks (35%)</h3>
+                    <ul class="text-blue-800 space-y-2">
+                        <li><i class="fas fa-check-circle mr-2"></i>Spotted important risks</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Explained why they matter</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Used common sense</li>
+                    </ul>
+                </div>
+                <div class="bg-green-50 rounded-lg p-4 border border-green-100">
+                    <h3 class="font-semibold text-green-900 mb-2">Insurance Choices (35%)</h3>
+                    <ul class="text-green-800 space-y-2">
+                        <li><i class="fas fa-check-circle mr-2"></i>Picked right insurance types</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Thought about costs</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Made smart choices</li>
+                    </ul>
+                </div>
+                <div class="bg-yellow-50 rounded-lg p-4 border border-yellow-100">
+                    <h3 class="font-semibold text-yellow-900 mb-2">Your Plan (30%)</h3>
+                    <ul class="text-yellow-800 space-y-2">
+                        <li><i class="fas fa-check-circle mr-2"></i>Clear steps to follow</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Realistic timeline</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Fits their budget</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standard 7 Capstone Project - Borrowing Money</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { 
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            margin-bottom: 2rem;
+            padding: 2rem;
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+        }
+        .badge-blue {
+            background-color: #dbeafe;
+            color: #1e40af;
+        }
+        .badge-green {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+        .badge-purple {
+            background-color: #f3e8ff;
+            color: #6b21a8;
+        }
+        .task-card {
+            border-left: 4px solid;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: #f8fafc;
+            border-radius: 0.5rem;
+        }
+        .task-card.analysis { border-color: #3b82f6; }
+        .task-card.planning { border-color: #22c55e; }
+        .task-card.strategy { border-color: #8b5cf6; }
+        .response-area {
+            border: 2px solid #e2e8f0;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin: 1rem 0;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="max-w-7xl mx-auto">
+        <!-- Project Header -->
+        <div class="project-card">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Smart Borrowing Project</h1>
+            <p class="text-xl text-gray-600 mb-4">Standard 7: Borrowing Money</p>
+            <div class="flex gap-2 mb-6">
+                <span class="badge badge-blue">
+                    <i class="fas fa-clock mr-2"></i>45 Minutes
+                </span>
+                <span class="badge badge-green">
+                    <i class="fas fa-calculator mr-2"></i>Loan Calculator
+                </span>
+                <span class="badge badge-purple">
+                    <i class="fas fa-chart-line mr-2"></i>Cost Comparison
+                </span>
+            </div>
+            <p class="text-gray-700">
+                In this capstone project, you will apply your understanding of borrowing concepts to analyze loan options,
+                calculate borrowing costs, and make informed decisions about credit sources. You'll demonstrate your ability
+                to evaluate different types of credit and develop strategies for responsible borrowing.
+            </p>
+        </div>
+
+        <!-- Project Tasks -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Project Tasks</h2>
+            
+            <div class="task-card analysis">
+                <h3 class="font-medium text-gray-800 mb-2">Borrowing Cost Analysis (15 minutes)</h3>
+                <p class="text-gray-600 mb-3">Calculate and compare costs for different borrowing scenarios</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Calculate APR and total interest costs</li>
+                    <li>Compare installment vs. non-installment credit</li>
+                    <li>Evaluate secured vs. unsecured loan terms</li>
+                    <li>Analyze impact of different loan lengths</li>
+                    <li>Consider fees and additional charges</li>
+                </ul>
+            </div>
+
+            <div class="task-card planning">
+                <h3 class="font-medium text-gray-800 mb-2">Credit Source Selection (15 minutes)</h3>
+                <p class="text-gray-600 mb-3">Research and evaluate different credit sources</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Compare traditional bank loans vs. alternatives</li>
+                    <li>Analyze credit union vs. online lender options</li>
+                    <li>Identify potential risks of each source</li>
+                    <li>Evaluate loan terms and requirements</li>
+                    <li>Consider credit score requirements</li>
+                </ul>
+            </div>
+
+            <div class="task-card strategy">
+                <h3 class="font-medium text-gray-800 mb-2">Borrowing Decision Framework (15 minutes)</h3>
+                <p class="text-gray-600 mb-3">Create a decision-making framework for borrowing</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Develop criteria for evaluating loan necessity</li>
+                    <li>Create a loan comparison checklist</li>
+                    <li>Plan for responsible repayment</li>
+                    <li>Identify red flags in loan offers</li>
+                    <li>Consider impact on credit score</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Reference Data -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Reference Data</h2>
+
+            <!-- Loan Types -->
+            <div class="mb-8">
+                <h3 class="text-lg font-medium text-gray-800 mb-4">Credit Types</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-medium text-gray-700">Installment Credit</h4>
+                        <ul class="text-sm text-gray-600 mt-2 space-y-1">
+                            <li>• Fixed monthly payments</li>
+                            <li>• Set repayment term</li>
+                            <li>• Regular payment schedule</li>
+                            <li>• Predictable total cost</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-medium text-gray-700">Non-installment Credit</h4>
+                        <ul class="text-sm text-gray-600 mt-2 space-y-1">
+                            <li>• Variable payments</li>
+                            <li>• Revolving balance</li>
+                            <li>• Flexible borrowing</li>
+                            <li>• Variable interest charges</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Borrowing Costs -->
+            <div class="mb-8">
+                <h3 class="text-lg font-medium text-gray-800 mb-4">Cost Components</h3>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h4 class="font-medium text-gray-700">Interest Costs</h4>
+                            <ul class="text-sm text-gray-600 mt-2 space-y-1">
+                                <li>• Annual Percentage Rate (APR)</li>
+                                <li>• Simple vs. compound interest</li>
+                                <li>• Variable vs. fixed rates</li>
+                                <li>• Interest calculation methods</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-700">Additional Fees</h4>
+                            <ul class="text-sm text-gray-600 mt-2 space-y-1">
+                                <li>• Application fees</li>
+                                <li>• Late payment charges</li>
+                                <li>• Annual fees</li>
+                                <li>• Prepayment penalties</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Credit Sources -->
+            <div>
+                <h3 class="text-lg font-medium text-gray-800 mb-4">Common Credit Sources</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-medium text-gray-700">Traditional Banks</h4>
+                        <ul class="text-sm text-gray-600 mt-2 space-y-1">
+                            <li>• Multiple loan types</li>
+                            <li>• Established processes</li>
+                            <li>• Branch locations</li>
+                            <li>• Relationship banking</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-medium text-gray-700">Credit Unions</h4>
+                        <ul class="text-sm text-gray-600 mt-2 space-y-1">
+                            <li>• Member-owned</li>
+                            <li>• Lower rates</li>
+                            <li>• Personalized service</li>
+                            <li>• Membership required</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-medium text-gray-700">Online Lenders</h4>
+                        <ul class="text-sm text-gray-600 mt-2 space-y-1">
+                            <li>• Quick applications</li>
+                            <li>• Digital process</li>
+                            <li>• Competitive rates</li>
+                            <li>• 24/7 access</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Example Scenarios -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Example Scenarios</h2>
+            
+            <!-- Car Loan Scenario -->
+            <div class="mb-8">
+                <h3 class="text-lg font-medium text-gray-800 mb-4">Scenario 1: Car Loan Options</h3>
+                <div class="bg-blue-50 p-4 rounded-lg">
+                    <p class="text-gray-700 mb-4">Sarah needs to finance a $20,000 car purchase and has received the following loan offers:</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <h4 class="font-medium text-gray-800">Bank Loan</h4>
+                            <ul class="text-sm text-gray-600 mt-2 space-y-1">
+                                <li>• Principal: $20,000</li>
+                                <li>• APR: 6.5%</li>
+                                <li>• Term: 48 months</li>
+                                <li>• Application fee: $100</li>
+                                <li>• Early payment fee: 1%</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <h4 class="font-medium text-gray-800">Credit Union</h4>
+                            <ul class="text-sm text-gray-600 mt-2 space-y-1">
+                                <li>• Principal: $20,000</li>
+                                <li>• APR: 5.9%</li>
+                                <li>• Term: 60 months</li>
+                                <li>• Application fee: $150</li>
+                                <li>• No early payment fee</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <h4 class="font-medium text-gray-800">Online Lender</h4>
+                            <ul class="text-sm text-gray-600 mt-2 space-y-1">
+                                <li>• Principal: $20,000</li>
+                                <li>• APR: 7.2%</li>
+                                <li>• Term: 36 months</li>
+                                <li>• No application fee</li>
+                                <li>• No early payment fee</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Personal Loan Scenario -->
+            <div class="mb-8">
+                <h3 class="text-lg font-medium text-gray-800 mb-4">Scenario 2: Personal Loan Comparison</h3>
+                <div class="bg-green-50 p-4 rounded-lg">
+                    <p class="text-gray-700 mb-4">Michael wants to consolidate $15,000 of credit card debt and has these options:</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <h4 class="font-medium text-gray-800">Traditional Bank</h4>
+                            <ul class="text-sm text-gray-600 mt-2 space-y-1">
+                                <li>• Amount: $15,000</li>
+                                <li>• APR: 12.9%</li>
+                                <li>• Term: 36 months</li>
+                                <li>• Origination fee: 1%</li>
+                                <li>• Credit score needed: 680+</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <h4 class="font-medium text-gray-800">P2P Lending</h4>
+                            <ul class="text-sm text-gray-600 mt-2 space-y-1">
+                                <li>• Amount: $15,000</li>
+                                <li>• APR: 15.5%</li>
+                                <li>• Term: 36 months</li>
+                                <li>• Origination fee: 2%</li>
+                                <li>• Credit score needed: 640+</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <h4 class="font-medium text-gray-800">Current Credit Cards</h4>
+                            <ul class="text-sm text-gray-600 mt-2 space-y-1">
+                                <li>• Balance: $15,000</li>
+                                <li>• APR: 22.9%</li>
+                                <li>• Minimum payment: 3%</li>
+                                <li>• No additional fees</li>
+                                <li>• Already approved</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Student Loan Scenario -->
+            <div>
+                <h3 class="text-lg font-medium text-gray-800 mb-4">Scenario 3: Student Loan Options</h3>
+                <div class="bg-purple-50 p-4 rounded-lg">
+                    <p class="text-gray-700 mb-4">Emma needs to borrow $10,000 for her final year of college and is comparing these options:</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <h4 class="font-medium text-gray-800">Federal Direct Loan</h4>
+                            <ul class="text-sm text-gray-600 mt-2 space-y-1">
+                                <li>• Amount: $10,000</li>
+                                <li>• Fixed APR: 4.99%</li>
+                                <li>• Origination fee: 1.057%</li>
+                                <li>• Grace period: 6 months</li>
+                                <li>• Income-driven repayment available</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <h4 class="font-medium text-gray-800">Private Lender A</h4>
+                            <ul class="text-sm text-gray-600 mt-2 space-y-1">
+                                <li>• Amount: $10,000</li>
+                                <li>• Variable APR: 4.5-11.2%</li>
+                                <li>• No origination fee</li>
+                                <li>• No grace period</li>
+                                <li>• Cosigner required</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <h4 class="font-medium text-gray-800">Private Lender B</h4>
+                            <ul class="text-sm text-gray-600 mt-2 space-y-1">
+                                <li>• Amount: $10,000</li>
+                                <li>• Fixed APR: 6.8%</li>
+                                <li>• Origination fee: 2%</li>
+                                <li>• Grace period: 3 months</li>
+                                <li>• No cosigner option</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sample Calculations -->
+            <div class="mt-8">
+                <h3 class="text-lg font-medium text-gray-800 mb-4">Sample Monthly Payment Calculation</h3>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <p class="text-gray-700 mb-4">For a $20,000 loan at 6.5% APR for 48 months:</p>
+                    <div class="space-y-2 text-sm text-gray-600">
+                        <p>1. Monthly Payment Formula: PMT = P × (r × (1 + r)^n) ÷ ((1 + r)^n - 1)</p>
+                        <p>Where:</p>
+                        <ul class="list-disc list-inside ml-4">
+                            <li>P = Principal ($20,000)</li>
+                            <li>r = Monthly interest rate (6.5% ÷ 12 = 0.5417%)</li>
+                            <li>n = Total number of months (48)</li>
+                        </ul>
+                        <p class="mt-2">2. Monthly Payment = $474.91</p>
+                        <p>3. Total Interest = (Monthly Payment × Number of Months) - Principal</p>
+                        <p>4. Total Interest = ($474.91 × 48) - $20,000 = $2,795.68</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submission Form -->
+        <form id="capstone-submission" class="max-w-5xl mx-auto">
+            <div class="project-card">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-6">Your Analysis</h2>
+
+                <!-- Part 1: Borrowing Cost Analysis -->
+                <div class="mb-8">
+                    <h3 class="font-semibold text-gray-800 mb-4">1. Borrowing Cost Analysis</h3>
+                    <div class="response-area">
+                        <h4 class="font-medium text-gray-800 mb-4">Loan Comparison Matrix</h4>
+                        <table class="w-full mb-4">
+                            <thead>
+                                <tr>
+                                    <th class="border p-2">Criteria</th>
+                                    <th class="border p-2">Option 1</th>
+                                    <th class="border p-2">Option 2</th>
+                                    <th class="border p-2">Option 3</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border p-2">Loan Type</td>
+                                    <td class="border p-2"><input type="text" class="w-full p-1 border rounded"></td>
+                                    <td class="border p-2"><input type="text" class="w-full p-1 border rounded"></td>
+                                    <td class="border p-2"><input type="text" class="w-full p-1 border rounded"></td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-2">APR (%)</td>
+                                    <td class="border p-2"><input type="number" step="0.01" class="w-full p-1 border rounded"></td>
+                                    <td class="border p-2"><input type="number" step="0.01" class="w-full p-1 border rounded"></td>
+                                    <td class="border p-2"><input type="number" step="0.01" class="w-full p-1 border rounded"></td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-2">Loan Term (months)</td>
+                                    <td class="border p-2"><input type="number" class="w-full p-1 border rounded"></td>
+                                    <td class="border p-2"><input type="number" class="w-full p-1 border rounded"></td>
+                                    <td class="border p-2"><input type="number" class="w-full p-1 border rounded"></td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-2">Monthly Payment</td>
+                                    <td class="border p-2"><input type="number" step="0.01" class="w-full p-1 border rounded"></td>
+                                    <td class="border p-2"><input type="number" step="0.01" class="w-full p-1 border rounded"></td>
+                                    <td class="border p-2"><input type="number" step="0.01" class="w-full p-1 border rounded"></td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-2">Total Interest</td>
+                                    <td class="border p-2"><input type="number" step="0.01" class="w-full p-1 border rounded"></td>
+                                    <td class="border p-2"><input type="number" step="0.01" class="w-full p-1 border rounded"></td>
+                                    <td class="border p-2"><input type="number" step="0.01" class="w-full p-1 border rounded"></td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-2">Additional Fees</td>
+                                    <td class="border p-2"><input type="number" step="0.01" class="w-full p-1 border rounded"></td>
+                                    <td class="border p-2"><input type="number" step="0.01" class="w-full p-1 border rounded"></td>
+                                    <td class="border p-2"><input type="number" step="0.01" class="w-full p-1 border rounded"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div class="mt-4">
+                            <label class="block font-medium text-gray-700 mb-2">Cost Analysis</label>
+                            <textarea
+                                rows="4"
+                                class="w-full p-2 border rounded-md"
+                                placeholder="Show your calculations and explain how you determined the total cost for each option..."
+                            ></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part 2: Credit Source Selection -->
+                <div class="mb-8">
+                    <h3 class="font-semibold text-gray-800 mb-4">2. Credit Source Selection</h3>
+                    <div class="response-area">
+                        <h4 class="font-medium text-gray-800 mb-4">Lender Evaluation Matrix</h4>
+                        <table class="w-full mb-4">
+                            <thead>
+                                <tr>
+                                    <th class="border p-2">Criteria</th>
+                                    <th class="border p-2">Traditional Bank</th>
+                                    <th class="border p-2">Credit Union</th>
+                                    <th class="border p-2">Online Lender</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border p-2">Interest Rate Range</td>
+                                    <td class="border p-2"><input type="text" class="w-full p-1 border rounded"></td>
+                                    <td class="border p-2"><input type="text" class="w-full p-1 border rounded"></td>
+                                    <td class="border p-2"><input type="text" class="w-full p-1 border rounded"></td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-2">Required Credit Score</td>
+                                    <td class="border p-2"><input type="text" class="w-full p-1 border rounded"></td>
+                                    <td class="border p-2"><input type="text" class="w-full p-1 border rounded"></td>
+                                    <td class="border p-2"><input type="text" class="w-full p-1 border rounded"></td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-2">Application Process</td>
+                                    <td class="border p-2"><input type="text" class="w-full p-1 border rounded"></td>
+                                    <td class="border p-2"><input type="text" class="w-full p-1 border rounded"></td>
+                                    <td class="border p-2"><input type="text" class="w-full p-1 border rounded"></td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-2">Additional Requirements</td>
+                                    <td class="border p-2"><input type="text" class="w-full p-1 border rounded"></td>
+                                    <td class="border p-2"><input type="text" class="w-full p-1 border rounded"></td>
+                                    <td class="border p-2"><input type="text" class="w-full p-1 border rounded"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="mt-4">
+                            <label class="block font-medium text-gray-700 mb-2">Source Analysis</label>
+                            <textarea
+                                rows="4"
+                                class="w-full p-2 border rounded-md"
+                                placeholder="Compare and evaluate the different credit sources, considering their advantages and disadvantages..."
+                            ></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part 3: Borrowing Decision Framework -->
+                <div class="mb-8">
+                    <h3 class="font-semibold text-gray-800 mb-4">3. Borrowing Decision Framework</h3>
+                    <div class="response-area">
+                        <div class="mb-4">
+                            <label class="block font-medium text-gray-700 mb-2">Loan Necessity Criteria</label>
+                            <textarea
+                                rows="3"
+                                class="w-full p-2 border rounded-md"
+                                placeholder="Develop criteria for evaluating when borrowing is necessary and appropriate..."
+                            ></textarea>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="block font-medium text-gray-700 mb-2">Loan Comparison Checklist</label>
+                            <textarea
+                                rows="4"
+                                class="w-full p-2 border rounded-md"
+                                placeholder="Create a comprehensive checklist for comparing loan options..."
+                            ></textarea>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="block font-medium text-gray-700 mb-2">Risk Assessment</label>
+                            <textarea
+                                rows="3"
+                                class="w-full p-2 border rounded-md"
+                                placeholder="Identify potential risks and outline mitigation strategies..."
+                            ></textarea>
+                        </div>
+
+                        <div>
+                            <label class="block font-medium text-gray-700 mb-2">Implementation Plan</label>
+                            <textarea
+                                rows="4"
+                                class="w-full p-2 border rounded-md"
+                                placeholder="Outline steps for implementing your borrowing strategy..."
+                            ></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submission Requirements -->
+            <div class="project-card">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+                    <i class="fas fa-file-upload text-green-600 mr-2"></i>Submission Requirements
+                </h2>
+                <div class="space-y-4">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-gray-800 mb-2">Format Requirements:</h3>
+                        <ul class="list-disc list-inside text-gray-700">
+                            <li>All calculations must be shown and clearly labeled</li>
+                            <li>Written analysis must be clear, concise, and professional</li>
+                            <li>Use specific examples to support your recommendations</li>
+                            <li>Organize your work using clear headings and sections</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-gray-800 mb-2">Required Components:</h3>
+                        <ul class="list-disc list-inside text-gray-700">
+                            <li>Completed loan comparison matrix with calculations</li>
+                            <li>Credit source evaluation with analysis</li>
+                            <li>Comprehensive borrowing decision framework</li>
+                            <li>Implementation plan with risk assessment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submission Controls -->
+            <div class="project-card">
+                <div class="flex justify-between items-center">
+                    <div class="space-y-2">
+                        <div class="text-sm text-gray-600">
+                            <i class="fas fa-clock mr-1"></i>
+                            Last saved: <span id="last-saved">Never</span>
+                        </div>
+                        <div class="text-sm text-gray-600">
+                            <i class="fas fa-info-circle mr-1"></i>
+                            You can save your work and return to it later
+                        </div>
+                    </div>
+                    <div class="space-x-4">
+                        <button type="button" class="px-4 py-2 bg-gray-100 text-gray-800 rounded-md hover:bg-gray-200">
+                            Save Draft
+                        </button>
+                        <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+                            Submit for Grading
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <script>
+            // Add client-side functionality for:
+            // 1. Auto-saving drafts
+            // 2. Form validation
+            // 3. Calculation helpers
+            // 4. Rich text formatting
+            // 5. File attachment handling
+        </script>
+    </div>
+</body>
+</html> 

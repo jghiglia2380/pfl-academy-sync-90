@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standard 10 Capstone Project - Housing Decisions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --primary-green: #059669;
+            --primary-purple: #7c3aed;
+            --neutral-50: #f8fafc;
+            --neutral-100: #f1f5f9;
+            --neutral-200: #e2e8f0;
+            --neutral-700: #334155;
+            --neutral-800: #1e293b;
+            --neutral-900: #0f172a;
+        }
+
+        body { 
+            background: linear-gradient(135deg, var(--neutral-50) 0%, var(--neutral-100) 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--neutral-800);
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border: 1px solid var(--neutral-200);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .badge-blue { 
+            background-color: #dbeafe; 
+            color: var(--primary-blue);
+            border: 1px solid #bfdbfe;
+        }
+
+        .badge-green { 
+            background-color: #dcfce7; 
+            color: var(--primary-green);
+            border: 1px solid #bbf7d0;
+        }
+
+        .badge-purple { 
+            background-color: #f3e8ff; 
+            color: var(--primary-purple);
+            border: 1px solid #e9d5ff;
+        }
+
+        .calculation-section {
+            background: white;
+            border-radius: 8px;
+            border: 1px solid var(--neutral-200);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group {
+            margin-bottom: 1rem;
+        }
+
+        .input-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--neutral-700);
+            margin-bottom: 0.5rem;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--neutral-200);
+            border-radius: 6px;
+            font-size: 0.875rem;
+        }
+
+        .input-hint {
+            font-size: 0.75rem;
+            color: var(--neutral-600);
+            margin-top: 0.25rem;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--neutral-800);
+            margin-bottom: 1rem;
+        }
+
+        .subsection-title {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--neutral-700);
+            margin-bottom: 0.75rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="max-w-5xl mx-auto">
+        <!-- Project Header -->
+        <div class="project-card">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Housing Decision Analysis Project</h1>
+            <h2 class="text-xl text-gray-600 mb-4">Standard 10: Housing Decisions</h2>
+            
+            <div class="flex gap-3 mb-6">
+                <span class="badge badge-blue">
+                    <i class="fas fa-clock mr-2"></i>45 Minutes
+                </span>
+                <span class="badge badge-green">
+                    <i class="fas fa-calculator mr-2"></i>Calculations
+                </span>
+                <span class="badge badge-purple">
+                    <i class="fas fa-file-alt mr-2"></i>Analysis
+                </span>
+            </div>
+
+            <p class="text-gray-700 text-lg mb-4">
+                In this capstone project, you will analyze different housing scenarios by first performing detailed calculations,
+                then using those results to make and justify housing recommendations based on your stated priorities and assumptions.
+            </p>
+
+            <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                <h3 class="font-semibold text-blue-900 mb-2">Required Materials:</h3>
+                <ul class="text-blue-800 space-y-1">
+                    <li><i class="fas fa-calculator mr-2"></i>Calculator</li>
+                    <li><i class="fas fa-file-alt mr-2"></i>Worksheet or digital document</li>
+                    <li><i class="fas fa-table mr-2"></i>Spreadsheet software (optional)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Project Tasks -->
+        <div class="project-card">
+            <h2 class="text-xl font-semibold">Project Tasks</h2>
+
+            <!-- Task 1 -->
+            <div style="border-left: 4px solid #3b82f6; background-color: #f8faff; margin: 20px 0;">
+                <div style="padding: 16px;">
+                    <h3 class="font-semibold">Housing Market Analysis (15 minutes)</h3>
+                    <p class="text-gray-600">Research and analyze housing options in both scenarios</p>
+                    <div class="space-y-1">
+                        <p>→ Review current market conditions</p>
+                        <p>→ Compare location advantages</p>
+                        <p>→ Analyze property value trends</p>
+                        <p>→ Evaluate neighborhood factors</p>
+                        <p>→ Document market findings</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task 2 -->
+            <div style="border-left: 4px solid #ef4444; background-color: #fff8f8; margin: 20px 0;">
+                <div style="padding: 16px;">
+                    <h3 class="font-semibold">Financial Analysis (15 minutes)</h3>
+                    <p class="text-gray-600">Calculate and compare all housing costs</p>
+                    <div class="space-y-1">
+                        <p>→ Calculate monthly payments</p>
+                        <p>→ Compare total upfront costs</p>
+                        <p>→ Project long-term expenses</p>
+                        <p>→ Analyze investment potential</p>
+                        <p>→ Assess affordability ratios</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task 3 -->
+            <div style="border-left: 4px solid #8b5cf6; background-color: #faf8ff; margin: 20px 0;">
+                <div style="padding: 16px;">
+                    <h3 class="font-semibold">Decision Analysis (15 minutes)</h3>
+                    <p class="text-gray-600">Develop final recommendations with justification</p>
+                    <div class="space-y-1">
+                        <p>→ Evaluate lifestyle fit</p>
+                        <p>→ Assess future flexibility</p>
+                        <p>→ Consider market timing</p>
+                        <p>→ Create action timeline</p>
+                        <p>→ Present recommendations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scenario 1: Young Professional -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Scenario 1: Young Professional</h2>
+            
+            <!-- Profile and Priorities -->
+            <div class="calculation-section">
+                <div class="bg-blue-50 p-4 rounded-lg border border-blue-100 mb-4">
+                    <p class="text-blue-900"><strong>Meet Alex:</strong> A 25-year-old software developer earning $65,000 annually ($5,417 monthly before taxes). Alex recently accepted a position at a growing tech company in the city and needs to decide on housing arrangements.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <h4 class="subsection-title">Financial Profile</h4>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>Monthly Take-Home Pay: $4,200</li>
+                            <li>Student Loan Payment: $350/month</li>
+                            <li>Car Payment: $300/month</li>
+                            <li>Savings: $15,000</li>
+                            <li>Credit Score: 720</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="subsection-title">Priorities</h4>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>Short commute to downtown office</li>
+                            <li>Building long-term financial stability</li>
+                            <li>Access to urban amenities</li>
+                            <li>Potential to work remotely 2 days/week</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Housing Options -->
+            <div class="calculation-section">
+                <h3 class="section-title">Available Housing Options</h3>
+                
+                <!-- Option 1: Downtown Studio -->
+                <div class="bg-white p-4 rounded-lg border border-gray-200 mb-4">
+                    <h4 class="font-semibold text-gray-800 mb-2">Option 1: Downtown Studio Rental</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h5 class="font-medium text-gray-700 mb-2">Monthly Costs:</h5>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Base Rent: $1,400</li>
+                                <li>Utilities (average): $150</li>
+                                <li>Parking: $200</li>
+                                <li>Renter's Insurance: $25</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-medium text-gray-700 mb-2">One-Time Costs:</h5>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Security Deposit: $1,400</li>
+                                <li>First Month's Rent: $1,400</li>
+                                <li>Application Fee: $50</li>
+                                <li>Moving Costs (estimated): $500</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Option 2: Suburban 1-Bedroom -->
+                <div class="bg-white p-4 rounded-lg border border-gray-200 mb-4">
+                    <h4 class="font-semibold text-gray-800 mb-2">Option 2: Suburban 1-Bedroom Rental</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h5 class="font-medium text-gray-700 mb-2">Monthly Costs:</h5>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Base Rent: $1,200</li>
+                                <li>Utilities (average): $200</li>
+                                <li>Commute Costs: $250</li>
+                                <li>Renter's Insurance: $25</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-medium text-gray-700 mb-2">One-Time Costs:</h5>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Security Deposit: $1,200</li>
+                                <li>First Month's Rent: $1,200</li>
+                                <li>Application Fee: $50</li>
+                                <li>Moving Costs (estimated): $800</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Option 3: Downtown Condo Purchase -->
+                <div class="bg-white p-4 rounded-lg border border-gray-200 mb-4">
+                    <h4 class="font-semibold text-gray-800 mb-2">Option 3: Downtown Condo Purchase</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h5 class="font-medium text-gray-700 mb-2">Property Details:</h5>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Purchase Price: $250,000</li>
+                                <li>HOA Fee: $300/month</li>
+                                <li>Property Tax: $2,500/year</li>
+                                <li>Insurance: $75/month</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-medium text-gray-700 mb-2">One-Time Costs:</h5>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Down Payment (5%): $12,500</li>
+                                <li>Closing Costs: $7,500</li>
+                                <li>Moving Costs: $1,000</li>
+                                <li>Initial Repairs/Furnishing: $3,000</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Required Calculations for Scenario 1 -->
+            <div class="calculation-section">
+                <h3 class="section-title">Required Calculations</h3>
+
+                <!-- Downtown Studio Analysis -->
+                <div class="bg-white p-4 rounded-lg border border-gray-200 mb-4">
+                    <h4 class="font-semibold text-gray-800 mb-2">Downtown Studio Analysis</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="input-group">
+                            <label class="input-label">Total Monthly Housing Costs</label>
+                            <input type="text" class="input-field" placeholder="Sum all monthly costs">
+                            <p class="input-hint">Add rent, utilities, parking, insurance</p>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Housing Ratio</label>
+                            <input type="text" class="input-field" placeholder="Monthly costs ÷ Take-home pay">
+                            <p class="input-hint">Should be ≤ 30% of monthly income</p>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Total Move-In Costs</label>
+                            <input type="text" class="input-field" placeholder="Sum all one-time costs">
+                            <p class="input-hint">Include all upfront payments</p>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Annual Cost Projection</label>
+                            <input type="text" class="input-field" placeholder="Calculate yearly total">
+                            <p class="input-hint">Include potential rent increases</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Suburban Rental Analysis -->
+                <div class="bg-white p-4 rounded-lg border border-gray-200 mb-4">
+                    <h4 class="font-semibold text-gray-800 mb-2">Suburban Rental Analysis</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="input-group">
+                            <label class="input-label">Total Monthly Housing Costs</label>
+                            <input type="text" class="input-field" placeholder="Sum all monthly costs">
+                            <p class="input-hint">Include rent, utilities, commute, insurance</p>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Housing Ratio</label>
+                            <input type="text" class="input-field" placeholder="Monthly costs ÷ Take-home pay">
+                            <p class="input-hint">Should be ≤ 30% of monthly income</p>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Total Move-In Costs</label>
+                            <input type="text" class="input-field" placeholder="Sum all one-time costs">
+                            <p class="input-hint">Include all upfront payments</p>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Annual Transportation Cost</label>
+                            <input type="text" class="input-field" placeholder="Calculate yearly commute costs">
+                            <p class="input-hint">Include gas, maintenance, depreciation</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Condo Purchase Analysis -->
+                <div class="bg-white p-4 rounded-lg border border-gray-200 mb-4">
+                    <h4 class="font-semibold text-gray-800 mb-2">Condo Purchase Analysis</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="input-group">
+                            <label class="input-label">Monthly Mortgage Payment</label>
+                            <input type="text" class="input-field" placeholder="Calculate at 6.5% for 30 years">
+                            <p class="input-hint">Use mortgage calculator</p>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Total Monthly Payment</label>
+                            <input type="text" class="input-field" placeholder="Sum all monthly costs">
+                            <p class="input-hint">Include mortgage, HOA, taxes, insurance</p>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Total Upfront Costs</label>
+                            <input type="text" class="input-field" placeholder="Sum all one-time costs">
+                            <p class="input-hint">Down payment, closing, repairs, moving</p>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">5-Year Equity Projection</label>
+                            <input type="text" class="input-field" placeholder="Calculate equity built">
+                            <p class="input-hint">Consider appreciation and loan paydown</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comparison Matrix -->
+                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <h4 class="font-semibold text-gray-800 mb-4">5-Year Cost Comparison</h4>
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th class="px-4 py-2 text-left">Cost Category</th>
+                                    <th class="px-4 py-2 text-left">Downtown Studio</th>
+                                    <th class="px-4 py-2 text-left">Suburban Rental</th>
+                                    <th class="px-4 py-2 text-left">Condo Purchase</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="px-4 py-2">Total Monthly Payment</td>
+                                    <td class="px-4 py-2"><input type="text" class="w-full border rounded px-2 py-1"></td>
+                                    <td class="px-4 py-2"><input type="text" class="w-full border rounded px-2 py-1"></td>
+                                    <td class="px-4 py-2"><input type="text" class="w-full border rounded px-2 py-1"></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2">Total Upfront Costs</td>
+                                    <td class="px-4 py-2"><input type="text" class="w-full border rounded px-2 py-1"></td>
+                                    <td class="px-4 py-2"><input type="text" class="w-full border rounded px-2 py-1"></td>
+                                    <td class="px-4 py-2"><input type="text" class="w-full border rounded px-2 py-1"></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2">5-Year Total Cost</td>
+                                    <td class="px-4 py-2"><input type="text" class="w-full border rounded px-2 py-1"></td>
+                                    <td class="px-4 py-2"><input type="text" class="w-full border rounded px-2 py-1"></td>
+                                    <td class="px-4 py-2"><input type="text" class="w-full border rounded px-2 py-1"></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2">Net Cost (after equity)</td>
+                                    <td class="px-4 py-2"><input type="text" class="w-full border rounded px-2 py-1"></td>
+                                    <td class="px-4 py-2"><input type="text" class="w-full border rounded px-2 py-1"></td>
+                                    <td class="px-4 py-2"><input type="text" class="w-full border rounded px-2 py-1"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="text-sm text-gray-600 mt-2 italic">Note: Net Cost (after equity) = Total 5-Year Cost minus any equity built through principal payments and property appreciation. For rentals, this equals the Total 5-Year Cost as no equity is built.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decision Analysis for Scenario 1 -->
+            <div class="calculation-section">
+                <h3 class="section-title">Decision Analysis</h3>
+
+                <!-- Priorities Analysis -->
+                <div class="bg-white p-4 rounded-lg border border-gray-200 mb-4">
+                    <h4 class="font-semibold text-gray-800 mb-2">Priorities Analysis</h4>
+                    <div class="space-y-4">
+                        <div class="input-group">
+                            <label class="input-label">Financial Goals Alignment</label>
+                            <textarea class="input-field" rows="3" placeholder="How does each option align with the stated goal of building long-term financial stability?"></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Lifestyle Considerations</label>
+                            <textarea class="input-field" rows="3" placeholder="Evaluate commute times, urban amenities, and remote work compatibility for each option."></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Risk Assessment</label>
+                            <textarea class="input-field" rows="3" placeholder="What are the potential risks and challenges for each option?"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Final Recommendation -->
+                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <h4 class="font-semibold text-gray-800 mb-2">Final Recommendation</h4>
+                    <div class="space-y-4">
+                        <div class="input-group">
+                            <label class="input-label">Recommended Option</label>
+                            <select class="input-field">
+                                <option value="">Select an option...</option>
+                                <option value="downtown">Downtown Studio Rental</option>
+                                <option value="suburban">Suburban 1-Bedroom Rental</option>
+                                <option value="condo">Downtown Condo Purchase</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Justification</label>
+                            <textarea class="input-field" rows="4" placeholder="Based on the calculations and stated priorities, which option do you recommend and why?"></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Implementation Plan</label>
+                            <textarea class="input-field" rows="3" placeholder="Outline the next steps and timeline for implementing this housing decision."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scenario 2: Growing Family -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Scenario 2: Growing Family</h2>
+            
+            <!-- Profile and Priorities -->
+            <div class="calculation-section">
+                <div class="bg-green-50 p-4 rounded-lg border border-green-100 mb-4">
+                    <p class="text-green-900"><strong>Meet the Taylors:</strong> Michael (32) and Sarah (30) are expecting their first child. Combined income of $110,000 annually ($9,167 monthly before taxes). They're currently renting but considering buying their first home.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <h4 class="subsection-title">Financial Profile</h4>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>Monthly Take-Home Pay: $7,200</li>
+                            <li>Current Rent: $1,800/month</li>
+                            <li>Car Payments: $500/month total</li>
+                            <li>Savings: $45,000</li>
+                            <li>Credit Scores: 750 and 765</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="subsection-title">Priorities</h4>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>Good school district</li>
+                            <li>Safe, family-friendly neighborhood</li>
+                            <li>Space for home office</li>
+                            <li>Room for family growth</li>
+                            <li>Yard or outdoor space</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Housing Options -->
+            <div class="calculation-section">
+                <h3 class="section-title">Available Housing Options</h3>
+                
+                <!-- Option 1: 3-Bedroom Rental -->
+                <div class="bg-white p-4 rounded-lg border border-gray-200 mb-4">
+                    <h4 class="font-semibold text-gray-800 mb-2">Option 1: 3-Bedroom Rental Home</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h5 class="font-medium text-gray-700 mb-2">Monthly Costs:</h5>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Base Rent: $2,400</li>
+                                <li>Utilities (average): $300</li>
+                                <li>Lawn Care: $100</li>
+                                <li>Renter's Insurance: $35</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-medium text-gray-700 mb-2">One-Time Costs:</h5>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Security Deposit: $2,400</li>
+                                <li>First/Last Month's Rent: $4,800</li>
+                                <li>Application Fee: $75</li>
+                                <li>Moving Costs: $1,500</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Option 2: Starter Home -->
+                <div class="bg-white p-4 rounded-lg border border-gray-200 mb-4">
+                    <h4 class="font-semibold text-gray-800 mb-2">Option 2: Starter Home Purchase</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h5 class="font-medium text-gray-700 mb-2">Property Details:</h5>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Purchase Price: $375,000</li>
+                                <li>Property Tax: $3,750/year</li>
+                                <li>Insurance: $125/month</li>
+                                <li>Estimated Maintenance: $3,750/year</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-medium text-gray-700 mb-2">One-Time Costs:</h5>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Down Payment (10%): $37,500</li>
+                                <li>Closing Costs: $11,250</li>
+                                <li>Moving Costs: $2,000</li>
+                                <li>Initial Repairs: $5,000</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Option 3: New Construction -->
+                <div class="bg-white p-4 rounded-lg border border-gray-200 mb-4">
+                    <h4 class="font-semibold text-gray-800 mb-2">Option 3: New Construction Home</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h5 class="font-medium text-gray-700 mb-2">Property Details:</h5>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Base Price: $425,000</li>
+                                <li>HOA Fee: $75/month</li>
+                                <li>Property Tax: $4,250/year</li>
+                                <li>Insurance: $150/month</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-medium text-gray-700 mb-2">One-Time Costs:</h5>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Down Payment (10%): $42,500</li>
+                                <li>Closing Costs: $12,750</li>
+                                <li>Upgrades Package: $15,000</li>
+                                <li>Moving Costs: $2,500</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Required Calculations -->
+            <div class="calculation-section">
+                <h3 class="section-title">Required Calculations</h3>
+
+                <!-- 3-Bedroom Rental Analysis -->
+                <div class="bg-white p-4 rounded-lg border border-gray-200 mb-4">
+                    <h4 class="font-semibold text-gray-800 mb-2">3-Bedroom Rental Analysis</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="input-group">
+                            <label class="input-label">Total Monthly Housing Costs</label>
+                            <input type="text" class="input-field" placeholder="Sum all monthly costs">
+                            <p class="input-hint">Include rent, utilities, lawn care, insurance</p>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Housing Ratio</label>
+                            <input type="text" class="input-field" placeholder="Monthly costs ÷ Take-home pay">
+                            <p class="input-hint">Should be ≤ 30% of monthly income</p>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Total Move-In Costs</label>
+                            <input type="text" class="input-field" placeholder="Sum all one-time costs">
+                            <p class="input-hint">Include all upfront payments</p>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Annual Cost Projection</label>
+                            <input type="text" class="input-field" placeholder="Calculate yearly total">
+                            <p class="input-hint">Include potential rent increases</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Starter Home Analysis -->
+                <div class="bg-white p-4 rounded-lg border border-gray-200 mb-4">
+                    <h4 class="font-semibold text-gray-800 mb-2">Starter Home Analysis</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="input-group">
+                            <label class="input-label">Total Monthly Housing Costs</label>
+                            <input type="text" class="input-field" placeholder="Sum all monthly costs">
+                            <p class="input-hint">Include mortgage, property tax, insurance</p>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Housing Ratio</label>
+                            <input type="text" class="input-field" placeholder="Monthly costs ÷ Take-home pay">
+                            <p class="input-hint">Should be ≤ 30% of monthly income</p>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Total Upfront Costs</label>
+                            <input type="text" class="input-field" placeholder="Sum all one-time costs">
+                            <p class="input-hint">Down payment, closing costs, initial repairs</p>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Annual Cost Projection</label>
+                            <input type="text" class="input-field" placeholder="Calculate yearly total">
+                            <p class="input-hint">Include maintenance, property tax, insurance</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- New Construction Analysis -->
+                <div class="bg-white p-4 rounded-lg border border-gray-200 mb-4">
+                    <h4 class="font-semibold text-gray-800 mb-2">New Construction Analysis</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="input-group">
+                            <label class="input-label">Total Monthly Housing Costs</label>
+                            <input type="text" class="input-field" placeholder="Sum all monthly costs">
+                            <p class="input-hint">Include mortgage, HOA, taxes, insurance</p>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Housing Ratio</label>
+                            <input type="text" class="input-field" placeholder="Monthly costs ÷ Take-home pay">
+                            <p class="input-hint">Should be ≤ 30% of monthly income</p>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Total Upfront Costs</label>
+                            <input type="text" class="input-field" placeholder="Sum all one-time costs">
+                            <p class="input-hint">Down payment, closing costs, upgrades</p>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Annual Cost Projection</label>
+                            <input type="text" class="input-field" placeholder="Calculate yearly total">
+                            <p class="input-hint">Include potential rent increases</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comparison Matrix -->
+                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <h4 class="font-semibold text-gray-800 mb-4">5-Year Cost Comparison</h4>
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th class="px-4 py-2 text-left">Cost Category</th>
+                                    <th class="px-4 py-2 text-left">3-Bedroom Rental</th>
+                                    <th class="px-4 py-2 text-left">Starter Home</th>
+                                    <th class="px-4 py-2 text-left">New Construction</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="px-4 py-2">Total Monthly Payment</td>
+                                    <td class="px-4 py-2"><input type="text" class="w-full border rounded px-2 py-1"></td>
+                                    <td class="px-4 py-2"><input type="text" class="w-full border rounded px-2 py-1"></td>
+                                    <td class="px-4 py-2"><input type="text" class="w-full border rounded px-2 py-1"></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2">Total Upfront Costs</td>
+                                    <td class="px-4 py-2"><input type="text" class="w-full border rounded px-2 py-1"></td>
+                                    <td class="px-4 py-2"><input type="text" class="w-full border rounded px-2 py-1"></td>
+                                    <td class="px-4 py-2"><input type="text" class="w-full border rounded px-2 py-1"></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2">5-Year Total Cost</td>
+                                    <td class="px-4 py-2"><input type="text" class="w-full border rounded px-2 py-1"></td>
+                                    <td class="px-4 py-2"><input type="text" class="w-full border rounded px-2 py-1"></td>
+                                    <td class="px-4 py-2"><input type="text" class="w-full border rounded px-2 py-1"></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2">Net Cost (after equity)</td>
+                                    <td class="px-4 py-2"><input type="text" class="w-full border rounded px-2 py-1"></td>
+                                    <td class="px-4 py-2"><input type="text" class="w-full border rounded px-2 py-1"></td>
+                                    <td class="px-4 py-2"><input type="text" class="w-full border rounded px-2 py-1"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="text-sm text-gray-600 mt-2 italic">Note: Net Cost (after equity) = Total 5-Year Cost minus any equity built through principal payments and property appreciation. For rentals, this equals the Total 5-Year Cost as no equity is built.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decision Analysis for Scenario 2 -->
+            <div class="calculation-section">
+                <h3 class="section-title">Decision Analysis</h3>
+
+                <!-- Priorities Analysis -->
+                <div class="bg-white p-4 rounded-lg border border-gray-200 mb-4">
+                    <h4 class="font-semibold text-gray-800 mb-2">Priorities Analysis</h4>
+                    <div class="space-y-4">
+                        <div class="input-group">
+                            <label class="input-label">Family Needs Assessment</label>
+                            <textarea class="input-field" rows="3" placeholder="How does each option meet the stated needs for space, schools, and safety?"></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Long-term Suitability</label>
+                            <textarea class="input-field" rows="3" placeholder="Evaluate each option's ability to accommodate family growth and changing needs."></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Financial Impact Analysis</label>
+                            <textarea class="input-field" rows="3" placeholder="Assess the long-term financial implications of each option for the family's goals."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Market Timing Analysis -->
+                <div class="bg-white p-4 rounded-lg border border-gray-200 mb-4">
+                    <h4 class="font-semibold text-gray-800 mb-2">Market Timing Considerations</h4>
+                    <div class="space-y-4">
+                        <div class="input-group">
+                            <label class="input-label">Market Conditions Impact</label>
+                            <textarea class="input-field" rows="3" placeholder="How do current market conditions (interest rates, home prices) affect each option?"></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Future Market Outlook</label>
+                            <textarea class="input-field" rows="3" placeholder="What are the potential impacts of market trends on each option?"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Final Recommendation -->
+                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <h4 class="font-semibold text-gray-800 mb-2">Final Recommendation</h4>
+                    <div class="space-y-4">
+                        <div class="input-group">
+                            <label class="input-label">Recommended Option</label>
+                            <select class="input-field">
+                                <option value="">Select an option...</option>
+                                <option value="rental">3-Bedroom Rental Home</option>
+                                <option value="starter">Starter Home Purchase</option>
+                                <option value="new">New Construction Home</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Justification</label>
+                            <textarea class="input-field" rows="4" placeholder="Provide a detailed explanation for your recommendation, citing specific calculations and the stated priorities."></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Implementation Timeline</label>
+                            <textarea class="input-field" rows="3" placeholder="Outline the steps and timeline for implementing this housing decision, including any preparation needed."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Evaluation Criteria -->
+        <div class="project-card">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Evaluation Criteria</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                    <h3 class="font-semibold text-blue-900 mb-2">Calculations (40%)</h3>
+                    <ul class="text-blue-800 space-y-1">
+                        <li>Accuracy of calculations</li>
+                        <li>Completeness of analysis</li>
+                        <li>Show all work clearly</li>
+                        <li>Consider all costs</li>
+                    </ul>
+                </div>
+                <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                    <h3 class="font-semibold text-green-900 mb-2">Analysis (35%)</h3>
+                    <ul class="text-green-800 space-y-1">
+                        <li>Clear assumptions</li>
+                        <li>Logical reasoning</li>
+                        <li>Comprehensive evaluation</li>
+                        <li>Risk consideration</li>
+                    </ul>
+                </div>
+                <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                    <h3 class="font-semibold text-purple-900 mb-2">Recommendations (25%)</h3>
+                    <ul class="text-purple-800 space-y-1">
+                        <li>Clear justification</li>
+                        <li>Links to calculations</li>
+                        <li>Consideration of priorities</li>
+                        <li>Practical feasibility</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
