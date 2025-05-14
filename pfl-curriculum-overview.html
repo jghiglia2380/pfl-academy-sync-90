@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFL Academy - Curriculum Overview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #374151;
+            line-height: 1.5;
+            background: white;
+            padding: 0;
+            margin: 0;
+            position: relative;
+            max-width: 8.5in;
+            margin: 0 auto;
+        }
+        
+        /* Gradient accents */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #4F46E5, #7E22CE);
+            z-index: 5;
+        }
+        
+        body::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #7E22CE, #4F46E5);
+            z-index: 5;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 8.5in;
+            padding: 0;
+            position: relative;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(90deg, #4F46E5, #7E22CE);
+            color: white;
+            padding: 1.5rem;
+            margin: 0 0 1.5rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo-area {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 28px;
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            background: white;
+            color: #4F46E5;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-weight: bold;
+        }
+        
+        .tagline {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 0.05em;
+        }
+        
+        /* Section styles */
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 26px;
+            color: #4338CA;
+            margin-bottom: 1.2rem;
+            text-align: center;
+            margin-top: 1rem;
+        }
+        
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            color: white;
+            background: linear-gradient(90deg, #4F46E5, #7E22CE);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            margin: 1.5rem 0 1rem 0;
+        }
+        
+        h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            color: #4338CA;
+            margin: 1rem 0 0.5rem 0;
+        }
+        
+        p {
+            margin-bottom: 0.75rem;
+            font-size: 11pt;
+        }
+        
+        .content-section {
+            padding: 0 1.5rem 2rem 1.5rem;
+        }
+        
+        .intro-section {
+            background-color: #F3F4F6;
+            border-left: 4px solid #4F46E5;
+            border-radius: 4px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section {
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Lists */
+        ul {
+            list-style-type: none;
+            margin-left: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        ul li {
+            position: relative;
+            margin-bottom: 0.5rem;
+            font-size: 11pt;
+        }
+        
+        ul li::before {
+            content: "•";
+            position: absolute;
+            left: -1rem;
+            color: #4F46E5;
+        }
+        
+        /* Curriculum structure */
+        .day-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .day-box {
+            background-color: #F3F4F6;
+            border-radius: 8px;
+            padding: 1.25rem;
+            border-top: 4px solid #4F46E5;
+        }
+        
+        .day-box h3 {
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+            color: #4F46E5;
+        }
+        
+        /* Standards list */
+        .standards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .standard-box {
+            margin-bottom: 1.5rem;
+        }
+        
+        .standard-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            color: #4F46E5;
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid #E5E7EB;
+            padding-bottom: 0.3rem;
+        }
+        
+        .standard-box ul {
+            margin-bottom: 0;
+        }
+        
+        /* Features grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .feature-box {
+            background-color: #F3F4F6;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #4F46E5;
+        }
+        
+        .feature-box h3 {
+            margin-top: 0;
+            color: #4F46E5;
+            font-size: 15px;
+        }
+        
+        /* Implementation */
+        .implementation-box {
+            background-color: #EEF2FF;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #4338CA;
+        }
+        
+        /* Contact */
+        .contact-box {
+            background-color: #F3F4F6;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-top: 2rem;
+            text-align: center;
+            border-top: 4px solid #4F46E5;
+        }
+        
+        .contact-box p {
+            margin-bottom: 0.25rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(90deg, #7E22CE, #4F46E5);
+            color: white;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0 0 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .contact-info {
+            font-size: 11pt;
+        }
+        
+        .contact-info p {
+            margin-bottom: 0.25rem;
+        }
+        
+        /* Page-specific */
+        @media print {
+            @page {
+                size: letter;
+                margin: 0;
+            }
+            
+            body {
+                width: 8.5in;
+                height: 11in;
+                margin: 0;
+                padding: 0;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+            
+            .container {
+                padding: 0;
+            }
+            
+            header {
+                margin: 0 0 1.5rem 0;
+            }
+            
+            .footer {
+                margin: 1.5rem 0 0 0;
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-area">
+                <div class="logo">
+                    <div class="logo-icon">PFL</div>
+                    PFL ACADEMY
+                </div>
+            </div>
+            <div class="tagline">FINANCIAL LITERACY FOR THE NEXT GENERATION</div>
+        </header>
+        
+        <div class="content-section">
+            <h1>CURRICULUM OVERVIEW</h1>
+            
+            <div class="intro-section">
+                <h3>COMPREHENSIVE FINANCIAL LITERACY SOLUTION</h3>
+                <p>PFL Academy offers a complete Personal Financial Literacy curriculum designed to meet state educational mandates while providing an engaging, interactive learning experience for students. Our comprehensive approach addresses the challenges schools face in implementing financial education requirements.</p>
+            </div>
+            
+            <div class="section">
+                <h2>CURRICULUM STRUCTURE</h2>
+                <p>The PFL Academy curriculum is organized around 15 financial literacy standards, with multiple chapters per standard. Each chapter follows a two-day instructional model:</p>
+                
+                <div class="day-grid">
+                    <div class="day-box">
+                        <h3>Day 1: Content Delivery</h3>
+                        <ul>
+                            <li>Structured introduction to key financial concepts</li>
+                            <li>Multimedia presentations and instructor-led discussions</li>
+                            <li>Real-world examples and case studies</li>
+                            <li>Interactive skill builder activities</li>
+                            <li>Guided reflection and comprehension checks</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="day-box">
+                        <h3>Day 2: Learning Lab</h3>
+                        <ul>
+                            <li>Hands-on application of concepts through learning stations</li>
+                            <li>Interactive digital simulations and tools</li>
+                            <li>AI-powered assessment and feedback</li>
+                            <li>Portfolio development activities</li>
+                            <li>Collaborative problem-solving exercises</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>STANDARDS & CHAPTERS OVERVIEW</h2>
+                
+                <div class="standards-grid">
+                    <div class="standard-box">
+                        <div class="standard-title">Standard 1: Career & Income Planning</div>
+                        <ul>
+                            <li>Chapter 1.1: Career Exploration & Planning</li>
+                            <li>Chapter 1.2: Understanding Income Sources</li>
+                            <li>Chapter 1.3: Education ROI & Career Advancement</li>
+                            <li>Chapter 1.4: Entrepreneurship Fundamentals</li>
+                            <li>Chapter 1.5: Navigating the Job Market</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="standard-box">
+                        <div class="standard-title">Standard 2: Taxation</div>
+                        <ul>
+                            <li>Chapter 2.1: Understanding Federal & State Taxes</li>
+                            <li>Chapter 2.2: Tax Planning Strategies</li>
+                            <li>Chapter 2.3: Tax Filing Requirements</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="standard-box">
+                        <div class="standard-title">Standard 3: Financial Services</div>
+                        <ul>
+                            <li>Chapter 3.1: Banking Fundamentals</li>
+                            <li>Chapter 3.2: Digital Banking & FinTech</li>
+                            <li>Chapter 3.3: Financial Service Providers</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="standard-box">
+                        <div class="standard-title">Standard 4: Saving & Spending</div>
+                        <ul>
+                            <li>Chapter 4.1: Building a Savings Habit</li>
+                            <li>Chapter 4.2: Strategic Spending</li>
+                            <li>Chapter 4.3: Emergency Fund Planning</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="standard-box">
+                        <div class="standard-title">Standard 5: Credit & Debt</div>
+                        <ul>
+                            <li>Chapter 5.1: Understanding Credit Fundamentals</li>
+                            <li>Chapter 5.2: Managing Debt Responsibly</li>
+                            <li>Chapter 5.3: Building a Strong Credit Profile</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="standard-box">
+                        <div class="standard-title">Standard 6: Risk Management & Insurance</div>
+                        <ul>
+                            <li>Chapter 6.1: Understanding Risk & Insurance Basics</li>
+                            <li>Chapter 6.2: Property & Liability Insurance</li>
+                            <li>Chapter 6.3: Health & Disability Insurance</li>
+                            <li>Chapter 6.4: Life Insurance Planning</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="standard-box">
+                        <div class="standard-title">Standard 7: Investing</div>
+                        <ul>
+                            <li>Chapter 7.1: Investment Fundamentals</li>
+                            <li>Chapter 7.2: Investment Vehicles</li>
+                            <li>Chapter 7.3: Retirement Planning</li>
+                            <li>Chapter 7.4: Portfolio Construction</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="standard-box">
+                        <div class="standard-title">Standard 8: Financial Decision Making</div>
+                        <ul>
+                            <li>Chapter 8.1: Personal Financial Decision Framework</li>
+                            <li>Chapter 8.2: Major Purchase Decision Making</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="standard-box">
+                        <div class="standard-title">Standard 9: External Influence Analysis</div>
+                        <ul>
+                            <li>Chapter 9.1: Media & Marketing Influence on Financial Decisions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="standard-box">
+                        <div class="standard-title">Standard 10: Housing & Transportation</div>
+                        <ul>
+                            <li>Chapter 10.1: Housing Options & Economics</li>
+                            <li>Chapter 10.2: Renting vs. Buying Analysis</li>
+                            <li>Chapter 10.3: Transportation Choices & Costs</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="standard-box">
+                        <div class="standard-title">Standard 11: Personal Financial Planning</div>
+                        <ul>
+                            <li>Chapter 11.1: Goal Setting & Financial Planning</li>
+                            <li>Chapter 11.2: Lifestyle & Financial Balance</li>
+                            <li>Chapter 11.3: Life Stage Financial Planning</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="standard-box">
+                        <div class="standard-title">Standard 12: Consumer Rights</div>
+                        <ul>
+                            <li>Chapter 12.1: Consumer Protection Laws</li>
+                            <li>Chapter 12.2: Identity Theft Prevention</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="standard-box">
+                        <div class="standard-title">Standard 13: Debt Management</div>
+                        <ul>
+                            <li>Chapter 13.1: Strategies for Managing High Levels of Debt</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="standard-box">
+                        <div class="standard-title">Standard 14: Charitable Giving</div>
+                        <ul>
+                            <li>Chapter 14.1: Charitable Giving & Financial Planning</li>
+                            <li>Chapter 14.2: Checking Out Charitable Groups</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="standard-box">
+                        <div class="standard-title">Standard 15: Career Development</div>
+                        <ul>
+                            <li>Chapter 15.1: Career Planning & Development</li>
+                            <li>Chapter 15.2: Job Search Strategies</li>
+                            <li>Chapter 15.3: Workplace Skills</li>
+                            <li>Chapter 15.4: Professional Development</li>
+                            <li>Chapter 15.5: Resume Building</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>KEY PLATFORM FEATURES</h2>
+                
+                <div class="features-grid">
+                    <div class="feature-box">
+                        <h3>Interactive Learning Components</h3>
+                        <ul>
+                            <li>Skill builder simulations for hands-on application</li>
+                            <li>Financial calculators and modeling tools</li>
+                            <li>Interactive timeline activities</li>
+                            <li>Scenario-based decision exercises</li>
+                            <li>Real-world project development</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h3>Assessment System</h3>
+                        <ul>
+                            <li>Comprehensive knowledge checks</li>
+                            <li>Performance-based assessment of applied skills</li>
+                            <li>AI-powered evaluation of open-ended responses</li>
+                            <li>Portfolio-based evaluation of learning outcomes</li>
+                            <li>Progress tracking across all standards</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h3>Teacher Support Resources</h3>
+                        <ul>
+                            <li>Detailed instructor guides with lesson plans</li>
+                            <li>Ready-to-use presentation materials</li>
+                            <li>Differentiation strategies for diverse learners</li>
+                            <li>Assessment guidance and rubrics</li>
+                            <li>Professional development resources</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h3>Student Experience</h3>
+                        <ul>
+                            <li>Engaging multimedia content</li>
+                            <li>Self-paced learning options</li>
+                            <li>Personal financial portfolio development</li>
+                            <li>Real-world application emphasis</li>
+                            <li>Personalized feedback and guidance</li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>IMPLEMENTATION & ACCESSIBILITY</h2>
+                <div class="day-grid">
+                    <div class="day-box" style="background-color: #EEF2FF; border-top: 4px solid #7E22CE;">
+                        <h3>IEP & Scaffolded Support</h3>
+                        <ul>
+                            <li>Automated IEP remediation capabilities</li>
+                            <li>Adjustable content complexity levels</li>
+                            <li>Scaffolded learning supports for diverse needs</li>
+                            <li>Accessibility features for all learners</li>
+                            <li>Customizable accommodation settings</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="day-box" style="background-color: #EEF2FF; border-top: 4px solid #4F46E5;">
+                        <h3>Implementation Flexibility</h3>
+                        <ul>
+                            <li>Standalone Financial Literacy Course</li>
+                            <li>Integration into Existing Economics or Mathematics Courses</li>
+                            <li>After-School or Supplemental Programs</li>
+                            <li>Summer Financial Literacy Intensives</li>
+                            <li>Hybrid In-Person/Digital Implementation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-box">
+                <p>For more information about PFL Academy's curriculum or to schedule a demonstration, please contact:</p>
+                <p><strong>Justin Ghiglia</strong></p>
+                <p>Founder, PFL Academy</p>
+                <p>justin@pflacademy.com</p>
+                <p>415-990-2754</p>
+                <p>www.pflacademy.org</p>
+            </div>
+        </div>
+        
+        <footer class="footer">
+            <div class="contact-info">
+                <p>PFL Academy - Financial Literacy for the Next Generation</p>
+                <p>© 2025 PFL Academy | justin@pflacademy.com | 415-990-2754</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
