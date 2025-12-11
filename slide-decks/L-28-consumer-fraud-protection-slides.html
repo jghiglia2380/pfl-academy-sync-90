@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>L-28: Consumer Fraud Protection - PFL Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f3f4f6;
+            color: #1f2937;
+            line-height: 1.5;
+        }
+
+        .slide {
+            width: 1920px;
+            height: 1080px;
+            position: relative;
+            overflow: hidden;
+            background: white;
+            page-break-after: always;
+        }
+
+        /* Title Slide */
+        .slide-title {
+            background: linear-gradient(135deg, #4F46E5 0%, #3B82F6 50%, #0D9488 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 80px;
+        }
+
+        .slide-title .chapter-label {
+            font-size: 28px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .slide-title h1 {
+            font-size: 100px;
+            font-weight: 800;
+            margin-bottom: 30px;
+            line-height: 1.1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .slide-title .subtitle {
+            font-size: 42px;
+            font-weight: 500;
+            opacity: 0.95;
+            margin-bottom: 40px;
+        }
+
+        .slide-title .standard-tag {
+            font-size: 24px;
+            font-weight: 600;
+            background: rgba(255,255,255,0.2);
+            padding: 12px 30px;
+            border-radius: 50px;
+            margin-top: 30px;
+        }
+
+        .slide-title .logo {
+            position: absolute;
+            top: 50px;
+            right: 60px;
+        }
+
+        .slide-title .logo svg {
+            width: 200px;
+            height: auto;
+        }
+
+        /* Hook Slide */
+        .slide-hook {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px;
+        }
+
+        .slide-hook .hook-label {
+            font-size: 22px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #0D9488;
+            margin-bottom: 40px;
+        }
+
+        .slide-hook h2 {
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1.3;
+            max-width: 1400px;
+        }
+
+        /* Content Slides */
+        .slide-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-header {
+            background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
+            color: white;
+            padding: 35px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 120px;
+        }
+
+        .slide-header.teal {
+            background: linear-gradient(135deg, #0D9488 0%, #0F766E 100%);
+        }
+
+        .slide-header.blue {
+            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+        }
+
+        .slide-header h2 {
+            font-size: 52px;
+            font-weight: 700;
+        }
+
+        .slide-number {
+            font-size: 24px;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        .slide-body {
+            flex: 1;
+            padding: 50px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-footer {
+            height: 12px;
+            background: linear-gradient(90deg, #0D9488 0%, #4F46E5 50%, #0D9488 100%);
+        }
+
+        /* Objectives Grid */
+        .objectives-expanded {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            flex: 1;
+        }
+
+        .objective-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 20px;
+            padding: 40px;
+            border-left: 6px solid #4F46E5;
+        }
+
+        .objective-card:nth-child(2) {
+            border-left-color: #0D9488;
+        }
+
+        .objective-card:nth-child(3) {
+            border-left-color: #3B82F6;
+        }
+
+        .objective-card:nth-child(4) {
+            border-left-color: #10B981;
+        }
+
+        .objective-card h3 {
+            font-size: 30px;
+            font-weight: 700;
+            color: #4F46E5;
+            margin-bottom: 15px;
+        }
+
+        .objective-card:nth-child(2) h3 {
+            color: #0D9488;
+        }
+
+        .objective-card:nth-child(3) h3 {
+            color: #3B82F6;
+        }
+
+        .objective-card:nth-child(4) h3 {
+            color: #10B981;
+        }
+
+        .objective-card p {
+            font-size: 26px;
+            color: #475569;
+        }
+
+        /* Vocabulary Cards */
+        .vocab-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .vocab-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .vocab-card {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-radius: 20px;
+            padding: 35px;
+            border-left: 6px solid #3B82F6;
+        }
+
+        .vocab-card:nth-child(even) {
+            background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+            border-left-color: #0D9488;
+        }
+
+        .vocab-card h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1e3a5f;
+            margin-bottom: 15px;
+        }
+
+        .vocab-card p {
+            font-size: 26px;
+            color: #475569;
+            margin-bottom: 12px;
+        }
+
+        .vocab-card .example {
+            font-size: 22px;
+            color: #64748b;
+            font-style: italic;
+            padding-top: 12px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+
+        /* Balanced Layout */
+        .balanced-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            flex: 1;
+            align-items: center;
+        }
+
+        .content-panel h3 {
+            font-size: 40px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 25px;
+        }
+
+        .content-panel p {
+            font-size: 28px;
+            color: #475569;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .content-panel ul {
+            list-style: none;
+        }
+
+        .content-panel li {
+            font-size: 26px;
+            color: #475569;
+            margin-bottom: 16px;
+            padding-left: 35px;
+            position: relative;
+        }
+
+        .content-panel li::before {
+            content: ">";
+            position: absolute;
+            left: 0;
+            color: #0D9488;
+            font-weight: 700;
+        }
+
+        .stats-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 30px 35px;
+            text-align: center;
+        }
+
+        .stat-card.teal {
+            background: linear-gradient(135deg, #0D9488 0%, #0F766E 100%);
+        }
+
+        .stat-card.purple {
+            background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
+        }
+
+        .stat-card.green {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+        }
+
+        .stat-card.rose {
+            background: linear-gradient(135deg, #F43F5E 0%, #E11D48 100%);
+        }
+
+        .stat-card .stat-number {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .stat-card .stat-label {
+            font-size: 22px;
+            opacity: 0.95;
+        }
+
+        /* Info Cards */
+        .info-card {
+            background: #eff6ff;
+            border-radius: 16px;
+            padding: 25px 30px;
+            border-left: 5px solid #3B82F6;
+            margin-bottom: 20px;
+        }
+
+        .info-card.teal {
+            background: #f0fdfa;
+            border-left-color: #0D9488;
+        }
+
+        .info-card.green {
+            background: #ecfdf5;
+            border-left-color: #10B981;
+        }
+
+        .info-card.rose {
+            background: #fff1f2;
+            border-left-color: #F43F5E;
+        }
+
+        .info-card h4 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            font-size: 24px;
+            color: #475569;
+        }
+
+        /* Fraud Types Grid */
+        .fraud-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 25px;
+            flex: 1;
+        }
+
+        .fraud-card {
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+            border-radius: 20px;
+            padding: 30px;
+            border-top: 5px solid #EF4444;
+        }
+
+        .fraud-card:nth-child(2) {
+            background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+            border-top-color: #F97316;
+        }
+
+        .fraud-card:nth-child(3) {
+            background: linear-gradient(135deg, #fefce8 0%, #fef9c3 100%);
+            border-top-color: #EAB308;
+        }
+
+        .fraud-card:nth-child(4) {
+            background: linear-gradient(135deg, #fdf4ff 0%, #fae8ff 100%);
+            border-top-color: #A855F7;
+        }
+
+        .fraud-card:nth-child(5) {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-top-color: #0EA5E9;
+        }
+
+        .fraud-card:nth-child(6) {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-top-color: #22C55E;
+        }
+
+        .fraud-card h4 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 12px;
+        }
+
+        .fraud-card p {
+            font-size: 20px;
+            color: #475569;
+        }
+
+        /* Scenario Layout */
+        .scenario-layout {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            gap: 30px;
+        }
+
+        .scenario-setup {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 20px;
+            padding: 35px 45px;
+        }
+
+        .scenario-setup h3 {
+            font-size: 34px;
+            font-weight: 700;
+            color: #92400e;
+            margin-bottom: 15px;
+        }
+
+        .scenario-setup p {
+            font-size: 28px;
+            color: #78350f;
+        }
+
+        .outcome-boxes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            flex: 1;
+        }
+
+        .outcome-box {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border-radius: 20px;
+            padding: 30px;
+            border-left: 6px solid #10B981;
+        }
+
+        .outcome-box.problem {
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+            border-left-color: #EF4444;
+        }
+
+        .outcome-box h4 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #065F46;
+            margin-bottom: 15px;
+        }
+
+        .outcome-box.problem h4 {
+            color: #991B1B;
+        }
+
+        .outcome-box ul {
+            list-style: none;
+        }
+
+        .outcome-box li {
+            font-size: 22px;
+            color: #475569;
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .outcome-box li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #10B981;
+            font-weight: 700;
+        }
+
+        .outcome-box.problem li::before {
+            color: #EF4444;
+        }
+
+        /* Discussion Slide */
+        .slide-discussion {
+            background: linear-gradient(135deg, #0D9488 0%, #0F766E 50%, #115E59 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px;
+            text-align: center;
+        }
+
+        .slide-discussion.purple {
+            background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 50%, #5B21B6 100%);
+        }
+
+        .slide-discussion .badge {
+            background: rgba(255,255,255,0.2);
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-size: 22px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 50px;
+        }
+
+        .slide-discussion h2 {
+            font-size: 58px;
+            font-weight: 700;
+            max-width: 1400px;
+            line-height: 1.4;
+            margin-bottom: 50px;
+        }
+
+        .discussion-prompt {
+            font-size: 32px;
+            max-width: 1200px;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        /* Check Grid */
+        .check-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            flex: 1;
+        }
+
+        .check-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 20px;
+            padding: 35px;
+            border-left: 6px solid #4F46E5;
+        }
+
+        .check-card:nth-child(2) {
+            border-left-color: #0D9488;
+        }
+
+        .check-card:nth-child(3) {
+            border-left-color: #3B82F6;
+        }
+
+        .check-card:nth-child(4) {
+            border-left-color: #10B981;
+        }
+
+        .check-card .question-num {
+            font-size: 20px;
+            font-weight: 700;
+            color: #4F46E5;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .check-card:nth-child(2) .question-num {
+            color: #0D9488;
+        }
+
+        .check-card:nth-child(3) .question-num {
+            color: #3B82F6;
+        }
+
+        .check-card:nth-child(4) .question-num {
+            color: #10B981;
+        }
+
+        .check-card p {
+            font-size: 26px;
+            color: #334155;
+        }
+
+        /* Takeaway Grid */
+        .takeaway-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            flex: 1;
+        }
+
+        .takeaway-card {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-radius: 20px;
+            padding: 35px;
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+        }
+
+        .takeaway-card:nth-child(2) {
+            background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+        }
+
+        .takeaway-card:nth-child(3) {
+            background: linear-gradient(135deg, #fdf4ff 0%, #fae8ff 100%);
+        }
+
+        .takeaway-card:nth-child(4) {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+        }
+
+        .takeaway-icon {
+            width: 60px;
+            height: 60px;
+            background: #4F46E5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .takeaway-card:nth-child(2) .takeaway-icon {
+            background: #0D9488;
+        }
+
+        .takeaway-card:nth-child(3) .takeaway-icon {
+            background: #7C3AED;
+        }
+
+        .takeaway-card:nth-child(4) .takeaway-icon {
+            background: #10B981;
+        }
+
+        .takeaway-icon span {
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .takeaway-content h4 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 12px;
+        }
+
+        .takeaway-content p {
+            font-size: 24px;
+            color: #475569;
+        }
+
+        /* Activity Layout */
+        .activity-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            flex: 1;
+            align-items: center;
+        }
+
+        .activity-description {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 24px;
+            padding: 40px;
+        }
+
+        .activity-description h3 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #92400e;
+            margin-bottom: 20px;
+        }
+
+        .activity-description p {
+            font-size: 26px;
+            color: #78350f;
+            line-height: 1.6;
+        }
+
+        .activity-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .step-num {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #4F46E5 0%, #3B82F6 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            font-size: 26px;
+            color: #334155;
+            padding-top: 8px;
+        }
+
+        /* Closing Slide */
+        .slide-closing {
+            background: linear-gradient(135deg, #4F46E5 0%, #3B82F6 50%, #0D9488 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px;
+        }
+
+        .slide-closing .logo-large {
+            margin-bottom: 40px;
+        }
+
+        .slide-closing .logo-large svg {
+            width: 280px;
+            height: auto;
+        }
+
+        .slide-closing h2 {
+            font-size: 64px;
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+
+        .slide-closing .tagline {
+            font-size: 36px;
+            opacity: 0.95;
+            margin-bottom: 50px;
+        }
+
+        .slide-closing .website {
+            font-size: 32px;
+            font-weight: 600;
+            background: rgba(255,255,255,0.2);
+            padding: 15px 40px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+        }
+
+        .slide-closing .copyright {
+            font-size: 22px;
+            opacity: 0.8;
+        }
+
+        /* Why It Matters Grid */
+        .why-matters-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            flex: 1;
+        }
+
+        .matter-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 20px;
+            padding: 35px;
+            border-top: 5px solid #4F46E5;
+        }
+
+        .matter-card:nth-child(2) {
+            border-top-color: #0D9488;
+        }
+
+        .matter-card:nth-child(3) {
+            border-top-color: #3B82F6;
+        }
+
+        .matter-card:nth-child(4) {
+            border-top-color: #10B981;
+        }
+
+        .matter-card h4 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+
+        .matter-card p {
+            font-size: 24px;
+            color: #475569;
+        }
+
+        /* Strategies Grid */
+        .strategies-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            flex: 1;
+        }
+
+        .strategy-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 20px;
+            padding: 30px;
+            border-left: 6px solid #0D9488;
+        }
+
+        .strategy-card:nth-child(2) {
+            border-left-color: #3B82F6;
+        }
+
+        .strategy-card:nth-child(3) {
+            border-left-color: #10B981;
+        }
+
+        .strategy-card:nth-child(4) {
+            border-left-color: #7C3AED;
+        }
+
+        .strategy-card h4 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 12px;
+        }
+
+        .strategy-card ul {
+            list-style: none;
+        }
+
+        .strategy-card li {
+            font-size: 22px;
+            color: #475569;
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .strategy-card li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #0D9488;
+            font-weight: 700;
+        }
+
+        /* Print Styles */
+        @media print {
+            .slide {
+                page-break-after: always;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Slide 1: Title -->
+    <div class="slide slide-title">
+        <div class="logo">
+            <svg viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 10 L50 10 L50 50 L20 50 Z" fill="white" opacity="0.9"/>
+                <path d="M25 20 L45 20 M25 30 L45 30 M25 40 L35 40" stroke="#4F46E5" stroke-width="3" stroke-linecap="round"/>
+                <text x="60" y="38" font-family="Inter" font-size="24" font-weight="800" fill="white">PFL Academy</text>
+            </svg>
+        </div>
+        <div class="chapter-label">Chapter 8.2</div>
+        <h1>Consumer Fraud<br>Protection</h1>
+        <div class="subtitle">Recognize, Prevent, and Respond to Scams in {{STATE_NAME}}</div>
+        <div class="standard-tag">Standard 8: Consumer Protection</div>
+    </div>
+
+    <!-- Slide 2: Hook -->
+    <div class="slide slide-hook">
+        <div class="hook-label">Essential Question</div>
+        <h2>You receive an urgent email from your "bank" about suspicious activity...<br><br>How do you know if it's real or a scammer trying to steal everything you have?</h2>
+    </div>
+
+    <!-- Slide 3: Objectives -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>Learning Objectives</h2>
+            <div class="slide-number">3 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="objectives-expanded">
+                <div class="objective-card">
+                    <h3>Identify</h3>
+                    <p>Various types of consumer fraud including phishing, spoofing, and identity theft</p>
+                </div>
+                <div class="objective-card">
+                    <h3>Recognize</h3>
+                    <p>Warning signs and red flags that indicate potential fraud attempts</p>
+                </div>
+                <div class="objective-card">
+                    <h3>Develop</h3>
+                    <p>Strategies to protect yourself and your personal information from scammers</p>
+                </div>
+                <div class="objective-card">
+                    <h3>Respond</h3>
+                    <p>Learn what steps to take if you become a victim of fraud</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 4: Key Terms 1 -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Key Terms</h2>
+            <div class="slide-number">4 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="vocab-container">
+                <div class="vocab-row">
+                    <div class="vocab-card">
+                        <h3>Phishing</h3>
+                        <p>Fraudulent emails or messages designed to trick you into providing sensitive information</p>
+                        <div class="example">Example: An email pretending to be from Netflix asking you to "verify" your payment info</div>
+                    </div>
+                    <div class="vocab-card">
+                        <h3>Spoofing</h3>
+                        <p>When scammers disguise their communication to appear as if it's from a legitimate source</p>
+                        <div class="example">Example: A call that shows your bank's name on caller ID but is actually a scammer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 5: Key Terms 2 -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Key Terms</h2>
+            <div class="slide-number">5 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="vocab-container">
+                <div class="vocab-row">
+                    <div class="vocab-card">
+                        <h3>Identity Theft</h3>
+                        <p>Stealing personal information to open accounts, make purchases, or commit other fraud</p>
+                        <div class="example">Example: Someone uses your Social Security number to open credit cards in your name</div>
+                    </div>
+                    <div class="vocab-card">
+                        <h3>Ponzi Scheme</h3>
+                        <p>A fraudulent investment that pays earlier investors with funds from newer investors</p>
+                        <div class="example">Example: Bernie Madoff's scheme that defrauded investors of $65 billion</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 6: Core Concept 1 - Types of Fraud -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>Common Types of Consumer Fraud</h2>
+            <div class="slide-number">6 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="fraud-grid">
+                <div class="fraud-card">
+                    <h4>Phishing</h4>
+                    <p>Fake emails/texts that trick you into giving up passwords or financial info</p>
+                </div>
+                <div class="fraud-card">
+                    <h4>Spoofing</h4>
+                    <p>Disguising communications to appear from trusted companies or government</p>
+                </div>
+                <div class="fraud-card">
+                    <h4>Catfishing</h4>
+                    <p>Fake online identities used to build trust before requesting money</p>
+                </div>
+                <div class="fraud-card">
+                    <h4>Identity Theft</h4>
+                    <p>Using stolen personal info to open accounts and make purchases</p>
+                </div>
+                <div class="fraud-card">
+                    <h4>Ponzi Schemes</h4>
+                    <p>"Investment" scams paying old investors with new investor money</p>
+                </div>
+                <div class="fraud-card">
+                    <h4>Credit Repair Scams</h4>
+                    <p>Companies charging fees for "credit fixes" they can't deliver</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 7: Core Concept 2 - Warning Signs -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Red Flags: Warning Signs of Fraud</h2>
+            <div class="slide-number">7 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="balanced-layout">
+                <div class="content-panel">
+                    <h3>How to Spot a Scam</h3>
+                    <ul>
+                        <li><strong>Urgency:</strong> "Act NOW or your account will be closed!"</li>
+                        <li><strong>Too good to be true:</strong> Unrealistic returns or prizes</li>
+                        <li><strong>Request for personal info:</strong> Asking for passwords, SSN, etc.</li>
+                        <li><strong>Suspicious links:</strong> URLs that don't match the company</li>
+                        <li><strong>Poor grammar/spelling:</strong> Many scam messages have errors</li>
+                        <li><strong>Unusual payment methods:</strong> Wire transfers, gift cards, crypto</li>
+                    </ul>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card rose">
+                        <div class="stat-number">$10.3B</div>
+                        <div class="stat-label">Lost to Fraud in 2023</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2.6M</div>
+                        <div class="stat-label">Fraud Reports Filed</div>
+                    </div>
+                    <div class="stat-card teal">
+                        <div class="stat-number">$500</div>
+                        <div class="stat-label">Median Individual Loss</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 8: Core Concept 3 - Protection Strategies -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Fraud Prevention Strategies</h2>
+            <div class="slide-number">8 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="strategies-grid">
+                <div class="strategy-card">
+                    <h4>1. Know Your Rights</h4>
+                    <ul>
+                        <li>Free annual credit report from each bureau</li>
+                        <li>Right to place credit freezes</li>
+                        <li>Report fraud to FTC at ReportFraud.ftc.gov</li>
+                    </ul>
+                </div>
+                <div class="strategy-card">
+                    <h4>2. Secure Your Information</h4>
+                    <ul>
+                        <li>Use strong, unique passwords</li>
+                        <li>Enable two-factor authentication</li>
+                        <li>Limit what you share on social media</li>
+                    </ul>
+                </div>
+                <div class="strategy-card">
+                    <h4>3. Verify Sources</h4>
+                    <ul>
+                        <li>Contact companies directly via official channels</li>
+                        <li>Don't click links in unsolicited messages</li>
+                        <li>Research investments thoroughly</li>
+                    </ul>
+                </div>
+                <div class="strategy-card">
+                    <h4>4. Report Suspicious Activity</h4>
+                    <ul>
+                        <li>Report scams to the FTC</li>
+                        <li>Alert your bank immediately</li>
+                        <li>File police report for identity theft</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 9: Core Concept 4 - If You're a Victim -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>What to Do If You're a Victim</h2>
+            <div class="slide-number">9 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="balanced-layout">
+                <div class="content-panel">
+                    <h3>Act Fast - Every Hour Matters</h3>
+                    <div class="info-card rose" style="margin: 15px 0;">
+                        <h4>Immediate Actions</h4>
+                        <p>Contact your bank to freeze accounts; change compromised passwords immediately</p>
+                    </div>
+                    <div class="info-card" style="margin: 15px 0;">
+                        <h4>Document Everything</h4>
+                        <p>Save all communications, take screenshots, note dates and times of suspicious activity</p>
+                    </div>
+                    <div class="info-card teal">
+                        <h4>Report the Fraud</h4>
+                        <p>File reports with FTC, local police, and credit bureaus; request fraud alerts</p>
+                    </div>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card green">
+                        <div class="stat-number">24h</div>
+                        <div class="stat-label">Best Recovery Window</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">$0</div>
+                        <div class="stat-label">Your Liability with Fast Action</div>
+                    </div>
+                    <div class="stat-card teal">
+                        <div class="stat-number">7 yrs</div>
+                        <div class="stat-label">How Long Fraud Alert Lasts</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 10: Core Concept 5 - Credit Freezes -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Credit Freezes: Your Best Defense</h2>
+            <div class="slide-number">10 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="balanced-layout">
+                <div class="content-panel">
+                    <h3>Lock Down Your Credit</h3>
+                    <p>A credit freeze prevents new accounts from being opened in your name - even if a scammer has all your information.</p>
+                    <ul>
+                        <li>Free to place and lift (since 2018)</li>
+                        <li>Must freeze with all 3 bureaus: Equifax, Experian, TransUnion</li>
+                        <li>Doesn't affect your credit score</li>
+                        <li>You get a PIN to unfreeze when needed</li>
+                        <li>Consider freezing proactively, not just after fraud</li>
+                    </ul>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card green">
+                        <div class="stat-number">$0</div>
+                        <div class="stat-label">Cost to Freeze Credit</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Bureaus to Contact</div>
+                    </div>
+                    <div class="stat-card purple">
+                        <div class="stat-number">15 min</div>
+                        <div class="stat-label">To Freeze All Three</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 11: Why It Matters -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Why Fraud Awareness Matters</h2>
+            <div class="slide-number">11 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="why-matters-grid">
+                <div class="matter-card">
+                    <h4>Financial Devastation</h4>
+                    <p>Victims lose an average of $500, but some lose their entire life savings to sophisticated scams</p>
+                </div>
+                <div class="matter-card">
+                    <h4>Credit Damage</h4>
+                    <p>Identity theft can destroy your credit score and take years to fully recover</p>
+                </div>
+                <div class="matter-card">
+                    <h4>Emotional Toll</h4>
+                    <p>Fraud victims often experience shame, stress, anxiety, and broken trust</p>
+                </div>
+                <div class="matter-card">
+                    <h4>Everyone is a Target</h4>
+                    <p>Scammers target all ages - young people aren't immune and often report higher losses</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 12: Modern Context -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>Fraud in the Digital Age</h2>
+            <div class="slide-number">12 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="balanced-layout">
+                <div class="content-panel">
+                    <h3>Evolving Threats</h3>
+                    <p>Scammers are using increasingly sophisticated techniques to steal money and information.</p>
+                    <ul>
+                        <li><strong>AI-generated voices:</strong> Clone voices for phone scams</li>
+                        <li><strong>Deepfake videos:</strong> Impersonate celebrities and executives</li>
+                        <li><strong>Crypto scams:</strong> Fake investment platforms</li>
+                        <li><strong>Social media impersonation:</strong> Fake accounts of friends</li>
+                        <li><strong>QR code fraud:</strong> Malicious codes in public places</li>
+                    </ul>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card rose">
+                        <div class="stat-number">34%</div>
+                        <div class="stat-label">Increase in Fraud Reports (2023)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">20-29</div>
+                        <div class="stat-label">Age Group Most Targeted</div>
+                    </div>
+                    <div class="stat-card teal">
+                        <div class="stat-number">4.5M</div>
+                        <div class="stat-label">ID Theft Cases in 2023</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 13: Real-World Example 1 - Alex -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Scenario: Email Phishing Attack</h2>
+            <div class="slide-number">13 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="scenario-layout">
+                <div class="scenario-setup">
+                    <h3>Alex's Suspicious Email</h3>
+                    <p>Alex received an email claiming to be from his bank about "suspicious activity" on his account. The email urged him to "click here immediately" to verify his information. The sender's email was BankofAmerica1@secure-verify.net.</p>
+                </div>
+                <div class="outcome-boxes">
+                    <div class="outcome-box problem">
+                        <h4>Red Flags in This Message</h4>
+                        <ul>
+                            <li>Urgency: "Click here IMMEDIATELY"</li>
+                            <li>Suspicious email domain (not official bank)</li>
+                            <li>Generic greeting (not personalized)</li>
+                            <li>Request to verify sensitive information</li>
+                        </ul>
+                    </div>
+                    <div class="outcome-box">
+                        <h4>What Alex Should Do</h4>
+                        <ul>
+                            <li>Do NOT click any links in the email</li>
+                            <li>Call bank directly using number on his card</li>
+                            <li>Report the phishing email to the bank</li>
+                            <li>Delete the suspicious email</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 14: Real-World Example 2 - Miguel -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Scenario: Investment Catfishing</h2>
+            <div class="slide-number">14 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="scenario-layout">
+                <div class="scenario-setup">
+                    <h3>Miguel's "Investment Opportunity"</h3>
+                    <p>Miguel connected with someone on social media claiming to be a financial advisor. After building trust over several weeks, this person convinced Miguel to invest in a "guaranteed return" opportunity that required sending money via wire transfer.</p>
+                </div>
+                <div class="outcome-boxes">
+                    <div class="outcome-box problem">
+                        <h4>Warning Signs Miguel Missed</h4>
+                        <ul>
+                            <li>"Guaranteed returns" - no investment is guaranteed</li>
+                            <li>Met through social media, not verified channels</li>
+                            <li>Wire transfer requested (untraceable)</li>
+                            <li>Pressure to invest quickly</li>
+                        </ul>
+                    </div>
+                    <div class="outcome-box problem">
+                        <h4>The Consequences</h4>
+                        <ul>
+                            <li>Money sent via wire transfer is nearly impossible to recover</li>
+                            <li>"Advisor" disappears after receiving funds</li>
+                            <li>Miguel has no legal recourse for recovery</li>
+                            <li>Emotional impact from betrayed trust</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 15: Discussion 1 -->
+    <div class="slide slide-discussion">
+        <div class="badge">Discussion</div>
+        <h2>Why do you think even tech-savvy people fall for sophisticated scams?</h2>
+        <div class="discussion-prompt">Consider psychological tactics like urgency, fear, authority, and trust. How do scammers exploit normal human behavior?</div>
+    </div>
+
+    <!-- Slide 16: Discussion 2 -->
+    <div class="slide slide-discussion purple">
+        <div class="badge">Personal Reflection</div>
+        <h2>How would you explain phishing scams to a family member who might not be aware of them?</h2>
+        <div class="discussion-prompt">Think about how to keep the conversation supportive without making them feel embarrassed. What specific warning signs would you help them recognize?</div>
+    </div>
+
+    <!-- Slide 17: Check for Understanding -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>Check for Understanding</h2>
+            <div class="slide-number">17 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="check-grid">
+                <div class="check-card">
+                    <div class="question-num">Question 1</div>
+                    <p>What's the difference between phishing and spoofing?</p>
+                </div>
+                <div class="check-card">
+                    <div class="question-num">Question 2</div>
+                    <p>What should you do if you receive a suspicious email claiming to be from your bank?</p>
+                </div>
+                <div class="check-card">
+                    <div class="question-num">Question 3</div>
+                    <p>Why are "guaranteed returns" a major red flag for investment fraud?</p>
+                </div>
+                <div class="check-card">
+                    <div class="question-num">Question 4</div>
+                    <p>What is a credit freeze and how does it protect you from identity theft?</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 18: Key Takeaways -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Key Takeaways</h2>
+            <div class="slide-number">18 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="takeaway-grid">
+                <div class="takeaway-card">
+                    <div class="takeaway-icon"><span>1</span></div>
+                    <div class="takeaway-content">
+                        <h4>Trust Your Gut</h4>
+                        <p>If something seems too good to be true, it probably is. Legitimate companies don't create urgency through fear.</p>
+                    </div>
+                </div>
+                <div class="takeaway-card">
+                    <div class="takeaway-icon"><span>2</span></div>
+                    <div class="takeaway-content">
+                        <h4>Verify Before You Trust</h4>
+                        <p>Never share personal information unless YOU initiated contact through official channels.</p>
+                    </div>
+                </div>
+                <div class="takeaway-card">
+                    <div class="takeaway-icon"><span>3</span></div>
+                    <div class="takeaway-content">
+                        <h4>Act Fast If Scammed</h4>
+                        <p>Immediate action can minimize damage - contact your bank, change passwords, report to FTC.</p>
+                    </div>
+                </div>
+                <div class="takeaway-card">
+                    <div class="takeaway-icon"><span>4</span></div>
+                    <div class="takeaway-content">
+                        <h4>Stay Informed</h4>
+                        <p>Scammers constantly evolve their tactics - staying educated is your best long-term defense.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 19: Activity -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Skill Builder: Recognizing a Phishing Scam</h2>
+            <div class="slide-number">19 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="activity-layout">
+                <div class="activity-description">
+                    <h3>Spot the Scam</h3>
+                    <p>Watch a scenario featuring two friends discussing a suspicious email. Learn to identify warning signs and think about how you'd help someone recognize scams without making them feel embarrassed.</p>
+                </div>
+                <div class="activity-steps">
+                    <div class="step">
+                        <div class="step-num">1</div>
+                        <div class="step-content">Watch the phishing awareness video carefully</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">2</div>
+                        <div class="step-content">Identify the specific tips used to explain the scam</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">3</div>
+                        <div class="step-content">Think about a time you or someone you know received a suspicious message</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">4</div>
+                        <div class="step-content">Write how you would educate a family member about staying safe</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">5</div>
+                        <div class="step-content">Focus on keeping the conversation supportive and helpful</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 20: Closing -->
+    <div class="slide slide-closing">
+        <div class="logo-large">
+            <svg viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 10 L50 10 L50 50 L20 50 Z" fill="white" opacity="0.9"/>
+                <path d="M25 20 L45 20 M25 30 L45 30 M25 40 L35 40" stroke="#4F46E5" stroke-width="3" stroke-linecap="round"/>
+                <text x="60" y="38" font-family="Inter" font-size="24" font-weight="800" fill="white">PFL Academy</text>
+            </svg>
+        </div>
+        <h2>Stay Skeptical,<br>Stay Safe</h2>
+        <div class="tagline">Knowledge is your best defense against fraud - trust but verify</div>
+        <div class="website">www.pflacademy.co</div>
+        <div class="copyright">&copy; 2025 PFL Academy. All rights reserved.</div>
+    </div>
+</body>
+</html>

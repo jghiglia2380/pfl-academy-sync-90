@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>L-27: Online Shopping - PFL Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f3f4f6;
+            color: #1f2937;
+            line-height: 1.5;
+        }
+
+        .slide {
+            width: 1920px;
+            height: 1080px;
+            position: relative;
+            overflow: hidden;
+            background: white;
+            page-break-after: always;
+        }
+
+        /* Title Slide */
+        .slide-title {
+            background: linear-gradient(135deg, #4F46E5 0%, #3B82F6 50%, #0D9488 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 80px;
+        }
+
+        .slide-title .chapter-label {
+            font-size: 28px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .slide-title h1 {
+            font-size: 100px;
+            font-weight: 800;
+            margin-bottom: 30px;
+            line-height: 1.1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .slide-title .subtitle {
+            font-size: 42px;
+            font-weight: 500;
+            opacity: 0.95;
+            margin-bottom: 40px;
+        }
+
+        .slide-title .standard-tag {
+            font-size: 24px;
+            font-weight: 600;
+            background: rgba(255,255,255,0.2);
+            padding: 12px 30px;
+            border-radius: 50px;
+            margin-top: 30px;
+        }
+
+        .slide-title .logo {
+            position: absolute;
+            top: 50px;
+            right: 60px;
+        }
+
+        .slide-title .logo svg {
+            width: 200px;
+            height: auto;
+        }
+
+        /* Hook Slide */
+        .slide-hook {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px;
+        }
+
+        .slide-hook .hook-label {
+            font-size: 22px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #0D9488;
+            margin-bottom: 40px;
+        }
+
+        .slide-hook h2 {
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1.3;
+            max-width: 1400px;
+        }
+
+        /* Content Slides */
+        .slide-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-header {
+            background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
+            color: white;
+            padding: 35px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 120px;
+        }
+
+        .slide-header.teal {
+            background: linear-gradient(135deg, #0D9488 0%, #0F766E 100%);
+        }
+
+        .slide-header.blue {
+            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+        }
+
+        .slide-header h2 {
+            font-size: 52px;
+            font-weight: 700;
+        }
+
+        .slide-number {
+            font-size: 24px;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        .slide-body {
+            flex: 1;
+            padding: 50px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-footer {
+            height: 12px;
+            background: linear-gradient(90deg, #0D9488 0%, #4F46E5 50%, #0D9488 100%);
+        }
+
+        /* Objectives Grid */
+        .objectives-expanded {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            flex: 1;
+        }
+
+        .objective-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 20px;
+            padding: 40px;
+            border-left: 6px solid #4F46E5;
+        }
+
+        .objective-card:nth-child(2) {
+            border-left-color: #0D9488;
+        }
+
+        .objective-card:nth-child(3) {
+            border-left-color: #3B82F6;
+        }
+
+        .objective-card:nth-child(4) {
+            border-left-color: #10B981;
+        }
+
+        .objective-card h3 {
+            font-size: 30px;
+            font-weight: 700;
+            color: #4F46E5;
+            margin-bottom: 15px;
+        }
+
+        .objective-card:nth-child(2) h3 {
+            color: #0D9488;
+        }
+
+        .objective-card:nth-child(3) h3 {
+            color: #3B82F6;
+        }
+
+        .objective-card:nth-child(4) h3 {
+            color: #10B981;
+        }
+
+        .objective-card p {
+            font-size: 26px;
+            color: #475569;
+        }
+
+        /* Vocabulary Cards */
+        .vocab-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .vocab-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .vocab-card {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-radius: 20px;
+            padding: 35px;
+            border-left: 6px solid #3B82F6;
+        }
+
+        .vocab-card:nth-child(even) {
+            background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+            border-left-color: #0D9488;
+        }
+
+        .vocab-card h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1e3a5f;
+            margin-bottom: 15px;
+        }
+
+        .vocab-card p {
+            font-size: 26px;
+            color: #475569;
+            margin-bottom: 12px;
+        }
+
+        .vocab-card .example {
+            font-size: 22px;
+            color: #64748b;
+            font-style: italic;
+            padding-top: 12px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+
+        /* Balanced Layout */
+        .balanced-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            flex: 1;
+            align-items: center;
+        }
+
+        .content-panel h3 {
+            font-size: 40px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 25px;
+        }
+
+        .content-panel p {
+            font-size: 28px;
+            color: #475569;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .content-panel ul {
+            list-style: none;
+        }
+
+        .content-panel li {
+            font-size: 26px;
+            color: #475569;
+            margin-bottom: 16px;
+            padding-left: 35px;
+            position: relative;
+        }
+
+        .content-panel li::before {
+            content: ">";
+            position: absolute;
+            left: 0;
+            color: #0D9488;
+            font-weight: 700;
+        }
+
+        .stats-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 30px 35px;
+            text-align: center;
+        }
+
+        .stat-card.teal {
+            background: linear-gradient(135deg, #0D9488 0%, #0F766E 100%);
+        }
+
+        .stat-card.purple {
+            background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
+        }
+
+        .stat-card.green {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+        }
+
+        .stat-card.rose {
+            background: linear-gradient(135deg, #F43F5E 0%, #E11D48 100%);
+        }
+
+        .stat-card .stat-number {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .stat-card .stat-label {
+            font-size: 22px;
+            opacity: 0.95;
+        }
+
+        /* Info Cards */
+        .info-card {
+            background: #eff6ff;
+            border-radius: 16px;
+            padding: 25px 30px;
+            border-left: 5px solid #3B82F6;
+            margin-bottom: 20px;
+        }
+
+        .info-card.teal {
+            background: #f0fdfa;
+            border-left-color: #0D9488;
+        }
+
+        .info-card.green {
+            background: #ecfdf5;
+            border-left-color: #10B981;
+        }
+
+        .info-card h4 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            font-size: 24px;
+            color: #475569;
+        }
+
+        /* Comparison Grid */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            flex: 1;
+            padding: 20px 0;
+        }
+
+        .comparison-card {
+            background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+            border-radius: 24px;
+            padding: 40px;
+            border-top: 6px solid #0D9488;
+        }
+
+        .comparison-card.rose {
+            background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+            border-top-color: #F43F5E;
+        }
+
+        .comparison-card h3 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #0D9488;
+            margin-bottom: 25px;
+        }
+
+        .comparison-card.rose h3 {
+            color: #F43F5E;
+        }
+
+        .comparison-card ul {
+            list-style: none;
+        }
+
+        .comparison-card li {
+            font-size: 26px;
+            color: #475569;
+            margin-bottom: 18px;
+            padding-left: 35px;
+            position: relative;
+        }
+
+        .comparison-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #0D9488;
+            font-weight: 700;
+        }
+
+        .comparison-card.rose li::before {
+            content: "!";
+            color: #F43F5E;
+        }
+
+        /* Scenario Layout */
+        .scenario-layout {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            gap: 30px;
+        }
+
+        .scenario-setup {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 20px;
+            padding: 35px 45px;
+        }
+
+        .scenario-setup h3 {
+            font-size: 34px;
+            font-weight: 700;
+            color: #92400e;
+            margin-bottom: 15px;
+        }
+
+        .scenario-setup p {
+            font-size: 28px;
+            color: #78350f;
+        }
+
+        .outcome-boxes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            flex: 1;
+        }
+
+        .outcome-box {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border-radius: 20px;
+            padding: 30px;
+            border-left: 6px solid #10B981;
+        }
+
+        .outcome-box.problem {
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+            border-left-color: #EF4444;
+        }
+
+        .outcome-box h4 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #065F46;
+            margin-bottom: 15px;
+        }
+
+        .outcome-box.problem h4 {
+            color: #991B1B;
+        }
+
+        .outcome-box p {
+            font-size: 24px;
+            color: #475569;
+        }
+
+        .outcome-box ul {
+            list-style: none;
+        }
+
+        .outcome-box li {
+            font-size: 22px;
+            color: #475569;
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .outcome-box li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #10B981;
+            font-weight: 700;
+        }
+
+        .outcome-box.problem li::before {
+            color: #EF4444;
+        }
+
+        /* Discussion Slide */
+        .slide-discussion {
+            background: linear-gradient(135deg, #0D9488 0%, #0F766E 50%, #115E59 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px;
+            text-align: center;
+        }
+
+        .slide-discussion.purple {
+            background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 50%, #5B21B6 100%);
+        }
+
+        .slide-discussion .badge {
+            background: rgba(255,255,255,0.2);
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-size: 22px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 50px;
+        }
+
+        .slide-discussion h2 {
+            font-size: 58px;
+            font-weight: 700;
+            max-width: 1400px;
+            line-height: 1.4;
+            margin-bottom: 50px;
+        }
+
+        .discussion-prompt {
+            font-size: 32px;
+            max-width: 1200px;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        /* Check Grid */
+        .check-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            flex: 1;
+        }
+
+        .check-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 20px;
+            padding: 35px;
+            border-left: 6px solid #4F46E5;
+        }
+
+        .check-card:nth-child(2) {
+            border-left-color: #0D9488;
+        }
+
+        .check-card:nth-child(3) {
+            border-left-color: #3B82F6;
+        }
+
+        .check-card:nth-child(4) {
+            border-left-color: #10B981;
+        }
+
+        .check-card .question-num {
+            font-size: 20px;
+            font-weight: 700;
+            color: #4F46E5;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .check-card:nth-child(2) .question-num {
+            color: #0D9488;
+        }
+
+        .check-card:nth-child(3) .question-num {
+            color: #3B82F6;
+        }
+
+        .check-card:nth-child(4) .question-num {
+            color: #10B981;
+        }
+
+        .check-card p {
+            font-size: 26px;
+            color: #334155;
+        }
+
+        /* Takeaway Grid */
+        .takeaway-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            flex: 1;
+        }
+
+        .takeaway-card {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-radius: 20px;
+            padding: 35px;
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+        }
+
+        .takeaway-card:nth-child(2) {
+            background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+        }
+
+        .takeaway-card:nth-child(3) {
+            background: linear-gradient(135deg, #fdf4ff 0%, #fae8ff 100%);
+        }
+
+        .takeaway-card:nth-child(4) {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+        }
+
+        .takeaway-icon {
+            width: 60px;
+            height: 60px;
+            background: #4F46E5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .takeaway-card:nth-child(2) .takeaway-icon {
+            background: #0D9488;
+        }
+
+        .takeaway-card:nth-child(3) .takeaway-icon {
+            background: #7C3AED;
+        }
+
+        .takeaway-card:nth-child(4) .takeaway-icon {
+            background: #10B981;
+        }
+
+        .takeaway-icon span {
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .takeaway-content h4 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 12px;
+        }
+
+        .takeaway-content p {
+            font-size: 24px;
+            color: #475569;
+        }
+
+        /* Activity Layout */
+        .activity-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            flex: 1;
+            align-items: center;
+        }
+
+        .activity-description {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 24px;
+            padding: 40px;
+        }
+
+        .activity-description h3 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #92400e;
+            margin-bottom: 20px;
+        }
+
+        .activity-description p {
+            font-size: 26px;
+            color: #78350f;
+            line-height: 1.6;
+        }
+
+        .activity-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .step-num {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #4F46E5 0%, #3B82F6 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            font-size: 26px;
+            color: #334155;
+            padding-top: 8px;
+        }
+
+        /* Closing Slide */
+        .slide-closing {
+            background: linear-gradient(135deg, #4F46E5 0%, #3B82F6 50%, #0D9488 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px;
+        }
+
+        .slide-closing .logo-large {
+            margin-bottom: 40px;
+        }
+
+        .slide-closing .logo-large svg {
+            width: 280px;
+            height: auto;
+        }
+
+        .slide-closing h2 {
+            font-size: 64px;
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+
+        .slide-closing .tagline {
+            font-size: 36px;
+            opacity: 0.95;
+            margin-bottom: 50px;
+        }
+
+        .slide-closing .website {
+            font-size: 32px;
+            font-weight: 600;
+            background: rgba(255,255,255,0.2);
+            padding: 15px 40px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+        }
+
+        .slide-closing .copyright {
+            font-size: 22px;
+            opacity: 0.8;
+        }
+
+        /* Full-Width Concept */
+        .concept-full {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .concept-full h3 {
+            font-size: 42px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 30px;
+        }
+
+        .concept-full p {
+            font-size: 28px;
+            color: #475569;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .concept-full .highlight-box {
+            background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+            border-radius: 16px;
+            padding: 30px;
+            border-left: 6px solid #0D9488;
+            margin-top: 20px;
+        }
+
+        .concept-full .highlight-box p {
+            margin-bottom: 0;
+            font-size: 26px;
+        }
+
+        /* Why It Matters Grid */
+        .why-matters-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            flex: 1;
+        }
+
+        .matter-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 20px;
+            padding: 35px;
+            border-top: 5px solid #4F46E5;
+        }
+
+        .matter-card:nth-child(2) {
+            border-top-color: #0D9488;
+        }
+
+        .matter-card:nth-child(3) {
+            border-top-color: #3B82F6;
+        }
+
+        .matter-card:nth-child(4) {
+            border-top-color: #10B981;
+        }
+
+        .matter-card h4 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+
+        .matter-card p {
+            font-size: 24px;
+            color: #475569;
+        }
+
+        /* Protection Steps */
+        .protection-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+            flex: 1;
+        }
+
+        .protection-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 20px;
+            padding: 35px;
+            border-top: 5px solid #4F46E5;
+        }
+
+        .protection-card:nth-child(2) {
+            border-top-color: #0D9488;
+        }
+
+        .protection-card:nth-child(3) {
+            border-top-color: #3B82F6;
+        }
+
+        .protection-card h4 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+
+        .protection-card ul {
+            list-style: none;
+        }
+
+        .protection-card li {
+            font-size: 22px;
+            color: #475569;
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .protection-card li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #0D9488;
+            font-weight: 700;
+        }
+
+        /* Print Styles */
+        @media print {
+            .slide {
+                page-break-after: always;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Slide 1: Title -->
+    <div class="slide slide-title">
+        <div class="logo">
+            <svg viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 10 L50 10 L50 50 L20 50 Z" fill="white" opacity="0.9"/>
+                <path d="M25 20 L45 20 M25 30 L45 30 M25 40 L35 40" stroke="#4F46E5" stroke-width="3" stroke-linecap="round"/>
+                <text x="60" y="38" font-family="Inter" font-size="24" font-weight="800" fill="white">PFL Academy</text>
+            </svg>
+        </div>
+        <div class="chapter-label">Chapter 8.1</div>
+        <h1>Online Shopping</h1>
+        <div class="subtitle">Smart Strategies for Digital Consumers in {{STATE_NAME}}</div>
+        <div class="standard-tag">Standard 8: Consumer Protection</div>
+    </div>
+
+    <!-- Slide 2: Hook -->
+    <div class="slide slide-hook">
+        <div class="hook-label">Essential Question</div>
+        <h2>That amazing deal you found online...<br><br>Is it a bargain waiting to be claimed or a trap waiting to steal your money?</h2>
+    </div>
+
+    <!-- Slide 3: Objectives -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>Learning Objectives</h2>
+            <div class="slide-number">3 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="objectives-expanded">
+                <div class="objective-card">
+                    <h3>Identify</h3>
+                    <p>The benefits and risks of online shopping in today's digital marketplace</p>
+                </div>
+                <div class="objective-card">
+                    <h3>Evaluate</h3>
+                    <p>The security of online retailers and different payment methods</p>
+                </div>
+                <div class="objective-card">
+                    <h3>Apply</h3>
+                    <p>Strategies to protect personal and financial information when shopping online</p>
+                </div>
+                <div class="objective-card">
+                    <h3>Compare</h3>
+                    <p>Online and in-store shopping options for various products and situations</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 4: Key Terms 1 -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Key Terms</h2>
+            <div class="slide-number">4 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="vocab-container">
+                <div class="vocab-row">
+                    <div class="vocab-card">
+                        <h3>E-commerce</h3>
+                        <p>The buying and selling of goods and services over the internet</p>
+                        <div class="example">Example: Purchasing shoes from Amazon or booking travel on Expedia</div>
+                    </div>
+                    <div class="vocab-card">
+                        <h3>Digital Wallet</h3>
+                        <p>An electronic service that stores payment information for secure online transactions</p>
+                        <div class="example">Example: Apple Pay, Google Pay, PayPal, or Venmo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 5: Key Terms 2 -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Key Terms</h2>
+            <div class="slide-number">5 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="vocab-container">
+                <div class="vocab-row">
+                    <div class="vocab-card">
+                        <h3>Phishing</h3>
+                        <p>A fraudulent attempt to obtain sensitive information by disguising as a trustworthy entity</p>
+                        <div class="example">Example: A fake email pretending to be from your bank asking for login credentials</div>
+                    </div>
+                    <div class="vocab-card">
+                        <h3>Encryption</h3>
+                        <p>The process of converting information into code to prevent unauthorized access</p>
+                        <div class="example">Example: HTTPS and the padlock icon mean your data is encrypted during transmission</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 6: Core Concept 1 - Benefits -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>Benefits of Online Shopping</h2>
+            <div class="slide-number">6 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="balanced-layout">
+                <div class="content-panel">
+                    <h3>Why Shop Online?</h3>
+                    <ul>
+                        <li><strong>Convenience:</strong> Shop 24/7 from anywhere</li>
+                        <li><strong>Price comparison:</strong> Compare across retailers instantly</li>
+                        <li><strong>Greater selection:</strong> Access products not available locally</li>
+                        <li><strong>Customer reviews:</strong> Learn from others' experiences</li>
+                        <li><strong>Online-only deals:</strong> Exclusive discounts and codes</li>
+                        <li><strong>No sales pressure:</strong> Browse at your own pace</li>
+                        <li><strong>Home delivery:</strong> Products come to you</li>
+                    </ul>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card">
+                        <div class="stat-number">$1.1T</div>
+                        <div class="stat-label">U.S. E-commerce Sales (2023)</div>
+                    </div>
+                    <div class="stat-card teal">
+                        <div class="stat-number">268M</div>
+                        <div class="stat-label">Online Shoppers in U.S.</div>
+                    </div>
+                    <div class="stat-card purple">
+                        <div class="stat-number">22%</div>
+                        <div class="stat-label">of All Retail Sales</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 7: Comparison - Benefits vs Risks -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Benefits vs. Risks</h2>
+            <div class="slide-number">7 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h3>Benefits</h3>
+                    <ul>
+                        <li>Convenience and time savings</li>
+                        <li>Easy price comparison</li>
+                        <li>Wider product selection</li>
+                        <li>Customer reviews available</li>
+                        <li>No travel required</li>
+                        <li>Often better prices</li>
+                    </ul>
+                </div>
+                <div class="comparison-card rose">
+                    <h3>Risks</h3>
+                    <ul>
+                        <li>Identity theft and fraud</li>
+                        <li>Fake websites and scams</li>
+                        <li>Privacy concerns and tracking</li>
+                        <li>Can't inspect items first</li>
+                        <li>Shipping delays or theft</li>
+                        <li>Complex return processes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 8: Core Concept 2 - Security Signs -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Signs of a Secure Website</h2>
+            <div class="slide-number">8 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="balanced-layout">
+                <div class="content-panel">
+                    <h3>What to Look For</h3>
+                    <p>Before entering any payment information, verify you're on a legitimate, secure site.</p>
+                    <div class="info-card" style="margin: 20px 0;">
+                        <h4>HTTPS & Padlock</h4>
+                        <p>Look for "https://" and a padlock icon in the address bar - these indicate encryption</p>
+                    </div>
+                    <div class="info-card teal">
+                        <h4>Contact Information</h4>
+                        <p>Legitimate retailers have a physical address, phone number, and customer service</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Clear Policies</h4>
+                        <p>Return policies, privacy policies, and terms of service should be easy to find</p>
+                    </div>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card rose">
+                        <div class="stat-number">40%</div>
+                        <div class="stat-label">Shoppers Can't Spot Fakes</div>
+                    </div>
+                    <div class="stat-card teal">
+                        <div class="stat-number">5 sec</div>
+                        <div class="stat-label">To Check for HTTPS</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">$0</div>
+                        <div class="stat-label">Cost to Verify a Site</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 9: Core Concept 3 - Protection Steps -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>Protecting Yourself Online</h2>
+            <div class="slide-number">9 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="protection-grid">
+                <div class="protection-card">
+                    <h4>Before You Buy</h4>
+                    <ul>
+                        <li>Research the retailer's reputation</li>
+                        <li>Check for HTTPS and padlock</li>
+                        <li>Avoid public Wi-Fi for purchases</li>
+                        <li>Use strong, unique passwords</li>
+                        <li>Beware "too good to be true" prices</li>
+                    </ul>
+                </div>
+                <div class="protection-card">
+                    <h4>During Purchase</h4>
+                    <ul>
+                        <li>Use credit cards (better protection)</li>
+                        <li>Consider digital wallets</li>
+                        <li>Never wire money or send cash</li>
+                        <li>Only provide necessary info</li>
+                        <li>Save confirmation emails</li>
+                    </ul>
+                </div>
+                <div class="protection-card">
+                    <h4>After Purchase</h4>
+                    <ul>
+                        <li>Track your packages</li>
+                        <li>Review bank statements</li>
+                        <li>Report unauthorized charges</li>
+                        <li>Know the return policy</li>
+                        <li>Keep records of transactions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 10: Core Concept 4 - Payment Methods -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Choosing Secure Payment Methods</h2>
+            <div class="slide-number">10 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="balanced-layout">
+                <div class="content-panel">
+                    <h3>Not All Payment Methods Are Equal</h3>
+                    <div class="info-card green" style="margin: 15px 0;">
+                        <h4>Credit Cards (Best Protection)</h4>
+                        <p>Federal law limits your liability to $50 for unauthorized charges; most cards offer $0 liability</p>
+                    </div>
+                    <div class="info-card teal">
+                        <h4>Digital Wallets (Good Protection)</h4>
+                        <p>Add layer of security - merchants never see your actual card number</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Debit Cards (Less Protection)</h4>
+                        <p>Money comes directly from your bank account; harder to recover stolen funds</p>
+                    </div>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card green">
+                        <div class="stat-number">$0</div>
+                        <div class="stat-label">Credit Card Fraud Liability</div>
+                    </div>
+                    <div class="stat-card rose">
+                        <div class="stat-number">$500+</div>
+                        <div class="stat-label">Potential Debit Card Liability</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">60</div>
+                        <div class="stat-label">Days to Report Fraud</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 11: Why It Matters -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Why Smart Online Shopping Matters</h2>
+            <div class="slide-number">11 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="why-matters-grid">
+                <div class="matter-card">
+                    <h4>Financial Protection</h4>
+                    <p>Online fraud costs consumers billions annually - smart habits protect your hard-earned money</p>
+                </div>
+                <div class="matter-card">
+                    <h4>Identity Security</h4>
+                    <p>Personal information stolen online can be used for years to commit identity theft</p>
+                </div>
+                <div class="matter-card">
+                    <h4>Maximize Value</h4>
+                    <p>Smart online shopping helps you find better deals and avoid costly mistakes</p>
+                </div>
+                <div class="matter-card">
+                    <h4>Future Digital Economy</h4>
+                    <p>E-commerce will only grow - these skills will be essential throughout your life</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 12: Modern Context -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>The Modern E-commerce Landscape</h2>
+            <div class="slide-number">12 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="balanced-layout">
+                <div class="content-panel">
+                    <h3>Shopping in the Digital Age</h3>
+                    <p>E-commerce continues evolving with new conveniences and new risks.</p>
+                    <ul>
+                        <li>Mobile shopping dominates (70%+ of sales)</li>
+                        <li>Same-day and next-day delivery expectations</li>
+                        <li>Social media shopping integration</li>
+                        <li>Buy-now-pay-later options growing</li>
+                        <li>AI-powered scams becoming sophisticated</li>
+                        <li>Subscription models everywhere</li>
+                    </ul>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card">
+                        <div class="stat-number">$8.8B</div>
+                        <div class="stat-label">Lost to Online Fraud (2022)</div>
+                    </div>
+                    <div class="stat-card teal">
+                        <div class="stat-number">70%</div>
+                        <div class="stat-label">Shop on Mobile Devices</div>
+                    </div>
+                    <div class="stat-card purple">
+                        <div class="stat-number">2.64B</div>
+                        <div class="stat-label">Global Online Shoppers</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 13: Real-World Example 1 - Jenna -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Success Story: Jenna's Smart Approach</h2>
+            <div class="slide-number">13 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="scenario-layout">
+                <div class="scenario-setup">
+                    <h3>Jenna's Situation</h3>
+                    <p>Jenna needed new headphones. She researched models online, read customer reviews, and found her chosen model for 15% less than the local electronics store. She verified the website was secure before purchasing.</p>
+                </div>
+                <div class="outcome-boxes">
+                    <div class="outcome-box">
+                        <h4>What She Did Right</h4>
+                        <ul>
+                            <li>Researched products before buying</li>
+                            <li>Read actual customer reviews</li>
+                            <li>Compared prices across retailers</li>
+                            <li>Verified website security (HTTPS)</li>
+                        </ul>
+                    </div>
+                    <div class="outcome-box">
+                        <h4>The Outcome</h4>
+                        <ul>
+                            <li>Saved 15% vs. local store</li>
+                            <li>Kept confirmation email for records</li>
+                            <li>Received headphones in 3 days</li>
+                            <li>No security issues encountered</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 14: Real-World Example 2 - Mike -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Warning Story: Mike's Costly Mistake</h2>
+            <div class="slide-number">14 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="scenario-layout">
+                <div class="scenario-setup">
+                    <h3>Mike's Situation</h3>
+                    <p>Mike found a popular gaming console on an unfamiliar website for 40% below retail. Excited by the deal, he made the purchase without researching the site. After payment, he only received an automated email.</p>
+                </div>
+                <div class="outcome-boxes">
+                    <div class="outcome-box problem">
+                        <h4>Red Flags He Missed</h4>
+                        <ul>
+                            <li>Price 40% below retail (too good to be true)</li>
+                            <li>Unfamiliar website with no reviews</li>
+                            <li>Didn't research the retailer</li>
+                            <li>No verification of site legitimacy</li>
+                        </ul>
+                    </div>
+                    <div class="outcome-box problem">
+                        <h4>The Consequences</h4>
+                        <ul>
+                            <li>Console never arrived</li>
+                            <li>Website disappeared completely</li>
+                            <li>Had to dispute charge with credit card</li>
+                            <li>Wasted time and caused stress</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 15: Discussion 1 -->
+    <div class="slide slide-discussion">
+        <div class="badge">Discussion</div>
+        <h2>What warning signs should have alerted Mike that the deal was a scam?</h2>
+        <div class="discussion-prompt">Think about price, website reputation, and verification steps. What would you have done differently in his situation?</div>
+    </div>
+
+    <!-- Slide 16: Discussion 2 -->
+    <div class="slide slide-discussion purple">
+        <div class="badge">Personal Reflection</div>
+        <h2>For what types of products would you prefer shopping online vs. in-store?</h2>
+        <div class="discussion-prompt">Consider factors like needing to try items on, urgency, price sensitivity, and how comfortable you are with returns. How do your shopping preferences balance convenience with security?</div>
+    </div>
+
+    <!-- Slide 17: Check for Understanding -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>Check for Understanding</h2>
+            <div class="slide-number">17 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="check-grid">
+                <div class="check-card">
+                    <div class="question-num">Question 1</div>
+                    <p>What does "HTTPS" and a padlock icon in your browser indicate about a website?</p>
+                </div>
+                <div class="check-card">
+                    <div class="question-num">Question 2</div>
+                    <p>Why do credit cards offer better fraud protection than debit cards for online shopping?</p>
+                </div>
+                <div class="check-card">
+                    <div class="question-num">Question 3</div>
+                    <p>What should you do if you find a product at a price that seems too good to be true?</p>
+                </div>
+                <div class="check-card">
+                    <div class="question-num">Question 4</div>
+                    <p>Why should you avoid using public Wi-Fi when making online purchases?</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 18: Key Takeaways -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Key Takeaways</h2>
+            <div class="slide-number">18 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="takeaway-grid">
+                <div class="takeaway-card">
+                    <div class="takeaway-icon"><span>1</span></div>
+                    <div class="takeaway-content">
+                        <h4>Verify Before You Buy</h4>
+                        <p>Research retailers, check for HTTPS, and be suspicious of deals that seem too good to be true</p>
+                    </div>
+                </div>
+                <div class="takeaway-card">
+                    <div class="takeaway-icon"><span>2</span></div>
+                    <div class="takeaway-content">
+                        <h4>Use Credit Cards Online</h4>
+                        <p>Credit cards offer stronger fraud protection than debit cards - your money is safer</p>
+                    </div>
+                </div>
+                <div class="takeaway-card">
+                    <div class="takeaway-icon"><span>3</span></div>
+                    <div class="takeaway-content">
+                        <h4>Keep Records</h4>
+                        <p>Save confirmation emails, track packages, and review your statements regularly</p>
+                    </div>
+                </div>
+                <div class="takeaway-card">
+                    <div class="takeaway-icon"><span>4</span></div>
+                    <div class="takeaway-content">
+                        <h4>Know Your Rights</h4>
+                        <p>Understand return policies and consumer protections before you complete a purchase</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 19: Activity -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Skill Builder: Online vs. In-Store Analysis</h2>
+            <div class="slide-number">19 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="activity-layout">
+                <div class="activity-description">
+                    <h3>Smart Shopping Decision</h3>
+                    <p>Analyze whether to buy a laptop online or in-store. Consider all factors beyond just price to make the smartest choice for YOUR situation.</p>
+                </div>
+                <div class="activity-steps">
+                    <div class="step">
+                        <div class="step-num">1</div>
+                        <div class="step-content">Compare price, shipping, taxes for online vs. in-store</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">2</div>
+                        <div class="step-content">Evaluate convenience, selection, and availability</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">3</div>
+                        <div class="step-content">Consider return policies and customer service</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">4</div>
+                        <div class="step-content">Assess security factors for online option</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">5</div>
+                        <div class="step-content">Decide: Which option is best for YOU and why?</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 20: Closing -->
+    <div class="slide slide-closing">
+        <div class="logo-large">
+            <svg viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 10 L50 10 L50 50 L20 50 Z" fill="white" opacity="0.9"/>
+                <path d="M25 20 L45 20 M25 30 L45 30 M25 40 L35 40" stroke="#4F46E5" stroke-width="3" stroke-linecap="round"/>
+                <text x="60" y="38" font-family="Inter" font-size="24" font-weight="800" fill="white">PFL Academy</text>
+            </svg>
+        </div>
+        <h2>Shop Smart,<br>Stay Safe Online</h2>
+        <div class="tagline">The best deal is one that protects both your money and your identity</div>
+        <div class="website">www.pflacademy.co</div>
+        <div class="copyright">&copy; 2025 PFL Academy. All rights reserved.</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920, height=1080">
+  <title>Chapter 5.1: Saving and Investing - PFL Academy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f3f4f6;
+      color: #1f2937;
+    }
+
+    .slide {
+      width: 1920px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      background: white;
+      page-break-after: always;
+      margin: 0 auto 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    /* Title Slide */
+    .slide-title {
+      background: linear-gradient(135deg, #4F46E5 0%, #3730A3 50%, #1E1B4B 100%);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 100px;
+    }
+
+    .slide-title .chapter-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 40px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      backdrop-filter: blur(10px);
+      width: fit-content;
+    }
+
+    .slide-title h1 {
+      font-size: 100px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 30px;
+      max-width: 1400px;
+    }
+
+    .slide-title .subtitle {
+      font-size: 36px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.9);
+      max-width: 1200px;
+      line-height: 1.5;
+    }
+
+    .slide-title .logo {
+      position: absolute;
+      top: 60px;
+      right: 80px;
+    }
+
+    .slide-title .standard-badge {
+      position: absolute;
+      bottom: 60px;
+      left: 100px;
+      background: rgba(255,255,255,0.15);
+      padding: 16px 32px;
+      border-radius: 12px;
+      font-size: 18px;
+      backdrop-filter: blur(10px);
+    }
+
+    /* Hook Slide */
+    .slide-hook {
+      background: linear-gradient(135deg, #1E1B4B 0%, #312E81 100%);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 100px;
+    }
+
+    .slide-hook .hook-label {
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: #A5B4FC;
+      margin-bottom: 40px;
+    }
+
+    .slide-hook h2 {
+      font-size: 72px;
+      font-weight: 700;
+      max-width: 1400px;
+      line-height: 1.3;
+      margin-bottom: 50px;
+    }
+
+    .slide-hook .hook-context {
+      font-size: 28px;
+      color: rgba(255,255,255,0.8);
+      max-width: 1000px;
+    }
+
+    /* Content Slides */
+    .slide-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slide-header {
+      background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
+      color: white;
+      padding: 40px 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 120px;
+    }
+
+    .slide-header.teal {
+      background: linear-gradient(135deg, #0D9488 0%, #0F766E 100%);
+    }
+
+    .slide-header.blue {
+      background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+    }
+
+    .slide-header h2 {
+      font-size: 52px;
+      font-weight: 700;
+    }
+
+    .slide-number {
+      font-size: 24px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .slide-body {
+      flex: 1;
+      padding: 50px 80px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slide-footer {
+      height: 12px;
+      background: linear-gradient(90deg, #0D9488 0%, #4F46E5 50%, #0D9488 100%);
+    }
+
+    /* Objectives Grid */
+    .objectives-expanded {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      padding: 20px;
+    }
+
+    .objective-card-expanded {
+      background: linear-gradient(145deg, #f8fafc 0%, #f1f5f9 100%);
+      border-radius: 20px;
+      padding: 40px;
+      border-left: 6px solid;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .objective-card-expanded:nth-child(1) { border-color: #4F46E5; }
+    .objective-card-expanded:nth-child(2) { border-color: #0D9488; }
+    .objective-card-expanded:nth-child(3) { border-color: #3B82F6; }
+    .objective-card-expanded:nth-child(4) { border-color: #10B981; }
+
+    .objective-card-expanded .obj-verb {
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+    }
+
+    .objective-card-expanded:nth-child(1) .obj-verb { color: #4F46E5; }
+    .objective-card-expanded:nth-child(2) .obj-verb { color: #0D9488; }
+    .objective-card-expanded:nth-child(3) .obj-verb { color: #3B82F6; }
+    .objective-card-expanded:nth-child(4) .obj-verb { color: #10B981; }
+
+    .objective-card-expanded h3 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1e293b;
+      line-height: 1.3;
+    }
+
+    /* Vocabulary Styles */
+    .vocab-container {
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+    }
+
+    .vocab-row {
+      display: grid;
+      grid-template-columns: 280px 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .vocab-term {
+      background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
+      color: white;
+      padding: 25px 30px;
+      border-radius: 16px;
+      font-size: 28px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .vocab-term.teal {
+      background: linear-gradient(135deg, #0D9488 0%, #0F766E 100%);
+    }
+
+    .vocab-definition, .vocab-example {
+      padding: 25px 30px;
+      border-radius: 16px;
+    }
+
+    .vocab-definition {
+      background: #f1f5f9;
+    }
+
+    .vocab-example {
+      background: #ecfdf5;
+      border-left: 4px solid #10B981;
+    }
+
+    .vocab-label {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #64748b;
+      margin-bottom: 8px;
+    }
+
+    .vocab-example .vocab-label {
+      color: #059669;
+    }
+
+    .vocab-text {
+      font-size: 22px;
+      color: #334155;
+      line-height: 1.5;
+    }
+
+    /* Balanced Layout */
+    .balanced-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      height: 100%;
+    }
+
+    .content-panel h3 {
+      font-size: 36px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 25px;
+    }
+
+    .content-panel p {
+      font-size: 24px;
+      color: #475569;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .content-panel ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .content-panel ul li {
+      font-size: 24px;
+      color: #475569;
+      padding: 15px 0;
+      padding-left: 40px;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .content-panel ul li:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 22px;
+      width: 12px;
+      height: 12px;
+      background: #0D9488;
+      border-radius: 50%;
+    }
+
+    .stats-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .stat-card {
+      background: linear-gradient(145deg, #f8fafc 0%, #f1f5f9 100%);
+      border-radius: 20px;
+      padding: 35px;
+      border-left: 5px solid #0D9488;
+    }
+
+    .stat-card.purple {
+      border-color: #8B5CF6;
+    }
+
+    .stat-card.green {
+      border-color: #10B981;
+    }
+
+    .stat-card.rose {
+      border-color: #F43F5E;
+    }
+
+    .stat-card.blue {
+      border-color: #3B82F6;
+    }
+
+    .stat-number {
+      font-size: 48px;
+      font-weight: 800;
+      color: #0D9488;
+      margin-bottom: 10px;
+    }
+
+    .stat-card.purple .stat-number { color: #8B5CF6; }
+    .stat-card.green .stat-number { color: #10B981; }
+    .stat-card.rose .stat-number { color: #F43F5E; }
+    .stat-card.blue .stat-number { color: #3B82F6; }
+
+    .stat-label {
+      font-size: 22px;
+      color: #64748b;
+      line-height: 1.4;
+    }
+
+    /* Comparison Grid */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      height: 100%;
+    }
+
+    .comparison-card {
+      background: linear-gradient(145deg, #f8fafc 0%, #f1f5f9 100%);
+      border-radius: 24px;
+      padding: 40px;
+      border-top: 6px solid;
+    }
+
+    .comparison-card.teal { border-color: #0D9488; }
+    .comparison-card.blue { border-color: #3B82F6; }
+    .comparison-card.green { border-color: #10B981; }
+    .comparison-card.rose { border-color: #F43F5E; }
+    .comparison-card.purple { border-color: #8B5CF6; }
+
+    .comparison-card h3 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 25px;
+    }
+
+    .comparison-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .comparison-card ul li {
+      font-size: 22px;
+      color: #475569;
+      padding: 12px 0;
+      padding-left: 35px;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .comparison-card.teal ul li:before { color: #0D9488; }
+    .comparison-card.blue ul li:before { color: #3B82F6; }
+    .comparison-card.green ul li:before { color: #10B981; }
+    .comparison-card.rose ul li:before { color: #F43F5E; }
+    .comparison-card.purple ul li:before { color: #8B5CF6; }
+
+    .comparison-card ul li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 12px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    /* Four Card Grid */
+    .four-card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      height: 100%;
+    }
+
+    .feature-card {
+      background: linear-gradient(145deg, #f8fafc 0%, #f1f5f9 100%);
+      border-radius: 20px;
+      padding: 35px;
+      border-left: 5px solid;
+    }
+
+    .feature-card.teal { border-color: #0D9488; }
+    .feature-card.blue { border-color: #3B82F6; }
+    .feature-card.green { border-color: #10B981; }
+    .feature-card.rose { border-color: #F43F5E; }
+    .feature-card.purple { border-color: #8B5CF6; }
+
+    .feature-card h4 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .feature-card.teal h4 { color: #0D9488; }
+    .feature-card.blue h4 { color: #3B82F6; }
+    .feature-card.green h4 { color: #10B981; }
+    .feature-card.rose h4 { color: #F43F5E; }
+    .feature-card.purple h4 { color: #8B5CF6; }
+
+    .feature-card p {
+      font-size: 22px;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    /* Scenario Layout */
+    .scenario-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .scenario-header {
+      display: flex;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .scenario-profile {
+      background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
+      color: white;
+      padding: 30px 40px;
+      border-radius: 20px;
+      min-width: 280px;
+      text-align: center;
+    }
+
+    .scenario-profile.green {
+      background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    }
+
+    .scenario-profile.rose {
+      background: linear-gradient(135deg, #F43F5E 0%, #E11D48 100%);
+    }
+
+    .scenario-name {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .scenario-desc {
+      font-size: 20px;
+      opacity: 0.9;
+    }
+
+    .scenario-context {
+      flex: 1;
+      background: #f8fafc;
+      padding: 30px 40px;
+      border-radius: 20px;
+    }
+
+    .scenario-context h3 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 15px;
+    }
+
+    .scenario-context p {
+      font-size: 24px;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    .scenario-outcomes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .outcome-box {
+      padding: 30px;
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .outcome-box.green {
+      background: #ecfdf5;
+      border: 2px solid #10B981;
+    }
+
+    .outcome-box.blue {
+      background: #eff6ff;
+      border: 2px solid #3B82F6;
+    }
+
+    .outcome-box.teal {
+      background: #f0fdfa;
+      border: 2px solid #0D9488;
+    }
+
+    .outcome-box.rose {
+      background: #fff1f2;
+      border: 2px solid #F43F5E;
+    }
+
+    .outcome-label {
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .outcome-box.green .outcome-label { color: #059669; }
+    .outcome-box.blue .outcome-label { color: #2563EB; }
+    .outcome-box.teal .outcome-label { color: #0F766E; }
+    .outcome-box.rose .outcome-label { color: #E11D48; }
+
+    .outcome-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    /* Discussion Slide */
+    .slide-discussion {
+      background: linear-gradient(135deg, #0D9488 0%, #0F766E 100%);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 100px;
+    }
+
+    .slide-discussion.purple {
+      background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+    }
+
+    .slide-discussion .badge {
+      background: rgba(255,255,255,0.2);
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 40px;
+    }
+
+    .slide-discussion h2 {
+      font-size: 64px;
+      font-weight: 700;
+      max-width: 1400px;
+      line-height: 1.3;
+      margin-bottom: 50px;
+    }
+
+    .discussion-prompts {
+      display: flex;
+      gap: 40px;
+      max-width: 1400px;
+    }
+
+    .discussion-prompt {
+      background: rgba(255,255,255,0.15);
+      padding: 30px 40px;
+      border-radius: 20px;
+      font-size: 24px;
+      line-height: 1.6;
+      backdrop-filter: blur(10px);
+    }
+
+    /* Check Grid */
+    .check-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      height: 100%;
+    }
+
+    .check-card {
+      background: #f8fafc;
+      border-radius: 20px;
+      padding: 35px;
+      border-left: 5px solid;
+    }
+
+    .check-card:nth-child(1) { border-color: #4F46E5; }
+    .check-card:nth-child(2) { border-color: #0D9488; }
+    .check-card:nth-child(3) { border-color: #3B82F6; }
+    .check-card:nth-child(4) { border-color: #10B981; }
+
+    .check-number {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .check-card:nth-child(1) .check-number { color: #4F46E5; }
+    .check-card:nth-child(2) .check-number { color: #0D9488; }
+    .check-card:nth-child(3) .check-number { color: #3B82F6; }
+    .check-card:nth-child(4) .check-number { color: #10B981; }
+
+    .check-card p {
+      font-size: 26px;
+      color: #1e293b;
+      line-height: 1.5;
+    }
+
+    /* Takeaway Grid */
+    .takeaway-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      height: 100%;
+    }
+
+    .takeaway-card {
+      background: linear-gradient(145deg, #f8fafc 0%, #f1f5f9 100%);
+      border-radius: 20px;
+      padding: 40px;
+      display: flex;
+      align-items: start;
+      gap: 25px;
+    }
+
+    .takeaway-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+
+    .takeaway-card:nth-child(1) .takeaway-icon { background: #EEF2FF; color: #4F46E5; }
+    .takeaway-card:nth-child(2) .takeaway-icon { background: #F0FDFA; color: #0D9488; }
+    .takeaway-card:nth-child(3) .takeaway-icon { background: #EFF6FF; color: #3B82F6; }
+    .takeaway-card:nth-child(4) .takeaway-icon { background: #ECFDF5; color: #10B981; }
+
+    .takeaway-content h4 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 12px;
+    }
+
+    .takeaway-content p {
+      font-size: 22px;
+      color: #64748b;
+      line-height: 1.5;
+    }
+
+    /* Activity Layout */
+    .activity-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      height: 100%;
+    }
+
+    .activity-description h3 {
+      font-size: 36px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 20px;
+    }
+
+    .activity-description p {
+      font-size: 24px;
+      color: #475569;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .activity-objective {
+      background: #f0fdfa;
+      border-left: 4px solid #0D9488;
+      padding: 20px 25px;
+      border-radius: 0 12px 12px 0;
+    }
+
+    .activity-objective span {
+      font-size: 14px;
+      font-weight: 600;
+      color: #0D9488;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .activity-objective p {
+      font-size: 22px;
+      color: #134E4A;
+      margin: 10px 0 0 0;
+    }
+
+    .activity-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .activity-step {
+      display: flex;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .step-number {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
+      color: white;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .step-content h4 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 8px;
+    }
+
+    .step-content p {
+      font-size: 20px;
+      color: #64748b;
+      line-height: 1.5;
+    }
+
+    /* Closing Slide */
+    .slide-closing {
+      background: linear-gradient(135deg, #4F46E5 0%, #3730A3 50%, #1E1B4B 100%);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 100px;
+    }
+
+    .slide-closing .logo-large {
+      margin-bottom: 50px;
+    }
+
+    .slide-closing h2 {
+      font-size: 72px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .slide-closing .tagline {
+      font-size: 32px;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 60px;
+    }
+
+    .slide-closing .website {
+      font-size: 36px;
+      font-weight: 600;
+      color: #A5B4FC;
+      margin-bottom: 40px;
+    }
+
+    .slide-closing .copyright {
+      font-size: 18px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* Concept Full Layout */
+    .concept-full {
+      height: 100%;
+    }
+
+    .concept-full h3 {
+      font-size: 40px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 30px;
+    }
+
+    .concept-full > p {
+      font-size: 26px;
+      color: #475569;
+      line-height: 1.7;
+      margin-bottom: 35px;
+      max-width: 1400px;
+    }
+
+    .concept-full .info-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .info-card {
+      padding: 35px;
+      border-radius: 20px;
+      background: #f8fafc;
+      border-top: 5px solid;
+    }
+
+    .info-card.blue { border-color: #3B82F6; background: #eff6ff; }
+    .info-card.green { border-color: #10B981; background: #ecfdf5; }
+    .info-card.teal { border-color: #0D9488; background: #f0fdfa; }
+    .info-card.purple { border-color: #8B5CF6; background: #f5f3ff; }
+    .info-card.rose { border-color: #F43F5E; background: #fff1f2; }
+
+    .info-card h4 {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .info-card.blue h4 { color: #2563EB; }
+    .info-card.green h4 { color: #059669; }
+    .info-card.teal h4 { color: #0F766E; }
+    .info-card.purple h4 { color: #7C3AED; }
+    .info-card.rose h4 { color: #E11D48; }
+
+    .info-card p {
+      font-size: 21px;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    /* Logo SVG */
+    .logo svg {
+      height: 60px;
+      width: auto;
+    }
+
+    .logo-large svg {
+      height: 100px;
+      width: auto;
+    }
+
+    /* Print Styles */
+    @media print {
+      .slide {
+        margin: 0;
+        box-shadow: none;
+        page-break-after: always;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Slide 1: Title -->
+  <div class="slide slide-title">
+    <div class="logo">
+      <svg viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="10" width="40" height="40" rx="8" fill="white"/>
+        <path d="M15 35 L25 25 L35 35 M25 25 L25 42" stroke="#4F46E5" stroke-width="3" stroke-linecap="round"/>
+        <text x="55" y="38" font-family="Inter" font-size="24" font-weight="700" fill="white">PFL Academy</text>
+      </svg>
+    </div>
+    <div class="chapter-badge">Chapter 5.1</div>
+    <h1>Saving and Investing</h1>
+    <p class="subtitle">Understand the fundamental differences between saving and investing to build wealth and achieve both short-term and long-term financial goals. in {{STATE_NAME}}</p>
+    <div class="standard-badge">Standard 5: Saving & Investing</div>
+  </div>
+
+  <!-- Slide 2: Hook -->
+  <div class="slide slide-hook">
+    <div class="hook-label">Essential Question</div>
+    <h2>Should you save your money or invest it?</h2>
+    <p class="hook-context">The answer isn't always straightforward — it depends on your goals, timeline, and risk tolerance. Understanding when to save versus invest is one of the most important financial decisions you'll make.</p>
+  </div>
+
+  <!-- Slide 3: Learning Objectives -->
+  <div class="slide slide-content">
+    <div class="slide-header">
+      <h2>Learning Objectives</h2>
+      <span class="slide-number">3 / 20</span>
+    </div>
+    <div class="slide-body">
+      <div class="objectives-expanded">
+        <div class="objective-card-expanded">
+          <span class="obj-verb">Differentiate</span>
+          <h3>Between saving and investing strategies and their appropriate uses for different goals</h3>
+        </div>
+        <div class="objective-card-expanded">
+          <span class="obj-verb">Apply</span>
+          <h3>The SMART framework to set specific, measurable financial goals with clear timelines</h3>
+        </div>
+        <div class="objective-card-expanded">
+          <span class="obj-verb">Understand</span>
+          <h3>How compounding works to grow your money over time and why starting early matters</h3>
+        </div>
+        <div class="objective-card-expanded">
+          <span class="obj-verb">Evaluate</span>
+          <h3>Risk, reward, and opportunity costs when making financial decisions</h3>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+
+  <!-- Slide 4: Key Terms 1 -->
+  <div class="slide slide-content">
+    <div class="slide-header teal">
+      <h2>Key Terms</h2>
+      <span class="slide-number">4 / 20</span>
+    </div>
+    <div class="slide-body">
+      <div class="vocab-container">
+        <div class="vocab-row">
+          <div class="vocab-term">Saving</div>
+          <div class="vocab-definition">
+            <div class="vocab-label">Definition</div>
+            <p class="vocab-text">Setting aside money in safe, accessible accounts like savings accounts for short-term goals and emergencies</p>
+          </div>
+          <div class="vocab-example">
+            <div class="vocab-label">Example</div>
+            <p class="vocab-text">Putting $200/month into a savings account for an emergency fund or vacation</p>
+          </div>
+        </div>
+        <div class="vocab-row">
+          <div class="vocab-term teal">Investing</div>
+          <div class="vocab-definition">
+            <div class="vocab-label">Definition</div>
+            <p class="vocab-text">Placing money in assets like stocks, bonds, or real estate that are expected to grow in value over time</p>
+          </div>
+          <div class="vocab-example">
+            <div class="vocab-label">Example</div>
+            <p class="vocab-text">Buying shares in a diversified index fund for retirement 30 years away</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+
+  <!-- Slide 5: Key Terms 2 -->
+  <div class="slide slide-content">
+    <div class="slide-header blue">
+      <h2>Key Terms</h2>
+      <span class="slide-number">5 / 20</span>
+    </div>
+    <div class="slide-body">
+      <div class="vocab-container">
+        <div class="vocab-row">
+          <div class="vocab-term">Compounding</div>
+          <div class="vocab-definition">
+            <div class="vocab-label">Definition</div>
+            <p class="vocab-text">The process of earning returns on both your initial investment and previously earned returns — "interest on interest"</p>
+          </div>
+          <div class="vocab-example">
+            <div class="vocab-label">Example</div>
+            <p class="vocab-text">$1,000 at 10% becomes $1,100 year 1, then $1,210 year 2 (earning interest on the $1,100)</p>
+          </div>
+        </div>
+        <div class="vocab-row">
+          <div class="vocab-term teal">Risk Tolerance</div>
+          <div class="vocab-definition">
+            <div class="vocab-label">Definition</div>
+            <p class="vocab-text">Your comfort level with the possibility of losing money in exchange for potentially higher returns</p>
+          </div>
+          <div class="vocab-example">
+            <div class="vocab-label">Example</div>
+            <p class="vocab-text">Someone with high risk tolerance might invest heavily in stocks; low risk tolerance prefers bonds</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+
+  <!-- Slide 6: Core Concept 1 - Saving vs Investing -->
+  <div class="slide slide-content">
+    <div class="slide-header">
+      <h2>Saving vs. Investing</h2>
+      <span class="slide-number">6 / 20</span>
+    </div>
+    <div class="slide-body">
+      <div class="balanced-layout">
+        <div class="content-panel">
+          <h3>Two Paths to Financial Growth</h3>
+          <p>Both saving and investing help you build wealth, but they serve different purposes and work differently:</p>
+          <ul>
+            <li><strong>Saving</strong> — Prioritizes safety and access to your money</li>
+            <li><strong>Investing</strong> — Prioritizes growth potential over time</li>
+            <li>Your choice depends on when you need the money</li>
+            <li>Most people need both strategies working together</li>
+          </ul>
+        </div>
+        <div class="stats-panel">
+          <div class="stat-card">
+            <div class="stat-number">0.5%</div>
+            <div class="stat-label">Typical savings account interest rate (APY)</div>
+          </div>
+          <div class="stat-card purple">
+            <div class="stat-number">10%</div>
+            <div class="stat-label">Historical average annual stock market return</div>
+          </div>
+          <div class="stat-card green">
+            <div class="stat-number">3-6 mo</div>
+            <div class="stat-label">Recommended emergency fund in savings</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+
+  <!-- Slide 7: Comparison - Saving vs Investing -->
+  <div class="slide slide-content">
+    <div class="slide-header teal">
+      <h2>Comparing Saving & Investing</h2>
+      <span class="slide-number">7 / 20</span>
+    </div>
+    <div class="slide-body">
+      <div class="comparison-grid">
+        <div class="comparison-card teal">
+          <h3>💰 Saving</h3>
+          <ul>
+            <li><strong>Purpose:</strong> Short-term goals, emergencies</li>
+            <li><strong>Time Horizon:</strong> Under 5 years</li>
+            <li><strong>Risk Level:</strong> Very low (FDIC insured)</li>
+            <li><strong>Returns:</strong> Low but guaranteed</li>
+            <li><strong>Liquidity:</strong> High — easy access anytime</li>
+            <li><strong>Best For:</strong> Emergency funds, near-term purchases</li>
+          </ul>
+        </div>
+        <div class="comparison-card blue">
+          <h3>📈 Investing</h3>
+          <ul>
+            <li><strong>Purpose:</strong> Long-term wealth building</li>
+            <li><strong>Time Horizon:</strong> 5+ years</li>
+            <li><strong>Risk Level:</strong> Varies from low to high</li>
+            <li><strong>Returns:</strong> Higher potential, not guaranteed</li>
+            <li><strong>Liquidity:</strong> Lower — may fluctuate in value</li>
+            <li><strong>Best For:</strong> Retirement, college, major goals</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+
+  <!-- Slide 8: Core Concept 2 - Compounding -->
+  <div class="slide slide-content">
+    <div class="slide-header blue">
+      <h2>The Power of Compounding</h2>
+      <span class="slide-number">8 / 20</span>
+    </div>
+    <div class="slide-body">
+      <div class="balanced-layout">
+        <div class="content-panel">
+          <h3>Your Money Working for You</h3>
+          <p>Compounding is often called the "eighth wonder of the world" because of its powerful effect over time:</p>
+          <ul>
+            <li>You earn returns on your original investment</li>
+            <li>Then you earn returns on those returns</li>
+            <li>The longer you invest, the more powerful the effect</li>
+            <li>Starting early is more important than starting big</li>
+            <li>Time is your greatest advantage as a young investor</li>
+          </ul>
+        </div>
+        <div class="stats-panel">
+          <div class="stat-card green">
+            <div class="stat-number">$76,123</div>
+            <div class="stat-label">Value of $5,000 invested at 18, at age 65 (7% annual return)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">$38,697</div>
+            <div class="stat-label">Value of same $5,000 invested at 28 — half the growth!</div>
+          </div>
+          <div class="stat-card purple">
+            <div class="stat-number">47 yrs</div>
+            <div class="stat-label">of compounding if you start at age 18</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+
+  <!-- Slide 9: Core Concept 3 - SMART Goals -->
+  <div class="slide slide-content">
+    <div class="slide-header">
+      <h2>SMART Financial Goals</h2>
+      <span class="slide-number">9 / 20</span>
+    </div>
+    <div class="slide-body">
+      <div class="concept-full">
+        <h3>Setting Goals That Actually Work</h3>
+        <p>The SMART framework transforms vague wishes into achievable financial goals. Each element makes your goal more actionable:</p>
+        <div class="info-cards">
+          <div class="info-card teal">
+            <h4>S - Specific</h4>
+            <p>"Save $500 for a new laptop" is better than "save money." Know exactly what you want.</p>
+          </div>
+          <div class="info-card blue">
+            <h4>M - Measurable</h4>
+            <p>Track your progress with numbers: "Put $50/month into savings" lets you see results.</p>
+          </div>
+          <div class="info-card green">
+            <h4>A - Achievable</h4>
+            <p>Set realistic targets based on your actual income and expenses. Challenge yourself, but be practical.</p>
+          </div>
+        </div>
+        <div class="info-cards" style="margin-top: 20px; grid-template-columns: repeat(2, 1fr);">
+          <div class="info-card purple">
+            <h4>R - Relevant</h4>
+            <p>Your goal should connect to what matters to you personally and align with your values.</p>
+          </div>
+          <div class="info-card teal">
+            <h4>T - Time-bound</h4>
+            <p>Set a deadline: "Save $500 by December" creates urgency and accountability.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+
+  <!-- Slide 10: Core Concept 4 - Risk and Opportunity Cost -->
+  <div class="slide slide-content">
+    <div class="slide-header teal">
+      <h2>Risk and Opportunity Cost</h2>
+      <span class="slide-number">10 / 20</span>
+    </div>
+    <div class="slide-body">
+      <div class="balanced-layout">
+        <div class="content-panel">
+          <h3>Every Choice Has Trade-offs</h3>
+          <p>Understanding risk and opportunity cost helps you make better financial decisions:</p>
+          <ul>
+            <li><strong>Risk</strong> — The possibility of losing some or all of your money</li>
+            <li><strong>Reward</strong> — Higher risk investments typically offer higher potential returns</li>
+            <li><strong>Opportunity Cost</strong> — What you give up by choosing one option over another</li>
+            <li>Keeping all money in savings = safe but loses to inflation over time</li>
+            <li>Diversification reduces risk without eliminating growth potential</li>
+          </ul>
+        </div>
+        <div class="stats-panel">
+          <div class="stat-card rose">
+            <div class="stat-number">3-4%</div>
+            <div class="stat-label">Typical annual inflation rate that erodes savings purchasing power</div>
+          </div>
+          <div class="stat-card blue">
+            <div class="stat-number">-37%</div>
+            <div class="stat-label">Worst year for stocks (2008) — but recovered within 5 years</div>
+          </div>
+          <div class="stat-card green">
+            <div class="stat-number">0</div>
+            <div class="stat-label">Number of 20-year periods where stocks lost money historically</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+
+  <!-- Slide 11: Why It Matters -->
+  <div class="slide slide-content">
+    <div class="slide-header blue">
+      <h2>Why This Matters for You</h2>
+      <span class="slide-number">11 / 20</span>
+    </div>
+    <div class="slide-body">
+      <div class="concept-full">
+        <h3>Your Biggest Advantage: Time</h3>
+        <p>As a young person, you have something money can't buy — time. Understanding saving and investing now can dramatically change your financial future.</p>
+        <div class="info-cards">
+          <div class="info-card teal">
+            <h4>Build Security</h4>
+            <p>An emergency fund (saving) protects you from unexpected expenses and gives you peace of mind and financial stability.</p>
+          </div>
+          <div class="info-card blue">
+            <h4>Create Wealth</h4>
+            <p>Starting to invest in your teens or twenties can turn small amounts into significant wealth through decades of compounding.</p>
+          </div>
+          <div class="info-card green">
+            <h4>Achieve Goals</h4>
+            <p>From buying a car to retiring comfortably, every goal requires choosing the right strategy for your timeline.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+
+  <!-- Slide 12: Modern Context -->
+  <div class="slide slide-content">
+    <div class="slide-header">
+      <h2>Saving & Investing Today</h2>
+      <span class="slide-number">12 / 20</span>
+    </div>
+    <div class="slide-body">
+      <div class="balanced-layout">
+        <div class="content-panel">
+          <h3>Access Has Never Been Easier</h3>
+          <p>Modern technology has democratized both saving and investing, removing traditional barriers:</p>
+          <ul>
+            <li><strong>High-Yield Savings</strong> — Online banks offer 4-5% APY vs 0.5% traditional</li>
+            <li><strong>Micro-Investing Apps</strong> — Start investing with just $1</li>
+            <li><strong>Fractional Shares</strong> — Own pieces of expensive stocks</li>
+            <li><strong>Robo-Advisors</strong> — Automated investing for beginners</li>
+            <li><strong>Round-Up Features</strong> — Automatically save spare change</li>
+          </ul>
+        </div>
+        <div class="stats-panel">
+          <div class="stat-card purple">
+            <div class="stat-number">62%</div>
+            <div class="stat-label">of Gen Z uses investment apps</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">$1</div>
+            <div class="stat-label">Minimum to start investing on many platforms</div>
+          </div>
+          <div class="stat-card green">
+            <div class="stat-number">$0</div>
+            <div class="stat-label">Trading commissions at most major brokerages</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+
+  <!-- Slide 13: Real-World Example 1 - Success -->
+  <div class="slide slide-content">
+    <div class="slide-header teal">
+      <h2>Real-World Example</h2>
+      <span class="slide-number">13 / 20</span>
+    </div>
+    <div class="slide-body">
+      <div class="scenario-layout">
+        <div class="scenario-header">
+          <div class="scenario-profile green">
+            <div class="scenario-name">Emma</div>
+            <div class="scenario-desc">Age 22</div>
+          </div>
+          <div class="scenario-context">
+            <h3>The Early Investor</h3>
+            <p>Emma starts investing $200/month at age 22 in a diversified index fund. She also maintains $5,000 in a high-yield savings account for emergencies. She understands that investing is for long-term goals while savings provides security.</p>
+          </div>
+        </div>
+        <div class="scenario-outcomes">
+          <div class="outcome-box green">
+            <div class="outcome-label">At Age 45</div>
+            <div class="outcome-value">~$200,000</div>
+          </div>
+          <div class="outcome-box teal">
+            <div class="outcome-label">At Age 65</div>
+            <div class="outcome-value">~$700,000</div>
+          </div>
+          <div class="outcome-box blue">
+            <div class="outcome-label">Total Contributed</div>
+            <div class="outcome-value">$103,200</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+
+  <!-- Slide 14: Real-World Example 2 - Contrast -->
+  <div class="slide slide-content">
+    <div class="slide-header blue">
+      <h2>Real-World Example</h2>
+      <span class="slide-number">14 / 20</span>
+    </div>
+    <div class="slide-body">
+      <div class="scenario-layout">
+        <div class="scenario-header">
+          <div class="scenario-profile rose">
+            <div class="scenario-name">Marcus</div>
+            <div class="scenario-desc">Age 22</div>
+          </div>
+          <div class="scenario-context">
+            <h3>The Delayed Starter</h3>
+            <p>Marcus waits until age 35 to start investing, putting the same $200/month into the same index fund. He kept all his money in a regular savings account earning 0.5% for 13 years, thinking he would "invest later when he had more money."</p>
+          </div>
+        </div>
+        <div class="scenario-outcomes">
+          <div class="outcome-box rose">
+            <div class="outcome-label">At Age 45</div>
+            <div class="outcome-value">~$35,000</div>
+          </div>
+          <div class="outcome-box rose">
+            <div class="outcome-label">At Age 65</div>
+            <div class="outcome-value">~$265,000</div>
+          </div>
+          <div class="outcome-box teal">
+            <div class="outcome-label">Cost of Waiting</div>
+            <div class="outcome-value">$435,000 less</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+
+  <!-- Slide 15: Discussion -->
+  <div class="slide slide-discussion">
+    <div class="badge">Discussion</div>
+    <h2>What financial goals do you have for the next year? The next five years?</h2>
+    <div class="discussion-prompts">
+      <div class="discussion-prompt">Consider: Would saving or investing be more appropriate for each goal? What factors influenced your decision?</div>
+      <div class="discussion-prompt">Think about: How does the time horizon affect whether you should save or invest?</div>
+    </div>
+  </div>
+
+  <!-- Slide 16: Discussion 2 -->
+  <div class="slide slide-discussion purple">
+    <div class="badge">Personal Reflection</div>
+    <h2>What role does risk play in deciding whether to save or invest your money?</h2>
+    <div class="discussion-prompts">
+      <div class="discussion-prompt">Consider your own personality — are you comfortable with uncertainty, or do you prefer guaranteed outcomes?</div>
+      <div class="discussion-prompt">How might your risk tolerance change as you get older or your financial situation changes?</div>
+    </div>
+  </div>
+
+  <!-- Slide 17: Check for Understanding -->
+  <div class="slide slide-content">
+    <div class="slide-header">
+      <h2>Check for Understanding</h2>
+      <span class="slide-number">17 / 20</span>
+    </div>
+    <div class="slide-body">
+      <div class="check-grid">
+        <div class="check-card">
+          <div class="check-number">Question 1</div>
+          <p>What is the main difference between saving and investing, and how do their risk levels compare?</p>
+        </div>
+        <div class="check-card">
+          <div class="check-number">Question 2</div>
+          <p>Explain how compounding works and why starting early makes such a big difference.</p>
+        </div>
+        <div class="check-card">
+          <div class="check-number">Question 3</div>
+          <p>Give an example of a goal where saving would be better than investing. Why?</p>
+        </div>
+        <div class="check-card">
+          <div class="check-number">Question 4</div>
+          <p>What is opportunity cost? Give an example related to financial decisions.</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+
+  <!-- Slide 18: Key Takeaways -->
+  <div class="slide slide-content">
+    <div class="slide-header teal">
+      <h2>Key Takeaways</h2>
+      <span class="slide-number">18 / 20</span>
+    </div>
+    <div class="slide-body">
+      <div class="takeaway-grid">
+        <div class="takeaway-card">
+          <div class="takeaway-icon">💰</div>
+          <div class="takeaway-content">
+            <h4>Save for Short-Term</h4>
+            <p>Use savings accounts for emergencies and goals under 5 years away — prioritize safety and access over growth.</p>
+          </div>
+        </div>
+        <div class="takeaway-card">
+          <div class="takeaway-icon">📈</div>
+          <div class="takeaway-content">
+            <h4>Invest for Long-Term</h4>
+            <p>Use investing for goals 5+ years away — time in the market helps weather volatility and maximize growth.</p>
+          </div>
+        </div>
+        <div class="takeaway-card">
+          <div class="takeaway-icon">⏰</div>
+          <div class="takeaway-content">
+            <h4>Start Early</h4>
+            <p>Time is your biggest advantage. Starting at 22 vs 35 can mean hundreds of thousands more at retirement.</p>
+          </div>
+        </div>
+        <div class="takeaway-card">
+          <div class="takeaway-icon">🎯</div>
+          <div class="takeaway-content">
+            <h4>Set SMART Goals</h4>
+            <p>Make goals Specific, Measurable, Achievable, Relevant, and Time-bound to turn dreams into reality.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+
+  <!-- Slide 19: Activity -->
+  <div class="slide slide-content">
+    <div class="slide-header blue">
+      <h2>Skill Builder: Comparison Chart</h2>
+      <span class="slide-number">19 / 20</span>
+    </div>
+    <div class="slide-body">
+      <div class="activity-layout">
+        <div class="activity-description">
+          <h3>Saving vs. Investing Comparison</h3>
+          <p>Complete a comparison chart analyzing key differences between saving and investing strategies. This activity helps you understand when each approach is most appropriate for your financial goals.</p>
+          <div class="activity-objective">
+            <span>Learning Objective</span>
+            <p>Develop the ability to match financial strategies to specific goals based on timeline, risk, and returns.</p>
+          </div>
+        </div>
+        <div class="activity-steps">
+          <div class="activity-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h4>Define Each Strategy</h4>
+              <p>Write definitions for saving and investing in your own words</p>
+            </div>
+          </div>
+          <div class="activity-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h4>Compare Categories</h4>
+              <p>Fill in: purpose, time horizon, risk level, typical returns, liquidity</p>
+            </div>
+          </div>
+          <div class="activity-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h4>List Examples</h4>
+              <p>Identify specific products for each category (savings accounts, stocks, etc.)</p>
+            </div>
+          </div>
+          <div class="activity-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h4>Match to Goals</h4>
+              <p>Determine which strategy fits various financial goals</p>
+            </div>
+          </div>
+          <div class="activity-step">
+            <div class="step-number">5</div>
+            <div class="step-content">
+              <h4>Reflect</h4>
+              <p>Apply your learning to one personal financial goal</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+
+  <!-- Slide 20: Closing -->
+  <div class="slide slide-closing">
+    <div class="logo-large">
+      <svg viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="10" width="40" height="40" rx="8" fill="white"/>
+        <path d="M15 35 L25 25 L35 35 M25 25 L25 42" stroke="#4F46E5" stroke-width="3" stroke-linecap="round"/>
+        <text x="55" y="38" font-family="Inter" font-size="24" font-weight="700" fill="white">PFL Academy</text>
+      </svg>
+    </div>
+    <h2>Start Building Your Future Today</h2>
+    <p class="tagline">Save for security. Invest for growth. Time is your greatest asset.</p>
+    <p class="website">www.pflacademy.co</p>
+    <p class="copyright">© 2025 PFL Academy. All rights reserved.</p>
+  </div>
+
+</body>
+</html>

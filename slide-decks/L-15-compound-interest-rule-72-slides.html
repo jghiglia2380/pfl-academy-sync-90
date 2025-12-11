@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920, height=1080">
+  <title>Chapter 5.2: Compound Interest & The Rule of 72 - PFL Academy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f3f4f6;
+      color: #1f2937;
+    }
+
+    .slide {
+      width: 1920px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      background: white;
+      page-break-after: always;
+      margin: 0 auto 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    /* Title Slide */
+    .slide-title {
+      background: linear-gradient(135deg, #4F46E5 0%, #3730A3 50%, #1E1B4B 100%);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 100px;
+    }
+
+    .slide-title .chapter-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 40px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      backdrop-filter: blur(10px);
+      width: fit-content;
+    }
+
+    .slide-title h1 {
+      font-size: 90px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 30px;
+      max-width: 1400px;
+    }
+
+    .slide-title .subtitle {
+      font-size: 36px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.9);
+      max-width: 1200px;
+      line-height: 1.5;
+    }
+
+    .slide-title .logo {
+      position: absolute;
+      top: 60px;
+      right: 80px;
+    }
+
+    .slide-title .standard-badge {
+      position: absolute;
+      bottom: 60px;
+      left: 100px;
+      background: rgba(255,255,255,0.15);
+      padding: 16px 32px;
+      border-radius: 12px;
+      font-size: 18px;
+      backdrop-filter: blur(10px);
+    }
+
+    /* Hook Slide */
+    .slide-hook {
+      background: linear-gradient(135deg, #1E1B4B 0%, #312E81 100%);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 100px;
+    }
+
+    .slide-hook .hook-label {
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: #A5B4FC;
+      margin-bottom: 40px;
+    }
+
+    .slide-hook h2 {
+      font-size: 72px;
+      font-weight: 700;
+      max-width: 1500px;
+      line-height: 1.3;
+      margin-bottom: 50px;
+    }
+
+    .slide-hook .hook-context {
+      font-size: 28px;
+      color: rgba(255,255,255,0.8);
+      max-width: 1000px;
+    }
+
+    /* Content Slides */
+    .slide-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slide-header {
+      background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
+      color: white;
+      padding: 40px 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 120px;
+    }
+
+    .slide-header.teal {
+      background: linear-gradient(135deg, #0D9488 0%, #0F766E 100%);
+    }
+
+    .slide-header.blue {
+      background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+    }
+
+    .slide-header h2 {
+      font-size: 52px;
+      font-weight: 700;
+    }
+
+    .slide-number {
+      font-size: 24px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .slide-body {
+      flex: 1;
+      padding: 50px 80px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slide-footer {
+      height: 12px;
+      background: linear-gradient(90deg, #0D9488 0%, #4F46E5 50%, #0D9488 100%);
+    }
+
+    /* Objectives Grid */
+    .objectives-expanded {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      padding: 20px;
+    }
+
+    .objective-card-expanded {
+      background: linear-gradient(145deg, #f8fafc 0%, #f1f5f9 100%);
+      border-radius: 20px;
+      padding: 40px;
+      border-left: 6px solid;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .objective-card-expanded:nth-child(1) { border-color: #4F46E5; }
+    .objective-card-expanded:nth-child(2) { border-color: #0D9488; }
+    .objective-card-expanded:nth-child(3) { border-color: #3B82F6; }
+    .objective-card-expanded:nth-child(4) { border-color: #10B981; }
+
+    .objective-card-expanded .obj-verb {
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+    }
+
+    .objective-card-expanded:nth-child(1) .obj-verb { color: #4F46E5; }
+    .objective-card-expanded:nth-child(2) .obj-verb { color: #0D9488; }
+    .objective-card-expanded:nth-child(3) .obj-verb { color: #3B82F6; }
+    .objective-card-expanded:nth-child(4) .obj-verb { color: #10B981; }
+
+    .objective-card-expanded h3 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1e293b;
+      line-height: 1.3;
+    }
+
+    /* Vocabulary Styles */
+    .vocab-container {
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+    }
+
+    .vocab-row {
+      display: grid;
+      grid-template-columns: 280px 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .vocab-term {
+      background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
+      color: white;
+      padding: 25px 30px;
+      border-radius: 16px;
+      font-size: 26px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .vocab-term.teal {
+      background: linear-gradient(135deg, #0D9488 0%, #0F766E 100%);
+    }
+
+    .vocab-definition, .vocab-example {
+      padding: 25px 30px;
+      border-radius: 16px;
+    }
+
+    .vocab-definition {
+      background: #f1f5f9;
+    }
+
+    .vocab-example {
+      background: #ecfdf5;
+      border-left: 4px solid #10B981;
+    }
+
+    .vocab-label {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #64748b;
+      margin-bottom: 8px;
+    }
+
+    .vocab-example .vocab-label {
+      color: #059669;
+    }
+
+    .vocab-text {
+      font-size: 22px;
+      color: #334155;
+      line-height: 1.5;
+    }
+
+    /* Balanced Layout */
+    .balanced-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      height: 100%;
+    }
+
+    .content-panel h3 {
+      font-size: 36px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 25px;
+    }
+
+    .content-panel p {
+      font-size: 24px;
+      color: #475569;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .content-panel ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .content-panel ul li {
+      font-size: 24px;
+      color: #475569;
+      padding: 15px 0;
+      padding-left: 40px;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .content-panel ul li:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 22px;
+      width: 12px;
+      height: 12px;
+      background: #0D9488;
+      border-radius: 50%;
+    }
+
+    .stats-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .stat-card {
+      background: linear-gradient(145deg, #f8fafc 0%, #f1f5f9 100%);
+      border-radius: 20px;
+      padding: 35px;
+      border-left: 5px solid #0D9488;
+    }
+
+    .stat-card.purple {
+      border-color: #8B5CF6;
+    }
+
+    .stat-card.green {
+      border-color: #10B981;
+    }
+
+    .stat-card.rose {
+      border-color: #F43F5E;
+    }
+
+    .stat-card.blue {
+      border-color: #3B82F6;
+    }
+
+    .stat-number {
+      font-size: 48px;
+      font-weight: 800;
+      color: #0D9488;
+      margin-bottom: 10px;
+    }
+
+    .stat-card.purple .stat-number { color: #8B5CF6; }
+    .stat-card.green .stat-number { color: #10B981; }
+    .stat-card.rose .stat-number { color: #F43F5E; }
+    .stat-card.blue .stat-number { color: #3B82F6; }
+
+    .stat-label {
+      font-size: 22px;
+      color: #64748b;
+      line-height: 1.4;
+    }
+
+    /* Comparison Grid */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      height: 100%;
+    }
+
+    .comparison-card {
+      background: linear-gradient(145deg, #f8fafc 0%, #f1f5f9 100%);
+      border-radius: 24px;
+      padding: 40px;
+      border-top: 6px solid;
+    }
+
+    .comparison-card.teal { border-color: #0D9488; }
+    .comparison-card.blue { border-color: #3B82F6; }
+    .comparison-card.green { border-color: #10B981; }
+    .comparison-card.rose { border-color: #F43F5E; }
+    .comparison-card.purple { border-color: #8B5CF6; }
+
+    .comparison-card h3 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 25px;
+    }
+
+    .comparison-card p {
+      font-size: 24px;
+      color: #475569;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .comparison-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .comparison-card ul li {
+      font-size: 22px;
+      color: #475569;
+      padding: 12px 0;
+      padding-left: 35px;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .comparison-card.teal ul li:before { color: #0D9488; }
+    .comparison-card.blue ul li:before { color: #3B82F6; }
+    .comparison-card.green ul li:before { color: #10B981; }
+    .comparison-card.rose ul li:before { color: #F43F5E; }
+    .comparison-card.purple ul li:before { color: #8B5CF6; }
+
+    .comparison-card ul li:before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      top: 12px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    /* Formula Box */
+    .formula-box {
+      background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
+      color: white;
+      padding: 40px 60px;
+      border-radius: 24px;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .formula-box .formula-label {
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+
+    .formula-box .formula {
+      font-size: 48px;
+      font-weight: 700;
+    }
+
+    /* Four Card Grid */
+    .four-card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      height: 100%;
+    }
+
+    .feature-card {
+      background: linear-gradient(145deg, #f8fafc 0%, #f1f5f9 100%);
+      border-radius: 20px;
+      padding: 35px;
+      border-left: 5px solid;
+    }
+
+    .feature-card.teal { border-color: #0D9488; }
+    .feature-card.blue { border-color: #3B82F6; }
+    .feature-card.green { border-color: #10B981; }
+    .feature-card.rose { border-color: #F43F5E; }
+    .feature-card.purple { border-color: #8B5CF6; }
+
+    .feature-card h4 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .feature-card.teal h4 { color: #0D9488; }
+    .feature-card.blue h4 { color: #3B82F6; }
+    .feature-card.green h4 { color: #10B981; }
+    .feature-card.rose h4 { color: #F43F5E; }
+    .feature-card.purple h4 { color: #8B5CF6; }
+
+    .feature-card p {
+      font-size: 22px;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    /* Scenario Layout */
+    .scenario-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .scenario-header {
+      display: flex;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .scenario-profile {
+      background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
+      color: white;
+      padding: 30px 40px;
+      border-radius: 20px;
+      min-width: 280px;
+      text-align: center;
+    }
+
+    .scenario-profile.green {
+      background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    }
+
+    .scenario-profile.rose {
+      background: linear-gradient(135deg, #F43F5E 0%, #E11D48 100%);
+    }
+
+    .scenario-name {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .scenario-desc {
+      font-size: 20px;
+      opacity: 0.9;
+    }
+
+    .scenario-context {
+      flex: 1;
+      background: #f8fafc;
+      padding: 30px 40px;
+      border-radius: 20px;
+    }
+
+    .scenario-context h3 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 15px;
+    }
+
+    .scenario-context p {
+      font-size: 24px;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    .scenario-outcomes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .outcome-box {
+      padding: 30px;
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .outcome-box.green {
+      background: #ecfdf5;
+      border: 2px solid #10B981;
+    }
+
+    .outcome-box.blue {
+      background: #eff6ff;
+      border: 2px solid #3B82F6;
+    }
+
+    .outcome-box.teal {
+      background: #f0fdfa;
+      border: 2px solid #0D9488;
+    }
+
+    .outcome-box.rose {
+      background: #fff1f2;
+      border: 2px solid #F43F5E;
+    }
+
+    .outcome-label {
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .outcome-box.green .outcome-label { color: #059669; }
+    .outcome-box.blue .outcome-label { color: #2563EB; }
+    .outcome-box.teal .outcome-label { color: #0F766E; }
+    .outcome-box.rose .outcome-label { color: #E11D48; }
+
+    .outcome-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    /* Discussion Slide */
+    .slide-discussion {
+      background: linear-gradient(135deg, #0D9488 0%, #0F766E 100%);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 100px;
+    }
+
+    .slide-discussion.purple {
+      background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+    }
+
+    .slide-discussion .badge {
+      background: rgba(255,255,255,0.2);
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 40px;
+    }
+
+    .slide-discussion h2 {
+      font-size: 64px;
+      font-weight: 700;
+      max-width: 1400px;
+      line-height: 1.3;
+      margin-bottom: 50px;
+    }
+
+    .discussion-prompts {
+      display: flex;
+      gap: 40px;
+      max-width: 1400px;
+    }
+
+    .discussion-prompt {
+      background: rgba(255,255,255,0.15);
+      padding: 30px 40px;
+      border-radius: 20px;
+      font-size: 24px;
+      line-height: 1.6;
+      backdrop-filter: blur(10px);
+    }
+
+    /* Check Grid */
+    .check-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      height: 100%;
+    }
+
+    .check-card {
+      background: #f8fafc;
+      border-radius: 20px;
+      padding: 35px;
+      border-left: 5px solid;
+    }
+
+    .check-card:nth-child(1) { border-color: #4F46E5; }
+    .check-card:nth-child(2) { border-color: #0D9488; }
+    .check-card:nth-child(3) { border-color: #3B82F6; }
+    .check-card:nth-child(4) { border-color: #10B981; }
+
+    .check-number {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .check-card:nth-child(1) .check-number { color: #4F46E5; }
+    .check-card:nth-child(2) .check-number { color: #0D9488; }
+    .check-card:nth-child(3) .check-number { color: #3B82F6; }
+    .check-card:nth-child(4) .check-number { color: #10B981; }
+
+    .check-card p {
+      font-size: 26px;
+      color: #1e293b;
+      line-height: 1.5;
+    }
+
+    /* Takeaway Grid */
+    .takeaway-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      height: 100%;
+    }
+
+    .takeaway-card {
+      background: linear-gradient(145deg, #f8fafc 0%, #f1f5f9 100%);
+      border-radius: 20px;
+      padding: 40px;
+      display: flex;
+      align-items: start;
+      gap: 25px;
+    }
+
+    .takeaway-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+
+    .takeaway-card:nth-child(1) .takeaway-icon { background: #EEF2FF; color: #4F46E5; }
+    .takeaway-card:nth-child(2) .takeaway-icon { background: #F0FDFA; color: #0D9488; }
+    .takeaway-card:nth-child(3) .takeaway-icon { background: #EFF6FF; color: #3B82F6; }
+    .takeaway-card:nth-child(4) .takeaway-icon { background: #ECFDF5; color: #10B981; }
+
+    .takeaway-content h4 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 12px;
+    }
+
+    .takeaway-content p {
+      font-size: 22px;
+      color: #64748b;
+      line-height: 1.5;
+    }
+
+    /* Activity Layout */
+    .activity-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      height: 100%;
+    }
+
+    .activity-description h3 {
+      font-size: 36px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 20px;
+    }
+
+    .activity-description p {
+      font-size: 24px;
+      color: #475569;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .activity-objective {
+      background: #f0fdfa;
+      border-left: 4px solid #0D9488;
+      padding: 20px 25px;
+      border-radius: 0 12px 12px 0;
+    }
+
+    .activity-objective span {
+      font-size: 14px;
+      font-weight: 600;
+      color: #0D9488;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .activity-objective p {
+      font-size: 22px;
+      color: #134E4A;
+      margin: 10px 0 0 0;
+    }
+
+    .activity-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .activity-step {
+      display: flex;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .step-number {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
+      color: white;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .step-content h4 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 8px;
+    }
+
+    .step-content p {
+      font-size: 20px;
+      color: #64748b;
+      line-height: 1.5;
+    }
+
+    /* Closing Slide */
+    .slide-closing {
+      background: linear-gradient(135deg, #4F46E5 0%, #3730A3 50%, #1E1B4B 100%);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 100px;
+    }
+
+    .slide-closing .logo-large {
+      margin-bottom: 50px;
+    }
+
+    .slide-closing h2 {
+      font-size: 72px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .slide-closing .tagline {
+      font-size: 32px;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 60px;
+    }
+
+    .slide-closing .website {
+      font-size: 36px;
+      font-weight: 600;
+      color: #A5B4FC;
+      margin-bottom: 40px;
+    }
+
+    .slide-closing .copyright {
+      font-size: 18px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* Concept Full Layout */
+    .concept-full {
+      height: 100%;
+    }
+
+    .concept-full h3 {
+      font-size: 40px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 30px;
+    }
+
+    .concept-full > p {
+      font-size: 26px;
+      color: #475569;
+      line-height: 1.7;
+      margin-bottom: 35px;
+      max-width: 1400px;
+    }
+
+    .concept-full .info-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .info-card {
+      padding: 35px;
+      border-radius: 20px;
+      background: #f8fafc;
+      border-top: 5px solid;
+    }
+
+    .info-card.blue { border-color: #3B82F6; background: #eff6ff; }
+    .info-card.green { border-color: #10B981; background: #ecfdf5; }
+    .info-card.teal { border-color: #0D9488; background: #f0fdfa; }
+    .info-card.purple { border-color: #8B5CF6; background: #f5f3ff; }
+    .info-card.rose { border-color: #F43F5E; background: #fff1f2; }
+
+    .info-card h4 {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .info-card.blue h4 { color: #2563EB; }
+    .info-card.green h4 { color: #059669; }
+    .info-card.teal h4 { color: #0F766E; }
+    .info-card.purple h4 { color: #7C3AED; }
+    .info-card.rose h4 { color: #E11D48; }
+
+    .info-card p {
+      font-size: 21px;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    /* Rule of 72 Table */
+    .rule-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    .rule-table th, .rule-table td {
+      padding: 20px 30px;
+      text-align: center;
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    .rule-table th {
+      background: #f1f5f9;
+      font-weight: 700;
+      font-size: 22px;
+      color: #1e293b;
+    }
+
+    .rule-table td {
+      font-size: 24px;
+      color: #475569;
+    }
+
+    .rule-table tr:nth-child(even) {
+      background: #f8fafc;
+    }
+
+    .rule-table .highlight {
+      color: #0D9488;
+      font-weight: 700;
+    }
+
+    /* Logo SVG */
+    .logo svg {
+      height: 60px;
+      width: auto;
+    }
+
+    .logo-large svg {
+      height: 100px;
+      width: auto;
+    }
+
+    /* Print Styles */
+    @media print {
+      .slide {
+        margin: 0;
+        box-shadow: none;
+        page-break-after: always;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Slide 1: Title -->
+  <div class="slide slide-title">
+    <div class="logo">
+      <svg viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="10" width="40" height="40" rx="8" fill="white"/>
+        <path d="M15 35 L25 25 L35 35 M25 25 L25 42" stroke="#4F46E5" stroke-width="3" stroke-linecap="round"/>
+        <text x="55" y="38" font-family="Inter" font-size="24" font-weight="700" fill="white">PFL Academy</text>
+      </svg>
+    </div>
+    <div class="chapter-badge">Chapter 5.2</div>
+    <h1>Compound Interest & The Rule of 72</h1>
+    <p class="subtitle">Discover the "eighth wonder of the world" and learn how to calculate when your money will double using a simple formula. in {{STATE_NAME}}</p>
+    <div class="standard-badge">Standard 5: Saving & Investing</div>
+  </div>
+
+  <!-- Slide 2: Hook -->
+  <div class="slide slide-hook">
+    <div class="hook-label">Essential Question</div>
+    <h2>How can $1,000 turn into $4,322 without adding another dollar?</h2>
+    <p class="hook-context">The secret is compound interest — earning interest on your interest. Understanding this powerful concept is the key to building wealth over time.</p>
+  </div>
+
+  <!-- Slide 3: Learning Objectives -->
+  <div class="slide slide-content">
+    <div class="slide-header">
+      <h2>Learning Objectives</h2>
+      <span class="slide-number">3 / 20</span>
+    </div>
+    <div class="slide-body">
+      <div class="objectives-expanded">
+        <div class="objective-card-expanded">
+          <span class="obj-verb">Distinguish</span>
+          <h3>Between simple interest and compound interest and explain why the difference matters</h3>
+        </div>
+        <div class="objective-card-expanded">
+          <span class="obj-verb">Apply</span>
+          <h3>The Rule of 72 to estimate how long it takes for money to double at different interest rates</h3>
+        </div>
+        <div class="objective-card-expanded">
+          <span class="obj-verb">Calculate</span>
+          <h3>Future value of investments using compound interest to see the power of time</h3>
+        </div>
+        <div class="objective-card-expanded">
+          <span class="obj-verb">Analyze</span>
+          <h3>Opportunity costs of spending vs. investing and understand true cost of purchases</h3>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+
+  <!-- Slide 4: Key Terms 1 -->
+  <div class="slide slide-content">
+    <div class="slide-header teal">
+      <h2>Key Terms</h2>
+      <span class="slide-number">4 / 20</span>
+    </div>
+    <div class="slide-body">
+      <div class="vocab-container">
+        <div class="vocab-row">
+          <div class="vocab-term">Principal</div>
+          <div class="vocab-definition">
+            <div class="vocab-label">Definition</div>
+            <p class="vocab-text">The initial amount of money you deposit or invest — your starting point</p>
+          </div>
+          <div class="vocab-example">
+            <div class="vocab-label">Example</div>
+            <p class="vocab-text">You deposit $1,000 into a savings account. That $1,000 is your principal.</p>
+          </div>
+        </div>
+        <div class="vocab-row">
+          <div class="vocab-term teal">Simple Interest</div>
+          <div class="vocab-definition">
+            <div class="vocab-label">Definition</div>
+            <p class="vocab-text">Interest calculated only on the original principal amount, never changing</p>
+          </div>
+          <div class="vocab-example">
+            <div class="vocab-label">Example</div>
+            <p class="vocab-text">$1,000 at 5% simple interest = $50/year, every year (always calculated on $1,000)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+
+  <!-- Slide 5: Key Terms 2 -->
+  <div class="slide slide-content">
+    <div class="slide-header blue">
+      <h2>Key Terms</h2>
+      <span class="slide-number">5 / 20</span>
+    </div>
+    <div class="slide-body">
+      <div class="vocab-container">
+        <div class="vocab-row">
+          <div class="vocab-term">Compound Interest</div>
+          <div class="vocab-definition">
+            <div class="vocab-label">Definition</div>
+            <p class="vocab-text">Interest earned on both the principal AND previously earned interest — "interest on interest"</p>
+          </div>
+          <div class="vocab-example">
+            <div class="vocab-label">Example</div>
+            <p class="vocab-text">$1,000 at 5%: Year 1 = $1,050, Year 2 = $1,102.50 (5% of $1,050, not $1,000)</p>
+          </div>
+        </div>
+        <div class="vocab-row">
+          <div class="vocab-term teal">Rule of 72</div>
+          <div class="vocab-definition">
+            <div class="vocab-label">Definition</div>
+            <p class="vocab-text">A formula to estimate how many years it takes for money to double: 72 ÷ interest rate (%)</p>
+          </div>
+          <div class="vocab-example">
+            <div class="vocab-label">Example</div>
+            <p class="vocab-text">At 6% interest: 72 ÷ 6 = 12 years to double your money</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+
+  <!-- Slide 6: Core Concept 1 - Simple vs Compound -->
+  <div class="slide slide-content">
+    <div class="slide-header">
+      <h2>Simple vs. Compound Interest</h2>
+      <span class="slide-number">6 / 20</span>
+    </div>
+    <div class="slide-body">
+      <div class="balanced-layout">
+        <div class="content-panel">
+          <h3>The $1,822 Difference</h3>
+          <p>Let's see how $1,000 grows over 30 years at 5% interest using each method:</p>
+          <ul>
+            <li><strong>Simple Interest:</strong> $1,000 + ($1,000 × 5% × 30) = <strong>$2,500</strong></li>
+            <li><strong>Compound Interest:</strong> $1,000 × (1.05)^30 = <strong>$4,322</strong></li>
+            <li>The difference: <strong>$1,822</strong> extra from compounding!</li>
+            <li>Compound interest grows exponentially, not linearly</li>
+            <li>The longer the time, the bigger the gap</li>
+          </ul>
+        </div>
+        <div class="stats-panel">
+          <div class="stat-card">
+            <div class="stat-number">$2,500</div>
+            <div class="stat-label">30-year value with simple interest (5%)</div>
+          </div>
+          <div class="stat-card green">
+            <div class="stat-number">$4,322</div>
+            <div class="stat-label">30-year value with compound interest (5%)</div>
+          </div>
+          <div class="stat-card purple">
+            <div class="stat-number">73%</div>
+            <div class="stat-label">More growth with compounding vs. simple</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+
+  <!-- Slide 7: Comparison - Visual -->
+  <div class="slide slide-content">
+    <div class="slide-header teal">
+      <h2>Visualizing the Difference</h2>
+      <span class="slide-number">7 / 20</span>
+    </div>
+    <div class="slide-body">
+      <div class="comparison-grid">
+        <div class="comparison-card teal">
+          <h3>📊 Simple Interest</h3>
+          <p>Growth follows a straight line — the same dollar amount each year.</p>
+          <ul>
+            <li>Year 1: $1,000 + $50 = $1,050</li>
+            <li>Year 10: $1,000 + $500 = $1,500</li>
+            <li>Year 20: $1,000 + $1,000 = $2,000</li>
+            <li>Year 30: $1,000 + $1,500 = $2,500</li>
+          </ul>
+        </div>
+        <div class="comparison-card green">
+          <h3>📈 Compound Interest</h3>
+          <p>Growth curves upward — accelerating faster each year.</p>
+          <ul>
+            <li>Year 1: $1,000 × 1.05 = $1,050</li>
+            <li>Year 10: $1,000 × 1.05^10 = $1,629</li>
+            <li>Year 20: $1,000 × 1.05^20 = $2,653</li>
+            <li>Year 30: $1,000 × 1.05^30 = $4,322</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+
+  <!-- Slide 8: Core Concept 2 - Rule of 72 -->
+  <div class="slide slide-content">
+    <div class="slide-header blue">
+      <h2>The Rule of 72</h2>
+      <span class="slide-number">8 / 20</span>
+    </div>
+    <div class="slide-body">
+      <div class="balanced-layout">
+        <div class="content-panel">
+          <h3>A Shortcut to Estimate Doubling Time</h3>
+          <div class="formula-box">
+            <div class="formula-label">The Formula</div>
+            <div class="formula">Years to Double = 72 ÷ Interest Rate (%)</div>
+          </div>
+          <p style="margin-top: 25px;">This simple formula helps you quickly estimate how long it takes for any investment to double based on its interest rate. No calculator needed!</p>
+        </div>
+        <div class="stats-panel">
+          <div class="stat-card">
+            <div class="stat-number">72 ÷ 3 = 24</div>
+            <div class="stat-label">Years to double at 3% interest</div>
+          </div>
+          <div class="stat-card purple">
+            <div class="stat-number">72 ÷ 6 = 12</div>
+            <div class="stat-label">Years to double at 6% interest</div>
+          </div>
+          <div class="stat-card green">
+            <div class="stat-number">72 ÷ 9 = 8</div>
+            <div class="stat-label">Years to double at 9% interest</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+
+  <!-- Slide 9: Core Concept 3 - Rule of 72 Table -->
+  <div class="slide slide-content">
+    <div class="slide-header">
+      <h2>Rule of 72 in Action</h2>
+      <span class="slide-number">9 / 20</span>
+    </div>
+    <div class="slide-body">
+      <div class="concept-full">
+        <h3>Quick Reference: Doubling Times at Different Rates</h3>
+        <p>The higher your interest rate, the faster your money doubles. Here's a quick reference chart:</p>
+        <table class="rule-table">
+          <tr>
+            <th>Interest Rate</th>
+            <th>Calculation</th>
+            <th>Years to Double</th>
+            <th>Common Investment Type</th>
+          </tr>
+          <tr>
+            <td>2%</td>
+            <td>72 ÷ 2</td>
+            <td class="highlight">36 years</td>
+            <td>Savings Account</td>
+          </tr>
+          <tr>
+            <td>4%</td>
+            <td>72 ÷ 4</td>
+            <td class="highlight">18 years</td>
+            <td>Bonds, CDs</td>
+          </tr>
+          <tr>
+            <td>6%</td>
+            <td>72 ÷ 6</td>
+            <td class="highlight">12 years</td>
+            <td>Balanced Portfolio</td>
+          </tr>
+          <tr>
+            <td>8%</td>
+            <td>72 ÷ 8</td>
+            <td class="highlight">9 years</td>
+            <td>Stock Market Average</td>
+          </tr>
+          <tr>
+            <td>10%</td>
+            <td>72 ÷ 10</td>
+            <td class="highlight">7.2 years</td>
+            <td>Aggressive Growth</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+
+  <!-- Slide 10: Core Concept 4 - Opportunity Cost -->
+  <div class="slide slide-content">
+    <div class="slide-header teal">
+      <h2>The True Cost of Spending</h2>
+      <span class="slide-number">10 / 20</span>
+    </div>
+    <div class="slide-body">
+      <div class="balanced-layout">
+        <div class="content-panel">
+          <h3>Opportunity Cost Revealed</h3>
+          <p>When you spend $100 today, you're not just giving up $100 — you're giving up everything that money could have become.</p>
+          <ul>
+            <li>Every dollar has <strong>future potential</strong> through compounding</li>
+            <li>$100 at 7% for 40 years = <strong>$1,497</strong></li>
+            <li>That coffee habit adds up: $5/day × 365 = $1,825/year</li>
+            <li>Same amount invested at 7% for 40 years = <strong>$365,000+</strong></li>
+            <li>Small choices today = massive differences later</li>
+          </ul>
+        </div>
+        <div class="stats-panel">
+          <div class="stat-card rose">
+            <div class="stat-number">$100</div>
+            <div class="stat-label">Amount spent today on something</div>
+          </div>
+          <div class="stat-card green">
+            <div class="stat-number">$1,497</div>
+            <div class="stat-label">What that $100 could become in 40 years at 7%</div>
+          </div>
+          <div class="stat-card purple">
+            <div class="stat-number">15x</div>
+            <div class="stat-label">The true opportunity cost multiplier</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+
+  <!-- Slide 11: Why It Matters -->
+  <div class="slide slide-content">
+    <div class="slide-header blue">
+      <h2>Why This Matters for Your Future</h2>
+      <span class="slide-number">11 / 20</span>
+    </div>
+    <div class="slide-body">
+      <div class="concept-full">
+        <h3>Time Is Your Superpower</h3>
+        <p>As a young person, you have the most valuable asset for compound interest: time. Even small amounts invested early can grow to significant wealth.</p>
+        <div class="info-cards">
+          <div class="info-card teal">
+            <h4>Start at 20</h4>
+            <p>Invest $200/month until 65 at 8% = <strong>$958,000</strong><br><br>Total invested: $108,000</p>
+          </div>
+          <div class="info-card blue">
+            <h4>Start at 30</h4>
+            <p>Invest $200/month until 65 at 8% = <strong>$414,000</strong><br><br>Total invested: $84,000</p>
+          </div>
+          <div class="info-card rose">
+            <h4>The Cost of Waiting</h4>
+            <p>10-year delay costs you <strong>$544,000</strong> — despite investing more money!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+
+  <!-- Slide 12: Modern Context -->
+  <div class="slide slide-content">
+    <div class="slide-header">
+      <h2>Compounding in Today's World</h2>
+      <span class="slide-number">12 / 20</span>
+    </div>
+    <div class="slide-body">
+      <div class="balanced-layout">
+        <div class="content-panel">
+          <h3>Maximizing Your Returns</h3>
+          <p>In today's financial environment, here's how to make compound interest work for you:</p>
+          <ul>
+            <li><strong>High-Yield Savings</strong> — Online banks offer 4-5% APY</li>
+            <li><strong>Index Funds</strong> — Historical 10% average returns</li>
+            <li><strong>Retirement Accounts</strong> — Tax advantages boost compounding</li>
+            <li><strong>Automatic Investing</strong> — Set it and let it compound</li>
+            <li><strong>Dividend Reinvestment</strong> — Compounds your stock gains</li>
+          </ul>
+        </div>
+        <div class="stats-panel">
+          <div class="stat-card">
+            <div class="stat-number">$23.6M</div>
+            <div class="stat-label">Value of $10K invested in S&P 500 in 1970</div>
+          </div>
+          <div class="stat-card purple">
+            <div class="stat-number">10.7%</div>
+            <div class="stat-label">Average annual S&P 500 return since 1957</div>
+          </div>
+          <div class="stat-card green">
+            <div class="stat-number">Daily</div>
+            <div class="stat-label">Best compounding frequency to maximize growth</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+
+  <!-- Slide 13: Real-World Example 1 - Amanda -->
+  <div class="slide slide-content">
+    <div class="slide-header teal">
+      <h2>Real-World Example</h2>
+      <span class="slide-number">13 / 20</span>
+    </div>
+    <div class="slide-body">
+      <div class="scenario-layout">
+        <div class="scenario-header">
+          <div class="scenario-profile">
+            <div class="scenario-name">Amanda</div>
+            <div class="scenario-desc">Saving for a Laptop</div>
+          </div>
+          <div class="scenario-context">
+            <h3>The Laptop Fund Challenge</h3>
+            <p>Amanda wants to save $1,200 for a new laptop. She has $600 now and puts it in a savings account earning 3% interest compounded annually. How long until she reaches her goal?</p>
+          </div>
+        </div>
+        <div class="scenario-outcomes">
+          <div class="outcome-box teal">
+            <div class="outcome-label">Rule of 72</div>
+            <div class="outcome-value">72 ÷ 3 = 24 years</div>
+          </div>
+          <div class="outcome-box rose">
+            <div class="outcome-label">Problem</div>
+            <div class="outcome-value">Too long to wait!</div>
+          </div>
+          <div class="outcome-box green">
+            <div class="outcome-label">Solutions</div>
+            <div class="outcome-value">Higher rate or add more $</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+
+  <!-- Slide 14: Real-World Example 2 - Micah -->
+  <div class="slide slide-content">
+    <div class="slide-header blue">
+      <h2>Real-World Example</h2>
+      <span class="slide-number">14 / 20</span>
+    </div>
+    <div class="slide-body">
+      <div class="scenario-layout">
+        <div class="scenario-header">
+          <div class="scenario-profile green">
+            <div class="scenario-name">Micah</div>
+            <div class="scenario-desc">Teaching His Brother</div>
+          </div>
+          <div class="scenario-context">
+            <h3>The Power of Multiple Doublings</h3>
+            <p>Micah teaches his younger brother about investing. If his brother invests just $100 with an 8% annual return, watch what happens over time using the Rule of 72:</p>
+          </div>
+        </div>
+        <div class="scenario-outcomes">
+          <div class="outcome-box green">
+            <div class="outcome-label">After 9 Years</div>
+            <div class="outcome-value">$100 → $200</div>
+          </div>
+          <div class="outcome-box teal">
+            <div class="outcome-label">After 18 Years</div>
+            <div class="outcome-value">$200 → $400</div>
+          </div>
+          <div class="outcome-box blue">
+            <div class="outcome-label">After 27 Years</div>
+            <div class="outcome-value">$400 → $800</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+
+  <!-- Slide 15: Discussion -->
+  <div class="slide slide-discussion">
+    <div class="badge">Discussion</div>
+    <h2>If you had $500 to either spend today or invest for 40 years, what would you choose and why?</h2>
+    <div class="discussion-prompts">
+      <div class="discussion-prompt">Consider: At 8%, that $500 becomes about $10,860 in 40 years. What would you have to buy today to make spending worthwhile?</div>
+      <div class="discussion-prompt">Think about: How do you balance enjoying money today vs. building wealth for the future?</div>
+    </div>
+  </div>
+
+  <!-- Slide 16: Discussion 2 -->
+  <div class="slide slide-discussion purple">
+    <div class="badge">Personal Reflection</div>
+    <h2>Why might someone choose an investment with a lower interest rate even though it takes longer to double?</h2>
+    <div class="discussion-prompts">
+      <div class="discussion-prompt">Consider the relationship between risk and reward. What trade-offs exist between fast growth and safety?</div>
+      <div class="discussion-prompt">When might stability be more important than maximum growth potential?</div>
+    </div>
+  </div>
+
+  <!-- Slide 17: Check for Understanding -->
+  <div class="slide slide-content">
+    <div class="slide-header">
+      <h2>Check for Understanding</h2>
+      <span class="slide-number">17 / 20</span>
+    </div>
+    <div class="slide-body">
+      <div class="check-grid">
+        <div class="check-card">
+          <div class="check-number">Question 1</div>
+          <p>What is the main difference between simple interest and compound interest?</p>
+        </div>
+        <div class="check-card">
+          <div class="check-number">Question 2</div>
+          <p>Using the Rule of 72, how long would it take to double your money at 4% interest?</p>
+        </div>
+        <div class="check-card">
+          <div class="check-number">Question 3</div>
+          <p>Why is starting to invest early more powerful than investing more money later?</p>
+        </div>
+        <div class="check-card">
+          <div class="check-number">Question 4</div>
+          <p>If you spend $50 today instead of investing it, what is the true opportunity cost over 40 years at 7%?</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+
+  <!-- Slide 18: Key Takeaways -->
+  <div class="slide slide-content">
+    <div class="slide-header teal">
+      <h2>Key Takeaways</h2>
+      <span class="slide-number">18 / 20</span>
+    </div>
+    <div class="slide-body">
+      <div class="takeaway-grid">
+        <div class="takeaway-card">
+          <div class="takeaway-icon">📈</div>
+          <div class="takeaway-content">
+            <h4>Compound Beats Simple</h4>
+            <p>Compound interest earns returns on your returns, growing your money exponentially faster than simple interest.</p>
+          </div>
+        </div>
+        <div class="takeaway-card">
+          <div class="takeaway-icon">🔢</div>
+          <div class="takeaway-content">
+            <h4>Use the Rule of 72</h4>
+            <p>Divide 72 by your interest rate to quickly estimate doubling time. At 6%, money doubles every 12 years.</p>
+          </div>
+        </div>
+        <div class="takeaway-card">
+          <div class="takeaway-icon">⏰</div>
+          <div class="takeaway-content">
+            <h4>Time Is Everything</h4>
+            <p>Starting early matters more than starting big. A 10-year head start can mean twice the final amount.</p>
+          </div>
+        </div>
+        <div class="takeaway-card">
+          <div class="takeaway-icon">💡</div>
+          <div class="takeaway-content">
+            <h4>Think in Future Value</h4>
+            <p>Every dollar spent today could be worth 10-15x more in 40 years. Consider the true opportunity cost.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+
+  <!-- Slide 19: Activity -->
+  <div class="slide slide-content">
+    <div class="slide-header blue">
+      <h2>Skill Builder: Rule of 72 Calculator</h2>
+      <span class="slide-number">19 / 20</span>
+    </div>
+    <div class="slide-body">
+      <div class="activity-layout">
+        <div class="activity-description">
+          <h3>Calculate Your Doubling Times</h3>
+          <p>Use the Rule of 72 to explore how different interest rates affect investment growth. Complete calculations and answer reflection questions about compound interest.</p>
+          <div class="activity-objective">
+            <span>Learning Objective</span>
+            <p>Master the Rule of 72 and understand how interest rates impact long-term wealth building.</p>
+          </div>
+        </div>
+        <div class="activity-steps">
+          <div class="activity-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h4>Review the Variables</h4>
+              <p>Set initial investment ($500), monthly contribution ($50), rate (5%)</p>
+            </div>
+          </div>
+          <div class="activity-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h4>Calculate Growth</h4>
+              <p>Determine total value after 10 years with compound interest</p>
+            </div>
+          </div>
+          <div class="activity-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h4>Complete Rule of 72 Table</h4>
+              <p>Calculate doubling time for rates 2%, 4%, 6%, 8%, 10%, 12%</p>
+            </div>
+          </div>
+          <div class="activity-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h4>Compare Results</h4>
+              <p>Analyze how rate changes affect your wealth-building timeline</p>
+            </div>
+          </div>
+          <div class="activity-step">
+            <div class="step-number">5</div>
+            <div class="step-content">
+              <h4>Reflect</h4>
+              <p>Apply learnings to a personal financial goal</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+
+  <!-- Slide 20: Closing -->
+  <div class="slide slide-closing">
+    <div class="logo-large">
+      <svg viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="10" width="40" height="40" rx="8" fill="white"/>
+        <path d="M15 35 L25 25 L35 35 M25 25 L25 42" stroke="#4F46E5" stroke-width="3" stroke-linecap="round"/>
+        <text x="55" y="38" font-family="Inter" font-size="24" font-weight="700" fill="white">PFL Academy</text>
+      </svg>
+    </div>
+    <h2>Let Your Money Work for You</h2>
+    <p class="tagline">The best time to start investing was yesterday. The second best time is today.</p>
+    <p class="website">www.pflacademy.co</p>
+    <p class="copyright">© 2025 PFL Academy. All rights reserved.</p>
+  </div>
+
+</body>
+</html>

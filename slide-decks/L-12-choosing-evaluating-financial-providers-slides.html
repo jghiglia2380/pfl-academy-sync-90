@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>L-12: Choosing & Evaluating Financial Providers | PFL Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #4F46E5;
+            --primary-dark: #3730A3;
+            --primary-light: #818CF8;
+            --teal: #0D9488;
+            --teal-dark: #0F766E;
+            --teal-light: #5EEAD4;
+            --green: #10B981;
+            --green-light: #D1FAE5;
+            --blue: #3B82F6;
+            --blue-light: #DBEAFE;
+            --amber: #F59E0B;
+            --amber-light: #FEF3C7;
+            --amber-pale: #FFFBEB;
+            --rose: #F43F5E;
+            --rose-light: #FFE4E6;
+            --text-dark: #1E293B;
+            --text-body: #475569;
+            --text-light: #64748B;
+            --bg-light: #F8FAFC;
+            --bg-slate: #F1F5F9;
+            --white: #FFFFFF;
+            --border: #E2E8F0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        .slide {
+            width: 1920px;
+            height: 1080px;
+            page-break-after: always;
+            page-break-inside: avoid;
+            position: relative;
+            overflow: hidden;
+            background: var(--white);
+        }
+
+        .slide:last-child {
+            page-break-after: auto;
+        }
+
+        .logo-white { height: 60px; width: auto; }
+
+        .slide-title {
+            background: linear-gradient(135deg, var(--primary) 0%, #6D29D8 50%, var(--primary-dark) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px;
+        }
+
+        .slide-title .logo-container { position: absolute; top: 50px; right: 70px; }
+        .slide-title .chapter-label { font-size: 26px; font-weight: 600; color: var(--teal-light); text-transform: uppercase; letter-spacing: 6px; margin-bottom: 20px; }
+        .slide-title h1 { font-size: 90px; font-weight: 800; color: var(--white); margin-bottom: 28px; line-height: 1.1; text-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+        .slide-title .subtitle { font-size: 38px; color: var(--white); font-weight: 500; opacity: 0.9; }
+        .slide-title .footer-bar { position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; gap: 60px; }
+        .slide-title .footer-bar span { font-size: 22px; color: rgba(255,255,255,0.8); font-weight: 500; }
+
+        .slide-content { display: flex; flex-direction: column; }
+        .slide-header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 36px 80px; min-height: 120px; display: flex; align-items: center; justify-content: space-between; }
+        .slide-header.teal { background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%); }
+        .slide-header.blue { background: linear-gradient(135deg, var(--blue) 0%, #2563EB 100%); }
+        .slide-header h2 { font-size: 52px; font-weight: 700; color: var(--white); }
+        .slide-header .slide-number { font-size: 22px; color: rgba(255,255,255,0.6); font-weight: 500; }
+        .slide-body { flex: 1; padding: 50px 80px; display: flex; flex-direction: column; gap: 32px; }
+        .slide-footer { height: 12px; background: linear-gradient(90deg, var(--teal) 0%, var(--primary) 50%, var(--teal) 100%); }
+
+        .slide-hook { background: linear-gradient(135deg, #1E293B 0%, #334155 50%, #1E293B 100%); display: flex; justify-content: center; align-items: center; padding: 100px; text-align: center; }
+        .slide-hook .label { position: absolute; top: 50px; left: 70px; background: var(--teal); color: var(--white); padding: 14px 36px; font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; border-radius: 6px; }
+        .slide-hook .question { font-size: 60px; font-weight: 700; color: var(--white); line-height: 1.4; max-width: 1500px; }
+        .slide-hook .question em { color: var(--teal-light); font-style: normal; }
+
+        .objectives-expanded { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; flex: 1; }
+        .objective-card { background: var(--bg-slate); border-radius: 20px; padding: 36px; border-left: 6px solid var(--teal); display: flex; flex-direction: column; gap: 16px; }
+        .objective-card .header { display: flex; align-items: center; gap: 16px; }
+        .objective-card .number { width: 56px; height: 56px; background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: white; font-size: 28px; font-weight: 700; flex-shrink: 0; }
+        .objective-card h3 { font-size: 32px; font-weight: 700; color: var(--teal-dark); }
+        .objective-card p { font-size: 26px; color: var(--text-body); line-height: 1.6; }
+
+        .vocab-container { display: flex; flex-direction: column; gap: 24px; flex: 1; }
+        .vocab-row { display: grid; grid-template-columns: 280px 1fr 1fr; gap: 24px; align-items: stretch; flex: 1; }
+        .vocab-term-box { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-radius: 16px; padding: 24px; display: flex; align-items: center; justify-content: center; }
+        .vocab-term-box .term { font-size: 30px; font-weight: 700; color: white; text-align: center; }
+        .vocab-def-box { background: var(--bg-slate); border-radius: 16px; padding: 28px 32px; border-left: 5px solid var(--teal); display: flex; flex-direction: column; justify-content: center; }
+        .vocab-def-box .label { font-size: 14px; font-weight: 700; color: var(--teal); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .vocab-def-box p { font-size: 26px; color: var(--text-dark); line-height: 1.5; }
+        .vocab-example-box { background: var(--green-light); border-radius: 16px; padding: 28px 32px; border-left: 5px solid var(--green); display: flex; flex-direction: column; justify-content: center; }
+        .vocab-example-box .label { font-size: 14px; font-weight: 700; color: var(--green); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .vocab-example-box p { font-size: 24px; color: var(--text-dark); line-height: 1.5; font-style: italic; }
+
+        .balanced-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; flex: 1; }
+        .content-panel { background: var(--bg-slate); border-radius: 20px; padding: 40px; display: flex; flex-direction: column; gap: 20px; }
+        .content-panel h3 { font-size: 34px; font-weight: 700; color: var(--primary); }
+        .content-panel p { font-size: 26px; color: var(--text-body); line-height: 1.6; }
+        .content-panel .highlight-box { background: var(--blue-light); border-left: 5px solid var(--blue); padding: 20px 24px; border-radius: 0 12px 12px 0; margin-top: auto; }
+        .content-panel .highlight-box p { font-size: 24px; color: var(--text-dark); font-weight: 500; }
+        .stats-panel { display: flex; flex-direction: column; gap: 20px; }
+        .stat-card { background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%); border-radius: 16px; padding: 32px; text-align: center; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+        .stat-card.purple { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); }
+        .stat-card.green { background: linear-gradient(135deg, var(--green) 0%, #059669 100%); }
+        .stat-card.rose { background: linear-gradient(135deg, var(--rose) 0%, #E11D48 100%); }
+        .stat-card .number { font-size: 64px; font-weight: 800; color: white; }
+        .stat-card .label { font-size: 22px; color: rgba(255,255,255,0.9); margin-top: 8px; }
+        .info-card { background: var(--amber-pale); border-radius: 16px; padding: 32px; border-left: 6px solid var(--amber); flex: 1; display: flex; flex-direction: column; }
+        .info-card.blue { background: var(--blue-light); border-left-color: var(--blue); }
+        .info-card.green { background: var(--green-light); border-left-color: var(--green); }
+        .info-card h4 { font-size: 26px; font-weight: 700; color: var(--text-dark); margin-bottom: 20px; }
+        .info-card ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+        .info-card li { font-size: 24px; color: var(--text-body); padding-left: 32px; position: relative; line-height: 1.4; }
+        .info-card li::before { content: "→"; color: var(--amber); position: absolute; left: 0; font-weight: 700; }
+        .info-card.blue li::before { color: var(--blue); }
+        .info-card.green li::before { color: var(--green); }
+
+        .comparison-grid { display: grid; grid-template-columns: 1fr 80px 1fr; gap: 0; flex: 1; align-items: stretch; }
+        .compare-column { background: var(--bg-slate); border-radius: 20px; padding: 40px; display: flex; flex-direction: column; }
+        .compare-column.left { border-top: 8px solid var(--primary); }
+        .compare-column.right { border-top: 8px solid var(--teal); }
+        .compare-column h3 { font-size: 40px; font-weight: 700; margin-bottom: 28px; display: flex; align-items: center; gap: 16px; }
+        .compare-column.left h3 { color: var(--primary); }
+        .compare-column.right h3 { color: var(--teal); }
+        .compare-column ul { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+        .compare-column li { font-size: 26px; color: var(--text-body); padding: 14px 18px; background: white; border-radius: 10px; display: flex; align-items: center; gap: 12px; }
+        .compare-column.left li::before { content: "•"; color: var(--primary); font-size: 24px; font-weight: 700; }
+        .compare-column.right li::before { content: "✓"; color: var(--teal); font-weight: 700; }
+        .vs-divider { display: flex; align-items: center; justify-content: center; }
+        .vs-divider span { background: var(--primary); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700; }
+
+        .scenario-layout { display: grid; grid-template-columns: 1fr 400px; gap: 40px; flex: 1; }
+        .scenario-card { background: var(--amber-pale); border-radius: 20px; padding: 44px; border-left: 8px solid var(--amber); }
+        .scenario-card .name { font-size: 32px; font-weight: 700; color: var(--primary); margin-bottom: 24px; display: flex; align-items: center; gap: 16px; }
+        .scenario-card .name .icon { width: 48px; height: 48px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; }
+        .scenario-card p { font-size: 26px; color: var(--text-body); line-height: 1.7; }
+        .scenario-card .highlight-text { color: var(--primary); font-weight: 600; }
+        .scenario-outcomes { display: flex; flex-direction: column; gap: 20px; }
+        .outcome-box { border-radius: 16px; padding: 28px; text-align: center; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+        .outcome-box.before { background: var(--rose-light); border: 2px solid var(--rose); }
+        .outcome-box.after { background: var(--green-light); border: 2px solid var(--green); }
+        .outcome-box .label { font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .outcome-box.before .label { color: var(--rose); }
+        .outcome-box.after .label { color: var(--green); }
+        .outcome-box .value { font-size: 40px; font-weight: 800; color: var(--text-dark); }
+        .outcome-box .detail { font-size: 18px; color: var(--text-body); margin-top: 8px; }
+
+        .slide-discussion { background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 100px; }
+        .slide-discussion .badge { background: white; color: var(--teal-dark); padding: 18px 48px; font-size: 24px; font-weight: 700; text-transform: uppercase; letter-spacing: 4px; border-radius: 12px; margin-bottom: 48px; }
+        .slide-discussion .question { font-size: 48px; font-weight: 600; color: var(--white); line-height: 1.5; max-width: 1400px; }
+
+        .takeaway-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; flex: 1; }
+        .takeaway-item { display: flex; align-items: flex-start; gap: 24px; padding: 32px; background: var(--bg-slate); border-radius: 16px; }
+        .takeaway-item .number { width: 56px; height: 56px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 700; flex-shrink: 0; }
+        .takeaway-item .content h4 { font-size: 28px; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
+        .takeaway-item .content p { font-size: 24px; color: var(--text-body); line-height: 1.5; }
+
+        .activity-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; flex: 1; }
+        .activity-main { background: linear-gradient(135deg, var(--green-light) 0%, #A7F3D0 100%); border-radius: 20px; padding: 44px; border-left: 8px solid var(--green); }
+        .activity-main h3 { font-size: 36px; font-weight: 700; color: var(--text-dark); margin-bottom: 24px; display: flex; align-items: center; gap: 16px; }
+        .activity-main p { font-size: 26px; color: var(--text-dark); line-height: 1.6; }
+        .activity-steps { display: flex; flex-direction: column; gap: 16px; }
+        .activity-step { background: white; border-radius: 14px; padding: 26px 30px; display: flex; align-items: center; gap: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+        .activity-step .step-num { width: 48px; height: 48px; background: var(--teal); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700; flex-shrink: 0; }
+        .activity-step p { font-size: 24px; color: var(--text-dark); }
+
+        .slide-closing { background: linear-gradient(135deg, var(--primary) 0%, #6D29D8 50%, var(--primary-dark) 100%); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 80px; }
+        .slide-closing .logo-large { height: 100px; margin-bottom: 40px; }
+        .slide-closing .tagline { font-size: 44px; font-weight: 600; color: var(--white); margin-bottom: 24px; }
+        .slide-closing .website { font-size: 32px; color: var(--teal-light); font-weight: 600; margin-bottom: 16px; }
+        .slide-closing .copyright { position: absolute; bottom: 40px; font-size: 18px; color: rgba(255,255,255,0.5); }
+
+        .concept-full { background: var(--bg-slate); border-radius: 20px; padding: 44px; flex: 1; display: flex; flex-direction: column; gap: 24px; }
+        .concept-full h3 { font-size: 36px; font-weight: 700; color: var(--primary); }
+        .concept-full p { font-size: 28px; color: var(--text-body); line-height: 1.6; }
+        .concept-full ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .concept-full li { font-size: 24px; color: var(--text-body); padding: 18px 22px; background: white; border-radius: 12px; border-left: 4px solid var(--teal); }
+
+        .check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; flex: 1; }
+        .check-item { background: var(--bg-slate); border-radius: 16px; padding: 32px; border-left: 6px solid var(--primary); }
+        .check-item .q-num { font-size: 20px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+        .check-item p { font-size: 26px; color: var(--text-dark); line-height: 1.5; }
+
+        @media print { .slide { page-break-after: always; page-break-inside: avoid; } }
+    </style>
+</head>
+<body>
+
+<!-- SLIDE 1: Title -->
+<div class="slide slide-title">
+    <div class="logo-container">
+        <svg class="logo-white" viewBox="0 0 1366 441.64" xmlns="http://www.w3.org/2000/svg">
+            <style>.wht{fill:#fff}</style>
+            <path class="wht" d="M116.66,174.42h-17.75v34.04h17.4c11.89,0,18.71-6.26,18.71-17.19s-6.7-16.85-18.37-16.85Z"/>
+            <path class="wht" d="M219.87,2.27C99.62,2.27,2.14,99.75,2.14,220s97.48,217.73,217.73,217.73,217.73-97.48,217.73-217.73S340.12,2.27,219.87,2.27ZM120.72,230.14h-21.8v60.28h-27.08v-139.02h46.85c13.87,0,24.7,3.89,32.21,11.58,7.23,7.41,11.06,17.14,11.06,28.13,0,23.71-16.18,39.04-41.24,39.04ZM277,177.04h-13.7c-9.24,0-24.66,4.37-24.98,33.1h38.68v22.19h-38.75c-.37,34.39-21.88,58.35-52.61,58.35h-11.21v-25.14h11.21c25.09,0,27.35-26.03,27.5-33.21h-38.7v-22.19h38.75c.31-35.94,19.44-58.24,50.12-58.24h13.7v25.14ZM304.17,290.42v-139.02h26.24v116.13h46.17v22.89h-72.41Z"/>
+            <path class="wht" d="M545.29,144.12h30.91l51.92,147.31h-31.11l-9.89-31.32h-53.15l-9.68,31.32h-30.29l51.3-147.31ZM540.96,237.25h38.94l-13.19-42.44c-2.47-7.83-5.98-22.67-5.98-22.67h-.41s-3.71,14.83-6.18,22.67l-13.19,42.44Z"/>
+            <path class="wht" d="M632.03,238.69c0-31.52,20.6-55.84,52.74-55.84,27.4,0,44.3,15.87,48,38.74h-27.4c-1.86-9.27-9.06-16.28-19.37-16.28-16.9,0-25.55,12.98-25.55,33.38s8.04,33.38,25.14,33.38c11.33,0,19.37-5.98,21.22-17.93h26.99c-1.86,22.46-19.37,40.38-47.59,40.38-33.38,0-54.19-24.31-54.19-55.84Z"/>
+            <path class="wht" d="M814.36,279.69h-.41c-5.36,8.04-12.98,14.22-31.11,14.22-21.63,0-36.88-11.34-36.88-32.35,0-23.28,18.96-30.7,42.44-34,17.52-2.47,25.55-3.91,25.55-11.95,0-7.62-5.98-12.57-17.72-12.57-13.19,0-19.57,4.74-20.4,14.83h-24.93c.82-18.54,14.63-34.82,45.53-34.82s44.51,14.22,44.51,38.94v53.77c0,8.04,1.23,12.78,3.71,14.63v1.03h-26.99c-1.65-2.06-2.68-7.01-3.3-11.75ZM814.56,254.14v-15.86c-4.95,2.88-12.57,4.53-19.57,6.18-14.63,3.3-21.84,6.59-21.84,16.48s6.59,13.39,16.48,13.39c16.07,0,24.93-9.89,24.93-20.19Z"/>
+            <path class="wht" d="M856.59,238.69c0-32.96,18.75-55.84,45.12-55.84,14.84,0,24.11,6.8,29.88,15.66h.62v-54.39h28.02v147.31h-26.99v-13.8h-.41c-6.18,10.09-16.69,16.9-31.52,16.9-26.57,0-44.71-21.64-44.71-55.84ZM932.82,239.31c0-20.19-6.59-33.79-24.52-33.79-15.45,0-23.28,13.6-23.28,33.17s8.04,32.35,22.45,32.35c16.69,0,25.34-12.36,25.34-31.73Z"/>
+            <path class="wht" d="M976.29,238.48c0-31.32,21.22-55.63,52.13-55.63,34,0,52.13,25.96,52.13,63.66h-76.64c2.06,16.28,11.13,26.37,26.99,26.37,10.92,0,17.31-4.94,20.4-12.98h27.61c-3.91,18.75-20.6,34.62-47.8,34.62-35.03,0-54.81-24.52-54.81-56.04ZM1004.3,227.15h46.98c-.82-13.39-9.68-22.66-22.45-22.66-14.84,0-22.05,8.86-24.52,22.66Z"/>
+            <path class="wht" d="M1096.6,185.74h26.99v14.22h.62c5.77-9.69,16.07-17.1,30.7-17.1,13.39,0,24.11,7.42,29.26,18.54h.42c7.21-11.54,18.34-18.54,31.73-18.54,22.26,0,34.82,14.42,34.82,37.5v71.08h-28.02v-66.34c0-11.95-5.98-18.13-16.28-18.13-11.75,0-18.96,9.07-18.96,23.08v61.4h-28.02v-66.34c0-11.95-5.98-18.13-16.28-18.13-11.33,0-18.96,9.07-18.96,23.08v61.4h-28.02v-105.7Z"/>
+            <path class="wht" d="M1271.73,304h9.89c11.13,0,15.66-5.77,15.66-14.42,0-5.77-2.06-12.57-8.04-28.64l-28.44-75.2h29.46l15.66,47.59c3.3,9.68,6.8,23.08,6.8,23.08h.41s2.88-13.39,6.18-23.08l14.83-47.59h28.23l-36.88,108.37c-8.04,23.49-15.86,31.94-37.29,31.94h-16.48v-22.05Z"/>
+        </svg>
+    </div>
+    <div class="chapter-label">Chapter 3.2</div>
+    <h1>Choosing Financial Providers</h1>
+    <div class="subtitle">Evaluating Costs, Benefits, and Services in {{STATE_NAME}}</div>
+    <div class="footer-bar">
+        <span>Standard 3: Banking & Financial Services</span>
+        <span>•</span>
+        <span>Personal Financial Literacy</span>
+    </div>
+</div>
+
+<!-- SLIDE 2: Hook -->
+<div class="slide slide-hook">
+    <div class="label">Essential Question</div>
+    <div class="question">How do you <em>compare and choose</em> between<br>the many financial institutions available—<br>and what factors matter most for <em>your situation</em>?</div>
+</div>
+
+<!-- SLIDE 3: Objectives -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>Learning Objectives</h2>
+        <span class="slide-number">3 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="objectives-expanded">
+            <div class="objective-card">
+                <div class="header">
+                    <div class="number">1</div>
+                    <h3>Understand</h3>
+                </div>
+                <p>Recognize the key factors that distinguish different financial service providers and what makes each unique.</p>
+            </div>
+            <div class="objective-card">
+                <div class="header">
+                    <div class="number">2</div>
+                    <h3>Evaluate</h3>
+                </div>
+                <p>Compare the costs and benefits of different providers, including fees, interest rates, and services offered.</p>
+            </div>
+            <div class="objective-card">
+                <div class="header">
+                    <div class="number">3</div>
+                    <h3>Analyze</h3>
+                </div>
+                <p>Apply evaluation criteria to real-world scenarios to determine which provider best fits specific needs.</p>
+            </div>
+            <div class="objective-card">
+                <div class="header">
+                    <div class="number">4</div>
+                    <h3>Decide</h3>
+                </div>
+                <p>Make informed decisions about financial service providers that align with your current and future financial goals.</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 4: Vocabulary 1 -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Key Terms</h2>
+        <span class="slide-number">4 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="vocab-container">
+            <div class="vocab-row">
+                <div class="vocab-term-box">
+                    <div class="term">APY</div>
+                </div>
+                <div class="vocab-def-box">
+                    <div class="label">Definition</div>
+                    <p>Annual Percentage Yield—the effective annual rate of return on savings accounts, including compound interest.</p>
+                </div>
+                <div class="vocab-example-box">
+                    <div class="label">Example</div>
+                    <p>A 4.5% APY means $1,000 grows to $1,045 after one year</p>
+                </div>
+            </div>
+            <div class="vocab-row">
+                <div class="vocab-term-box">
+                    <div class="term">Account<br>Fees</div>
+                </div>
+                <div class="vocab-def-box">
+                    <div class="label">Definition</div>
+                    <p>Regular charges for maintaining an account, including monthly fees, overdraft fees, ATM fees, and minimum balance fees.</p>
+                </div>
+                <div class="vocab-example-box">
+                    <div class="label">Common Fees</div>
+                    <p>Monthly maintenance ($5-15), overdraft ($35), out-of-network ATM ($3)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 5: Vocabulary 2 -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Key Terms</h2>
+        <span class="slide-number">5 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="vocab-container">
+            <div class="vocab-row">
+                <div class="vocab-term-box">
+                    <div class="term">Online Bank</div>
+                </div>
+                <div class="vocab-def-box">
+                    <div class="label">Definition</div>
+                    <p>A digital-only bank with no physical branches, relying on technology for all transactions and support.</p>
+                </div>
+                <div class="vocab-example-box">
+                    <div class="label">Advantages</div>
+                    <p>Higher interest rates, lower fees, 24/7 access, convenient mobile apps</p>
+                </div>
+            </div>
+            <div class="vocab-row">
+                <div class="vocab-term-box">
+                    <div class="term">Robo-Advisor</div>
+                </div>
+                <div class="vocab-def-box">
+                    <div class="label">Definition</div>
+                    <p>A digital platform that provides automated, algorithm-driven investment management services with minimal human intervention.</p>
+                </div>
+                <div class="vocab-example-box">
+                    <div class="label">Key Feature</div>
+                    <p>Low fees (0.25-0.5%) vs. traditional advisors (1%+)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 6: Provider Types -->
+<div class="slide slide-content">
+    <div class="slide-header blue">
+        <h2>Types of Financial Service Providers</h2>
+        <span class="slide-number">6 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="balanced-layout">
+            <div class="content-panel">
+                <h3>Four Main Categories</h3>
+                <p><strong>Traditional Banks:</strong> For-profit institutions with physical branches, extensive ATM networks, and wide service offerings.</p>
+                <p><strong>Credit Unions:</strong> Member-owned cooperatives offering lower fees and better rates, with membership requirements.</p>
+                <p><strong>Online Banks:</strong> Digital-only with no branches, typically offering highest APYs and lowest fees.</p>
+                <p><strong>Investment Platforms:</strong> Brokerage firms and robo-advisors specializing in growing wealth through investments.</p>
+            </div>
+            <div class="stats-panel">
+                <div class="stat-card">
+                    <div class="number">4.5%</div>
+                    <div class="label">Top Online Bank APY</div>
+                </div>
+                <div class="stat-card purple">
+                    <div class="number">0.01%</div>
+                    <div class="label">Typical Traditional Bank APY</div>
+                </div>
+                <div class="info-card blue">
+                    <h4>The APY Difference Matters:</h4>
+                    <ul>
+                        <li>$10,000 at 0.01% = $1 interest/year</li>
+                        <li>$10,000 at 4.5% = $450 interest/year</li>
+                        <li>That's a $449 difference annually!</li>
+                        <li>Shop around for best rates</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 7: Key Considerations - Fees -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>Key Consideration: Fees & Costs</h2>
+        <span class="slide-number">7 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="balanced-layout">
+            <div class="content-panel">
+                <h3>Fees Can Add Up Quickly</h3>
+                <p>Hidden fees are one of the biggest ways financial institutions make money from customers. Know what you're paying for.</p>
+                <p><strong>Monthly Maintenance:</strong> $5-15/month unless you meet minimum requirements.</p>
+                <p><strong>Overdraft Fees:</strong> $25-35 per transaction when you spend more than your balance.</p>
+                <p><strong>ATM Fees:</strong> $2-5 per transaction at out-of-network ATMs.</p>
+                <div class="highlight-box">
+                    <p>💡 These fees can total $200+ per year. Many online banks and credit unions offer fee-free accounts.</p>
+                </div>
+            </div>
+            <div class="stats-panel">
+                <div class="stat-card rose">
+                    <div class="number">$35</div>
+                    <div class="label">Average Overdraft Fee</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">$180+</div>
+                    <div class="label">Annual Bank Fees (avg)</div>
+                </div>
+                <div class="info-card green">
+                    <h4>Questions to Ask:</h4>
+                    <ul>
+                        <li>Are there monthly fees?</li>
+                        <li>Can I waive fees with direct deposit?</li>
+                        <li>What's the overdraft policy?</li>
+                        <li>Which ATMs are free to use?</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 8: Interest Rates Comparison -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Key Consideration: Interest Rates</h2>
+        <span class="slide-number">8 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="comparison-grid">
+            <div class="compare-column left">
+                <h3>💰 Savings Interest (Want HIGH)</h3>
+                <ul>
+                    <li>Online banks: 4.0-5.0% APY</li>
+                    <li>Credit unions: 0.5-2.0% APY</li>
+                    <li>Traditional banks: 0.01-0.5% APY</li>
+                    <li>Higher APY = more interest earned</li>
+                    <li>Compound interest grows your money</li>
+                </ul>
+            </div>
+            <div class="vs-divider">
+                <span>VS</span>
+            </div>
+            <div class="compare-column right">
+                <h3>📉 Loan Interest (Want LOW)</h3>
+                <ul>
+                    <li>Credit unions: Often lowest rates</li>
+                    <li>Traditional banks: Competitive rates</li>
+                    <li>Online lenders: Varies widely</li>
+                    <li>Lower rate = pay less over time</li>
+                    <li>Compare APR, not just rate</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 9: Accessibility & Services -->
+<div class="slide slide-content">
+    <div class="slide-header blue">
+        <h2>Key Consideration: Access & Services</h2>
+        <span class="slide-number">9 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="concept-full">
+            <h3>What Access Do You Need?</h3>
+            <p>Your lifestyle and banking habits should influence which provider you choose. Consider how you'll access your money and what services matter to you.</p>
+            <ul>
+                <li><strong>Branch Locations:</strong> Important if you prefer in-person service or deposit cash frequently</li>
+                <li><strong>ATM Network:</strong> Larger networks mean fewer fees; some banks reimburse ATM fees</li>
+                <li><strong>Mobile Banking:</strong> Quality apps with mobile deposit, transfers, bill pay, budgeting tools</li>
+                <li><strong>Customer Service:</strong> 24/7 phone support, chat, response times for issues</li>
+                <li><strong>Loans & Credit:</strong> Auto loans, mortgages, credit cards, personal loans</li>
+                <li><strong>Investment Options:</strong> Some banks offer brokerage services; others don't</li>
+            </ul>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 10: Security -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>Key Consideration: Security</h2>
+        <span class="slide-number">10 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="balanced-layout">
+            <div class="content-panel">
+                <h3>Protecting Your Money</h3>
+                <p>Security should be a top priority when choosing any financial provider. Look for both insurance protection and digital security measures.</p>
+                <p><strong>FDIC Insurance:</strong> Protects bank deposits up to $250,000 per depositor.</p>
+                <p><strong>NCUA Insurance:</strong> Same protection for credit union deposits.</p>
+                <p><strong>SIPC Protection:</strong> Protects brokerage accounts up to $500,000.</p>
+                <p>Also look for: Two-factor authentication, fraud monitoring, and zero-liability protection.</p>
+            </div>
+            <div class="stats-panel">
+                <div class="stat-card green">
+                    <div class="number">$250K</div>
+                    <div class="label">FDIC/NCUA Insurance Limit</div>
+                </div>
+                <div class="stat-card purple">
+                    <div class="number">$500K</div>
+                    <div class="label">SIPC Protection Limit</div>
+                </div>
+                <div class="info-card">
+                    <h4>Security Features to Look For:</h4>
+                    <ul>
+                        <li>Two-factor authentication</li>
+                        <li>Fraud alerts & monitoring</li>
+                        <li>Zero-liability for fraud</li>
+                        <li>Secure mobile app features</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 11: Why Choosing Wisely Matters -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Why Your Choice Matters</h2>
+        <span class="slide-number">11 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="concept-full">
+            <h3>Long-Term Financial Impact</h3>
+            <p>The financial service provider you choose affects your money every single day. Over years, these differences compound into significant amounts.</p>
+            <ul>
+                <li><strong>Fee Savings:</strong> $200/year in avoided fees = $10,000 over 50 years (invested)</li>
+                <li><strong>Interest Earned:</strong> Higher APY on savings accelerates emergency fund and goals</li>
+                <li><strong>Loan Costs:</strong> 1% lower rate on car loan = $700+ saved over 5 years</li>
+                <li><strong>Investment Fees:</strong> 0.5% less in fees = tens of thousands more at retirement</li>
+                <li><strong>Convenience:</strong> Easy access reduces financial friction and stress</li>
+                <li><strong>Relationships:</strong> Good provider relationships help when you need loans or assistance</li>
+            </ul>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 12: Matching Provider to Needs -->
+<div class="slide slide-content">
+    <div class="slide-header blue">
+        <h2>Matching Provider to Your Needs</h2>
+        <span class="slide-number">12 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="balanced-layout">
+            <div class="content-panel">
+                <h3>Different Situations, Different Needs</h3>
+                <p><strong>College Student:</strong> Online bank with no fees, high APY savings, good mobile app.</p>
+                <p><strong>Someone Saving for a Purchase:</strong> Highest APY savings account, possibly a CD for fixed goals.</p>
+                <p><strong>Young Professional Investing:</strong> Robo-advisor or low-cost brokerage with retirement accounts.</p>
+                <p><strong>Small Business Owner:</strong> Bank with business services, merchant processing, business loans.</p>
+            </div>
+            <div class="stats-panel">
+                <div class="stat-card">
+                    <div class="number">0.25%</div>
+                    <div class="label">Robo-Advisor Fee</div>
+                </div>
+                <div class="stat-card rose">
+                    <div class="number">1.2%</div>
+                    <div class="label">Traditional Advisor Fee</div>
+                </div>
+                <div class="info-card blue">
+                    <h4>The Fee Difference Over Time:</h4>
+                    <ul>
+                        <li>$10,000 invested for 30 years at 7%</li>
+                        <li>At 0.25% fee: ~$70,000</li>
+                        <li>At 1.2% fee: ~$52,000</li>
+                        <li>That's $18,000 to fees!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 13: Example 1 - Sophia -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>Real-World Example</h2>
+        <span class="slide-number">13 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="scenario-layout">
+            <div class="scenario-card">
+                <div class="name">
+                    <div class="icon">👩‍🎓</div>
+                    Sophia: First Bank Account Decision
+                </div>
+                <p>Sophia is starting college and needs her first bank account. She's comparing two options:</p>
+                <p style="margin-top: 20px;"><span class="highlight-text">Option A (Online Bank):</span> No monthly fees, no minimum balance, 1.5% APY on savings, excellent mobile app.</p>
+                <p style="margin-top: 16px;"><span class="highlight-text">Option B (Local Credit Union):</span> Personalized service, local branches, 0.8% APY on savings, $5 monthly fee waived with $300 minimum.</p>
+                <p style="margin-top: 20px;">Which should she choose? It depends on her priorities—higher interest and no fees vs. in-person service.</p>
+            </div>
+            <div class="scenario-outcomes">
+                <div class="outcome-box after">
+                    <div class="label">Online Bank APY</div>
+                    <div class="value">1.5%</div>
+                    <div class="detail">$150/year on $10K savings</div>
+                </div>
+                <div class="outcome-box before">
+                    <div class="label">Credit Union APY</div>
+                    <div class="value">0.8%</div>
+                    <div class="detail">$80/year on $10K savings</div>
+                </div>
+                <div class="outcome-box after" style="background: var(--blue-light); border-color: var(--blue);">
+                    <div class="label" style="color: var(--blue);">Annual Difference</div>
+                    <div class="value">$70</div>
+                    <div class="detail">Online bank wins on rates</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 14: Example 2 - Ethan's Loan -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Real-World Example</h2>
+        <span class="slide-number">14 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="scenario-layout">
+            <div class="scenario-card">
+                <div class="name">
+                    <div class="icon">🚗</div>
+                    Ethan: Comparing Auto Loan Rates
+                </div>
+                <p>Ethan needs a <span class="highlight-text">$15,000 auto loan for 5 years</span> and is comparing rates from three lenders:</p>
+                <ul style="margin: 20px 0; font-size: 24px; list-style: none;">
+                    <li style="padding: 8px 0;">📊 His current bank: <strong>4.5% APR</strong></li>
+                    <li style="padding: 8px 0;">🤝 Local credit union: <strong>3.2% APR</strong></li>
+                    <li style="padding: 8px 0;">💻 Online lender: <strong>3.9% APR</strong></li>
+                </ul>
+                <p>The credit union offers the best rate. How much would Ethan save by choosing the credit union over his current bank?</p>
+            </div>
+            <div class="scenario-outcomes">
+                <div class="outcome-box before">
+                    <div class="label">Bank (4.5% APR)</div>
+                    <div class="value">$1,786</div>
+                    <div class="detail">Total interest paid</div>
+                </div>
+                <div class="outcome-box after">
+                    <div class="label">Credit Union (3.2%)</div>
+                    <div class="value">$1,256</div>
+                    <div class="detail">Total interest paid</div>
+                </div>
+                <div class="outcome-box after">
+                    <div class="label">Savings</div>
+                    <div class="value">$530</div>
+                    <div class="detail">By shopping around!</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 15: Discussion -->
+<div class="slide slide-discussion">
+    <div class="badge">Discussion</div>
+    <div class="question">Based on the examples of Sophia and Ethan, what factors do you think are most important when choosing a financial provider?<br><br>How might your priorities differ from theirs?</div>
+</div>
+
+<!-- SLIDE 16: Discussion 2 -->
+<div class="slide slide-discussion" style="background: linear-gradient(135deg, var(--primary) 0%, #6D29D8 100%);">
+    <div class="badge">Personal Reflection</div>
+    <div class="question">What financial goals do you have that might influence your choice of financial service provider?<br><br>Which features—fees, rates, convenience, or services—matter most to you right now?</div>
+</div>
+
+<!-- SLIDE 17: Check for Understanding -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Check for Understanding</h2>
+        <span class="slide-number">17 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="check-grid">
+            <div class="check-item">
+                <div class="q-num">Question 1</div>
+                <p>What is APY, and why does a higher APY benefit your savings?</p>
+            </div>
+            <div class="check-item">
+                <div class="q-num">Question 2</div>
+                <p>Name two advantages and two disadvantages of online-only banks.</p>
+            </div>
+            <div class="check-item">
+                <div class="q-num">Question 3</div>
+                <p>Why might someone choose a credit union over a traditional bank for a car loan?</p>
+            </div>
+            <div class="check-item">
+                <div class="q-num">Question 4</div>
+                <p>What's the difference between a robo-advisor and a traditional financial advisor? Which might be better for a young investor with $1,000?</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 18: Key Takeaways -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>Key Takeaways</h2>
+        <span class="slide-number">18 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="takeaway-grid">
+            <div class="takeaway-item">
+                <div class="number">1</div>
+                <div class="content">
+                    <h4>Compare Before Choosing</h4>
+                    <p>Fees, interest rates, accessibility, and services vary widely. Shopping around can save you thousands.</p>
+                </div>
+            </div>
+            <div class="takeaway-item">
+                <div class="number">2</div>
+                <div class="content">
+                    <h4>Fees Add Up</h4>
+                    <p>Monthly fees, overdraft charges, and ATM fees can cost $200+ annually. Many institutions offer fee-free options.</p>
+                </div>
+            </div>
+            <div class="takeaway-item">
+                <div class="number">3</div>
+                <div class="content">
+                    <h4>Match Provider to Needs</h4>
+                    <p>College students, savers, investors, and business owners have different needs—choose accordingly.</p>
+                </div>
+            </div>
+            <div class="takeaway-item">
+                <div class="number">4</div>
+                <div class="content">
+                    <h4>Security Matters</h4>
+                    <p>FDIC/NCUA insurance protects deposits up to $250,000. Also look for digital security features.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 19: Activity -->
+<div class="slide slide-content">
+    <div class="slide-header blue">
+        <h2>Student Activity</h2>
+        <span class="slide-number">19 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="activity-layout">
+            <div class="activity-main">
+                <h3>📋 Financial Provider Comparison</h3>
+                <p>Create a comparison chart for three different financial service providers: a local bank, a credit union, and an online bank.</p>
+                <p style="margin-top: 20px;">Research their fees, interest rates, services, and accessibility to determine which is best for different scenarios.</p>
+            </div>
+            <div class="activity-steps">
+                <div class="activity-step">
+                    <div class="step-num">1</div>
+                    <p>Identify 3 institutions to compare</p>
+                </div>
+                <div class="activity-step">
+                    <div class="step-num">2</div>
+                    <p>Research fees: monthly, overdraft, ATM</p>
+                </div>
+                <div class="activity-step">
+                    <div class="step-num">3</div>
+                    <p>Compare interest rates: savings APY, loan rates</p>
+                </div>
+                <div class="activity-step">
+                    <div class="step-num">4</div>
+                    <p>Evaluate accessibility: branches, ATMs, mobile app</p>
+                </div>
+                <div class="activity-step">
+                    <div class="step-num">5</div>
+                    <p>Recommend best provider for 3 scenarios</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 20: Closing -->
+<div class="slide slide-closing">
+    <svg class="logo-large" viewBox="0 0 1366 441.64" xmlns="http://www.w3.org/2000/svg" style="height: 100px;">
+        <style>.wht{fill:#fff}</style>
+        <path class="wht" d="M116.66,174.42h-17.75v34.04h17.4c11.89,0,18.71-6.26,18.71-17.19s-6.7-16.85-18.37-16.85Z"/>
+        <path class="wht" d="M219.87,2.27C99.62,2.27,2.14,99.75,2.14,220s97.48,217.73,217.73,217.73,217.73-97.48,217.73-217.73S340.12,2.27,219.87,2.27ZM120.72,230.14h-21.8v60.28h-27.08v-139.02h46.85c13.87,0,24.7,3.89,32.21,11.58,7.23,7.41,11.06,17.14,11.06,28.13,0,23.71-16.18,39.04-41.24,39.04ZM277,177.04h-13.7c-9.24,0-24.66,4.37-24.98,33.1h38.68v22.19h-38.75c-.37,34.39-21.88,58.35-52.61,58.35h-11.21v-25.14h11.21c25.09,0,27.35-26.03,27.5-33.21h-38.7v-22.19h38.75c.31-35.94,19.44-58.24,50.12-58.24h13.7v25.14ZM304.17,290.42v-139.02h26.24v116.13h46.17v22.89h-72.41Z"/>
+        <path class="wht" d="M545.29,144.12h30.91l51.92,147.31h-31.11l-9.89-31.32h-53.15l-9.68,31.32h-30.29l51.3-147.31ZM540.96,237.25h38.94l-13.19-42.44c-2.47-7.83-5.98-22.67-5.98-22.67h-.41s-3.71,14.83-6.18,22.67l-13.19,42.44Z"/>
+        <path class="wht" d="M632.03,238.69c0-31.52,20.6-55.84,52.74-55.84,27.4,0,44.3,15.87,48,38.74h-27.4c-1.86-9.27-9.06-16.28-19.37-16.28-16.9,0-25.55,12.98-25.55,33.38s8.04,33.38,25.14,33.38c11.33,0,19.37-5.98,21.22-17.93h26.99c-1.86,22.46-19.37,40.38-47.59,40.38-33.38,0-54.19-24.31-54.19-55.84Z"/>
+        <path class="wht" d="M814.36,279.69h-.41c-5.36,8.04-12.98,14.22-31.11,14.22-21.63,0-36.88-11.34-36.88-32.35,0-23.28,18.96-30.7,42.44-34,17.52-2.47,25.55-3.91,25.55-11.95,0-7.62-5.98-12.57-17.72-12.57-13.19,0-19.57,4.74-20.4,14.83h-24.93c.82-18.54,14.63-34.82,45.53-34.82s44.51,14.22,44.51,38.94v53.77c0,8.04,1.23,12.78,3.71,14.63v1.03h-26.99c-1.65-2.06-2.68-7.01-3.3-11.75ZM814.56,254.14v-15.86c-4.95,2.88-12.57,4.53-19.57,6.18-14.63,3.3-21.84,6.59-21.84,16.48s6.59,13.39,16.48,13.39c16.07,0,24.93-9.89,24.93-20.19Z"/>
+        <path class="wht" d="M856.59,238.69c0-32.96,18.75-55.84,45.12-55.84,14.84,0,24.11,6.8,29.88,15.66h.62v-54.39h28.02v147.31h-26.99v-13.8h-.41c-6.18,10.09-16.69,16.9-31.52,16.9-26.57,0-44.71-21.64-44.71-55.84ZM932.82,239.31c0-20.19-6.59-33.79-24.52-33.79-15.45,0-23.28,13.6-23.28,33.17s8.04,32.35,22.45,32.35c16.69,0,25.34-12.36,25.34-31.73Z"/>
+        <path class="wht" d="M976.29,238.48c0-31.32,21.22-55.63,52.13-55.63,34,0,52.13,25.96,52.13,63.66h-76.64c2.06,16.28,11.13,26.37,26.99,26.37,10.92,0,17.31-4.94,20.4-12.98h27.61c-3.91,18.75-20.6,34.62-47.8,34.62-35.03,0-54.81-24.52-54.81-56.04ZM1004.3,227.15h46.98c-.82-13.39-9.68-22.66-22.45-22.66-14.84,0-22.05,8.86-24.52,22.66Z"/>
+        <path class="wht" d="M1096.6,185.74h26.99v14.22h.62c5.77-9.69,16.07-17.1,30.7-17.1,13.39,0,24.11,7.42,29.26,18.54h.42c7.21-11.54,18.34-18.54,31.73-18.54,22.26,0,34.82,14.42,34.82,37.5v71.08h-28.02v-66.34c0-11.95-5.98-18.13-16.28-18.13-11.75,0-18.96,9.07-18.96,23.08v61.4h-28.02v-66.34c0-11.95-5.98-18.13-16.28-18.13-11.33,0-18.96,9.07-18.96,23.08v61.4h-28.02v-105.7Z"/>
+        <path class="wht" d="M1271.73,304h9.89c11.13,0,15.66-5.77,15.66-14.42,0-5.77-2.06-12.57-8.04-28.64l-28.44-75.2h29.46l15.66,47.59c3.3,9.68,6.8,23.08,6.8,23.08h.41s2.88-13.39,6.18-23.08l14.83-47.59h28.23l-36.88,108.37c-8.04,23.49-15.86,31.94-37.29,31.94h-16.48v-22.05Z"/>
+    </svg>
+    <div class="tagline">Building Financial Futures, One Lesson at a Time</div>
+    <div class="website">www.pflacademy.co</div>
+    <div class="copyright">© 2025 PFL Academy. All rights reserved.</div>
+</div>
+
+</body>
+</html>

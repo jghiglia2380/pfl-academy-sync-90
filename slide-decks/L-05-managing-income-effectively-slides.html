@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 1.5: Managing Income Effectively - PFL Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f3f4f6;
+            color: #1f2937;
+            line-height: 1.5;
+        }
+
+        .slide {
+            width: 1920px;
+            height: 1080px;
+            position: relative;
+            overflow: hidden;
+            background: white;
+            page-break-after: always;
+            margin: 0 auto 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Title Slide */
+        .slide-title {
+            background: linear-gradient(135deg, #4F46E5 0%, #3730A3 50%, #312E81 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 100px;
+        }
+
+        .slide-title .logo {
+            position: absolute;
+            top: 50px;
+            right: 60px;
+        }
+
+        .slide-title .chapter-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        .slide-title h1 {
+            font-size: 100px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            max-width: 80%;
+        }
+
+        .slide-title .subtitle {
+            font-size: 36px;
+            opacity: 0.9;
+            margin-bottom: 50px;
+            max-width: 70%;
+        }
+
+        .slide-title .standard-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255,255,255,0.15);
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 20px;
+        }
+
+        /* Hook Slide */
+        .slide-hook {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px;
+        }
+
+        .slide-hook .hook-label {
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #0D9488;
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        .slide-hook .essential-question {
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1.3;
+            max-width: 1400px;
+        }
+
+        .slide-hook .subtext {
+            margin-top: 50px;
+            font-size: 28px;
+            color: #94a3b8;
+            max-width: 1000px;
+        }
+
+        /* Content Slides */
+        .slide-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-header {
+            background: linear-gradient(135deg, #4F46E5, #4338CA);
+            color: white;
+            padding: 35px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 120px;
+        }
+
+        .slide-header.teal {
+            background: linear-gradient(135deg, #0D9488, #0F766E);
+        }
+
+        .slide-header.blue {
+            background: linear-gradient(135deg, #3B82F6, #2563EB);
+        }
+
+        .slide-header h2 {
+            font-size: 52px;
+            font-weight: 700;
+        }
+
+        .slide-header .slide-number {
+            font-size: 24px;
+            opacity: 0.9;
+            font-weight: 600;
+        }
+
+        .slide-body {
+            flex: 1;
+            padding: 50px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-footer {
+            height: 12px;
+            background: linear-gradient(90deg, #0D9488 0%, #4F46E5 50%, #0D9488 100%);
+        }
+
+        /* Objectives Grid */
+        .objectives-expanded {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            flex: 1;
+        }
+
+        .objective-card {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            border-radius: 20px;
+            padding: 40px;
+            border-left: 6px solid #4F46E5;
+        }
+
+        .objective-card h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #4F46E5;
+            margin-bottom: 15px;
+        }
+
+        .objective-card p {
+            font-size: 26px;
+            color: #475569;
+            line-height: 1.5;
+        }
+
+        /* Vocabulary Slides */
+        .vocab-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .vocab-row {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 50px;
+            align-items: start;
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .vocab-term {
+            background: linear-gradient(135deg, #4F46E5, #4338CA);
+            color: white;
+            padding: 25px 30px;
+            border-radius: 15px;
+            font-size: 26px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .vocab-content h4 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 12px;
+        }
+
+        .vocab-content p {
+            font-size: 24px;
+            color: #475569;
+            margin-bottom: 15px;
+        }
+
+        .vocab-content .example {
+            background: #dbeafe;
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-size: 22px;
+            color: #1e40af;
+        }
+
+        /* Balanced Layout */
+        .balanced-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            flex: 1;
+            align-items: center;
+        }
+
+        .content-panel h3 {
+            font-size: 38px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 25px;
+        }
+
+        .content-panel p {
+            font-size: 26px;
+            color: #475569;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .content-panel ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .content-panel li {
+            font-size: 25px;
+            color: #475569;
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+        }
+
+        .content-panel li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #0D9488;
+            font-weight: 700;
+        }
+
+        .stats-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #0D9488, #0F766E);
+            color: white;
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .stat-card.purple {
+            background: linear-gradient(135deg, #7C3AED, #6D28D9);
+        }
+
+        .stat-card.blue {
+            background: linear-gradient(135deg, #3B82F6, #2563EB);
+        }
+
+        .stat-card.green {
+            background: linear-gradient(135deg, #10B981, #059669);
+        }
+
+        .stat-card.rose {
+            background: linear-gradient(135deg, #F43F5E, #E11D48);
+        }
+
+        .stat-card .stat-number {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .stat-card .stat-label {
+            font-size: 22px;
+            opacity: 0.95;
+        }
+
+        /* 50/30/20 Special Layout */
+        .budget-rule {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            flex: 1;
+            align-items: stretch;
+        }
+
+        .budget-category {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            border-radius: 24px;
+            padding: 40px;
+            border-top: 8px solid #0D9488;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .budget-category.wants {
+            border-top-color: #3B82F6;
+        }
+
+        .budget-category.savings {
+            border-top-color: #10B981;
+        }
+
+        .budget-category .percentage {
+            font-size: 72px;
+            font-weight: 800;
+            color: #0D9488;
+            margin-bottom: 10px;
+        }
+
+        .budget-category.wants .percentage {
+            color: #3B82F6;
+        }
+
+        .budget-category.savings .percentage {
+            color: #10B981;
+        }
+
+        .budget-category h3 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+
+        .budget-category ul {
+            list-style: none;
+            padding: 0;
+            flex: 1;
+        }
+
+        .budget-category li {
+            font-size: 22px;
+            color: #475569;
+            padding: 10px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .budget-category li:last-child {
+            border-bottom: none;
+        }
+
+        /* Comparison Grid */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            flex: 1;
+        }
+
+        .comparison-column {
+            background: linear-gradient(180deg, #f8fafc, #f1f5f9);
+            border-radius: 24px;
+            padding: 40px;
+            border-top: 6px solid #0D9488;
+        }
+
+        .comparison-column.alt {
+            border-top-color: #4F46E5;
+        }
+
+        .comparison-column h3 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #0D9488;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .comparison-column.alt h3 {
+            color: #4F46E5;
+        }
+
+        .comparison-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .comparison-column li {
+            font-size: 24px;
+            color: #475569;
+            padding: 15px 0;
+            border-bottom: 1px solid #e2e8f0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .comparison-column li:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-column li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #0D9488;
+            font-weight: 700;
+            font-size: 28px;
+        }
+
+        .comparison-column.alt li::before {
+            color: #4F46E5;
+        }
+
+        /* Info Cards */
+        .info-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            padding: 25px 30px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .info-card.green {
+            background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+        }
+
+        .info-card.purple {
+            background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+        }
+
+        .info-card.teal {
+            background: linear-gradient(135deg, #ccfbf1, #99f6e4);
+        }
+
+        .info-card .icon {
+            font-size: 36px;
+        }
+
+        .info-card .content {
+            flex: 1;
+        }
+
+        .info-card h4 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 5px;
+        }
+
+        .info-card p {
+            font-size: 20px;
+            color: #475569;
+        }
+
+        /* Scenario Layout */
+        .scenario-layout {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .scenario-header {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+
+        .scenario-avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #0D9488, #0F766E);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 42px;
+            color: white;
+            font-weight: 700;
+        }
+
+        .scenario-avatar.negative {
+            background: linear-gradient(135deg, #F43F5E, #E11D48);
+        }
+
+        .scenario-intro h3 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+
+        .scenario-intro p {
+            font-size: 24px;
+            color: #64748b;
+        }
+
+        .scenario-content {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            padding: 35px;
+            border-radius: 20px;
+            flex: 1;
+        }
+
+        .scenario-content p {
+            font-size: 26px;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        .outcome-boxes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .outcome-box {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid #e2e8f0;
+        }
+
+        .outcome-box.success {
+            border-color: #10B981;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+        }
+
+        .outcome-box.warning {
+            border-color: #F59E0B;
+            background: linear-gradient(135deg, #fffbeb, #fef3c7);
+        }
+
+        .outcome-box.danger {
+            border-color: #F43F5E;
+            background: linear-gradient(135deg, #fff1f2, #ffe4e6);
+        }
+
+        .outcome-box .label {
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+
+        .outcome-box .value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .outcome-box.success .value { color: #059669; }
+        .outcome-box.warning .value { color: #D97706; }
+        .outcome-box.danger .value { color: #E11D48; }
+
+        /* Discussion Slides */
+        .slide-discussion {
+            background: linear-gradient(135deg, #0D9488, #0F766E);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px;
+        }
+
+        .slide-discussion.purple {
+            background: linear-gradient(135deg, #7C3AED, #5B21B6);
+        }
+
+        .slide-discussion .badge {
+            background: rgba(255,255,255,0.2);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .slide-discussion .discussion-question {
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.3;
+            max-width: 1400px;
+            margin-bottom: 50px;
+        }
+
+        .slide-discussion .prompts {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .slide-discussion .prompt {
+            background: rgba(255,255,255,0.15);
+            padding: 20px 35px;
+            border-radius: 15px;
+            font-size: 24px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Check for Understanding */
+        .check-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+            flex: 1;
+        }
+
+        .check-item {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            padding: 35px;
+            border-radius: 20px;
+            border-left: 5px solid #4F46E5;
+        }
+
+        .check-item:nth-child(2) { border-left-color: #0D9488; }
+        .check-item:nth-child(3) { border-left-color: #3B82F6; }
+        .check-item:nth-child(4) { border-left-color: #10B981; }
+
+        .check-item .number {
+            font-size: 22px;
+            font-weight: 700;
+            color: #4F46E5;
+            margin-bottom: 15px;
+        }
+
+        .check-item:nth-child(2) .number { color: #0D9488; }
+        .check-item:nth-child(3) .number { color: #3B82F6; }
+        .check-item:nth-child(4) .number { color: #10B981; }
+
+        .check-item p {
+            font-size: 26px;
+            color: #1e293b;
+            line-height: 1.5;
+        }
+
+        /* Takeaway Grid */
+        .takeaway-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+            flex: 1;
+        }
+
+        .takeaway-item {
+            background: linear-gradient(135deg, #4F46E5, #4338CA);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .takeaway-item:nth-child(2) {
+            background: linear-gradient(135deg, #0D9488, #0F766E);
+        }
+
+        .takeaway-item:nth-child(3) {
+            background: linear-gradient(135deg, #3B82F6, #2563EB);
+        }
+
+        .takeaway-item:nth-child(4) {
+            background: linear-gradient(135deg, #10B981, #059669);
+        }
+
+        .takeaway-item .icon {
+            font-size: 36px;
+            line-height: 1;
+        }
+
+        .takeaway-item p {
+            font-size: 26px;
+            line-height: 1.5;
+        }
+
+        /* Activity Slide */
+        .activity-layout {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .activity-info h3 {
+            font-size: 40px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+
+        .activity-info .description {
+            font-size: 26px;
+            color: #475569;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .activity-info .materials {
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            padding: 20px 25px;
+            border-radius: 12px;
+            font-size: 22px;
+            color: #1e40af;
+        }
+
+        .activity-steps {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            padding: 40px;
+            border-radius: 24px;
+        }
+
+        .activity-steps h4 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 25px;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .step:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #4F46E5, #4338CA);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .step p {
+            font-size: 22px;
+            color: #475569;
+            padding-top: 6px;
+        }
+
+        /* Closing Slide */
+        .slide-closing {
+            background: linear-gradient(135deg, #4F46E5 0%, #3730A3 50%, #312E81 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px;
+        }
+
+        .slide-closing .logo-large {
+            margin-bottom: 50px;
+        }
+
+        .slide-closing .tagline {
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .slide-closing .website {
+            font-size: 36px;
+            opacity: 0.9;
+            margin-bottom: 50px;
+        }
+
+        .slide-closing .copyright {
+            font-size: 22px;
+            opacity: 0.7;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+            .slide {
+                box-shadow: none;
+                margin: 0;
+                page-break-after: always;
+                page-break-inside: avoid;
+            }
+        }
+
+        /* Logo SVG Styles */
+        .logo svg {
+            height: 70px;
+            width: auto;
+        }
+
+        .logo-large svg {
+            height: 120px;
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Slide 1: Title -->
+    <div class="slide slide-title">
+        <div class="logo">
+            <svg viewBox="0 0 200 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 35C10 20 25 10 40 10C55 10 65 20 65 30C65 45 45 50 40 65C35 50 15 45 15 30" stroke="white" stroke-width="3" fill="none"/>
+                <path d="M40 25C45 25 50 30 50 35C50 42 43 45 40 52C37 45 30 42 30 35C30 30 35 25 40 25Z" fill="white"/>
+                <text x="80" y="45" font-family="Inter" font-size="32" font-weight="800" fill="white">PFL Academy</text>
+            </svg>
+        </div>
+        <div class="chapter-badge">Chapter 1.5</div>
+        <h1>Managing Your Income Effectively</h1>
+        <p class="subtitle">Master the 50/30/20 rule, build emergency funds, and make your money work for you in {{STATE_NAME}}</p>
+        <div class="standard-badge">
+            <span>Standard 1: Financial Foundations</span>
+        </div>
+    </div>
+
+    <!-- Slide 2: Hook -->
+    <div class="slide slide-hook">
+        <div class="hook-label">Essential Question</div>
+        <p class="essential-question">Why do people with the same income have vastly different financial outcomes?</p>
+        <p class="subtext">It's not just about how much you earn—it's about how effectively you manage what you have</p>
+    </div>
+
+    <!-- Slide 3: Learning Objectives -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>Learning Objectives</h2>
+            <span class="slide-number">3 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="objectives-expanded">
+                <div class="objective-card">
+                    <h3>Create</h3>
+                    <p>Create and manage a personal budget using the 50/30/20 rule to allocate income effectively</p>
+                </div>
+                <div class="objective-card">
+                    <h3>Differentiate</h3>
+                    <p>Differentiate between financial needs and wants to make conscious spending decisions</p>
+                </div>
+                <div class="objective-card">
+                    <h3>Understand</h3>
+                    <p>Understand the importance of emergency funds and saving strategies for financial security</p>
+                </div>
+                <div class="objective-card">
+                    <h3>Develop</h3>
+                    <p>Develop a personalized income management plan aligned with your values and goals</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 4: Key Terms 1 -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Key Terms</h2>
+            <span class="slide-number">4 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="vocab-container">
+                <div class="vocab-row">
+                    <div class="vocab-term">Budget</div>
+                    <div class="vocab-content">
+                        <h4>A plan that tracks income and expenses to guide financial decisions</h4>
+                        <p>Budgets provide financial freedom by ensuring your money goes where you want it to go</p>
+                        <div class="example">Example: Tracking monthly income of $3,000 across categories</div>
+                    </div>
+                </div>
+                <div class="vocab-row">
+                    <div class="vocab-term">50/30/20 Rule</div>
+                    <div class="vocab-content">
+                        <h4>A budgeting framework for allocating income</h4>
+                        <p>50% to needs, 30% to wants, and 20% to savings and debt repayment</p>
+                        <div class="example">Example: On $3,000/month: $1,500 needs, $900 wants, $600 savings</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 5: Key Terms 2 -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Key Terms</h2>
+            <span class="slide-number">5 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="vocab-container">
+                <div class="vocab-row">
+                    <div class="vocab-term">Emergency Fund</div>
+                    <div class="vocab-content">
+                        <h4>Money set aside specifically for unexpected expenses</h4>
+                        <p>Provides a buffer between you and life's uncertainties—job loss, car repairs, medical bills</p>
+                        <div class="example">Goal: 3-6 months of essential expenses; start with $500-1,000</div>
+                    </div>
+                </div>
+                <div class="vocab-row">
+                    <div class="vocab-term">Compound Interest</div>
+                    <div class="vocab-content">
+                        <h4>Earning interest on both principal and accumulated interest</h4>
+                        <p>Creates exponential growth over long periods—your money makes money</p>
+                        <div class="example">Example: $1,000 at 7% becomes $2,000 in ~10 years, $4,000 in ~20 years</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 6: Core Concept 1 - Why Budgeting Matters -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>Why Budgeting Matters</h2>
+            <span class="slide-number">6 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="balanced-layout">
+                <div class="content-panel">
+                    <h3>Take Control of Your Financial Life</h3>
+                    <p>A budget isn't restrictive—it provides freedom by ensuring your money goes where YOU want it to go.</p>
+                    <ul>
+                        <li>Stop wondering where your money went</li>
+                        <li>Avoid overspending and debt accumulation</li>
+                        <li>Save systematically for important goals</li>
+                        <li>Prepare for unexpected expenses</li>
+                        <li>Make informed spending decisions</li>
+                    </ul>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card">
+                        <div class="stat-number">80%</div>
+                        <div class="stat-label">Of budgeters report less financial stress</div>
+                    </div>
+                    <div class="stat-card purple">
+                        <div class="stat-number">2x</div>
+                        <div class="stat-label">More likely to achieve financial goals</div>
+                    </div>
+                    <div class="stat-card green">
+                        <div class="stat-number">56%</div>
+                        <div class="stat-label">Of Americans don't track spending</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 7: The 50/30/20 Rule -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>The 50/30/20 Rule</h2>
+            <span class="slide-number">7 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="budget-rule">
+                <div class="budget-category">
+                    <div class="percentage">50%</div>
+                    <h3>Needs</h3>
+                    <ul>
+                        <li>Housing (rent/mortgage)</li>
+                        <li>Utilities</li>
+                        <li>Groceries</li>
+                        <li>Transportation</li>
+                        <li>Healthcare</li>
+                        <li>Minimum debt payments</li>
+                    </ul>
+                </div>
+                <div class="budget-category wants">
+                    <div class="percentage">30%</div>
+                    <h3>Wants</h3>
+                    <ul>
+                        <li>Entertainment</li>
+                        <li>Dining out</li>
+                        <li>Hobbies/recreation</li>
+                        <li>Vacations</li>
+                        <li>Extra clothing</li>
+                        <li>Streaming services</li>
+                    </ul>
+                </div>
+                <div class="budget-category savings">
+                    <div class="percentage">20%</div>
+                    <h3>Savings & Debt</h3>
+                    <ul>
+                        <li>Emergency fund</li>
+                        <li>Retirement savings</li>
+                        <li>College savings</li>
+                        <li>Investments</li>
+                        <li>Extra debt payments</li>
+                        <li>Financial goals</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 8: Needs vs. Wants -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Needs vs. Wants</h2>
+            <span class="slide-number">8 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="comparison-grid">
+                <div class="comparison-column">
+                    <h3>Needs (Essential)</h3>
+                    <ul>
+                        <li>Basic housing (not luxury location)</li>
+                        <li>Nutritious food (not gourmet)</li>
+                        <li>Basic utilities</li>
+                        <li>Essential healthcare</li>
+                        <li>Transportation to work/school</li>
+                        <li>Minimum debt payments</li>
+                        <li>Basic phone service</li>
+                    </ul>
+                </div>
+                <div class="comparison-column alt">
+                    <h3>Wants (Non-essential)</h3>
+                    <ul>
+                        <li>Entertainment & recreation</li>
+                        <li>Dining out & takeout</li>
+                        <li>Premium services</li>
+                        <li>Designer/luxury versions</li>
+                        <li>Latest technology</li>
+                        <li>Vacations & travel</li>
+                        <li>Streaming subscriptions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 9: Emergency Funds -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>Your Financial Safety Net</h2>
+            <span class="slide-number">9 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="balanced-layout">
+                <div class="content-panel">
+                    <h3>Why Emergency Funds Matter</h3>
+                    <p>An emergency fund is your buffer against life's uncertainties, providing stability during challenging times.</p>
+                    <div class="info-cards" style="margin-top: 25px;">
+                        <div class="info-card teal">
+                            <div class="icon">🏥</div>
+                            <div class="content">
+                                <h4>Medical Emergencies</h4>
+                                <p>Unexpected health costs not covered by insurance</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="icon">🚗</div>
+                            <div class="content">
+                                <h4>Car Repairs</h4>
+                                <p>Sudden breakdowns or transportation issues</p>
+                            </div>
+                        </div>
+                        <div class="info-card green">
+                            <div class="icon">💼</div>
+                            <div class="content">
+                                <h4>Job Loss</h4>
+                                <p>Income reduction while finding new work</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card">
+                        <div class="stat-number">3-6</div>
+                        <div class="stat-label">Months of expenses recommended</div>
+                    </div>
+                    <div class="stat-card blue">
+                        <div class="stat-number">$500</div>
+                        <div class="stat-label">Starter goal for beginners</div>
+                    </div>
+                    <div class="stat-card rose">
+                        <div class="stat-number">40%</div>
+                        <div class="stat-label">Of Americans can't cover $400 emergency</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 10: Saving Strategies -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Effective Saving Strategies</h2>
+            <span class="slide-number">10 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="balanced-layout">
+                <div class="content-panel">
+                    <h3>Pay Yourself First</h3>
+                    <p>Treat savings as a non-negotiable expense—automate it so you never have to decide.</p>
+                    <ul>
+                        <li><strong>Automate transfers</strong> when you receive income</li>
+                        <li><strong>Set specific goals</strong> with amounts and timelines</li>
+                        <li><strong>Track your progress</strong> to maintain motivation</li>
+                        <li><strong>Separate accounts</strong> for different goals</li>
+                        <li><strong>Start small</strong> and increase over time</li>
+                        <li><strong>Adjust as needed</strong> when circumstances change</li>
+                    </ul>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card green">
+                        <div class="stat-number">Auto</div>
+                        <div class="stat-label">Automatic savings = consistent results</div>
+                    </div>
+                    <div class="stat-card purple">
+                        <div class="stat-number">$50</div>
+                        <div class="stat-label">Per week = $2,600/year</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">10%</div>
+                        <div class="stat-label">Minimum recommended savings rate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 11: Why It Matters -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Why It Matters</h2>
+            <span class="slide-number">11 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="balanced-layout">
+                <div class="content-panel">
+                    <h3>Beyond Just Money</h3>
+                    <p>Effective income management impacts every area of your life—not just your bank account.</p>
+                    <ul>
+                        <li><strong>Financial Stability:</strong> Protection against uncertainties</li>
+                        <li><strong>Freedom & Choice:</strong> Options instead of constraints</li>
+                        <li><strong>Mental Health:</strong> Reduced financial stress</li>
+                        <li><strong>Relationship Health:</strong> Fewer money conflicts</li>
+                        <li><strong>Future Security:</strong> Compound growth over time</li>
+                    </ul>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card rose">
+                        <div class="stat-number">#1</div>
+                        <div class="stat-label">Money is the top source of stress in the US</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">Life</div>
+                        <div class="stat-label">Habits you build now compound forever</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 12: Basic Investment Concepts -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>Make Your Money Work</h2>
+            <span class="slide-number">12 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="balanced-layout">
+                <div class="content-panel">
+                    <h3>Basic Investment Concepts</h3>
+                    <p>Understanding how money can grow over time is essential for long-term wealth building.</p>
+                    <div class="info-cards" style="margin-top: 20px;">
+                        <div class="info-card">
+                            <div class="icon">📈</div>
+                            <div class="content">
+                                <h4>Compound Interest</h4>
+                                <p>Earn interest on your interest = exponential growth</p>
+                            </div>
+                        </div>
+                        <div class="info-card green">
+                            <div class="icon">🥚</div>
+                            <div class="content">
+                                <h4>Diversification</h4>
+                                <p>Don't put all eggs in one basket—spread risk</p>
+                            </div>
+                        </div>
+                        <div class="info-card purple">
+                            <div class="icon">⏰</div>
+                            <div class="content">
+                                <h4>Time Horizon</h4>
+                                <p>Longer time = more growth opportunity</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card green">
+                        <div class="stat-number">Early</div>
+                        <div class="stat-label">Starting early is your biggest advantage</div>
+                    </div>
+                    <div class="stat-card blue">
+                        <div class="stat-number">7%</div>
+                        <div class="stat-label">Historical average market return</div>
+                    </div>
+                    <div class="stat-card purple">
+                        <div class="stat-number">10 yrs</div>
+                        <div class="stat-label">To double money at 7% return</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 13: Real-World Example 1 - Casey -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Real-World Example</h2>
+            <span class="slide-number">13 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="scenario-layout">
+                <div class="scenario-header">
+                    <div class="scenario-avatar">C</div>
+                    <div class="scenario-intro">
+                        <h3>Casey's Proactive Approach</h3>
+                        <p>Following the 50/30/20 rule with $3,000/month</p>
+                    </div>
+                </div>
+                <div class="scenario-content">
+                    <p>Casey creates a monthly budget: $1,500 (50%) for needs including rent, utilities, groceries, and transportation. $900 (30%) for wants like dining out, entertainment, and hobbies. $600 (20%) for savings—$300 to emergency fund, $200 to retirement, $100 extra to student loans.</p>
+                    <p style="margin-top: 15px;">Casey tracks all expenses weekly using a budgeting app, automates savings transfers, and has built a 3-month emergency fund ($4,500) over the past year.</p>
+                </div>
+                <div class="outcome-boxes">
+                    <div class="outcome-box success">
+                        <div class="label">Emergency Fund</div>
+                        <div class="value">$4,500</div>
+                    </div>
+                    <div class="outcome-box success">
+                        <div class="label">Monthly Savings</div>
+                        <div class="value">$600</div>
+                    </div>
+                    <div class="outcome-box success">
+                        <div class="label">Result</div>
+                        <div class="value">Financial Stability</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 14: Real-World Example 2 - Taylor -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Real-World Example</h2>
+            <span class="slide-number">14 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="scenario-layout">
+                <div class="scenario-header">
+                    <div class="scenario-avatar negative">T</div>
+                    <div class="scenario-intro">
+                        <h3>Taylor's Reactive Approach</h3>
+                        <p>Same income, different outcome</p>
+                    </div>
+                </div>
+                <div class="scenario-content">
+                    <p>Taylor also earns $3,000/month but takes no systematic approach—pays bills as they arrive and spends freely until running low. Frequently overspends on dining out and entertainment, using credit cards to cover shortfalls.</p>
+                    <p style="margin-top: 15px;">Taylor has accumulated $4,000 in credit card debt at 18% interest, has no emergency savings, and misses the employer's 401(k) match. When unexpected expenses arise, more credit card debt follows.</p>
+                </div>
+                <div class="outcome-boxes">
+                    <div class="outcome-box danger">
+                        <div class="label">Credit Card Debt</div>
+                        <div class="value">$4,000</div>
+                    </div>
+                    <div class="outcome-box danger">
+                        <div class="label">Emergency Fund</div>
+                        <div class="value">$0</div>
+                    </div>
+                    <div class="outcome-box danger">
+                        <div class="label">Result</div>
+                        <div class="value">Financial Stress</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 15: Discussion -->
+    <div class="slide slide-discussion">
+        <div class="badge">Discussion</div>
+        <p class="discussion-question">Casey and Taylor earn the same amount. Why do they have such different financial outcomes?</p>
+        <div class="prompts">
+            <div class="prompt">What helped Casey succeed?</div>
+            <div class="prompt">What changes should Taylor make?</div>
+            <div class="prompt">How will these choices affect each in 5 years?</div>
+        </div>
+    </div>
+
+    <!-- Slide 16: Personal Reflection -->
+    <div class="slide slide-discussion purple">
+        <div class="badge">Personal Reflection</div>
+        <p class="discussion-question">What is one specific change you could implement immediately to improve your financial management?</p>
+        <div class="prompts">
+            <div class="prompt">Do you currently track your spending?</div>
+            <div class="prompt">How do you distinguish needs from wants?</div>
+            <div class="prompt">What steps have you taken toward an emergency fund?</div>
+        </div>
+    </div>
+
+    <!-- Slide 17: Check for Understanding -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>Check for Understanding</h2>
+            <span class="slide-number">17 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="check-grid">
+                <div class="check-item">
+                    <div class="number">Question 1</div>
+                    <p>Explain the 50/30/20 rule and give an example of how to apply it to a $2,000 monthly income.</p>
+                </div>
+                <div class="check-item">
+                    <div class="number">Question 2</div>
+                    <p>What is the difference between a need and a want? Give an example of when an item could be either.</p>
+                </div>
+                <div class="check-item">
+                    <div class="number">Question 3</div>
+                    <p>Why is an emergency fund important, and how much should you aim to save?</p>
+                </div>
+                <div class="check-item">
+                    <div class="number">Question 4</div>
+                    <p>What does "pay yourself first" mean, and why is automating savings effective?</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 18: Key Takeaways -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Key Takeaways</h2>
+            <span class="slide-number">18 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="takeaway-grid">
+                <div class="takeaway-item">
+                    <span class="icon">📊</span>
+                    <p>The 50/30/20 rule provides a simple framework: 50% needs, 30% wants, 20% savings and debt repayment</p>
+                </div>
+                <div class="takeaway-item">
+                    <span class="icon">🎯</span>
+                    <p>Distinguishing needs from wants helps you make conscious spending decisions aligned with your values</p>
+                </div>
+                <div class="takeaway-item">
+                    <span class="icon">🛡️</span>
+                    <p>An emergency fund (3-6 months of expenses) is your financial safety net against life's uncertainties</p>
+                </div>
+                <div class="takeaway-item">
+                    <span class="icon">🔄</span>
+                    <p>Paying yourself first through automated savings turns good intentions into consistent results</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 19: Student Activity -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Skill Builder: Personal Budget Creation</h2>
+            <span class="slide-number">19 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="activity-layout">
+                <div class="activity-info">
+                    <h3>Create Your 50/30/20 Budget</h3>
+                    <p class="description">Using the interactive spreadsheet template, create a personal budget that allocates income according to the 50/30/20 rule.</p>
+                    <div class="materials">
+                        <strong>Scenario:</strong> You work part-time and earn $1,200/month. Create a budget that balances your needs, wants, and savings.
+                    </div>
+                </div>
+                <div class="activity-steps">
+                    <h4>Steps to Complete:</h4>
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <p>Enter your monthly income ($1,200 or your actual income)</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <p>Calculate your 50/30/20 targets: $600 needs, $360 wants, $240 savings</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <p>Allocate specific expenses within each category</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <p>Review and adjust to ensure balance</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <p>Identify one area to reduce expenses and increase savings</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 20: Closing -->
+    <div class="slide slide-closing">
+        <div class="logo-large">
+            <svg viewBox="0 0 200 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 35C10 20 25 10 40 10C55 10 65 20 65 30C65 45 45 50 40 65C35 50 15 45 15 30" stroke="white" stroke-width="3" fill="none"/>
+                <path d="M40 25C45 25 50 30 50 35C50 42 43 45 40 52C37 45 30 42 30 35C30 30 35 25 40 25Z" fill="white"/>
+                <text x="80" y="45" font-family="Inter" font-size="32" font-weight="800" fill="white">PFL Academy</text>
+            </svg>
+        </div>
+        <p class="tagline">Budget Smart. Save First. Build Wealth.</p>
+        <p class="website">www.pflacademy.co</p>
+        <p class="copyright">© 2025 PFL Academy. All rights reserved.</p>
+    </div>
+
+</body>
+</html>
