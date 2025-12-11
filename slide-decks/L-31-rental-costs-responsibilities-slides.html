@@ -1027,8 +1027,8 @@
                     <p>Money paid upfront to cover potential damages beyond normal wear and tear—typically refundable.</p>
                 </div>
                 <div class="vocab-example-box">
-                    <div class="label">Typical Amount</div>
-                    <p>Usually 1-2 months' rent; returned within 14-30 days after move-out (varies by state)</p>
+                    <div class="label">In {{STATE_NAME}}</div>
+                    <p>Maximum {{STATE_SECURITY_DEPOSIT_LIMIT}}; must be returned within {{STATE_DEPOSIT_RETURN_DAYS}} days after move-out</p>
                 </div>
             </div>
         </div>
@@ -1092,7 +1092,7 @@
                 <li><strong>Lease Duration:</strong> Start/end dates, renewal options, early termination fees</li>
                 <li><strong>Policies & Rules:</strong> Pets, guests, noise, smoking, alterations allowed</li>
                 <li><strong>Utilities:</strong> What's included vs. tenant responsibility</li>
-                <li><strong>Entry Rights:</strong> When landlord can enter (usually 24-48 hour notice required)</li>
+                <li><strong>Entry Rights:</strong> When landlord can enter ({{STATE_NAME}} requires {{STATE_ENTRY_NOTICE_HOURS}} hour notice)</li>
             </ul>
         </div>
     </div>
@@ -1317,16 +1317,16 @@
                 <p><strong>Right to Privacy:</strong> Landlords must give proper notice (usually 24-48 hours) before entering, except in emergencies.</p>
                 <p><strong>Right to Security Deposit Protection:</strong> Laws regulate how deposits are held and returned.</p>
                 <div class="highlight-box">
-                    <p>⚖️ If your landlord violates your rights, document everything and know how to file complaints with local housing authorities.</p>
+                    <p>⚖️ If your landlord violates your rights, document everything. In {{STATE_NAME}}, file complaints at: {{STATE_LANDLORD_TENANT_URL}}</p>
                 </div>
             </div>
             <div class="stats-panel">
                 <div class="stat-card green">
-                    <div class="number">24-48hr</div>
-                    <div class="label">Typical Entry Notice Required</div>
+                    <div class="number">{{STATE_ENTRY_NOTICE_HOURS}}hr</div>
+                    <div class="label">{{STATE_NAME}} Entry Notice</div>
                 </div>
                 <div class="stat-card purple">
-                    <div class="number">14-30</div>
+                    <div class="number">{{STATE_DEPOSIT_RETURN_DAYS}}</div>
                     <div class="label">Days to Return Deposit</div>
                 </div>
                 <div class="info-card green">
@@ -1357,12 +1357,12 @@
                     <div class="icon">👩‍💼</div>
                     Emma's First Apartment
                 </div>
-                <p>Emma recently graduated from college and moved to a new city for her first job. She found a one-bedroom apartment for <span class="highlight-text">$1,200/month</span> in a convenient location near work.</p>
+                <p>Emma recently graduated from college and moved to {{STATE_NAME}} for her first job. She found a one-bedroom apartment for <span class="highlight-text">${{STATE_MEDIAN_RENT}}/month</span> ({{STATE_NAME}} median; national avg: $1,372) in a convenient location near work.</p>
                 <p style="margin-top: 16px;"><strong>Before signing, Emma calculated:</strong></p>
                 <ul style="margin: 12px 0; font-size: 24px; list-style: none;">
                     <li style="padding: 6px 0;">• Application fee: $50</li>
-                    <li style="padding: 6px 0;">• Security deposit: $1,200</li>
-                    <li style="padding: 6px 0;">• First + last month: $2,400</li>
+                    <li style="padding: 6px 0;">• Security deposit: ${{STATE_MEDIAN_RENT}}</li>
+                    <li style="padding: 6px 0;">• First + last month: ${{CALCULATED_TWO_MONTHS_RENT}}</li>
                     <li style="padding: 6px 0;">• Utility activation: $150</li>
                     <li style="padding: 6px 0;">• Moving costs: $500</li>
                 </ul>
@@ -1370,17 +1370,17 @@
             <div class="scenario-outcomes">
                 <div class="outcome-box before">
                     <div class="label">Total Upfront Cost</div>
-                    <div class="value">$4,300</div>
+                    <div class="value">${{CALCULATED_MOVE_IN_TOTAL}}</div>
                     <div class="detail">Needed before move-in</div>
                 </div>
                 <div class="outcome-box after" style="background: var(--blue-light); border-color: var(--blue);">
                     <div class="label" style="color: var(--blue);">Monthly Expenses</div>
-                    <div class="value">$1,405</div>
+                    <div class="value">${{CALCULATED_MONTHLY_HOUSING}}</div>
                     <div class="detail">Rent + utilities + insurance</div>
                 </div>
                 <div class="outcome-box after">
                     <div class="label">Income Needed</div>
-                    <div class="value">$56K+</div>
+                    <div class="value">${{CALCULATED_MIN_INCOME_RENTAL}}</div>
                     <div class="detail">To keep housing under 30%</div>
                 </div>
             </div>

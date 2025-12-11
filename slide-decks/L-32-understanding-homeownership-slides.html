@@ -246,8 +246,8 @@
                     <p>Initial upfront payment toward the purchase price, typically 3-20% of the home's value.</p>
                 </div>
                 <div class="vocab-example-box">
-                    <div class="label">Example</div>
-                    <p>A $300K home with 10% down = $30,000 down payment, $270K mortgage</p>
+                    <div class="label">{{STATE_NAME}} Example</div>
+                    <p>A ${{STATE_MEDIAN_HOME_PRICE}} home with 10% down = ${{CALCULATED_DOWN_PAYMENT_10PCT}} down payment, ${{CALCULATED_MORTGAGE_AMOUNT}} mortgage</p>
                 </div>
             </div>
         </div>
@@ -473,8 +473,8 @@
             <h3>Monthly and Annual Costs Beyond the Mortgage</h3>
             <p>Your mortgage payment is just one piece. Budget for <strong>all these ongoing expenses</strong> to understand your true housing cost.</p>
             <ul>
-                <li><strong>Property Taxes:</strong> 0.5-2.5% of home value annually (varies by location)</li>
-                <li><strong>Homeowner's Insurance:</strong> $800-$1,500+ annually for average homes</li>
+                <li><strong>Property Taxes:</strong> {{STATE_PROPERTY_TAX_AVG}}% of home value annually in {{STATE_NAME}} (national avg: 1.1%)</li>
+                <li><strong>Homeowner's Insurance:</strong> ~${{STATE_HOMEOWNERS_AVG_MONTHLY}}/month in {{STATE_NAME}} (national avg: $175/mo)</li>
                 <li><strong>PMI (if applicable):</strong> 0.5-1% of loan amount annually</li>
                 <li><strong>HOA Fees:</strong> $100-$700+ monthly in applicable communities</li>
                 <li><strong>Maintenance:</strong> Budget ~1% of home value annually ($2,500 for $250K home)</li>
@@ -581,9 +581,9 @@
                     <div class="icon">👨‍👩‍👧</div>
                     The Garcias' First Home Purchase
                 </div>
-                <p>David and Sofia Garcia, ages 32 and 30, saved for 4 years while renting. They purchased a <span class="highlight-text">${{STATE_MEDIAN_HOME_PRICE}} home in {{STATE_NAME}}</span> using an FHA loan with 3.5% down payment.</p>
+                <p>David and Sofia Garcia, ages 32 and 30, saved for 4 years while renting. They purchased a <span class="highlight-text">${{STATE_MEDIAN_HOME_PRICE}} home in {{STATE_NAME}}</span> (national median: $417,000) using an FHA loan with 3.5% down payment.</p>
                 <p style="margin-top: 16px;"><strong>Their preparation:</strong> Improved credit scores from 620 to 710, paid off car loans, built emergency fund separate from down payment savings.</p>
-                <p style="margin-top: 12px;"><strong>Monthly costs:</strong> $1,800 mortgage + $250 taxes + $125 insurance + $150 PMI + $200 maintenance = <span class="highlight-text">$2,525/month</span></p>
+                <p style="margin-top: 12px;"><strong>Monthly costs:</strong> ${{CALCULATED_MONTHLY_MORTGAGE}} mortgage + ${{CALCULATED_PROPERTY_TAX_MONTHLY}} taxes + ${{STATE_HOMEOWNERS_AVG_MONTHLY}} insurance + ${{CALCULATED_PMI_MONTHLY}} PMI + $200 maintenance = <span class="highlight-text">${{CALCULATED_TOTAL_HOUSING_MONTHLY}}/month</span></p>
             </div>
             <div class="scenario-outcomes">
                 <div class="outcome-box before">
