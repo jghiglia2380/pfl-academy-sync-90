@@ -21,7 +21,7 @@ By the end of this lesson, you will be able to:
 - **Job Board**: Online platform listing job openings across various industries and locations
 
 ## Introduction
-
+In {{STATE_NAME}}, 
 Welcome to Chapter 15.3: Job Application Process! In this lesson, we'll explore effective strategies for finding job opportunities and creating successful application materials. Understanding how to navigate the job application process is essential for landing opportunities that align with your skills, interests, and career goals. Today, we'll focus on job search strategies, interpreting job descriptions, and creating tailored application materials.
 
 The job application process is more than just sending out resumes—it requires research, preparation, and careful attention to detail. By developing a strategic approach to job searching and application submission, you can significantly increase your chances of securing interviews and finding positions that match your career aspirations and strengths.

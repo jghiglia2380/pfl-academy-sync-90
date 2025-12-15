@@ -19,6 +19,10 @@ Taxes are a fundamental part of our economic system, yet many people find them c
 
 In this lesson, we'll explore the different types of taxes that affect your income, particularly federal and state taxes. You'll learn how these taxes are calculated, how they vary across different states, and how they impact your take-home pay. By understanding tax systems better, you'll be equipped to make more informed decisions about your finances, career, and even where you choose to live.
 
+
+
+For example, in {{STATE_NAME}}, the state income tax rate is {{INCOME_TAX_RATE}}%, while the state sales tax is {{SALES_TAX}}%. With local sales taxes, the combined rate can reach up to {{COMBINED_SALES_TAX_MAX}}%.
+
 Whether you're just starting your first job or planning your long-term financial future, having a solid understanding of taxation will help you navigate financial decisions with greater confidence and clarity.
 
 ## Key Concepts

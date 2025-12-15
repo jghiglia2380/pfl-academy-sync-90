@@ -24,7 +24,7 @@ By the end of this lesson, students should be able to:
 - **Secured Credit Cards**: Credit cards that require a security deposit, often used to rebuild credit.
 
 ## Introduction
-
+In {{STATE_NAME}}, 
 This lesson focuses on strategies for managing overwhelming debt, discussing options such as debt management plans, debt consolidation, and debt settlement, and when bankruptcy might be necessary. The goal is to understand the different approaches available to tackle high levels of debt, the implications of each strategy, and the importance of rebuilding credit after financial setbacks.
 
 When debt becomes overwhelming, it's important to understand that there are various strategies available to help manage and eventually eliminate high levels of debt. Each approach has its advantages and disadvantages, and the best choice often depends on individual circumstances, the type of debt involved, and your overall financial situation.

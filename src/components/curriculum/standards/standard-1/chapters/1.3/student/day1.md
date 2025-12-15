@@ -15,9 +15,13 @@
 - Analyze how income deductions affect financial planning
 
 ## Introduction
-When you start working, understanding the difference between what you earn (gross income) and what you actually take home (net income) is essential for successful financial planning. This lesson explores income, taxes, and various deductions that affect your paycheck.
+When you start working in {{STATE_NAME}}, understanding the difference between what you earn (gross income) and what you actually take home (net income) is essential for successful financial planning. This lesson explores income, taxes, and various deductions that affect your paycheck.
 
 The gap between what you earn and what you receive can be substantial—often 20-30% of your gross income or more. These deductions fund important government programs, personal benefits, and future investments. Learning to navigate these deductions helps you make informed financial decisions and avoid surprises when you receive your first paycheck.
+
+
+
+Here in {{STATE_NAME}}, the state income tax rate is {{INCOME_TAX_RATE}}%, and the state {does not have} local income taxes. With a minimum wage of {{MIN_WAGE}}, understanding these deductions is crucial for financial planning.
 
 As you begin your career journey, this knowledge becomes a fundamental building block for budgeting, saving, and planning for your financial future.
 

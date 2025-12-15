@@ -21,7 +21,7 @@ By the end of this lesson, you will be able to:
 - **Professional Etiquette**: Expected behaviors in workplace settings that demonstrate respect and professionalism
 
 ## Introduction
-
+In {{STATE_NAME}}, 
 Welcome to Chapter 15.4: Interview Skills and Workplace Readiness! Job interviews are a critical step in the hiring process, providing employers an opportunity to assess your qualifications and fit for their organization. Likewise, interviews allow you to evaluate whether the position and company align with your career goals. Today, we'll explore effective interview preparation strategies, common interview formats and questions, and techniques for making a positive impression.
 
 Job interviews can be stressful, but with proper preparation and practice, you can approach them with confidence and professionalism. Developing strong interview skills is an investment that will benefit you throughout your career, helping you secure positions that match your qualifications and aspirations.

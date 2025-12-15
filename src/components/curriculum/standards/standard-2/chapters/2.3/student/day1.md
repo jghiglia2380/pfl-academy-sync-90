@@ -15,7 +15,7 @@
 - Explain when filing might benefit you even if it's not required
 
 ## Introduction
-Filing taxes is a responsibility that most Americans will face throughout their lives. Although it may seem intimidating at first, understanding tax filing requirements is an essential life skill that will serve you well into adulthood. The U.S. tax system operates largely on voluntary compliance, but that doesn't mean filing is optional—it means the government relies on citizens to accurately report their income and calculate their own tax obligations.
+In {{STATE_NAME}}, filing taxes is a responsibility that most Americans will face throughout their lives. Although it may seem intimidating at first, understanding tax filing requirements is an essential life skill that will serve you well into adulthood. The U.S. tax system operates largely on voluntary compliance, but that doesn't mean filing is optional—it means the government relies on citizens to accurately report their income and calculate their own tax obligations.
 
 Knowing when you need to file taxes, what forms you'll encounter, and how your filing status affects your tax situation helps you avoid penalties while ensuring you receive any refunds you're entitled to. For many young adults, filing taxes represents their first major interaction with the government's financial systems, making it a crucial stepping stone toward financial independence.
 

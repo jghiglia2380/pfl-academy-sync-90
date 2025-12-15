@@ -20,7 +20,7 @@ By the end of this lesson, you will be able to:
 - **Form 990**: An IRS tax form that nonprofit organizations must file annually, providing financial information
 
 ## Introduction
-
+In {{STATE_NAME}}, 
 In this lesson, we'll explore the importance of researching charitable organizations before making contributions. Not all charities operate with the same level of effectiveness or transparency. Learning how to evaluate nonprofits is an essential financial literacy skill that helps ensure your donations of money, time, or resources have the greatest positive impact.
 
 Charitable giving is a powerful way to support causes and communities that matter to you. However, not all organizations use donations with the same efficiency or effectiveness. Some may allocate large portions of their funds to administrative costs rather than direct program services, while others might not be legitimate at all. By developing skills to research and evaluate charitable organizations, you can become a more informed and impactful donor.

@@ -22,7 +22,7 @@ By the end of this lesson, you will be able to:
 - Asset Allocation
 
 ### Introduction
-
+In {{STATE_NAME}}, 
 In this lesson, we'll explore the various types of risks involved in saving and investing money. Understanding these risks is essential for making informed financial decisions that align with your goals and comfort level. While it's impossible to eliminate all risks, there are strategies you can use to manage them effectively.
 
 ### What is Risk?

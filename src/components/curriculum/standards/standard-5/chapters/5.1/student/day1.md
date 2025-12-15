@@ -3,7 +3,7 @@
 ## Day 1: Saving and Investing
 
 ### Introduction
-
+In {{STATE_NAME}}, 
 In this lesson, you will explore the fundamental differences between saving and investing and how these financial strategies can help you achieve both short-term and long-term goals. Understanding these concepts is essential for building financial literacy and making informed decisions about your money.
 
 ### Learning Objectives

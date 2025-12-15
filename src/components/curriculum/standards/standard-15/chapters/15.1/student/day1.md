@@ -21,7 +21,7 @@ By the end of this lesson, you will be able to:
 - **Career Development Plan**: A strategic roadmap outlining steps to achieve your professional goals
 
 ## Introduction
-
+In {{STATE_NAME}}, 
 Welcome to Chapter 15.1: Career Exploration and Goal Setting! In this lesson, we'll explore the fundamental concepts of career exploration and begin developing a personalized career path. Understanding the difference between a job and a career, identifying your interests and skills, and setting clear goals are all crucial steps in planning for your professional future.
 
 While the terms "job" and "career" are often used interchangeably, they represent different concepts that can significantly impact how you approach your professional development. By understanding these distinctions and learning how to align your personal interests, skills, and values with potential career paths, you can make more informed decisions about your future.

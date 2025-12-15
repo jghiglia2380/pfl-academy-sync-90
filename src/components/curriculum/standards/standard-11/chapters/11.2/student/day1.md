@@ -25,10 +25,14 @@ By the end of this lesson, you will be able to:
 - **Liability**: Legal responsibility for damages or injuries to another person or their property
 
 ## Introduction
-
+In {{STATE_NAME}}, 
 Insurance is a crucial component of financial planning and risk management. While we can't prevent all risks in life, insurance helps protect us from major financial losses when unexpected events occur. This lesson explores how insurance works, the different types of insurance products available, and how to evaluate which coverage is appropriate for your specific needs and circumstances.
 
 Insurance is a risk transfer mechanism where you pay a relatively small, predictable amount (the premium) to protect against a much larger, unpredictable financial loss. It works on the principle of risk pooling—many people contribute to a fund that pays out to the few who experience losses.
+
+
+
+In {{STATE_NAME}}, the median home price is {{MEDIAN_HOME_PRICE}}, with mortgage rates around {{AVG_MORTGAGE_RATE_30YR}}%. Property taxes, averaging {{PROPERTY_TAX_COUNTY_RATE}}% at the county level, are an important consideration.
 
 ## Deeper Exploration
 
