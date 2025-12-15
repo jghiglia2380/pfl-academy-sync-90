@@ -199,7 +199,7 @@ For 30 states, gambling and philanthropy chapters are combined:
 | Decision | Status | Date |
 |----------|--------|------|
 | **L-56 to L-61** | ⏸️ PAUSED - Louisiana market analysis deferred | 2025-12-15 |
-| **Day 2 A+ upgrades** | 🔄 UNDER DISCUSSION - needs more conversation | 2025-12-15 |
+| **Day 2 A+ upgrades** | ❌ NOT NEEDED - Learning Labs serve different purpose, leave as-is | 2025-12-15 |
 | **File consolidation** | ✅ APPROVED - unify all files into one location | 2025-12-15 |
 | **Live webpage integration** | ⏳ PENDING - after file consolidation | — |
 
@@ -208,8 +208,7 @@ For 30 states, gambling and philanthropy chapters are combined:
 ## Pending Actions
 
 1. **File Consolidation**: Unify scattered local directories into single canonical location
-2. **Day 2 A+ Decision**: Determine if Learning Labs need Chart.js visualizations
-3. **Live Webpage Integration**: Add state variables after consolidation complete
+2. **Live Webpage Integration**: Add state variables after consolidation complete
 
 ---
 
@@ -242,3 +241,4 @@ A one-pager was created for stakeholder review of state variable implementation:
 |------|--------|
 | 2025-12-15 | Initial consolidation of 6 terminal sessions |
 | 2025-12-15 | Decisions recorded: Louisiana paused, file consolidation approved, Day 2 A+ under discussion |
+| 2025-12-15 | Day 2 A+ decision finalized: Not needed - Learning Labs serve different pedagogical purpose |
