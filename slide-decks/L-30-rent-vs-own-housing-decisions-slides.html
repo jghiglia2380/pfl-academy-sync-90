@@ -1047,7 +1047,7 @@
                 </div>
                 <div class="vocab-example-box">
                     <div class="label">Example</div>
-                    <p>A 12-month lease in {{STATE_NAME}} specifying ${{STATE_MEDIAN_RENT}}/month rent, pet policies, and maintenance responsibilities</p>
+                    <p>A 12-month lease in {{STATE_NAME}} specifying ${{MEDIAN_RENT}}/month rent, pet policies, and maintenance responsibilities</p>
                 </div>
             </div>
             <div class="vocab-row">
@@ -1060,7 +1060,7 @@
                 </div>
                 <div class="vocab-example-box">
                     <div class="label">Example</div>
-                    <p>Home worth ${{STATE_MEDIAN_HOME_PRICE}} with $350K mortgage = significant equity (your net worth in the property)</p>
+                    <p>Home worth ${{MEDIAN_HOME_PRICE}} with $350K mortgage = significant equity (your net worth in the property)</p>
                 </div>
             </div>
         </div>
@@ -1126,7 +1126,7 @@
             </div>
             <div class="stats-panel">
                 <div class="stat-card">
-                    <div class="number">${{STATE_MEDIAN_RENT}}</div>
+                    <div class="number">${{MEDIAN_RENT}}</div>
                     <div class="label">{{STATE_NAME}} Median Rent</div>
                 </div>
                 <div class="stat-card purple">
@@ -1198,14 +1198,14 @@
                 <h3>Financial Aspects of Owning</h3>
                 <p>Owning means purchasing property with a mortgage loan, giving you full rights as long as you maintain payments.</p>
                 <p><strong>Monthly costs include:</strong> Mortgage (principal + interest), property taxes, homeowner's insurance, HOA fees (if applicable), and maintenance.</p>
-                <p><strong>Upfront costs:</strong> Down payment (3-20% of ${{STATE_MEDIAN_HOME_PRICE}}) plus closing costs (2-5%).</p>
+                <p><strong>Upfront costs:</strong> Down payment (3-20% of ${{MEDIAN_HOME_PRICE}}) plus closing costs (2-5%).</p>
                 <div class="highlight-box">
                     <p>💰 Each mortgage payment builds equity—your ownership stake grows over time as you pay down the loan.</p>
                 </div>
             </div>
             <div class="stats-panel">
                 <div class="stat-card">
-                    <div class="number">${{STATE_MEDIAN_HOME_PRICE}}</div>
+                    <div class="number">${{MEDIAN_HOME_PRICE}}</div>
                     <div class="label">{{STATE_NAME}} Median Home Price</div>
                 </div>
                 <div class="stat-card green">
@@ -1264,7 +1264,7 @@
                 <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 14px;">
                     <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; background: white; border-radius: 8px;">
                         <span style="font-size: 24px; color: var(--text-body);">Median Rent</span>
-                        <span style="font-size: 24px; font-weight: 700; color: var(--primary);">${{STATE_MEDIAN_RENT}}/mo</span>
+                        <span style="font-size: 24px; font-weight: 700; color: var(--primary);">${{MEDIAN_RENT}}/mo</span>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; background: white; border-radius: 8px;">
                         <span style="font-size: 24px; color: var(--text-body);">Renter's Insurance</span>
@@ -1345,7 +1345,7 @@
                     <div class="label">{{STATE_NAME}} Avg. Mortgage Rate</div>
                 </div>
                 <div class="stat-card">
-                    <div class="number">${{STATE_MEDIAN_HOME_PRICE}}</div>
+                    <div class="number">${{MEDIAN_HOME_PRICE}}</div>
                     <div class="label">{{STATE_NAME}} Median Home Price</div>
                 </div>
                 <div class="info-card green">
@@ -1376,14 +1376,14 @@
                     <div class="icon">👩‍💻</div>
                     Amy's Smart Renting Decision in {{STATE_NAME}}
                 </div>
-                <p>Amy is a 25-year-old software developer who recently started her career in {{STATE_NAME}}. She chose to rent an apartment near downtown for <span class="highlight-text">${{STATE_MEDIAN_RENT}}/month</span>, close to her workplace and entertainment options.</p>
+                <p>Amy is a 25-year-old software developer who recently started her career in {{STATE_NAME}}. She chose to rent an apartment near downtown for <span class="highlight-text">${{MEDIAN_RENT}}/month</span>, close to her workplace and entertainment options.</p>
                 <p style="margin-top: 20px;"><strong>Her reasoning:</strong> As a young professional, Amy values <span class="highlight-text">flexibility to accept job opportunities</span> in different locations. Instead of saving for a down payment, she invests the difference in her 401(k) and index funds.</p>
-                <p style="margin-top: 16px;"><strong>Monthly breakdown:</strong> ${{STATE_MEDIAN_RENT}} rent + $20 renter's insurance + $150 utilities = approximately <span class="highlight-text">${{STATE_MEDIAN_RENT}} + $170/month total</span></p>
+                <p style="margin-top: 16px;"><strong>Monthly breakdown:</strong> ${{MEDIAN_RENT}} rent + $20 renter's insurance + $150 utilities = approximately <span class="highlight-text">${{MEDIAN_RENT}} + $170/month total</span></p>
             </div>
             <div class="scenario-outcomes">
                 <div class="outcome-box after" style="background: var(--blue-light); border-color: var(--blue);">
                     <div class="label" style="color: var(--blue);">Total Housing Cost</div>
-                    <div class="value">${{STATE_MEDIAN_RENT}}+</div>
+                    <div class="value">${{MEDIAN_RENT}}+</div>
                     <div class="detail">All-in monthly expense</div>
                 </div>
                 <div class="outcome-box after">
@@ -1415,7 +1415,7 @@
                     <div class="icon">👫</div>
                     John & Maria's Homeownership in {{STATE_NAME}}
                 </div>
-                <p>John and Maria, a married couple in their 30s with stable careers in {{STATE_NAME}}, purchased a home at the median price of <span class="highlight-text">${{STATE_MEDIAN_HOME_PRICE}}</span> with a 10% down payment and closing costs.</p>
+                <p>John and Maria, a married couple in their 30s with stable careers in {{STATE_NAME}}, purchased a home at the median price of <span class="highlight-text">${{MEDIAN_HOME_PRICE}}</span> with a 10% down payment and closing costs.</p>
                 <p style="margin-top: 16px;"><strong>Their reasoning:</strong> With established careers and plans to start a family, they wanted <span class="highlight-text">stability and the ability to build equity</span>. A fixed-rate mortgage at {{STATE_AVG_MORTGAGE_RATE}}% gives them predictable payments.</p>
                 <p style="margin-top: 16px;"><strong>Monthly breakdown:</strong> ${{CALCULATED_MONTHLY_MORTGAGE}} mortgage + ${{CALCULATED_PROPERTY_TAX_MONTHLY}} taxes + $150 insurance + $200 maintenance = <span class="highlight-text">substantial monthly investment</span></p>
             </div>
@@ -1444,7 +1444,7 @@
 <!-- SLIDE 15: Discussion -->
 <div class="slide slide-discussion">
     <div class="badge">Discussion</div>
-    <div class="question">Given {{STATE_NAME}}'s median home price of ${{STATE_MEDIAN_HOME_PRICE}} and median rent of ${{STATE_MEDIAN_RENT}}, which option makes more sense for someone in their 20s?<br><br>What factors would change your answer?</div>
+    <div class="question">Given {{STATE_NAME}}'s median home price of ${{MEDIAN_HOME_PRICE}} and median rent of ${{MEDIAN_RENT}}, which option makes more sense for someone in their 20s?<br><br>What factors would change your answer?</div>
 </div>
 
 <!-- SLIDE 16: Discussion 2 -->
@@ -1467,11 +1467,11 @@
             </div>
             <div class="check-item">
                 <div class="q-num">Question 2</div>
-                <p>In {{STATE_NAME}}, with a {{STATE_PROPERTY_TAX_AVG}}% property tax rate, how much would property taxes add to monthly costs on a ${{STATE_MEDIAN_HOME_PRICE}} home?</p>
+                <p>In {{STATE_NAME}}, with a {{STATE_PROPERTY_TAX_AVG}}% property tax rate, how much would property taxes add to monthly costs on a ${{MEDIAN_HOME_PRICE}} home?</p>
             </div>
             <div class="check-item">
                 <div class="q-num">Question 3</div>
-                <p>Why might renting at ${{STATE_MEDIAN_RENT}}/month be the smarter financial choice for someone early in their career?</p>
+                <p>Why might renting at ${{MEDIAN_RENT}}/month be the smarter financial choice for someone early in their career?</p>
             </div>
             <div class="check-item">
                 <div class="q-num">Question 4</div>
@@ -1515,7 +1515,7 @@
                 <div class="number">4</div>
                 <div class="content">
                     <h4>Know Your Numbers</h4>
-                    <p>Compare ${{STATE_MEDIAN_RENT}} rent vs. ${{CALCULATED_MONTHLY_MORTGAGE}}+ mortgage to make informed decisions</p>
+                    <p>Compare ${{MEDIAN_RENT}} rent vs. ${{CALCULATED_MONTHLY_MORTGAGE}}+ mortgage to make informed decisions</p>
                 </div>
             </div>
         </div>
@@ -1539,7 +1539,7 @@
             <div class="activity-steps">
                 <div class="activity-step">
                     <div class="step-num">1</div>
-                    <p>Calculate 5-year cost of renting at ${{STATE_MEDIAN_RENT}}/mo</p>
+                    <p>Calculate 5-year cost of renting at ${{MEDIAN_RENT}}/mo</p>
                 </div>
                 <div class="activity-step">
                     <div class="step-num">2</div>

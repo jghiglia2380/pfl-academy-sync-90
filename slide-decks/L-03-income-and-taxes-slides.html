@@ -1167,12 +1167,12 @@
                 <p>These deductions aren't just "lost money"—they fund government programs, personal benefits, and your future security.</p>
                 <p>Understanding this gap is essential for creating realistic budgets based on what you'll actually receive.</p>
                 <div class="highlight-box">
-                    <p>💡 In <span class="highlight-text">{{STATE_NAME}}</span>, state income tax is <strong>{{STATE_INCOME_TAX_RATE}}%</strong>, which affects your take-home pay.</p>
+                    <p>💡 In <span class="highlight-text">{{STATE_NAME}}</span>, state income tax is <strong>{{INCOME_TAX_RATE}}%</strong>, which affects your take-home pay.</p>
                 </div>
             </div>
             <div class="stats-panel">
                 <div class="stat-card">
-                    <div class="number">{{STATE_INCOME_TAX_RATE}}%</div>
+                    <div class="number">{{INCOME_TAX_RATE}}%</div>
                     <div class="label">{{STATE_NAME}} Income Tax Rate</div>
                 </div>
                 <div class="stat-card purple">
@@ -1201,8 +1201,8 @@
                 <h3>📋 Mandatory Deductions</h3>
                 <ul>
                     <li>Federal Income Tax (10-37%)</li>
-                    <li>{{STATE_NAME}} State Tax ({{STATE_INCOME_TAX_RATE}}%)</li>
-                    <li>Local Income Tax ({{STATE_LOCAL_INCOME_TAX}}%)</li>
+                    <li>{{STATE_NAME}} State Tax ({{INCOME_TAX_RATE}}%)</li>
+                    <li>Local Income Tax ({{LOCAL_INCOME_TAX}}%)</li>
                     <li>Social Security (6.2%)</li>
                     <li>Medicare (1.45%)</li>
                     <li>State Disability Insurance ({{STATE_SDI_RATE}}%)</li>
@@ -1246,7 +1246,7 @@
                     <span class="amount">-$480.00</span>
                 </div>
                 <div class="paycheck-line deduction">
-                    <span>{{STATE_NAME}} State Tax ({{STATE_INCOME_TAX_RATE}}%)</span>
+                    <span>{{STATE_NAME}} State Tax ({{INCOME_TAX_RATE}}%)</span>
                     <span class="amount">-${{CALCULATED_STATE_TAX_MONTHLY}}</span>
                 </div>
                 <div class="paycheck-line deduction">
@@ -1467,11 +1467,11 @@
             </div>
             <div class="stats-panel">
                 <div class="stat-card">
-                    <div class="number">{{STATE_INCOME_TAX_RATE}}%</div>
+                    <div class="number">{{INCOME_TAX_RATE}}%</div>
                     <div class="label">{{STATE_NAME}} State Tax</div>
                 </div>
                 <div class="stat-card purple">
-                    <div class="number">{{STATE_LOCAL_INCOME_TAX}}%</div>
+                    <div class="number">{{LOCAL_INCOME_TAX}}%</div>
                     <div class="label">Local Income Tax</div>
                 </div>
                 <div class="stat-card green">

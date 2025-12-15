@@ -281,7 +281,7 @@
                 </div>
                 <div class="vocab-example-box">
                     <div class="label">Why It Matters</div>
-                    <p>In {{STATE_NAME}}, monthly payment is only part—add {{STATE_SALES_TAX}}% sales tax, registration, insurance.</p>
+                    <p>In {{STATE_NAME}}, monthly payment is only part—add {{SALES_TAX}}% sales tax, registration, insurance.</p>
                 </div>
             </div>
         </div>
@@ -346,7 +346,7 @@
             </div>
             <div class="stats-panel">
                 <div class="stat-card rose">
-                    <div class="number">{{STATE_SALES_TAX}}%</div>
+                    <div class="number">{{SALES_TAX}}%</div>
                     <div class="label">{{STATE_NAME}} Sales Tax</div>
                 </div>
                 <div class="stat-card">
@@ -357,7 +357,7 @@
                     <h4>{{STATE_NAME}} Monthly Costs:</h4>
                     <ul>
                         <li>Payment: $399</li>
-                        <li>Insurance (teen): +${{STATE_INSURANCE_AVG_TEEN}}</li>
+                        <li>Insurance (teen): +${{INSURANCE_AVG_TEEN}}</li>
                         <li>Fuel (12k mi/yr): +$150</li>
                         <li>Maintenance: +$50</li>
                     </ul>
@@ -420,7 +420,7 @@
                 <p style="margin-top: 16px;"><strong>{{STATE_NAME}}-Specific Fees:</strong></p>
                 <div style="margin-top: 12px; display: flex; flex-direction: column; gap: 10px;">
                     <div style="display: flex; justify-content: space-between; padding: 8px 16px; background: white; border-radius: 8px;">
-                        <span style="font-size: 22px;">Sales Tax ({{STATE_SALES_TAX}}%)</span>
+                        <span style="font-size: 22px;">Sales Tax ({{SALES_TAX}}%)</span>
                         <span style="font-size: 22px; font-weight: 700; color: var(--rose);">+$varies</span>
                     </div>
                     <div style="display: flex; justify-content: space-between; padding: 8px 16px; background: white; border-radius: 8px;">
@@ -449,7 +449,7 @@
                     <h4>Ongoing Annual Costs:</h4>
                     <ul>
                         <li>Registration: ${{STATE_REGISTRATION_ANNUAL}}/yr</li>
-                        <li>Insurance: ${{STATE_INSURANCE_AVG_TEEN}}/mo</li>
+                        <li>Insurance: ${{INSURANCE_AVG_TEEN}}/mo</li>
                         <li>Fuel at ${{STATE_GAS_PRICE_CURRENT}}/gal</li>
                         <li>Maintenance: ~$600/yr</li>
                     </ul>
@@ -672,7 +672,7 @@
 <!-- SLIDE 15: Discussion -->
 <div class="slide slide-discussion">
     <div class="badge">Discussion</div>
-    <div class="question">In {{STATE_NAME}}, with {{STATE_SALES_TAX}}% sales tax and ${{STATE_INSURANCE_AVG_TEEN}}/mo teen insurance, what financial trade-offs did Mia and James make?<br><br>When might James's approach make sense for someone?</div>
+    <div class="question">In {{STATE_NAME}}, with {{SALES_TAX}}% sales tax and ${{INSURANCE_AVG_TEEN}}/mo teen insurance, what financial trade-offs did Mia and James make?<br><br>When might James's approach make sense for someone?</div>
 </div>
 
 <!-- SLIDE 16: Discussion 2 -->
@@ -695,7 +695,7 @@
             </div>
             <div class="check-item">
                 <div class="q-num">Question 2</div>
-                <p>In {{STATE_NAME}}, with {{STATE_SALES_TAX}}% sales tax, how much tax would you pay on a $25,000 vehicle?</p>
+                <p>In {{STATE_NAME}}, with {{SALES_TAX}}% sales tax, how much tax would you pay on a $25,000 vehicle?</p>
             </div>
             <div class="check-item">
                 <div class="q-num">Question 3</div>
@@ -722,7 +722,7 @@
                 <div class="number">1</div>
                 <div class="content">
                     <h4>Know Your {{STATE_NAME}} Costs</h4>
-                    <p>{{STATE_SALES_TAX}}% sales tax + ${{STATE_REGISTRATION_INITIAL}} registration + ${{STATE_INSURANCE_AVG_TEEN}}/mo insurance adds up fast</p>
+                    <p>{{SALES_TAX}}% sales tax + ${{STATE_REGISTRATION_INITIAL}} registration + ${{INSURANCE_AVG_TEEN}}/mo insurance adds up fast</p>
                 </div>
             </div>
             <div class="takeaway-item">
@@ -761,7 +761,7 @@
         <div class="activity-layout">
             <div class="activity-main">
                 <h3>🚗 {{STATE_NAME}} Auto Finance Calculator</h3>
-                <p>Using {{STATE_NAME}}-specific costs ({{STATE_SALES_TAX}}% tax, ${{STATE_REGISTRATION_INITIAL}} registration, {{STATE_AVG_AUTO_LOAN_RATE_NEW}}% loan rate), compare the complete financial picture of buying vs. leasing.</p>
+                <p>Using {{STATE_NAME}}-specific costs ({{SALES_TAX}}% tax, ${{STATE_REGISTRATION_INITIAL}} registration, {{STATE_AVG_AUTO_LOAN_RATE_NEW}}% loan rate), compare the complete financial picture of buying vs. leasing.</p>
                 <p style="margin-top: 20px;">You'll analyze three scenarios for a vehicle you're interested in and determine which approach best supports different financial goals.</p>
             </div>
             <div class="activity-steps">
