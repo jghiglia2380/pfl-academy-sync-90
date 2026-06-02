@@ -43,7 +43,7 @@ For example, in a simplified system with three brackets (10%, 15%, and 25%), if 
 
 Beyond income taxes, every employee pays payroll taxes (FICA) to fund Social Security and Medicare. These taxes are automatically deducted from your paycheck, with both you and your employer contributing. Currently, the Social Security tax rate is 6.2% of your earnings up to a certain limit, and the Medicare tax rate is 1.45% with no income limit. These taxes fund important social safety net programs that provide benefits for retirement, disability, and healthcare.
 
-State tax systems vary significantly across the United States. Some states like Texas, Florida, Washington, Nevada, South Dakota, Wyoming, and Alaska have no state income tax, while others like California, New York, and Oregon have higher income tax rates. States without income tax typically generate revenue through other taxes, such as higher property taxes, sales taxes, or other fees. This variation creates different financial environments and can influence where people choose to live and work.
+State tax systems vary significantly across the United States. Some states like Texas, Florida, Washington, Nevada, New Hampshire, South Dakota, Tennessee, Wyoming, and Alaska have no state income tax, while others like California, New York, and Oregon have higher income tax rates. States without income tax typically generate revenue through other taxes, such as higher property taxes, sales taxes, or other fees. This variation creates different financial environments and can influence where people choose to live and work.
 
 ### State Income Tax Comparison
 

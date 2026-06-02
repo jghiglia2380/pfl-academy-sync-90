@@ -76,8 +76,7 @@ This graduated system is designed to ensure that taxation is based on ability to
 
 While federal income tax applies consistently nationwide, state income taxes vary significantly from state to state:
 
-- Seven states have no income tax at all: Alaska, Florida, Nevada, South Dakota, Tennessee, Texas, and Wyoming
-- New Hampshire taxes only dividend and interest income
+- Nine states have no income tax: Alaska, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Texas, Washington, and Wyoming
 - States with income taxes use either flat rates (everyone pays the same percentage) or progressive systems similar to federal taxes
 - Rates range from under 3% in some states to over 13% in the highest brackets in states like California
 
