@@ -58,7 +58,7 @@ export const calculateItemizedDeductions = (
   medicalExpenses: number = 0,
   agi: number = 0
 ): number => {
-  const saltCap = 10000; // State and Local Tax deduction cap
+  const saltCap = 40400; // 2026 SALT deduction cap (OBBBA 2026; single/MFJ, MFS 20200). Source: state-data/federal/federal_figures.json salt_deduction_cap
   const medicalThreshold = agi * 0.075; // 7.5% of AGI threshold for medical expenses
 
   return (
