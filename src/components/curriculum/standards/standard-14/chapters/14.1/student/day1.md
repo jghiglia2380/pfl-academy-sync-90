@@ -22,7 +22,7 @@ By the end of this lesson, you should be able to:
 - **Legacy**: Something left behind or passed down to support causes after one's lifetime, typically through planned giving.
 
 ## Introduction
-
+In {{STATE_NAME}}, 
 This lesson explores how charitable giving can be integrated into financial planning. You'll learn about different ways to contribute to causes you care about, including monetary donations, volunteering, and in-kind contributions. We'll discuss how charitable giving benefits both individuals and communities, and explore ways to make an impact regardless of your financial situation.
 
 Charitable giving is an important aspect of financial planning that allows individuals to support causes they care about while potentially providing tax benefits. Beyond the financial considerations, giving back to the community creates positive societal impact and can bring personal fulfillment.

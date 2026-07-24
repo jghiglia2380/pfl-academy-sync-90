@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>L-47: Introduction to Investment Types - PFL Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-light: #818CF8;
+            --teal: #0D9488;
+            --teal-light: #5EEAD4;
+            --blue: #3B82F6;
+            --green: #10B981;
+            --green-light: #6EE7B7;
+            --rose: #F43F5E;
+            --rose-light: #FDA4AF;
+            --amber: #F59E0B;
+            --amber-light: #FDE68A;
+            --gray-900: #111827;
+            --gray-700: #374151;
+            --gray-600: #4B5563;
+            --gray-100: #F3F4F6;
+            --gray-50: #F9FAFB;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: var(--gray-900);
+            line-height: 1.5;
+        }
+
+        .slide {
+            width: 1920px;
+            height: 1080px;
+            position: relative;
+            overflow: hidden;
+            page-break-after: always;
+            background: #ffffff;
+        }
+
+        /* Title Slide */
+        .slide-title {
+            background: linear-gradient(135deg, var(--primary) 0%, #312E81 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 100px;
+        }
+
+        .slide-title .logo {
+            position: absolute;
+            top: 50px;
+            right: 80px;
+        }
+
+        .slide-title .logo svg {
+            height: 80px;
+        }
+
+        .slide-title .chapter-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-size: 24px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 40px;
+            width: fit-content;
+        }
+
+        .slide-title h1 {
+            font-size: 100px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            max-width: 1400px;
+        }
+
+        .slide-title .subtitle {
+            font-size: 36px;
+            font-weight: 400;
+            opacity: 0.9;
+            max-width: 1200px;
+            margin-bottom: 60px;
+        }
+
+        .slide-title .standard-badge {
+            background: var(--teal);
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-size: 22px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        /* Hook Slide */
+        .slide-hook {
+            background: linear-gradient(135deg, var(--gray-900) 0%, #1F2937 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px 120px;
+        }
+
+        .slide-hook .hook-label {
+            font-size: 22px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--teal-light);
+            margin-bottom: 40px;
+        }
+
+        .slide-hook h2 {
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1.3;
+            max-width: 1400px;
+        }
+
+        /* Content Slides */
+        .slide-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-header {
+            background: var(--primary);
+            color: white;
+            padding: 30px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 120px;
+        }
+
+        .slide-header.teal {
+            background: var(--teal);
+        }
+
+        .slide-header.blue {
+            background: var(--blue);
+        }
+
+        .slide-header h2 {
+            font-size: 52px;
+            font-weight: 700;
+        }
+
+        .slide-header .slide-number {
+            font-size: 24px;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        .slide-body {
+            flex: 1;
+            padding: 50px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-footer {
+            height: 12px;
+            background: linear-gradient(90deg, var(--teal) 0%, var(--primary) 50%, var(--teal) 100%);
+        }
+
+        /* Objectives Grid */
+        .objectives-expanded {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            height: 100%;
+        }
+
+        .objective-card {
+            background: linear-gradient(135deg, var(--gray-50) 0%, white 100%);
+            border: 2px solid var(--gray-100);
+            border-radius: 20px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .objective-card .obj-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 28px;
+        }
+
+        .objective-card .obj-icon.analyze { background: #EEF2FF; color: var(--primary); }
+        .objective-card .obj-icon.compare { background: #F0FDFA; color: var(--teal); }
+        .objective-card .obj-icon.evaluate { background: #ECFDF5; color: var(--green); }
+        .objective-card .obj-icon.calculate { background: #EFF6FF; color: var(--blue); }
+
+        .objective-card h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 16px;
+        }
+
+        .objective-card p {
+            font-size: 24px;
+            color: var(--gray-600);
+            line-height: 1.5;
+        }
+
+        /* Vocabulary Styles */
+        .vocab-container {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+            height: 100%;
+            justify-content: center;
+        }
+
+        .vocab-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .vocab-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            border-left: 6px solid var(--teal);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .vocab-card h3 {
+            font-size: 34px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .vocab-card p {
+            font-size: 24px;
+            color: var(--gray-700);
+            line-height: 1.5;
+        }
+
+        .vocab-card .example {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--gray-100);
+            font-size: 22px;
+            color: var(--gray-600);
+            font-style: italic;
+        }
+
+        /* Balanced Layout */
+        .balanced-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            height: 100%;
+        }
+
+        .content-panel h3 {
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 24px;
+        }
+
+        .content-panel p {
+            font-size: 26px;
+            color: var(--gray-700);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .content-panel ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .content-panel ul li {
+            font-size: 26px;
+            color: var(--gray-700);
+            padding: 14px 0;
+            padding-left: 40px;
+            position: relative;
+        }
+
+        .content-panel ul li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 20px;
+            width: 12px;
+            height: 12px;
+            background: var(--teal);
+            border-radius: 50%;
+        }
+
+        .stats-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            justify-content: center;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--teal) 0%, #0F766E 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .stat-card.purple {
+            background: linear-gradient(135deg, var(--primary) 0%, #4338CA 100%);
+        }
+
+        .stat-card.green {
+            background: linear-gradient(135deg, var(--green) 0%, #059669 100%);
+        }
+
+        .stat-card.rose {
+            background: linear-gradient(135deg, var(--rose) 0%, #E11D48 100%);
+        }
+
+        .stat-card.blue {
+            background: linear-gradient(135deg, var(--blue) 0%, #2563EB 100%);
+        }
+
+        .stat-card .stat-value {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .stat-card .stat-label {
+            font-size: 22px;
+            opacity: 0.95;
+        }
+
+        /* Comparison Grid */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            height: 100%;
+        }
+
+        .comparison-column {
+            background: var(--gray-50);
+            border-radius: 24px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .comparison-column.stocks {
+            border-top: 6px solid var(--blue);
+        }
+
+        .comparison-column.bonds {
+            border-top: 6px solid var(--teal);
+        }
+
+        .comparison-column.mutual-funds {
+            border-top: 6px solid var(--green);
+        }
+
+        .comparison-column.etfs {
+            border-top: 6px solid var(--primary);
+        }
+
+        .comparison-column h3 {
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .comparison-column h3 .icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .comparison-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .comparison-column ul li {
+            font-size: 24px;
+            color: var(--gray-700);
+            padding: 16px 0;
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .comparison-column ul li:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-column ul li .bullet {
+            color: var(--teal);
+            font-weight: 700;
+        }
+
+        /* Full Concept Slide */
+        .concept-full {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .concept-full h3 {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .concept-full .concept-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            flex: 1;
+        }
+
+        .concept-full .concept-text {
+            font-size: 26px;
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+
+        .concept-full .concept-visual {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Info Cards */
+        .info-card {
+            background: var(--gray-50);
+            border-radius: 16px;
+            padding: 28px;
+            border-left: 5px solid var(--teal);
+        }
+
+        .info-card.blue { border-left-color: var(--blue); }
+        .info-card.green { border-left-color: var(--green); }
+        .info-card.purple { border-left-color: var(--primary); }
+
+        .info-card h4 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            font-size: 22px;
+            color: var(--gray-600);
+        }
+
+        /* Scenario Layout */
+        .scenario-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            height: 100%;
+        }
+
+        .scenario-content h3 {
+            font-size: 38px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 24px;
+        }
+
+        .scenario-content .context {
+            font-size: 26px;
+            color: var(--gray-700);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .scenario-content .detail-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .scenario-content .detail-list li {
+            font-size: 24px;
+            color: var(--gray-700);
+            padding: 12px 0;
+            padding-left: 36px;
+            position: relative;
+        }
+
+        .scenario-content .detail-list li::before {
+            content: ">";
+            position: absolute;
+            left: 0;
+            color: var(--teal);
+            font-weight: 700;
+        }
+
+        .outcome-boxes {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            justify-content: center;
+        }
+
+        .outcome-box {
+            border-radius: 20px;
+            padding: 32px;
+        }
+
+        .outcome-box.positive {
+            background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+            border: 2px solid var(--green);
+        }
+
+        .outcome-box.negative {
+            background: linear-gradient(135deg, #FFF1F2 0%, #FFE4E6 100%);
+            border: 2px solid var(--rose);
+        }
+
+        .outcome-box.neutral {
+            background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+            border: 2px solid var(--blue);
+        }
+
+        .outcome-box h4 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .outcome-box.positive h4 { color: #065F46; }
+        .outcome-box.negative h4 { color: #9F1239; }
+        .outcome-box.neutral h4 { color: #1E40AF; }
+
+        .outcome-box p {
+            font-size: 22px;
+            line-height: 1.5;
+        }
+
+        .outcome-box.positive p { color: #047857; }
+        .outcome-box.negative p { color: #BE123C; }
+        .outcome-box.neutral p { color: #1D4ED8; }
+
+        /* Discussion Slide */
+        .slide-discussion {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-discussion .discussion-header {
+            background: linear-gradient(135deg, var(--teal) 0%, #0F766E 100%);
+            color: white;
+            padding: 50px 80px;
+            text-align: center;
+        }
+
+        .slide-discussion .discussion-header.purple {
+            background: linear-gradient(135deg, var(--primary) 0%, #4338CA 100%);
+        }
+
+        .slide-discussion .badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .slide-discussion .discussion-header h2 {
+            font-size: 52px;
+            font-weight: 700;
+        }
+
+        .slide-discussion .discussion-body {
+            flex: 1;
+            padding: 60px 100px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .discussion-question {
+            background: var(--gray-50);
+            border-radius: 20px;
+            padding: 36px 44px;
+            border-left: 6px solid var(--teal);
+        }
+
+        .discussion-question.purple {
+            border-left-color: var(--primary);
+        }
+
+        .discussion-question p {
+            font-size: 30px;
+            color: var(--gray-700);
+            line-height: 1.5;
+        }
+
+        .slide-discussion .slide-footer {
+            height: 12px;
+            background: linear-gradient(90deg, var(--teal) 0%, var(--primary) 50%, var(--teal) 100%);
+        }
+
+        /* Check for Understanding */
+        .check-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            height: 100%;
+        }
+
+        .check-item {
+            background: var(--gray-50);
+            border-radius: 20px;
+            padding: 36px;
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+        }
+
+        .check-item .check-number {
+            width: 52px;
+            height: 52px;
+            background: var(--teal);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .check-item p {
+            font-size: 26px;
+            color: var(--gray-700);
+            line-height: 1.5;
+        }
+
+        /* Takeaway Grid */
+        .takeaway-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            height: 100%;
+        }
+
+        .takeaway-card {
+            background: linear-gradient(135deg, var(--gray-50) 0%, white 100%);
+            border-radius: 20px;
+            padding: 36px;
+            border: 2px solid var(--gray-100);
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+        }
+
+        .takeaway-card .takeaway-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--primary);
+            color: white;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+
+        .takeaway-card .takeaway-icon.teal { background: var(--teal); }
+        .takeaway-card .takeaway-icon.green { background: var(--green); }
+        .takeaway-card .takeaway-icon.blue { background: var(--blue); }
+
+        .takeaway-card h4 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 10px;
+        }
+
+        .takeaway-card p {
+            font-size: 22px;
+            color: var(--gray-600);
+            line-height: 1.5;
+        }
+
+        /* Activity Layout */
+        .activity-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            height: 100%;
+        }
+
+        .activity-info h3 {
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 20px;
+        }
+
+        .activity-info .activity-desc {
+            font-size: 26px;
+            color: var(--gray-700);
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .activity-info .tool-badge {
+            background: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .activity-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .activity-step {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            background: var(--gray-50);
+            padding: 24px;
+            border-radius: 16px;
+        }
+
+        .activity-step .step-num {
+            width: 44px;
+            height: 44px;
+            background: var(--teal);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .activity-step p {
+            font-size: 24px;
+            color: var(--gray-700);
+        }
+
+        /* Closing Slide */
+        .slide-closing {
+            background: linear-gradient(135deg, var(--primary) 0%, #312E81 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px;
+        }
+
+        .slide-closing .logo {
+            margin-bottom: 50px;
+        }
+
+        .slide-closing .logo svg {
+            height: 100px;
+        }
+
+        .slide-closing h2 {
+            font-size: 64px;
+            font-weight: 800;
+            margin-bottom: 24px;
+        }
+
+        .slide-closing .tagline {
+            font-size: 32px;
+            opacity: 0.9;
+            margin-bottom: 50px;
+        }
+
+        .slide-closing .website {
+            font-size: 28px;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 16px 40px;
+            border-radius: 50px;
+            margin-bottom: 40px;
+        }
+
+        .slide-closing .copyright {
+            font-size: 18px;
+            opacity: 0.7;
+        }
+
+        /* Four Column Layout for Investment Types */
+        .four-column-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            height: 100%;
+        }
+
+        .investment-type-card {
+            background: var(--gray-50);
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .investment-type-card.stocks { border-top: 5px solid var(--blue); }
+        .investment-type-card.bonds { border-top: 5px solid var(--teal); }
+        .investment-type-card.mutual-funds { border-top: 5px solid var(--green); }
+        .investment-type-card.etfs { border-top: 5px solid var(--primary); }
+
+        .investment-type-card h4 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--gray-900);
+        }
+
+        .investment-type-card p {
+            font-size: 20px;
+            color: var(--gray-700);
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .investment-type-card .attributes {
+            margin-top: auto;
+        }
+
+        .attribute-tag {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            margin: 4px;
+        }
+
+        .attribute-tag.risk-high { background: #FEE2E2; color: #991B1B; }
+        .attribute-tag.risk-med { background: #FEF3C7; color: #92400E; }
+        .attribute-tag.risk-low { background: #D1FAE5; color: #065F46; }
+        .attribute-tag.return-high { background: #DBEAFE; color: #1E40AF; }
+        .attribute-tag.return-med { background: #E0E7FF; color: #3730A3; }
+        .attribute-tag.return-low { background: #F3E8FF; color: #6B21A8; }
+    </style>
+</head>
+<body>
+
+    <!-- Slide 1: Title -->
+    <div class="slide slide-title">
+        <div class="logo">
+            <svg viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 10 L50 10 L50 50 L20 50 Z" fill="white" opacity="0.9"/>
+                <path d="M25 20 L45 20 M25 30 L45 30 M25 40 L35 40" stroke="#4F46E5" stroke-width="3" stroke-linecap="round"/>
+                <text x="60" y="38" font-family="Inter" font-size="28" font-weight="800" fill="white">PFL Academy</text>
+            </svg>
+        </div>
+        <div class="chapter-badge">Chapter 47</div>
+        <h1>Introduction to Investment Types</h1>
+        <p class="subtitle">Understanding stocks, bonds, mutual funds, and ETFs to build long-term wealth through informed investment decisions in {{STATE_NAME}}</p>
+        <div class="standard-badge">Standard 9: Investment Fundamentals</div>
+    </div>
+
+    <!-- Slide 2: Hook -->
+    <div class="slide slide-hook">
+        <div class="hook-label">Essential Question</div>
+        <h2>If someone gave you $1,000 today that you don't need for 30 years, what would you do with it?<br><br>How can understanding investment types transform your financial future?</h2>
+    </div>
+
+    <!-- Slide 3: Learning Objectives -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>Learning Objectives</h2>
+            <span class="slide-number">3 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="objectives-expanded">
+                <div class="objective-card">
+                    <div class="obj-icon analyze">1</div>
+                    <h3>Analyze</h3>
+                    <p>Understand the characteristics and functions of major investment types including stocks, bonds, mutual funds, and ETFs</p>
+                </div>
+                <div class="objective-card">
+                    <div class="obj-icon compare">2</div>
+                    <h3>Compare</h3>
+                    <p>Evaluate risk-return profiles of different investment vehicles and how they align with financial goals</p>
+                </div>
+                <div class="objective-card">
+                    <div class="obj-icon evaluate">3</div>
+                    <h3>Calculate</h3>
+                    <p>Determine potential returns and assess risks associated with different investment options</p>
+                </div>
+                <div class="objective-card">
+                    <div class="obj-icon calculate">4</div>
+                    <h3>Decide</h3>
+                    <p>Make informed investment decisions based on personal financial situation and objectives</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 4: Key Terms (1) -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Key Terms</h2>
+            <span class="slide-number">4 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="vocab-container">
+                <div class="vocab-row">
+                    <div class="vocab-card">
+                        <h3>Stock (Equity)</h3>
+                        <p>Ownership shares in a company that entitle you to a portion of the company's assets and earnings</p>
+                        <div class="example">Example: Buying Apple stock makes you a part-owner of Apple Inc.</div>
+                    </div>
+                    <div class="vocab-card">
+                        <h3>Bond (Fixed Income)</h3>
+                        <p>A loan you make to a government or corporation that pays regular interest and returns principal at maturity</p>
+                        <div class="example">Example: A 10-year Treasury bond paying 4% annually on $10,000</div>
+                    </div>
+                </div>
+                <div class="vocab-row">
+                    <div class="vocab-card">
+                        <h3>Mutual Fund</h3>
+                        <p>An investment vehicle that pools money from many investors to purchase a diversified portfolio of securities</p>
+                        <div class="example">Example: Fidelity 500 Fund owns stocks in 500 large companies</div>
+                    </div>
+                    <div class="vocab-card">
+                        <h3>Exchange-Traded Fund (ETF)</h3>
+                        <p>Similar to a mutual fund but trades on stock exchanges like individual stocks with typically lower fees</p>
+                        <div class="example">Example: VOO tracks S&P 500 with only 0.03% annual fee</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 5: Key Terms (2) -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Key Terms (Continued)</h2>
+            <span class="slide-number">5 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="vocab-container">
+                <div class="vocab-row">
+                    <div class="vocab-card">
+                        <h3>Dividend</h3>
+                        <p>A portion of a company's earnings distributed to shareholders, usually quarterly</p>
+                        <div class="example">Example: Receive $0.25 per share every quarter from your stock holdings</div>
+                    </div>
+                    <div class="vocab-card">
+                        <h3>Capital Gains</h3>
+                        <p>The profit realized when you sell an investment for more than you paid for it</p>
+                        <div class="example">Example: Buy stock at $50, sell at $75 = $25 capital gain per share</div>
+                    </div>
+                </div>
+                <div class="vocab-row">
+                    <div class="vocab-card">
+                        <h3>Risk Tolerance</h3>
+                        <p>Your ability and willingness to withstand losses in exchange for potentially higher returns</p>
+                        <div class="example">Example: High risk tolerance allows more stocks; low tolerance prefers bonds</div>
+                    </div>
+                    <div class="vocab-card">
+                        <h3>Diversification</h3>
+                        <p>Spreading investments across different asset types to reduce risk</p>
+                        <div class="example">Example: "Don't put all your eggs in one basket" - own stocks AND bonds</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 6: Understanding Stocks -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>Understanding Stocks</h2>
+            <span class="slide-number">6 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="balanced-layout">
+                <div class="content-panel">
+                    <h3>Ownership in Companies</h3>
+                    <p>When you buy stock, you become a part-owner of the business with two sources of potential returns:</p>
+                    <ul>
+                        <li><strong>Capital appreciation</strong> - stock price increases over time</li>
+                        <li><strong>Dividends</strong> - quarterly payments from company profits</li>
+                        <li>Stock values fluctuate based on company performance, economic conditions, and investor sentiment</li>
+                        <li>Recommended for <strong>long-term goals</strong> where you have time to ride out volatility</li>
+                    </ul>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card">
+                        <div class="stat-value">~10%</div>
+                        <div class="stat-label">S&P 500 Average Annual Return (1928-2023)</div>
+                    </div>
+                    <div class="stat-card rose">
+                        <div class="stat-value">-37%</div>
+                        <div class="stat-label">Worst Year (2008 Financial Crisis)</div>
+                    </div>
+                    <div class="stat-card green">
+                        <div class="stat-value">+45%</div>
+                        <div class="stat-label">Best Year (1954)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 7: Stocks vs Bonds Comparison -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Stocks vs. Bonds: Core Differences</h2>
+            <span class="slide-number">7 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="comparison-grid">
+                <div class="comparison-column stocks">
+                    <h3><span class="icon" style="background: #DBEAFE; color: var(--blue);">📈</span> Stocks (Ownership)</h3>
+                    <ul>
+                        <li><span class="bullet">●</span> You're an owner - share in company success</li>
+                        <li><span class="bullet">●</span> Potential for high returns (historically ~10%/year)</li>
+                        <li><span class="bullet">●</span> Higher volatility - prices swing widely</li>
+                        <li><span class="bullet">●</span> May pay dividends (not guaranteed)</li>
+                        <li><span class="bullet">●</span> No maturity date - hold as long as you want</li>
+                        <li><span class="bullet">●</span> Best for long-term growth goals (10+ years)</li>
+                    </ul>
+                </div>
+                <div class="comparison-column bonds">
+                    <h3><span class="icon" style="background: #CCFBF1; color: var(--teal);">📊</span> Bonds (Lending)</h3>
+                    <ul>
+                        <li><span class="bullet">●</span> You're a lender - earn fixed interest</li>
+                        <li><span class="bullet">●</span> More predictable returns (typically 3-5%)</li>
+                        <li><span class="bullet">●</span> Lower volatility - more stable prices</li>
+                        <li><span class="bullet">●</span> Regular interest payments (guaranteed)</li>
+                        <li><span class="bullet">●</span> Returns principal at specific maturity date</li>
+                        <li><span class="bullet">●</span> Best for stability and near-term goals</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 8: Understanding Bonds -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Understanding Bonds</h2>
+            <span class="slide-number">8 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="balanced-layout">
+                <div class="content-panel">
+                    <h3>Lending Money for Interest</h3>
+                    <p>When you buy a bond, you lend money to a government or corporation:</p>
+                    <ul>
+                        <li><strong>Treasury bonds</strong> - issued by federal government, virtually risk-free</li>
+                        <li><strong>Municipal bonds</strong> - issued by states/cities, often tax-free</li>
+                        <li><strong>Corporate bonds</strong> - issued by companies, higher rates but more risk</li>
+                        <li><strong>Credit risk</strong> - borrower may not repay (bond ratings help assess)</li>
+                        <li><strong>Interest rate risk</strong> - existing bonds lose value when rates rise</li>
+                    </ul>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card purple">
+                        <div class="stat-value">$10,000</div>
+                        <div class="stat-label">Bond at 4% for 10 Years</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">$400/yr</div>
+                        <div class="stat-label">Annual Interest Payment</div>
+                    </div>
+                    <div class="stat-card green">
+                        <div class="stat-value">$14,000</div>
+                        <div class="stat-label">Total Received After 10 Years</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 9: Understanding Mutual Funds -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>Understanding Mutual Funds</h2>
+            <span class="slide-number">9 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="concept-full">
+                <h3>Pooled Investments for Instant Diversification</h3>
+                <div class="concept-content">
+                    <div class="concept-text">
+                        <p>Mutual funds pool money from thousands of investors to create diversified portfolios managed by professionals. This solves a major problem: how can regular people diversify without millions of dollars?</p>
+                        <br>
+                        <p><strong>Types of Mutual Funds:</strong></p>
+                        <p>• <strong>Stock funds</strong> - invest in stocks of large, small, or international companies</p>
+                        <p>• <strong>Bond funds</strong> - invest in government or corporate bonds</p>
+                        <p>• <strong>Balanced funds</strong> - own both stocks and bonds</p>
+                        <p>• <strong>Target-date funds</strong> - automatically adjust based on retirement date</p>
+                        <br>
+                        <p><strong>Key consideration:</strong> Expense ratios (annual fees) compound over time - a 1% fee difference can cost you 25% of your wealth over 30 years!</p>
+                    </div>
+                    <div class="concept-visual">
+                        <div class="info-card purple">
+                            <h4>How Pooling Works</h4>
+                            <p>10,000 investors × $5,000 each = $50 million pool to buy hundreds of different securities</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Fee Impact Example</h4>
+                            <p>$10,000 at 8% for 30 years: 0.05% fee = $99,580 vs 1% fee = $74,093</p>
+                        </div>
+                        <div class="info-card blue">
+                            <h4>The Difference</h4>
+                            <p>$25,487 lost to fees over 30 years on just $10,000!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 10: Understanding ETFs -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Understanding ETFs</h2>
+            <span class="slide-number">10 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="balanced-layout">
+                <div class="content-panel">
+                    <h3>The Best of Both Worlds</h3>
+                    <p>ETFs combine features of mutual funds and stocks:</p>
+                    <ul>
+                        <li>Diversification like mutual funds - own hundreds of securities</li>
+                        <li>Trade like stocks - buy/sell any time market is open</li>
+                        <li><strong>Much lower fees</strong> - often 0.03% to 0.25% annually</li>
+                        <li>More tax-efficient than mutual funds</li>
+                        <li>Daily transparency - see exactly what you own</li>
+                        <li>Low minimum investment - just buy one share</li>
+                    </ul>
+                    <p style="margin-top: 20px;"><strong>Popular example:</strong> VOO (Vanguard S&P 500 ETF) - own 500 of America's largest companies for 0.03% annual fee</p>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card">
+                        <div class="stat-value">0.03%</div>
+                        <div class="stat-label">Typical Index ETF Fee</div>
+                    </div>
+                    <div class="stat-card rose">
+                        <div class="stat-value">1%+</div>
+                        <div class="stat-label">Typical Active Mutual Fund Fee</div>
+                    </div>
+                    <div class="stat-card green">
+                        <div class="stat-value">~$80K</div>
+                        <div class="stat-label">Fee Savings Over 30 Years ($500/mo)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 11: Why It Matters -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Why Investment Knowledge Matters</h2>
+            <span class="slide-number">11 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="balanced-layout">
+                <div class="content-panel">
+                    <h3>Your Choices Shape Your Future</h3>
+                    <p>The difference between earning 3% annually versus 10% is dramatic over time:</p>
+                    <ul>
+                        <li>Not investing is also a choice - inflation erodes your purchasing power</li>
+                        <li>Younger investors can accept more volatility - decades to recover from downturns</li>
+                        <li>Starting early is crucial - compound returns reward time in the market</li>
+                        <li>Tax implications matter - long-term gains taxed favorably</li>
+                        <li>Knowledge removes fear and paralysis about investing</li>
+                    </ul>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card">
+                        <div class="stat-value">$378K</div>
+                        <div class="stat-label">$5,000/year at 3% for 40 years</div>
+                    </div>
+                    <div class="stat-card green">
+                        <div class="stat-value">$2.66M</div>
+                        <div class="stat-label">$5,000/year at 10% for 40 years</div>
+                    </div>
+                    <div class="stat-card purple">
+                        <div class="stat-value">7x</div>
+                        <div class="stat-label">More Wealth from Higher Returns</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 12: The Power of Starting Early -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>The Power of Starting Early</h2>
+            <span class="slide-number">12 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="balanced-layout">
+                <div class="content-panel">
+                    <h3>Time Is Your Greatest Asset</h3>
+                    <p>Compound returns make starting early incredibly valuable:</p>
+                    <ul>
+                        <li>Early investments have the longest time to compound</li>
+                        <li>Even small amounts grow substantially over decades</li>
+                        <li>You don't need to be an expert - simple strategies work</li>
+                        <li>Waiting for the "perfect time" often means never starting</li>
+                        <li>Automated monthly contributions build wealth consistently</li>
+                    </ul>
+                    <p style="margin-top: 20px;"><strong>Key insight:</strong> It's not about timing the market - it's about time IN the market.</p>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card">
+                        <div class="stat-value">$1.04M</div>
+                        <div class="stat-label">Starting at Age 25 ($300/mo)</div>
+                    </div>
+                    <div class="stat-card rose">
+                        <div class="stat-value">$468K</div>
+                        <div class="stat-label">Starting at Age 35 ($300/mo)</div>
+                    </div>
+                    <div class="stat-card purple">
+                        <div class="stat-value">$144K</div>
+                        <div class="stat-label">Same Total Contributions</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 13: Real-World Example 1 - Priya -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Real-World Example: Priya's Index Fund Approach</h2>
+            <span class="slide-number">13 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="scenario-layout">
+                <div class="scenario-content">
+                    <h3>Simple Strategy, Powerful Results</h3>
+                    <p class="context">Priya, 24, landed her first job earning $45,000 annually. Feeling overwhelmed by investment choices, she researched simple strategies.</p>
+                    <ul class="detail-list">
+                        <li>Invested 15% of income ($563/month)</li>
+                        <li>Split between two low-cost ETFs: 80% stocks, 20% bonds</li>
+                        <li>Both ETFs charged under 0.05% in fees</li>
+                        <li>Automated monthly contributions</li>
+                        <li>Experienced both +25% gains and -15% losses</li>
+                        <li>Never panicked - kept contributing steadily</li>
+                    </ul>
+                </div>
+                <div class="outcome-boxes">
+                    <div class="outcome-box positive">
+                        <h4>Result After 6 Years</h4>
+                        <p>Built portfolio worth over $52,000 despite market volatility through discipline and low costs</p>
+                    </div>
+                    <div class="outcome-box neutral">
+                        <h4>Success Factors</h4>
+                        <p>Simplicity, consistency, low fees, and emotional discipline - no expertise required</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 14: Real-World Example 2 - Marcus -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Real-World Example: Marcus's Stock-Picking Lessons</h2>
+            <span class="slide-number">14 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="scenario-layout">
+                <div class="scenario-content">
+                    <h3>Learning Through Experience</h3>
+                    <p class="context">Marcus, 26, was convinced he could beat the market by picking individual stocks. He researched companies intensively.</p>
+                    <ul class="detail-list">
+                        <li>Built portfolio of 8 carefully selected stocks</li>
+                        <li>Checked prices obsessively every day</li>
+                        <li>Panic-sold biotech stock after 40% loss</li>
+                        <li>Held declining retail stock "hoping it would recover"</li>
+                        <li>Made emotional decisions based on daily swings</li>
+                        <li>After 2 years: underperformed index fund by 8%</li>
+                    </ul>
+                </div>
+                <div class="outcome-boxes">
+                    <div class="outcome-box negative">
+                        <h4>Costly Mistakes</h4>
+                        <p>$15,000 became $16,200 vs. $18,600 if invested in simple index fund - a $2,400 lesson</p>
+                    </div>
+                    <div class="outcome-box positive">
+                        <h4>Valuable Lesson Learned</h4>
+                        <p>Shifted to index funds for core portfolio, keeps 10% for individual stocks to satisfy interest</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 15: Discussion -->
+    <div class="slide slide-discussion">
+        <div class="discussion-header">
+            <div class="badge">Discussion</div>
+            <h2>Matching Investments to Goals</h2>
+        </div>
+        <div class="discussion-body">
+            <div class="discussion-question">
+                <p>If you have $200 per month to invest over the next 10 years, how would you allocate it among stocks, bonds, and cash? What factors influence your decision?</p>
+            </div>
+            <div class="discussion-question">
+                <p>Why might someone your age choose to invest mostly in stocks rather than bonds? What are the tradeoffs of this approach?</p>
+            </div>
+            <div class="discussion-question">
+                <p>What was Priya doing differently from Marcus? Which approach seems more sustainable for most people?</p>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 16: Personal Reflection -->
+    <div class="slide slide-discussion">
+        <div class="discussion-header purple">
+            <div class="badge">Personal Reflection</div>
+            <h2>Your Investment Journey</h2>
+        </div>
+        <div class="discussion-body">
+            <div class="discussion-question purple">
+                <p>What factors most influence YOUR comfort with investment risk - age, financial stability, existing emergency fund, career stability, or psychological comfort with volatility?</p>
+            </div>
+            <div class="discussion-question purple">
+                <p>How might your investment strategy differ if your goal was saving for a home down payment in 5 years versus building retirement wealth over 40 years?</p>
+            </div>
+            <div class="discussion-question purple">
+                <p>What would you need to learn or do to feel confident making your first investment? What barriers seem most significant?</p>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 17: Check for Understanding -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>Check for Understanding</h2>
+            <span class="slide-number">17 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="check-grid">
+                <div class="check-item">
+                    <div class="check-number">1</div>
+                    <p>What's the key difference between stocks and bonds? (Hint: ownership vs. lending)</p>
+                </div>
+                <div class="check-item">
+                    <div class="check-number">2</div>
+                    <p>Why are ETFs often recommended for beginning investors over actively managed mutual funds?</p>
+                </div>
+                <div class="check-item">
+                    <div class="check-number">3</div>
+                    <p>If a fund charges 1% annual fees vs. 0.05%, how much extra would you pay per year on a $10,000 investment?</p>
+                </div>
+                <div class="check-item">
+                    <div class="check-number">4</div>
+                    <p>Why might someone shift from mostly stocks to more bonds as they approach retirement?</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 18: Key Takeaways -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Key Takeaways</h2>
+            <span class="slide-number">18 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="takeaway-grid">
+                <div class="takeaway-card">
+                    <div class="takeaway-icon">📈</div>
+                    <div>
+                        <h4>Stocks = Ownership + Growth</h4>
+                        <p>Higher potential returns with more volatility; best for long-term goals where you have time to ride out market swings</p>
+                    </div>
+                </div>
+                <div class="takeaway-card">
+                    <div class="takeaway-icon teal">📊</div>
+                    <div>
+                        <h4>Bonds = Lending + Stability</h4>
+                        <p>Steady income with lower risk; provide portfolio protection and are crucial as you approach needing your money</p>
+                    </div>
+                </div>
+                <div class="takeaway-card">
+                    <div class="takeaway-icon green">💰</div>
+                    <div>
+                        <h4>Fees Matter Enormously</h4>
+                        <p>Low-cost index ETFs outperform most actively managed funds; a 1% fee difference can cost you $80,000+ over 30 years</p>
+                    </div>
+                </div>
+                <div class="takeaway-card">
+                    <div class="takeaway-icon blue">⏰</div>
+                    <div>
+                        <h4>Start Early, Stay Consistent</h4>
+                        <p>Time in the market beats timing the market; simple automated contributions to diversified funds build substantial wealth</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 19: Skill Builder Activity -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Skill Builder: Investment Type Analyzer</h2>
+            <span class="slide-number">19 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="activity-layout">
+                <div class="activity-info">
+                    <h3>Explore Investment Vehicles</h3>
+                    <p class="activity-desc">Use the Investment Type Analyzer to compare different portfolio allocations and see how they align with various financial goals and time horizons.</p>
+                    <div class="tool-badge">Investment Type Analyzer Tool</div>
+                </div>
+                <div class="activity-steps">
+                    <div class="activity-step">
+                        <div class="step-num">1</div>
+                        <p>Review four portfolio scenarios: Conservative (70% bonds), Moderate (60% stocks), Growth (90% stocks), and Custom</p>
+                    </div>
+                    <div class="activity-step">
+                        <div class="step-num">2</div>
+                        <p>Input a monthly investment amount ($50-$500) and see growth projections over 10, 20, and 30 years</p>
+                    </div>
+                    <div class="activity-step">
+                        <div class="step-num">3</div>
+                        <p>Compare historical risk levels and expected returns for each allocation</p>
+                    </div>
+                    <div class="activity-step">
+                        <div class="step-num">4</div>
+                        <p>Build a custom portfolio selecting from individual stocks, index funds, bond funds, and balanced funds</p>
+                    </div>
+                    <div class="activity-step">
+                        <div class="step-num">5</div>
+                        <p>Reflect on which portfolio matches your goals and risk tolerance</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 20: Closing -->
+    <div class="slide slide-closing">
+        <div class="logo">
+            <svg viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 10 L50 10 L50 50 L20 50 Z" fill="white" opacity="0.9"/>
+                <path d="M25 20 L45 20 M25 30 L45 30 M25 40 L35 40" stroke="#4F46E5" stroke-width="3" stroke-linecap="round"/>
+                <text x="60" y="38" font-family="Inter" font-size="28" font-weight="800" fill="white">PFL Academy</text>
+            </svg>
+        </div>
+        <h2>Build Your Financial Future</h2>
+        <p class="tagline">Understanding investment types is the first step toward building lasting wealth</p>
+        <div class="website">www.pflacademy.co</div>
+        <p class="copyright">© 2025 PFL Academy. All rights reserved.</p>
+    </div>
+
+</body>
+</html>

@@ -5,10 +5,14 @@
 ## Day 1: Understanding Financing Options
 
 ### Introduction
-
+In {{STATE_NAME}}, 
 Pursuing post-secondary education is a significant investment that can open doors to enhanced career opportunities and higher earning potential. However, financing this education requires careful planning and an understanding of various funding options. Without a clear plan, students can end up with overwhelming debt that can limit future financial choices. In this lesson, we'll explore different methods available to pay for post-secondary education, such as scholarships, grants, student loans, and work-study programs, empowering you to make informed decisions that minimize debt and maximize educational benefits.
 
 ### Key Concepts
+
+
+
+In {{STATE_NAME}}, public university tuition averages {{TUITION_PUBLIC}} per year, and the state offers tax incentives like {{TAX_INCENTIVES}} to help families save. With a minimum wage of {{MIN_WAGE}}, students can also explore work-study opportunities.
 
 - **Scholarships**: Merit-based financial awards that do not need to be repaid. These are typically awarded based on academic, athletic, artistic, or leadership achievements.
 - **Grants**: Need-based financial aid that does not require repayment. Grants are often awarded based on the student's or family's financial need.

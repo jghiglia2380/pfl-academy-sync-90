@@ -1,7 +1,7 @@
 # Understanding the Cost of Borrowing
 
 ## Introduction
-
+In {{STATE_NAME}}, 
 Borrowing money is a financial tool that can help you achieve important goals, but it also comes with costs and responsibilities. Today, we'll explore when borrowing makes sense, how interest and fees affect loans, and the differences between various types of credit.
 
 ## Key Concepts

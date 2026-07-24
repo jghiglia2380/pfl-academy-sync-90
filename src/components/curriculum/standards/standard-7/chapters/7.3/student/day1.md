@@ -5,7 +5,7 @@
 By the end of this lesson, you will understand the importance of credit scores, how they are calculated, and their impact on various aspects of life. You will be able to identify actions that improve or harm your credit score and recognize the long-term effects of your credit behavior on financial opportunities.
 
 ## Introduction
-
+In {{STATE_NAME}}, 
 Think about the last time you saw an advertisement for a loan or credit card. What stood out to you? Was it the interest rate? The promise of "low monthly payments"? These offers aren't available to everyone equally—lenders use credit scores to determine who qualifies for their best rates and terms.
 
 ## Key Concepts

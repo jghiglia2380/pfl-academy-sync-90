@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 35: Managing Insurance Costs - PFL Academy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-light: #818CF8;
+            --teal: #0D9488;
+            --teal-light: #5EEAD4;
+            --blue: #3B82F6;
+            --green: #10B981;
+            --rose: #F43F5E;
+            --amber: #F59E0B;
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-800: #1F2937;
+            --gray-900: #111827;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--gray-100);
+            color: var(--gray-800);
+            line-height: 1.5;
+        }
+
+        .slide {
+            width: 1920px;
+            height: 1080px;
+            position: relative;
+            overflow: hidden;
+            background: white;
+            page-break-after: always;
+            margin: 0 auto 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        /* Title Slide */
+        .slide-title {
+            background: linear-gradient(135deg, var(--primary) 0%, #7C3AED 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 100px;
+        }
+
+        .slide-title .logo {
+            position: absolute;
+            top: 50px;
+            right: 60px;
+        }
+
+        .slide-title .chapter-label {
+            font-size: 24px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .slide-title h1 {
+            font-size: 100px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+
+        .slide-title .subtitle {
+            font-size: 36px;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 50px;
+        }
+
+        .slide-title .standard-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        /* Hook Slide */
+        .slide-hook {
+            background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px;
+        }
+
+        .slide-hook .hook-label {
+            font-size: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--teal-light);
+            margin-bottom: 50px;
+        }
+
+        .slide-hook h2 {
+            font-size: 72px;
+            font-weight: 700;
+            line-height: 1.2;
+            max-width: 1400px;
+        }
+
+        /* Content Slide */
+        .slide-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-header {
+            background: var(--primary);
+            color: white;
+            padding: 35px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 120px;
+        }
+
+        .slide-header.teal { background: var(--teal); }
+        .slide-header.blue { background: var(--blue); }
+
+        .slide-header h2 {
+            font-size: 52px;
+            font-weight: 700;
+        }
+
+        .slide-number {
+            font-size: 22px;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        .slide-body {
+            flex: 1;
+            padding: 50px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-footer {
+            height: 12px;
+            background: linear-gradient(90deg, var(--teal) 0%, var(--primary) 50%, var(--teal) 100%);
+        }
+
+        /* Objectives Grid */
+        .objectives-expanded {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            flex: 1;
+            align-content: center;
+        }
+
+        .objective-card {
+            background: linear-gradient(135deg, var(--gray-50) 0%, white 100%);
+            border: 2px solid var(--gray-200);
+            border-radius: 20px;
+            padding: 40px;
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+        }
+
+        .objective-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .objective-card h3 {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 10px;
+        }
+
+        .objective-card p {
+            font-size: 22px;
+            color: var(--gray-600);
+        }
+
+        /* Vocabulary Container */
+        .vocab-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .vocab-row {
+            display: flex;
+            gap: 30px;
+        }
+
+        .vocab-term {
+            flex: 1;
+            background: white;
+            border: 2px solid var(--gray-200);
+            border-radius: 20px;
+            padding: 35px;
+            border-left: 6px solid var(--teal);
+        }
+
+        .vocab-term h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 15px;
+        }
+
+        .vocab-term .definition {
+            font-size: 24px;
+            color: var(--gray-700);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .vocab-term .example {
+            font-size: 20px;
+            color: var(--teal);
+            font-style: italic;
+            background: var(--gray-50);
+            padding: 15px 20px;
+            border-radius: 10px;
+        }
+
+        /* Balanced Layout */
+        .balanced-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            flex: 1;
+            align-items: center;
+        }
+
+        .content-panel h3 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 25px;
+        }
+
+        .content-panel p {
+            font-size: 26px;
+            color: var(--gray-700);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .content-panel ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .content-panel li {
+            font-size: 24px;
+            color: var(--gray-700);
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+        }
+
+        .content-panel li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            background: var(--teal);
+            border-radius: 50%;
+        }
+
+        .stats-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--teal) 0%, #0F766E 100%);
+            color: white;
+            padding: 30px 35px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .stat-card.purple {
+            background: linear-gradient(135deg, var(--primary) 0%, #7C3AED 100%);
+        }
+
+        .stat-card.blue {
+            background: linear-gradient(135deg, var(--blue) 0%, #2563EB 100%);
+        }
+
+        .stat-card.green {
+            background: linear-gradient(135deg, var(--green) 0%, #059669 100%);
+        }
+
+        .stat-card.rose {
+            background: linear-gradient(135deg, var(--rose) 0%, #E11D48 100%);
+        }
+
+        .stat-icon {
+            width: 65px;
+            height: 65px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+
+        .stat-content h4 {
+            font-size: 34px;
+            font-weight: 800;
+        }
+
+        .stat-content p {
+            font-size: 20px;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        /* Comparison Grid */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            flex: 1;
+            align-content: center;
+        }
+
+        .comparison-card {
+            background: var(--gray-50);
+            border-radius: 20px;
+            padding: 35px;
+            border: 2px solid var(--gray-200);
+        }
+
+        .comparison-card.highlight {
+            background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+            border-color: var(--green);
+        }
+
+        .comparison-card.teal-highlight {
+            background: linear-gradient(135deg, #F0FDFA 0%, #CCFBF1 100%);
+            border-color: var(--teal);
+        }
+
+        .comparison-card.blue-highlight {
+            background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+            border-color: var(--blue);
+        }
+
+        .comparison-card.rose-highlight {
+            background: linear-gradient(135deg, #FFF1F2 0%, #FFE4E6 100%);
+            border-color: var(--rose);
+        }
+
+        .comparison-card h3 {
+            font-size: 30px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .comparison-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .comparison-card li {
+            font-size: 22px;
+            color: var(--gray-700);
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .comparison-card li::before {
+            content: "•";
+            position: absolute;
+            left: 8px;
+            color: var(--teal);
+            font-weight: bold;
+        }
+
+        /* Concept Full */
+        .concept-full {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .concept-full h3 {
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 30px;
+        }
+
+        .concept-full p {
+            font-size: 28px;
+            color: var(--gray-700);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .info-card {
+            background: white;
+            border: 2px solid var(--gray-200);
+            border-radius: 16px;
+            padding: 30px;
+            border-left: 5px solid var(--teal);
+        }
+
+        .info-card.blue { border-left-color: var(--blue); }
+        .info-card.green { border-left-color: var(--green); }
+        .info-card.purple { border-left-color: var(--primary); }
+        .info-card.rose { border-left-color: var(--rose); }
+
+        .info-card h4 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            font-size: 20px;
+            color: var(--gray-600);
+            margin-bottom: 0;
+        }
+
+        /* Scenario Layout */
+        .scenario-layout {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 50px;
+            flex: 1;
+            align-items: center;
+        }
+
+        .scenario-content h3 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 25px;
+        }
+
+        .scenario-content p {
+            font-size: 24px;
+            color: var(--gray-700);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .scenario-outcomes {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .outcome-box {
+            padding: 25px 30px;
+            border-radius: 16px;
+            background: #ECFDF5;
+            border-left: 5px solid var(--green);
+        }
+
+        .outcome-box.negative {
+            background: #FFF1F2;
+            border-left-color: var(--rose);
+        }
+
+        .outcome-box.neutral {
+            background: #EFF6FF;
+            border-left-color: var(--blue);
+        }
+
+        .outcome-box h4 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 8px;
+        }
+
+        .outcome-box p {
+            font-size: 18px;
+            color: var(--gray-700);
+            margin: 0;
+        }
+
+        /* Discussion Slide */
+        .slide-discussion {
+            background: linear-gradient(135deg, var(--teal) 0%, #0F766E 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px;
+        }
+
+        .slide-discussion.purple {
+            background: linear-gradient(135deg, var(--primary) 0%, #7C3AED 100%);
+        }
+
+        .slide-discussion .badge {
+            background: rgba(255,255,255,0.2);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 50px;
+        }
+
+        .slide-discussion h2 {
+            font-size: 60px;
+            font-weight: 700;
+            max-width: 1400px;
+            line-height: 1.3;
+            margin-bottom: 50px;
+        }
+
+        .discussion-prompts {
+            display: flex;
+            gap: 40px;
+            max-width: 1500px;
+        }
+
+        .prompt-card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 20px;
+            flex: 1;
+        }
+
+        .prompt-card p {
+            font-size: 24px;
+            line-height: 1.5;
+        }
+
+        /* Check Grid */
+        .check-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+            flex: 1;
+            align-content: center;
+        }
+
+        .check-item {
+            background: var(--gray-50);
+            border-radius: 16px;
+            padding: 35px;
+            border: 2px solid var(--gray-200);
+        }
+
+        .check-item h4 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .check-item p {
+            font-size: 24px;
+            color: var(--gray-700);
+        }
+
+        /* Takeaway Grid */
+        .takeaway-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+            flex: 1;
+            align-content: center;
+        }
+
+        .takeaway-item {
+            background: linear-gradient(135deg, var(--gray-50) 0%, white 100%);
+            border: 2px solid var(--gray-200);
+            border-radius: 20px;
+            padding: 35px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .takeaway-icon {
+            width: 55px;
+            height: 55px;
+            background: var(--teal);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            flex-shrink: 0;
+        }
+
+        .takeaway-item h4 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 10px;
+        }
+
+        .takeaway-item p {
+            font-size: 20px;
+            color: var(--gray-600);
+        }
+
+        /* Activity Slide */
+        .activity-layout {
+            flex: 1;
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .activity-content {
+            flex: 1;
+        }
+
+        .activity-content h3 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 20px;
+        }
+
+        .activity-content > p {
+            font-size: 24px;
+            color: var(--gray-700);
+            margin-bottom: 30px;
+        }
+
+        .activity-steps {
+            background: var(--gray-50);
+            border-radius: 20px;
+            padding: 35px;
+            flex: 1;
+        }
+
+        .activity-steps h4 {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 25px;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step p {
+            font-size: 22px;
+            color: var(--gray-700);
+            padding-top: 5px;
+        }
+
+        /* Closing Slide */
+        .slide-closing {
+            background: linear-gradient(135deg, var(--primary) 0%, #7C3AED 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px;
+        }
+
+        .slide-closing .logo {
+            margin-bottom: 50px;
+        }
+
+        .slide-closing h2 {
+            font-size: 72px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .slide-closing .tagline {
+            font-size: 32px;
+            opacity: 0.9;
+            margin-bottom: 50px;
+        }
+
+        .slide-closing .website {
+            font-size: 28px;
+            font-weight: 600;
+            background: rgba(255,255,255,0.2);
+            padding: 16px 40px;
+            border-radius: 50px;
+            margin-bottom: 50px;
+        }
+
+        .slide-closing .copyright {
+            font-size: 18px;
+            opacity: 0.7;
+        }
+
+        /* Flow Diagram */
+        .flow-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .flow-step {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .flow-number {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .flow-content {
+            flex: 1;
+            background: var(--gray-50);
+            border-radius: 12px;
+            padding: 20px 30px;
+            border-left: 4px solid var(--teal);
+        }
+
+        .flow-content h4 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 5px;
+        }
+
+        .flow-content p {
+            font-size: 18px;
+            color: var(--gray-600);
+            margin: 0;
+        }
+
+        .flow-arrow {
+            width: 50px;
+            display: flex;
+            justify-content: center;
+            color: var(--gray-400);
+            font-size: 24px;
+        }
+
+        /* Print Styles */
+        @media print {
+            body { background: white; }
+            .slide {
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Slide 1: Title -->
+    <div class="slide slide-title">
+        <div class="logo">
+            <svg width="180" height="60" viewBox="0 0 180 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="10" width="40" height="40" rx="8" fill="white" fill-opacity="0.2"/>
+                <path d="M15 35 L25 25 L35 30 L25 20 Z" fill="white"/>
+                <text x="55" y="38" font-family="Inter" font-size="24" font-weight="800" fill="white">PFL Academy</text>
+            </svg>
+        </div>
+        <div class="chapter-label">Chapter 35</div>
+        <h1>Managing Insurance Costs</h1>
+        <div class="subtitle">Balancing premiums, deductibles, and out-of-pocket expenses in {{STATE_NAME}}</div>
+        <div class="standard-badge">Standard 11: Risk Management and Insurance</div>
+    </div>
+
+    <!-- Slide 2: Hook -->
+    <div class="slide slide-hook">
+        <div class="hook-label">Essential Question</div>
+        <h2>How can you make smart insurance decisions that balance protection with affordability?</h2>
+    </div>
+
+    <!-- Slide 3: Learning Objectives -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>Learning Objectives</h2>
+            <div class="slide-number">3 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="objectives-expanded">
+                <div class="objective-card">
+                    <div class="objective-number">1</div>
+                    <div>
+                        <h3>Understand Components</h3>
+                        <p>Master insurance policy components: premiums, deductibles, co-payments, and co-insurance</p>
+                    </div>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">2</div>
+                    <div>
+                        <h3>Recognize Impact</h3>
+                        <p>Understand how different insurance terms affect out-of-pocket costs and financial stability</p>
+                    </div>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">3</div>
+                    <div>
+                        <h3>Learn Strategies</h3>
+                        <p>Discover strategies for selecting policies that balance premium costs with coverage needs</p>
+                    </div>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">4</div>
+                    <div>
+                        <h3>Analyze Scenarios</h3>
+                        <p>Apply these concepts to real-world scenarios and make informed decisions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 4: Key Terms 1 -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Key Terms</h2>
+            <div class="slide-number">4 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="vocab-container">
+                <div class="vocab-row">
+                    <div class="vocab-term">
+                        <h3>Premium</h3>
+                        <div class="definition">The amount paid regularly to maintain insurance coverage—monthly, quarterly, or annually</div>
+                        <div class="example">Example: Paying $250/month for health insurance, regardless of whether you use it</div>
+                    </div>
+                    <div class="vocab-term">
+                        <h3>Deductible</h3>
+                        <div class="definition">The amount you must pay out-of-pocket before your insurance coverage begins</div>
+                        <div class="example">Example: With a $1,000 deductible and $3,000 damage, you pay $1,000, insurance pays $2,000</div>
+                    </div>
+                </div>
+                <div class="vocab-row">
+                    <div class="vocab-term">
+                        <h3>Co-payment (Co-pay)</h3>
+                        <div class="definition">A fixed amount you pay for a specific service, regardless of total cost</div>
+                        <div class="example">Example: $25 co-pay for each doctor visit, paid at time of service</div>
+                    </div>
+                    <div class="vocab-term">
+                        <h3>Co-insurance</h3>
+                        <div class="definition">A percentage of costs you share with the insurance company after meeting your deductible</div>
+                        <div class="example">Example: 80/20 means insurance pays 80%, you pay 20% after deductible</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 5: Key Terms 2 -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Key Terms</h2>
+            <div class="slide-number">5 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="vocab-container">
+                <div class="vocab-row">
+                    <div class="vocab-term">
+                        <h3>Out-of-Pocket Maximum</h3>
+                        <div class="definition">The most you'll pay for covered services in a policy period (usually a year)</div>
+                        <div class="example">Example: After paying $6,000 total, insurance covers 100% for the rest of the year</div>
+                    </div>
+                    <div class="vocab-term">
+                        <h3>Stop-loss Point</h3>
+                        <div class="definition">The maximum out-of-pocket co-insurance amount before the insurer covers all additional costs</div>
+                        <div class="example">Example: Your protection against catastrophic healthcare expenses</div>
+                    </div>
+                </div>
+                <div class="vocab-row">
+                    <div class="vocab-term">
+                        <h3>Claim</h3>
+                        <div class="definition">A formal request to an insurance company for coverage or compensation for a covered loss</div>
+                        <div class="example">Example: Filing a claim after your car is damaged in an accident</div>
+                    </div>
+                    <div class="vocab-term">
+                        <h3>Rider</h3>
+                        <div class="definition">An add-on to an insurance policy that provides additional coverage</div>
+                        <div class="example">Example: Adding flood coverage to a standard homeowner's policy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 6: Insurance Cost Components -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>Insurance Cost Components</h2>
+            <div class="slide-number">6 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="balanced-layout">
+                <div class="content-panel">
+                    <h3>The Balance of Costs</h3>
+                    <p>Insurance costs involve a balance between predictable expenses (premiums) and potential out-of-pocket costs when you use your insurance.</p>
+                    <p><strong>Premium Factors:</strong></p>
+                    <ul>
+                        <li>Your age and health status</li>
+                        <li>Your driving record (auto)</li>
+                        <li>Home location and value</li>
+                        <li>Amount of coverage selected</li>
+                        <li>Deductible you choose</li>
+                    </ul>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card">
+                        <div class="stat-icon">📅</div>
+                        <div class="stat-content">
+                            <h4>Premium</h4>
+                            <p>Guaranteed, regular expense</p>
+                        </div>
+                    </div>
+                    <div class="stat-card purple">
+                        <div class="stat-icon">💳</div>
+                        <div class="stat-content">
+                            <h4>Deductible</h4>
+                            <p>First amount you pay per claim</p>
+                        </div>
+                    </div>
+                    <div class="stat-card blue">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-content">
+                            <h4>Co-insurance</h4>
+                            <p>Your percentage after deductible</p>
+                        </div>
+                    </div>
+                    <div class="stat-card green">
+                        <div class="stat-icon">🛡️</div>
+                        <div class="stat-content">
+                            <h4>Out-of-Pocket Max</h4>
+                            <p>Your maximum annual exposure</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 7: The Premium Trade-off -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>The Premium vs. Out-of-Pocket Trade-off</h2>
+            <div class="slide-number">7 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="comparison-grid">
+                <div class="comparison-card teal-highlight">
+                    <h3>⬆️ Higher Premiums</h3>
+                    <ul>
+                        <li>Lower deductibles</li>
+                        <li>Lower co-insurance percentage</li>
+                        <li>Lower out-of-pocket costs when claims occur</li>
+                        <li>More predictable costs</li>
+                        <li>Better for frequent healthcare users</li>
+                    </ul>
+                </div>
+                <div class="comparison-card blue-highlight">
+                    <h3>⬇️ Lower Premiums</h3>
+                    <ul>
+                        <li>Higher deductibles</li>
+                        <li>Higher co-insurance percentage</li>
+                        <li>Higher out-of-pocket costs when claims occur</li>
+                        <li>Lower guaranteed monthly costs</li>
+                        <li>Better for healthy, low-usage individuals</li>
+                    </ul>
+                </div>
+                <div class="comparison-card highlight">
+                    <h3>✅ Higher Deductible Makes Sense If:</h3>
+                    <ul>
+                        <li>You have substantial emergency savings</li>
+                        <li>You rarely file claims</li>
+                        <li>You want to minimize guaranteed premium costs</li>
+                        <li>You can handle a larger one-time expense</li>
+                    </ul>
+                </div>
+                <div class="comparison-card rose-highlight">
+                    <h3>⚠️ Lower Deductible Makes Sense If:</h3>
+                    <ul>
+                        <li>You have limited savings</li>
+                        <li>You anticipate needing to use insurance</li>
+                        <li>You prefer more predictable costs</li>
+                        <li>A large expense would cause hardship</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 8: How Costs Work Together -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>How Insurance Costs Work Together</h2>
+            <div class="slide-number">8 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="flow-container">
+                <div class="flow-step">
+                    <div class="flow-number">1</div>
+                    <div class="flow-content">
+                        <h4>Pay Your Premium</h4>
+                        <p>Regular monthly payment keeps your coverage active—you pay this whether you use insurance or not</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-number">2</div>
+                    <div class="flow-content">
+                        <h4>Pay 100% Until Deductible Met</h4>
+                        <p>When you receive care, you pay the full cost until you've paid your annual deductible amount</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-number">3</div>
+                    <div class="flow-content">
+                        <h4>Pay Co-insurance After Deductible</h4>
+                        <p>After meeting your deductible, you pay your percentage (e.g., 20%) of additional costs</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-number">4</div>
+                    <div class="flow-content">
+                        <h4>Co-insurance Continues Until Out-of-Pocket Max</h4>
+                        <p>You keep paying your percentage until you reach your annual out-of-pocket maximum</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-number">5</div>
+                    <div class="flow-content">
+                        <h4>Insurance Covers 100%</h4>
+                        <p>Once you hit your out-of-pocket max, insurance covers 100% of covered services for the rest of the year</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 9: Strategies for Managing Costs -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>Strategies for Managing Insurance Costs</h2>
+            <div class="slide-number">9 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="concept-full">
+                <h3>Five Key Strategies</h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>1. Choose the Right Deductible</h4>
+                        <p>Match your deductible to your emergency savings and risk tolerance. Higher deductible = lower premiums.</p>
+                    </div>
+                    <div class="info-card blue">
+                        <h4>2. Use Tax-Advantaged Accounts</h4>
+                        <p>HSAs offer triple tax advantages: tax-deductible contributions, tax-free growth, and tax-free withdrawals for medical expenses.</p>
+                    </div>
+                    <div class="info-card green">
+                        <h4>3. Stay In-Network</h4>
+                        <p>Using in-network providers can significantly reduce costs—out-of-network often means higher deductibles and co-insurance.</p>
+                    </div>
+                    <div class="info-card purple">
+                        <h4>4. Shop Around and Compare</h4>
+                        <p>Get quotes from multiple insurers. Compare all cost components, not just premiums. Bundle policies for discounts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 10: Discounts and HSAs -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Discounts and Health Savings Accounts</h2>
+            <div class="slide-number">10 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="comparison-grid">
+                <div class="comparison-card teal-highlight">
+                    <h3>💰 Health Savings Account (HSA)</h3>
+                    <p style="font-size: 20px; color: var(--gray-600); margin-bottom: 15px;">Available with high-deductible health plans</p>
+                    <ul>
+                        <li>Tax-deductible contributions</li>
+                        <li>Tax-free growth</li>
+                        <li>Tax-free withdrawals for medical expenses</li>
+                        <li>Funds roll over year to year</li>
+                        <li>Triple tax advantage!</li>
+                    </ul>
+                </div>
+                <div class="comparison-card blue-highlight">
+                    <h3>📋 Flexible Spending Account (FSA)</h3>
+                    <p style="font-size: 20px; color: var(--gray-600); margin-bottom: 15px;">Set aside pre-tax dollars for medical expenses</p>
+                    <ul>
+                        <li>Reduces taxable income</li>
+                        <li>Use for medical expenses</li>
+                        <li>Use-it-or-lose-it (some rollover)</li>
+                        <li>Set contribution at enrollment</li>
+                        <li>Available with any plan type</li>
+                    </ul>
+                </div>
+                <div class="comparison-card highlight" style="grid-column: span 2;">
+                    <h3>🏷️ Common Insurance Discounts</h3>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 15px;">
+                        <ul>
+                            <li>Safe driving record</li>
+                            <li>Good student discount</li>
+                        </ul>
+                        <ul>
+                            <li>Home security systems</li>
+                            <li>Non-smoking status</li>
+                        </ul>
+                        <ul>
+                            <li>Good credit score</li>
+                            <li>Multi-policy bundle</li>
+                        </ul>
+                        <ul>
+                            <li>Preventive wellness programs</li>
+                            <li>Low mileage (auto)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 11: Why This Matters -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Why Managing Insurance Costs Matters</h2>
+            <div class="slide-number">11 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="balanced-layout">
+                <div class="content-panel">
+                    <h3>The Lowest Premium Isn't Always Best</h3>
+                    <p>Making informed insurance decisions requires understanding the full picture—not just the monthly cost.</p>
+                    <p><strong>Consider:</strong></p>
+                    <ul>
+                        <li>Your total potential costs (premiums + out-of-pocket)</li>
+                        <li>Your financial reserves for emergencies</li>
+                        <li>Your anticipated usage of insurance</li>
+                        <li>Your risk tolerance for unexpected expenses</li>
+                        <li>Tax advantages available to you</li>
+                    </ul>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card">
+                        <div class="stat-icon">💡</div>
+                        <div class="stat-content">
+                            <h4>Smart Planning</h4>
+                            <p>Match coverage to your actual needs</p>
+                        </div>
+                    </div>
+                    <div class="stat-card purple">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-content">
+                            <h4>Real Savings</h4>
+                            <p>Save hundreds to thousands annually</p>
+                        </div>
+                    </div>
+                    <div class="stat-card green">
+                        <div class="stat-icon">🛡️</div>
+                        <div class="stat-content">
+                            <h4>Protection</h4>
+                            <p>Adequate coverage when you need it</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 12: Preventive Care Benefits -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>Maximizing Preventive Care Benefits</h2>
+            <div class="slide-number">12 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="balanced-layout">
+                <div class="content-panel">
+                    <h3>Free Preventive Services</h3>
+                    <p>Most health insurance plans cover preventive services at 100%—no cost to you, even before meeting your deductible.</p>
+                    <p><strong>Covered Preventive Services:</strong></p>
+                    <ul>
+                        <li>Annual wellness visits</li>
+                        <li>Vaccinations and immunizations</li>
+                        <li>Screenings (blood pressure, cholesterol, cancer)</li>
+                        <li>Contraception</li>
+                        <li>Counseling for tobacco cessation</li>
+                    </ul>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-content">
+                            <h4>100% Covered</h4>
+                            <p>No deductible, no co-pay</p>
+                        </div>
+                    </div>
+                    <div class="stat-card purple">
+                        <div class="stat-icon">🩺</div>
+                        <div class="stat-content">
+                            <h4>Early Detection</h4>
+                            <p>Catch problems before they're costly</p>
+                        </div>
+                    </div>
+                    <div class="stat-card green">
+                        <div class="stat-icon">💪</div>
+                        <div class="stat-content">
+                            <h4>Stay Healthy</h4>
+                            <p>Prevention is cheaper than treatment</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 13: Real-World Example 1 - Health Insurance Comparison -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Real-World Example: Sophia's Health Plan Decision</h2>
+            <div class="slide-number">13 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="scenario-layout">
+                <div class="scenario-content">
+                    <h3>Comparing Two Health Insurance Plans</h3>
+                    <p>Sophia, 25, is healthy and rarely visits the doctor beyond annual check-ups. She's choosing between:</p>
+                    <p><strong>Plan A (Low-Deductible):</strong></p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 15px;">
+                        <li style="padding: 5px 0; font-size: 20px;">• $250/month premium ($3,000/year)</li>
+                        <li style="padding: 5px 0; font-size: 20px;">• $500 deductible</li>
+                        <li style="padding: 5px 0; font-size: 20px;">• $3,000 out-of-pocket max</li>
+                    </ul>
+                    <p><strong>Plan B (High-Deductible + HSA):</strong></p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 5px 0; font-size: 20px;">• $150/month premium ($1,800/year)</li>
+                        <li style="padding: 5px 0; font-size: 20px;">• $2,000 deductible</li>
+                        <li style="padding: 5px 0; font-size: 20px;">• $5,000 out-of-pocket max</li>
+                    </ul>
+                </div>
+                <div class="scenario-outcomes">
+                    <div class="outcome-box">
+                        <h4>✓ Sophia Chooses Plan B</h4>
+                        <p>Saves $1,200/year in premiums ($100/month × 12)</p>
+                    </div>
+                    <div class="outcome-box">
+                        <h4>✓ Preventive Care Still Free</h4>
+                        <p>Annual check-ups covered 100% before deductible</p>
+                    </div>
+                    <div class="outcome-box neutral">
+                        <h4>💰 HSA Advantage</h4>
+                        <p>Can invest premium savings in tax-advantaged HSA for future medical needs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 14: Real-World Example 2 - Auto Insurance -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Real-World Example: Carlos's Auto Insurance</h2>
+            <div class="slide-number">14 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="scenario-layout">
+                <div class="scenario-content">
+                    <h3>Auto Insurance Deductible Decision</h3>
+                    <p>Carlos is comparing deductible options for his auto insurance:</p>
+                    <table style="width: 100%; margin: 20px 0; font-size: 20px; border-collapse: collapse;">
+                        <tr style="background: var(--gray-100);">
+                            <th style="padding: 12px; text-align: left;">Option</th>
+                            <th style="padding: 12px; text-align: center;">Deductible</th>
+                            <th style="padding: 12px; text-align: center;">Annual Premium</th>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border-bottom: 1px solid var(--gray-200);">A</td>
+                            <td style="padding: 12px; text-align: center; border-bottom: 1px solid var(--gray-200);">$250</td>
+                            <td style="padding: 12px; text-align: center; border-bottom: 1px solid var(--gray-200);">$1,200</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border-bottom: 1px solid var(--gray-200);">B</td>
+                            <td style="padding: 12px; text-align: center; border-bottom: 1px solid var(--gray-200);">$500</td>
+                            <td style="padding: 12px; text-align: center; border-bottom: 1px solid var(--gray-200);">$1,050</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px;">C</td>
+                            <td style="padding: 12px; text-align: center;">$1,000</td>
+                            <td style="padding: 12px; text-align: center;">$900</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="scenario-outcomes">
+                    <div class="outcome-box">
+                        <h4>No Accidents Scenario</h4>
+                        <p>Option C saves $300/year vs. Option A</p>
+                    </div>
+                    <div class="outcome-box negative">
+                        <h4>One Accident Scenario</h4>
+                        <p>Option A total: $1,450 vs. Option C: $1,900 — A is cheaper if you have a claim</p>
+                    </div>
+                    <div class="outcome-box neutral">
+                        <h4>🎯 The Decision</h4>
+                        <p>If Carlos has savings and rarely has accidents, Option C saves money long-term. Key: Can he afford the $1,000 deductible if needed?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 15: Discussion -->
+    <div class="slide slide-discussion">
+        <div class="badge">Discussion</div>
+        <h2>Would you prefer a high-deductible plan with lower premiums or a low-deductible plan with higher premiums?</h2>
+        <div class="discussion-prompts">
+            <div class="prompt-card">
+                <p>What factors about your personal financial situation would influence this decision?</p>
+            </div>
+            <div class="prompt-card">
+                <p>How does having (or not having) emergency savings affect your insurance choices?</p>
+            </div>
+            <div class="prompt-card">
+                <p>How might your preference change as you get older or your financial situation changes?</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 16: Personal Reflection -->
+    <div class="slide slide-discussion purple">
+        <div class="badge">Personal Reflection</div>
+        <h2>How can understanding insurance cost components help you make better decisions in the future?</h2>
+        <div class="discussion-prompts">
+            <div class="prompt-card">
+                <p>Think about insurance decisions you or your family might face soon—auto insurance, health insurance through a first job</p>
+            </div>
+            <div class="prompt-card">
+                <p>What strategies could help you balance adequate protection with affordable costs?</p>
+            </div>
+            <div class="prompt-card">
+                <p>How could tax-advantaged accounts like HSAs fit into your financial planning?</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 17: Check for Understanding -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>Check for Understanding</h2>
+            <div class="slide-number">17 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="check-grid">
+                <div class="check-item">
+                    <h4>Question 1</h4>
+                    <p>What's the difference between a co-pay and co-insurance? When does each apply?</p>
+                </div>
+                <div class="check-item">
+                    <h4>Question 2</h4>
+                    <p>If you have a $500 deductible and 20% co-insurance, how much would you pay for an $8,000 medical bill (assume no out-of-pocket max)?</p>
+                </div>
+                <div class="check-item">
+                    <h4>Question 3</h4>
+                    <p>What are the three tax advantages of a Health Savings Account (HSA)?</p>
+                </div>
+                <div class="check-item">
+                    <h4>Question 4</h4>
+                    <p>Why might the plan with the lowest premium NOT be the cheapest option overall?</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 18: Key Takeaways -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Key Takeaways</h2>
+            <div class="slide-number">18 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="takeaway-grid">
+                <div class="takeaway-item">
+                    <div class="takeaway-icon">1</div>
+                    <div>
+                        <h4>The Premium Trade-off</h4>
+                        <p>Higher premiums = lower out-of-pocket costs. Lower premiums = higher out-of-pocket costs. Balance based on your situation.</p>
+                    </div>
+                </div>
+                <div class="takeaway-item">
+                    <div class="takeaway-icon">2</div>
+                    <div>
+                        <h4>Know All Components</h4>
+                        <p>Premiums, deductibles, co-pays, co-insurance, and out-of-pocket maximums all affect your total costs.</p>
+                    </div>
+                </div>
+                <div class="takeaway-item">
+                    <div class="takeaway-icon">3</div>
+                    <div>
+                        <h4>Strategic Choices Save Money</h4>
+                        <p>Use HSAs, stay in-network, shop around, bundle policies, and take advantage of all available discounts.</p>
+                    </div>
+                </div>
+                <div class="takeaway-item">
+                    <div class="takeaway-icon">4</div>
+                    <div>
+                        <h4>Match to Your Needs</h4>
+                        <p>The "best" plan depends on your health, finances, risk tolerance, and anticipated usage. There's no one-size-fits-all answer.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 19: Student Activity -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Skill Builder: Calculate Your Out-of-Pocket Costs</h2>
+            <div class="slide-number">19 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="activity-layout">
+                <div class="activity-content">
+                    <h3>Insurance Cost Calculation</h3>
+                    <p><strong>Your health plan:</strong> $500 deductible, 20% co-insurance, $2,000 out-of-pocket max. You have an $8,000 medical bill.</p>
+                </div>
+                <div class="activity-steps">
+                    <h4>Step-by-Step Calculation</h4>
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <p>How much is your deductible? → $500</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <p>How much remains after deductible? → $8,000 - $500 = $7,500</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <p>Calculate your 20% co-insurance → $7,500 × 0.20 = $1,500</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <p>Does total exceed the cap? → $500 + $1,500 = $2,000 (equals cap exactly!)</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <p><strong>Your total out-of-pocket: $2,000</strong> (Insurance pays $6,000)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 20: Closing -->
+    <div class="slide slide-closing">
+        <div class="logo">
+            <svg width="200" height="70" viewBox="0 0 200 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="12" width="50" height="50" rx="10" fill="white" fill-opacity="0.2"/>
+                <path d="M18 42 L30 30 L42 36 L30 24 Z" fill="white"/>
+                <text x="65" y="45" font-family="Inter" font-size="28" font-weight="800" fill="white">PFL Academy</text>
+            </svg>
+        </div>
+        <h2>Managing Insurance Costs</h2>
+        <div class="tagline">Make informed choices that balance protection with affordability</div>
+        <div class="website">www.pflacademy.co</div>
+        <div class="copyright">© 2025 PFL Academy. All rights reserved.</div>
+    </div>
+</body>
+</html>

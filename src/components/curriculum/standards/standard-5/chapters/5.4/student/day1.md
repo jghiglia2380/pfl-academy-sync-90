@@ -3,7 +3,7 @@
 ## DAY 1: Building Your Financial Blueprint
 
 ### Introduction
-
+In {{STATE_NAME}}, 
 Creating a sound savings and investment strategy is like building a blueprint for your financial future. How you save and invest depends on when you need the money, how comfortable you are with risk, and what you're trying to achieve. Today, we'll explore how to build strategies that align with your unique financial goals.
 
 ### Key Concepts

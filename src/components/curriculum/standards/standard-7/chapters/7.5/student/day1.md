@@ -1,7 +1,7 @@
 # Understanding Student Loans
 
 ## Introduction
-
+In {{STATE_NAME}}, 
 College costs are rising, and student loans have become one of the primary ways students finance their education. However, not all student loans are created equal. Understanding the different types of loans, their terms, and long-term implications is crucial for making informed financial decisions about your education.
 
 ## Key Learning Objectives

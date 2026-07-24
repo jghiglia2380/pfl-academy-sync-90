@@ -21,7 +21,7 @@ By the end of this lesson, you will be able to:
 - **Quantifiable Achievements**: Accomplishments expressed with specific numbers or percentages
 
 ## Introduction
-
+In {{STATE_NAME}}, 
 Welcome to Chapter 15.2: Resume Building and Personal Branding! In today's lesson, we'll explore the essential components of an effective resume and begin developing your personal professional brand. These skills are critical for standing out in competitive job markets and presenting yourself effectively to potential employers.
 
 A resume is often your first introduction to potential employers—it's your personal marketing document. An effective resume should be clear, concise, and tailored to the position you're seeking. Most importantly, it should quickly communicate your value to employers while reflecting your personal brand. By mastering these skills now, you'll be better prepared to navigate job searches and career transitions throughout your professional life.

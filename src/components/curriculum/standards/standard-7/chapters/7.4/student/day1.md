@@ -5,7 +5,7 @@
 By the end of this lesson, you will understand the major consumer credit laws that protect you as a borrower, including how these laws ensure fairness, transparency, and equality in lending practices. You will also explore how these laws shape your rights and responsibilities when borrowing money.
 
 ## Introduction
-
+In {{STATE_NAME}}, 
 Consumer credit legislation plays a crucial role in protecting your financial interests when you borrow money. These laws establish rules that lenders must follow, ensuring you receive fair treatment, accurate information, and protection from discriminatory practices. Understanding these laws empowers you to make informed borrowing decisions and stand up for your rights as a consumer.
 
 ## Key Vocabulary

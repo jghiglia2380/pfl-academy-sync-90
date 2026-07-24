@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>L-25: Understanding Student Loans - PFL Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f3f4f6;
+            color: #1f2937;
+            line-height: 1.5;
+        }
+
+        .slide {
+            width: 1920px;
+            height: 1080px;
+            position: relative;
+            overflow: hidden;
+            background: white;
+            page-break-after: always;
+        }
+
+        /* Title Slide */
+        .slide-title {
+            background: linear-gradient(135deg, #4F46E5 0%, #3B82F6 50%, #0D9488 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 80px;
+        }
+
+        .slide-title .chapter-label {
+            font-size: 28px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .slide-title h1 {
+            font-size: 100px;
+            font-weight: 800;
+            margin-bottom: 30px;
+            line-height: 1.1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .slide-title .subtitle {
+            font-size: 42px;
+            font-weight: 500;
+            opacity: 0.95;
+            margin-bottom: 40px;
+        }
+
+        .slide-title .standard-tag {
+            font-size: 24px;
+            font-weight: 600;
+            background: rgba(255,255,255,0.2);
+            padding: 12px 30px;
+            border-radius: 50px;
+            margin-top: 30px;
+        }
+
+        .slide-title .logo {
+            position: absolute;
+            top: 50px;
+            right: 60px;
+        }
+
+        .slide-title .logo svg {
+            width: 200px;
+            height: auto;
+        }
+
+        /* Hook Slide */
+        .slide-hook {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px;
+        }
+
+        .slide-hook .hook-label {
+            font-size: 22px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #0D9488;
+            margin-bottom: 40px;
+        }
+
+        .slide-hook h2 {
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1.3;
+            max-width: 1400px;
+        }
+
+        /* Content Slides */
+        .slide-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-header {
+            background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
+            color: white;
+            padding: 35px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 120px;
+        }
+
+        .slide-header.teal {
+            background: linear-gradient(135deg, #0D9488 0%, #0F766E 100%);
+        }
+
+        .slide-header.blue {
+            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+        }
+
+        .slide-header h2 {
+            font-size: 52px;
+            font-weight: 700;
+        }
+
+        .slide-number {
+            font-size: 24px;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        .slide-body {
+            flex: 1;
+            padding: 50px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-footer {
+            height: 12px;
+            background: linear-gradient(90deg, #0D9488 0%, #4F46E5 50%, #0D9488 100%);
+        }
+
+        /* Objectives Grid */
+        .objectives-expanded {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            flex: 1;
+        }
+
+        .objective-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 20px;
+            padding: 40px;
+            border-left: 6px solid #4F46E5;
+        }
+
+        .objective-card:nth-child(2) {
+            border-left-color: #0D9488;
+        }
+
+        .objective-card:nth-child(3) {
+            border-left-color: #3B82F6;
+        }
+
+        .objective-card:nth-child(4) {
+            border-left-color: #10B981;
+        }
+
+        .objective-card h3 {
+            font-size: 30px;
+            font-weight: 700;
+            color: #4F46E5;
+            margin-bottom: 15px;
+        }
+
+        .objective-card:nth-child(2) h3 {
+            color: #0D9488;
+        }
+
+        .objective-card:nth-child(3) h3 {
+            color: #3B82F6;
+        }
+
+        .objective-card:nth-child(4) h3 {
+            color: #10B981;
+        }
+
+        .objective-card p {
+            font-size: 26px;
+            color: #475569;
+        }
+
+        /* Vocabulary Cards */
+        .vocab-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .vocab-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .vocab-card {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-radius: 20px;
+            padding: 35px;
+            border-left: 6px solid #3B82F6;
+        }
+
+        .vocab-card:nth-child(even) {
+            background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+            border-left-color: #0D9488;
+        }
+
+        .vocab-card h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1e3a5f;
+            margin-bottom: 15px;
+        }
+
+        .vocab-card p {
+            font-size: 26px;
+            color: #475569;
+            margin-bottom: 12px;
+        }
+
+        .vocab-card .example {
+            font-size: 22px;
+            color: #64748b;
+            font-style: italic;
+            padding-top: 12px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+
+        /* Balanced Layout */
+        .balanced-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            flex: 1;
+            align-items: center;
+        }
+
+        .content-panel h3 {
+            font-size: 40px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 25px;
+        }
+
+        .content-panel p {
+            font-size: 28px;
+            color: #475569;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .content-panel ul {
+            list-style: none;
+        }
+
+        .content-panel li {
+            font-size: 26px;
+            color: #475569;
+            margin-bottom: 16px;
+            padding-left: 35px;
+            position: relative;
+        }
+
+        .content-panel li::before {
+            content: ">";
+            position: absolute;
+            left: 0;
+            color: #0D9488;
+            font-weight: 700;
+        }
+
+        .stats-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 30px 35px;
+            text-align: center;
+        }
+
+        .stat-card.teal {
+            background: linear-gradient(135deg, #0D9488 0%, #0F766E 100%);
+        }
+
+        .stat-card.purple {
+            background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
+        }
+
+        .stat-card.green {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+        }
+
+        .stat-card.rose {
+            background: linear-gradient(135deg, #F43F5E 0%, #E11D48 100%);
+        }
+
+        .stat-card .stat-number {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .stat-card .stat-label {
+            font-size: 22px;
+            opacity: 0.95;
+        }
+
+        /* Info Cards */
+        .info-card {
+            background: #eff6ff;
+            border-radius: 16px;
+            padding: 25px 30px;
+            border-left: 5px solid #3B82F6;
+            margin-bottom: 20px;
+        }
+
+        .info-card.teal {
+            background: #f0fdfa;
+            border-left-color: #0D9488;
+        }
+
+        .info-card.green {
+            background: #ecfdf5;
+            border-left-color: #10B981;
+        }
+
+        .info-card h4 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            font-size: 24px;
+            color: #475569;
+        }
+
+        /* Comparison Grid */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            flex: 1;
+            padding: 20px 0;
+        }
+
+        .comparison-card {
+            background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+            border-radius: 24px;
+            padding: 40px;
+            border-top: 6px solid #0D9488;
+        }
+
+        .comparison-card.rose {
+            background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+            border-top-color: #F43F5E;
+        }
+
+        .comparison-card.amber {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            border-top-color: #F59E0B;
+        }
+
+        .comparison-card h3 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #0D9488;
+            margin-bottom: 25px;
+        }
+
+        .comparison-card.rose h3 {
+            color: #F43F5E;
+        }
+
+        .comparison-card.amber h3 {
+            color: #D97706;
+        }
+
+        .comparison-card ul {
+            list-style: none;
+        }
+
+        .comparison-card li {
+            font-size: 24px;
+            color: #475569;
+            margin-bottom: 16px;
+            padding-left: 35px;
+            position: relative;
+        }
+
+        .comparison-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #0D9488;
+            font-weight: 700;
+        }
+
+        .comparison-card.rose li::before {
+            content: "!";
+            color: #F43F5E;
+        }
+
+        .comparison-card.amber li::before {
+            content: "⚠";
+            color: #D97706;
+        }
+
+        /* Scenario Layout */
+        .scenario-layout {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            gap: 30px;
+        }
+
+        .scenario-setup {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 20px;
+            padding: 35px 45px;
+        }
+
+        .scenario-setup h3 {
+            font-size: 34px;
+            font-weight: 700;
+            color: #92400e;
+            margin-bottom: 15px;
+        }
+
+        .scenario-setup p {
+            font-size: 28px;
+            color: #78350f;
+        }
+
+        .outcome-boxes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            flex: 1;
+        }
+
+        .outcome-box {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border-radius: 20px;
+            padding: 30px;
+            border-left: 6px solid #10B981;
+        }
+
+        .outcome-box.problem {
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+            border-left-color: #EF4444;
+        }
+
+        .outcome-box h4 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #065F46;
+            margin-bottom: 15px;
+        }
+
+        .outcome-box.problem h4 {
+            color: #991B1B;
+        }
+
+        .outcome-box p {
+            font-size: 24px;
+            color: #475569;
+        }
+
+        .outcome-box ul {
+            list-style: none;
+        }
+
+        .outcome-box li {
+            font-size: 22px;
+            color: #475569;
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .outcome-box li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #10B981;
+            font-weight: 700;
+        }
+
+        .outcome-box.problem li::before {
+            color: #EF4444;
+        }
+
+        /* Discussion Slide */
+        .slide-discussion {
+            background: linear-gradient(135deg, #0D9488 0%, #0F766E 50%, #115E59 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px;
+            text-align: center;
+        }
+
+        .slide-discussion.purple {
+            background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 50%, #5B21B6 100%);
+        }
+
+        .slide-discussion .badge {
+            background: rgba(255,255,255,0.2);
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-size: 22px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 50px;
+        }
+
+        .slide-discussion h2 {
+            font-size: 58px;
+            font-weight: 700;
+            max-width: 1400px;
+            line-height: 1.4;
+            margin-bottom: 50px;
+        }
+
+        .discussion-prompt {
+            font-size: 32px;
+            max-width: 1200px;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        /* Check Grid */
+        .check-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            flex: 1;
+        }
+
+        .check-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 20px;
+            padding: 35px;
+            border-left: 6px solid #4F46E5;
+        }
+
+        .check-card:nth-child(2) {
+            border-left-color: #0D9488;
+        }
+
+        .check-card:nth-child(3) {
+            border-left-color: #3B82F6;
+        }
+
+        .check-card:nth-child(4) {
+            border-left-color: #10B981;
+        }
+
+        .check-card .question-num {
+            font-size: 20px;
+            font-weight: 700;
+            color: #4F46E5;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .check-card:nth-child(2) .question-num {
+            color: #0D9488;
+        }
+
+        .check-card:nth-child(3) .question-num {
+            color: #3B82F6;
+        }
+
+        .check-card:nth-child(4) .question-num {
+            color: #10B981;
+        }
+
+        .check-card p {
+            font-size: 26px;
+            color: #334155;
+        }
+
+        /* Takeaway Grid */
+        .takeaway-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            flex: 1;
+        }
+
+        .takeaway-card {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-radius: 20px;
+            padding: 35px;
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+        }
+
+        .takeaway-card:nth-child(2) {
+            background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+        }
+
+        .takeaway-card:nth-child(3) {
+            background: linear-gradient(135deg, #fdf4ff 0%, #fae8ff 100%);
+        }
+
+        .takeaway-card:nth-child(4) {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+        }
+
+        .takeaway-icon {
+            width: 60px;
+            height: 60px;
+            background: #4F46E5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .takeaway-card:nth-child(2) .takeaway-icon {
+            background: #0D9488;
+        }
+
+        .takeaway-card:nth-child(3) .takeaway-icon {
+            background: #7C3AED;
+        }
+
+        .takeaway-card:nth-child(4) .takeaway-icon {
+            background: #10B981;
+        }
+
+        .takeaway-icon span {
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .takeaway-content h4 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 12px;
+        }
+
+        .takeaway-content p {
+            font-size: 24px;
+            color: #475569;
+        }
+
+        /* Activity Layout */
+        .activity-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            flex: 1;
+            align-items: center;
+        }
+
+        .activity-description {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 24px;
+            padding: 40px;
+        }
+
+        .activity-description h3 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #92400e;
+            margin-bottom: 20px;
+        }
+
+        .activity-description p {
+            font-size: 26px;
+            color: #78350f;
+            line-height: 1.6;
+        }
+
+        .activity-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .step-num {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #4F46E5 0%, #3B82F6 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            font-size: 26px;
+            color: #334155;
+            padding-top: 8px;
+        }
+
+        /* Closing Slide */
+        .slide-closing {
+            background: linear-gradient(135deg, #4F46E5 0%, #3B82F6 50%, #0D9488 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px;
+        }
+
+        .slide-closing .logo-large {
+            margin-bottom: 40px;
+        }
+
+        .slide-closing .logo-large svg {
+            width: 280px;
+            height: auto;
+        }
+
+        .slide-closing h2 {
+            font-size: 64px;
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+
+        .slide-closing .tagline {
+            font-size: 36px;
+            opacity: 0.95;
+            margin-bottom: 50px;
+        }
+
+        .slide-closing .website {
+            font-size: 32px;
+            font-weight: 600;
+            background: rgba(255,255,255,0.2);
+            padding: 15px 40px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+        }
+
+        .slide-closing .copyright {
+            font-size: 22px;
+            opacity: 0.8;
+        }
+
+        /* Full-Width Concept */
+        .concept-full {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .concept-full h3 {
+            font-size: 42px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 30px;
+        }
+
+        .concept-full p {
+            font-size: 28px;
+            color: #475569;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .concept-full .highlight-box {
+            background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+            border-radius: 16px;
+            padding: 30px;
+            border-left: 6px solid #0D9488;
+            margin-top: 20px;
+        }
+
+        .concept-full .highlight-box p {
+            margin-bottom: 0;
+            font-size: 26px;
+        }
+
+        /* Why It Matters Grid */
+        .why-matters-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            flex: 1;
+        }
+
+        .matter-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 20px;
+            padding: 35px;
+            border-top: 5px solid #4F46E5;
+        }
+
+        .matter-card:nth-child(2) {
+            border-top-color: #0D9488;
+        }
+
+        .matter-card:nth-child(3) {
+            border-top-color: #3B82F6;
+        }
+
+        .matter-card:nth-child(4) {
+            border-top-color: #10B981;
+        }
+
+        .matter-card h4 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+
+        .matter-card p {
+            font-size: 24px;
+            color: #475569;
+        }
+
+        /* Default List */
+        .default-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .default-list li {
+            font-size: 26px;
+            color: #475569;
+            padding: 20px 30px;
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+            border-radius: 12px;
+            border-left: 5px solid #EF4444;
+            list-style: none;
+        }
+
+        /* Print Styles */
+        @media print {
+            .slide {
+                page-break-after: always;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Slide 1: Title -->
+    <div class="slide slide-title">
+        <div class="logo">
+            <svg viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 10 L50 10 L50 50 L20 50 Z" fill="white" opacity="0.9"/>
+                <path d="M25 20 L45 20 M25 30 L45 30 M25 40 L35 40" stroke="#4F46E5" stroke-width="3" stroke-linecap="round"/>
+                <text x="60" y="38" font-family="Inter" font-size="24" font-weight="800" fill="white">PFL Academy</text>
+            </svg>
+        </div>
+        <div class="chapter-label">L-25</div>
+        <h1>Understanding<br>Student Loans</h1>
+        <div class="subtitle">Financing Your Future Wisely in {{STATE_NAME}}</div>
+        <div class="standard-tag">Standard 7: Credit and Debt Management • {{STATE_NAME}}</div>
+    </div>
+
+    <!-- Slide 2: Hook -->
+    <div class="slide slide-hook">
+        <div class="hook-label">Essential Question</div>
+        <h2>College can cost over $100,000.<br><br>How do you make smart borrowing decisions that won't haunt you for decades?</h2>
+    </div>
+
+    <!-- Slide 3: Objectives -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>Learning Objectives</h2>
+            <div class="slide-number">3 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="objectives-expanded">
+                <div class="objective-card">
+                    <h3>Understand</h3>
+                    <p>The key differences between federal and private student loans and their respective benefits</p>
+                </div>
+                <div class="objective-card">
+                    <h3>Analyze</h3>
+                    <p>The long-term financial implications of different student loan decisions</p>
+                </div>
+                <div class="objective-card">
+                    <h3>Learn</h3>
+                    <p>Strategies for managing student loan debt responsibly before and after graduation</p>
+                </div>
+                <div class="objective-card">
+                    <h3>Explore</h3>
+                    <p>Real-world examples and case studies of student loan management approaches</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 4: Key Terms 1 -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Key Terms</h2>
+            <div class="slide-number">4 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="vocab-container">
+                <div class="vocab-row">
+                    <div class="vocab-card">
+                        <h3>Federal Student Loans</h3>
+                        <p>Loans issued by the U.S. Department of Education with standardized terms and borrower protections</p>
+                        <div class="example">Example: Direct Subsidized Loans don't accrue interest while you're in school</div>
+                    </div>
+                    <div class="vocab-card">
+                        <h3>Private Student Loans</h3>
+                        <p>Education loans from banks, credit unions, or other private lenders with varying terms</p>
+                        <div class="example">Example: A loan from a bank that requires a credit check and co-signer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 5: Key Terms 2 -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Key Terms</h2>
+            <div class="slide-number">5 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="vocab-container">
+                <div class="vocab-row">
+                    <div class="vocab-card">
+                        <h3>Income-Driven Repayment</h3>
+                        <p>Federal loan payment plans that cap monthly payments based on your income and family size</p>
+                        <div class="example">Example: SAVE plan limits payments to 5-10% of discretionary income</div>
+                    </div>
+                    <div class="vocab-card">
+                        <h3>Loan Forgiveness</h3>
+                        <p>Programs that cancel remaining loan balances after meeting specific criteria</p>
+                        <div class="example">Example: Public Service Loan Forgiveness after 10 years of qualifying payments</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 6: Core Concept 1 - Federal Loans -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>Federal Student Loans</h2>
+            <div class="slide-number">6 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="balanced-layout">
+                <div class="content-panel">
+                    <h3>The Smart First Choice</h3>
+                    <p>Federal loans offer significant advantages for most borrowers:</p>
+                    <ul>
+                        <li>Fixed interest rates set by Congress</li>
+                        <li>No credit check for most loans</li>
+                        <li>Multiple repayment plan options</li>
+                        <li>Loan forgiveness opportunities</li>
+                        <li>Deferment and forbearance options</li>
+                        <li>Single application through FAFSA</li>
+                    </ul>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card">
+                        <div class="stat-number">5-8%</div>
+                        <div class="stat-label">Typical Federal Loan Rates</div>
+                    </div>
+                    <div class="stat-card teal">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Income-Driven Plan Options</div>
+                    </div>
+                    <div class="stat-card purple">
+                        <div class="stat-number">$37,693</div>
+                        <div class="stat-label">Average Graduate Debt 2022</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 7: Comparison - Federal vs Private -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Federal vs. Private Loans</h2>
+            <div class="slide-number">7 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h3>Federal Loans</h3>
+                    <ul>
+                        <li>Fixed interest rates</li>
+                        <li>No credit check required</li>
+                        <li>Income-driven repayment plans</li>
+                        <li>Forgiveness programs available</li>
+                        <li>Deferment during hardship</li>
+                        <li>One application (FAFSA)</li>
+                    </ul>
+                </div>
+                <div class="comparison-card amber">
+                    <h3>Private Loans</h3>
+                    <ul>
+                        <li>Variable or fixed rates based on credit</li>
+                        <li>Credit check required</li>
+                        <li>Limited repayment flexibility</li>
+                        <li>No forgiveness programs</li>
+                        <li>Limited hardship options</li>
+                        <li>Separate applications per lender</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 8: Core Concept 2 - Interest -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Understanding Interest Rates</h2>
+            <div class="slide-number">8 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="balanced-layout">
+                <div class="content-panel">
+                    <h3>The True Cost of Borrowing</h3>
+                    <p>Interest is what makes a $30,000 loan cost far more over time:</p>
+                    <div class="info-card" style="margin: 20px 0;">
+                        <h4>Subsidized vs. Unsubsidized</h4>
+                        <p>Subsidized: Government pays interest while in school<br>Unsubsidized: Interest accrues from day one</p>
+                    </div>
+                    <div class="info-card teal">
+                        <h4>Fixed vs. Variable</h4>
+                        <p>Fixed: Rate stays the same forever<br>Variable: Rate can increase over time</p>
+                    </div>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card">
+                        <div class="stat-number">$30K</div>
+                        <div class="stat-label">Amount Borrowed</div>
+                    </div>
+                    <div class="stat-card rose">
+                        <div class="stat-number">$38K</div>
+                        <div class="stat-label">Total Repaid at 5%/10 years</div>
+                    </div>
+                    <div class="stat-card teal">
+                        <div class="stat-number">$8,000</div>
+                        <div class="stat-label">Interest Paid</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 9: Core Concept 3 - Repayment Options -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>Federal Loan Repayment Options</h2>
+            <div class="slide-number">9 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="concept-full">
+                <h3>Flexibility When You Need It</h3>
+                <p>Federal loans offer multiple repayment paths designed to fit your financial situation after graduation.</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px;">
+                    <div class="info-card">
+                        <h4>Standard Repayment</h4>
+                        <p>Fixed payments over 10 years. Highest monthly payment but lowest total cost.</p>
+                    </div>
+                    <div class="info-card teal">
+                        <h4>Income-Driven Plans</h4>
+                        <p>Payments based on income (5-20%). Remaining balance forgiven after 20-25 years.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Graduated Repayment</h4>
+                        <p>Payments start low and increase every 2 years. Good if you expect salary growth.</p>
+                    </div>
+                    <div class="info-card teal">
+                        <h4>Extended Repayment</h4>
+                        <p>Lower monthly payments over 25 years. Higher total interest paid.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 10: Core Concept 4 - Smart Borrowing -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Smart Borrowing Strategies</h2>
+            <div class="slide-number">10 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="balanced-layout">
+                <div class="content-panel">
+                    <h3>Borrow Less, Stress Less</h3>
+                    <ul>
+                        <li>Borrow only what you need for education expenses</li>
+                        <li>Exhaust federal loans before considering private</li>
+                        <li>Research career salary prospects first</li>
+                        <li>Consider part-time work during school</li>
+                        <li>Understand all terms before signing</li>
+                        <li>Create a repayment plan before graduation</li>
+                    </ul>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card green">
+                        <div class="stat-number">10%</div>
+                        <div class="stat-label">Max Debt-to-Income Ratio Goal</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">$0</div>
+                        <div class="stat-label">Cost of Scholarships & Grants</div>
+                    </div>
+                    <div class="stat-card teal">
+                        <div class="stat-number">1st</div>
+                        <div class="stat-label">Always Try Federal Loans First</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 11: Why It Matters -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Why Student Loan Knowledge Matters</h2>
+            <div class="slide-number">11 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="why-matters-grid">
+                <div class="matter-card">
+                    <h4>Long-Term Financial Impact</h4>
+                    <p>Loan decisions made at 18 can affect your finances for 20+ years after graduation</p>
+                </div>
+                <div class="matter-card">
+                    <h4>Career Flexibility</h4>
+                    <p>Lower debt gives you freedom to pursue careers you love, not just high-paying jobs</p>
+                </div>
+                <div class="matter-card">
+                    <h4>Life Milestone Timing</h4>
+                    <p>Student debt can delay buying a home, starting a family, or saving for retirement</p>
+                </div>
+                <div class="matter-card">
+                    <h4>Mental Health & Stress</h4>
+                    <p>Manageable debt levels contribute to better financial wellness and less anxiety</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 12: Modern Context -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>The Student Loan Landscape Today</h2>
+            <div class="slide-number">12 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="balanced-layout">
+                <div class="content-panel">
+                    <h3>A National Challenge</h3>
+                    <p>Student loan debt is now the second-largest category of consumer debt in America, trailing only mortgages.</p>
+                    <ul>
+                        <li>Average graduate debt continues rising</li>
+                        <li>New income-driven plans (SAVE) launched</li>
+                        <li>Public Service Loan Forgiveness expanded</li>
+                        <li>Policy debates continue at federal level</li>
+                        <li>Financial literacy becoming more crucial</li>
+                    </ul>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card">
+                        <div class="stat-number">$1.77T</div>
+                        <div class="stat-label">Total U.S. Student Loan Debt</div>
+                    </div>
+                    <div class="stat-card teal">
+                        <div class="stat-number">43M</div>
+                        <div class="stat-label">Americans with Student Loans</div>
+                    </div>
+                    <div class="stat-card purple">
+                        <div class="stat-number">$28,950</div>
+                        <div class="stat-label">Median Borrower Balance</div>
+                    </div>
+                    <div class="stat-card green">
+                        <div class="stat-number">${{STATE_TUITION_PUBLIC}}</div>
+                        <div class="stat-label">{{STATE_NAME}} Public University (Annual)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 13: Real-World Example 1 - Alex -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Case Study: Alex's Smart Strategy</h2>
+            <div class="slide-number">13 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="scenario-layout">
+                <div class="scenario-setup">
+                    <h3>Alex's Approach</h3>
+                    <p>Alex borrowed $20,000 in federal loans at 5% fixed interest. Works 10 hours/week during school to minimize borrowing and qualifies for income-driven repayment after graduation.</p>
+                </div>
+                <div class="outcome-boxes">
+                    <div class="outcome-box">
+                        <h4>Key Advantages</h4>
+                        <ul>
+                            <li>Fixed rate locks in predictable payments</li>
+                            <li>Access to income-driven plans if needed</li>
+                            <li>Eligible for PSLF if entering public service</li>
+                            <li>Work income reduces total borrowing</li>
+                        </ul>
+                    </div>
+                    <div class="outcome-box">
+                        <h4>Financial Outcome</h4>
+                        <ul>
+                            <li>Total repayment: ~$25,500 over 10 years</li>
+                            <li>Monthly payment: ~$212</li>
+                            <li>Manageable debt-to-income ratio</li>
+                            <li>Financial flexibility preserved</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 14: Real-World Example 2 - Jordan -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Case Study: Jordan's Mixed Approach</h2>
+            <div class="slide-number">14 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="scenario-layout">
+                <div class="scenario-setup">
+                    <h3>Jordan's Situation</h3>
+                    <p>Jordan borrowed $15,000 in federal loans AND $10,000 in private loans at 10% variable interest. Required a parent co-signer and has fixed repayment regardless of post-graduation income.</p>
+                </div>
+                <div class="outcome-boxes">
+                    <div class="outcome-box problem">
+                        <h4>Challenges Faced</h4>
+                        <ul>
+                            <li>Variable rate could increase over time</li>
+                            <li>No income-driven options for private loans</li>
+                            <li>Parent's credit at risk as co-signer</li>
+                            <li>Less flexibility during financial hardship</li>
+                        </ul>
+                    </div>
+                    <div class="outcome-box problem">
+                        <h4>Financial Reality</h4>
+                        <ul>
+                            <li>Higher total interest paid</li>
+                            <li>Less predictable monthly costs</li>
+                            <li>No forgiveness options for private portion</li>
+                            <li>More stress if income fluctuates</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 15: Discussion 1 -->
+    <div class="slide slide-discussion">
+        <div class="badge">Discussion</div>
+        <h2>How might your career choice impact your student loan borrowing decisions?</h2>
+        <div class="discussion-prompt">Consider expected starting salaries, career growth potential, and whether certain careers offer loan forgiveness programs like PSLF.</div>
+    </div>
+
+    <!-- Slide 16: Discussion 2 -->
+    <div class="slide slide-discussion purple">
+        <div class="badge">Personal Reflection</div>
+        <h2>If you plan to attend college, how do you intend to finance your education?</h2>
+        <div class="discussion-prompt">Think about scholarships, grants, work-study, savings, family support, and loans. What balance would minimize your debt while meeting your educational goals?</div>
+    </div>
+
+    <!-- Slide 17: Check for Understanding -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>Check for Understanding</h2>
+            <div class="slide-number">17 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="check-grid">
+                <div class="check-card">
+                    <div class="question-num">Question 1</div>
+                    <p>Why should federal student loans typically be your first choice over private loans?</p>
+                </div>
+                <div class="check-card">
+                    <div class="question-num">Question 2</div>
+                    <p>What's the difference between subsidized and unsubsidized federal loans?</p>
+                </div>
+                <div class="check-card">
+                    <div class="question-num">Question 3</div>
+                    <p>How do income-driven repayment plans help borrowers manage student debt?</p>
+                </div>
+                <div class="check-card">
+                    <div class="question-num">Question 4</div>
+                    <p>What's a reasonable debt-to-income ratio to aim for when borrowing for education?</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 18: Key Takeaways -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Key Takeaways</h2>
+            <div class="slide-number">18 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="takeaway-grid">
+                <div class="takeaway-card">
+                    <div class="takeaway-icon"><span>1</span></div>
+                    <div class="takeaway-content">
+                        <h4>Federal First</h4>
+                        <p>Always exhaust federal loan options before considering private loans due to better terms and protections</p>
+                    </div>
+                </div>
+                <div class="takeaway-card">
+                    <div class="takeaway-icon"><span>2</span></div>
+                    <div class="takeaway-content">
+                        <h4>Borrow Smart</h4>
+                        <p>Only borrow what you truly need for educational expenses - every dollar borrowed costs more in repayment</p>
+                    </div>
+                </div>
+                <div class="takeaway-card">
+                    <div class="takeaway-icon"><span>3</span></div>
+                    <div class="takeaway-content">
+                        <h4>Know Your Options</h4>
+                        <p>Federal loans offer income-driven plans and forgiveness programs that private loans don't</p>
+                    </div>
+                </div>
+                <div class="takeaway-card">
+                    <div class="takeaway-icon"><span>4</span></div>
+                    <div class="takeaway-content">
+                        <h4>Plan Ahead</h4>
+                        <p>Research career salaries and create a repayment plan before you borrow, not after graduation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 19: Activity -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Skill Builder: College Budget Planning</h2>
+            <div class="slide-number">19 / 20</div>
+        </div>
+        <div class="slide-body">
+            <div class="activity-layout">
+                <div class="activity-description">
+                    <h3>Budgeting for College Costs</h3>
+                    <p>Help Alex plan his college budget and find ways to reduce borrowing. Analyze expenses, calculate total costs, and identify savings strategies that minimize debt without sacrificing the college experience.</p>
+                </div>
+                <div class="activity-steps">
+                    <div class="step">
+                        <div class="step-num">1</div>
+                        <div class="step-content">Review Alex's budget including tuition, housing, food, and personal expenses</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">2</div>
+                        <div class="step-content">Calculate total annual expenses across all categories</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">3</div>
+                        <div class="step-content">Identify at least three savings strategies to reduce costs</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">4</div>
+                        <div class="step-content">Calculate potential annual savings from each strategy</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">5</div>
+                        <div class="step-content">Reflect: How might reducing expenses impact the college experience?</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 20: Closing -->
+    <div class="slide slide-closing">
+        <div class="logo-large">
+            <svg viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 10 L50 10 L50 50 L20 50 Z" fill="white" opacity="0.9"/>
+                <path d="M25 20 L45 20 M25 30 L45 30 M25 40 L35 40" stroke="#4F46E5" stroke-width="3" stroke-linecap="round"/>
+                <text x="60" y="38" font-family="Inter" font-size="24" font-weight="800" fill="white">PFL Academy</text>
+            </svg>
+        </div>
+        <h2>Invest in Your Future<br>Without Mortgaging It</h2>
+        <div class="tagline">Smart borrowing today means financial freedom tomorrow</div>
+        <div class="website">www.pflacademy.co</div>
+        <div style="font-size: 18px; opacity: 0.8; margin-top: 20px;">{{STATE_NAME}} Education Resources: {{STATE_EDUCATION_DEPT_URL}}</div>
+        <div class="copyright">&copy; 2025 PFL Academy. All rights reserved.</div>
+    </div>
+</body>
+</html>

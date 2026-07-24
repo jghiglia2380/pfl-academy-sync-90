@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>L-19: Planning for Retirement | PFL Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #4F46E5; --primary-dark: #3730A3; --primary-light: #818CF8;
+            --teal: #0D9488; --teal-dark: #0F766E; --teal-light: #5EEAD4;
+            --green: #10B981; --green-light: #D1FAE5;
+            --blue: #3B82F6; --blue-light: #DBEAFE;
+            --amber: #F59E0B; --amber-light: #FEF3C7; --amber-pale: #FFFBEB;
+            --rose: #F43F5E; --rose-light: #FFE4E6;
+            --text-dark: #1E293B; --text-body: #475569; --text-light: #64748B;
+            --bg-light: #F8FAFC; --bg-slate: #F1F5F9; --white: #FFFFFF; --border: #E2E8F0;
+        }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg-light); color: var(--text-dark); line-height: 1.5; }
+        .slide { width: 1920px; height: 1080px; page-break-after: always; page-break-inside: avoid; position: relative; overflow: hidden; background: var(--white); }
+        .slide:last-child { page-break-after: auto; }
+        .logo-white { height: 60px; width: auto; }
+        .slide-title { background: linear-gradient(135deg, var(--primary) 0%, #6D29D8 50%, var(--primary-dark) 100%); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 80px; }
+        .slide-title .logo-container { position: absolute; top: 50px; right: 70px; }
+        .slide-title .chapter-label { font-size: 26px; font-weight: 600; color: var(--teal-light); text-transform: uppercase; letter-spacing: 6px; margin-bottom: 20px; }
+        .slide-title h1 { font-size: 100px; font-weight: 800; color: var(--white); margin-bottom: 28px; line-height: 1.1; text-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+        .slide-title .subtitle { font-size: 38px; color: var(--white); font-weight: 500; opacity: 0.9; }
+        .slide-title .footer-bar { position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; gap: 60px; }
+        .slide-title .footer-bar span { font-size: 22px; color: rgba(255,255,255,0.8); font-weight: 500; }
+        .slide-content { display: flex; flex-direction: column; }
+        .slide-header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 36px 80px; min-height: 120px; display: flex; align-items: center; justify-content: space-between; }
+        .slide-header.teal { background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%); }
+        .slide-header.blue { background: linear-gradient(135deg, var(--blue) 0%, #2563EB 100%); }
+        .slide-header h2 { font-size: 52px; font-weight: 700; color: var(--white); }
+        .slide-header .slide-number { font-size: 22px; color: rgba(255,255,255,0.6); font-weight: 500; }
+        .slide-body { flex: 1; padding: 50px 80px; display: flex; flex-direction: column; gap: 32px; }
+        .slide-footer { height: 12px; background: linear-gradient(90deg, var(--teal) 0%, var(--primary) 50%, var(--teal) 100%); }
+        .slide-hook { background: linear-gradient(135deg, #1E293B 0%, #334155 50%, #1E293B 100%); display: flex; justify-content: center; align-items: center; padding: 100px; text-align: center; }
+        .slide-hook .label { position: absolute; top: 50px; left: 70px; background: var(--teal); color: var(--white); padding: 14px 36px; font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; border-radius: 6px; }
+        .slide-hook .question { font-size: 60px; font-weight: 700; color: var(--white); line-height: 1.4; max-width: 1500px; }
+        .slide-hook .question em { color: var(--teal-light); font-style: normal; }
+        .objectives-expanded { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; flex: 1; }
+        .objective-card { background: var(--bg-slate); border-radius: 20px; padding: 36px; border-left: 6px solid var(--teal); display: flex; flex-direction: column; gap: 16px; }
+        .objective-card .header { display: flex; align-items: center; gap: 16px; }
+        .objective-card .number { width: 56px; height: 56px; background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: white; font-size: 28px; font-weight: 700; flex-shrink: 0; }
+        .objective-card h3 { font-size: 32px; font-weight: 700; color: var(--teal-dark); }
+        .objective-card p { font-size: 26px; color: var(--text-body); line-height: 1.6; }
+        .vocab-container { display: flex; flex-direction: column; gap: 24px; flex: 1; }
+        .vocab-row { display: grid; grid-template-columns: 280px 1fr 1fr; gap: 24px; align-items: stretch; flex: 1; }
+        .vocab-term-box { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-radius: 16px; padding: 24px; display: flex; align-items: center; justify-content: center; }
+        .vocab-term-box .term { font-size: 32px; font-weight: 700; color: white; text-align: center; }
+        .vocab-def-box { background: var(--bg-slate); border-radius: 16px; padding: 28px 32px; border-left: 5px solid var(--teal); display: flex; flex-direction: column; justify-content: center; }
+        .vocab-def-box .label { font-size: 14px; font-weight: 700; color: var(--teal); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .vocab-def-box p { font-size: 26px; color: var(--text-dark); line-height: 1.5; }
+        .vocab-example-box { background: var(--green-light); border-radius: 16px; padding: 28px 32px; border-left: 5px solid var(--green); display: flex; flex-direction: column; justify-content: center; }
+        .vocab-example-box .label { font-size: 14px; font-weight: 700; color: var(--green); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .vocab-example-box p { font-size: 24px; color: var(--text-dark); line-height: 1.5; font-style: italic; }
+        .balanced-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; flex: 1; }
+        .content-panel { background: var(--bg-slate); border-radius: 20px; padding: 40px; display: flex; flex-direction: column; gap: 20px; }
+        .content-panel h3 { font-size: 34px; font-weight: 700; color: var(--primary); }
+        .content-panel p { font-size: 26px; color: var(--text-body); line-height: 1.6; }
+        .content-panel .highlight-box { background: var(--blue-light); border-left: 5px solid var(--blue); padding: 20px 24px; border-radius: 0 12px 12px 0; margin-top: auto; }
+        .content-panel .highlight-box p { font-size: 24px; color: var(--text-dark); font-weight: 500; }
+        .stats-panel { display: flex; flex-direction: column; gap: 20px; }
+        .stat-card { background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%); border-radius: 16px; padding: 32px; text-align: center; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+        .stat-card.purple { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); }
+        .stat-card.green { background: linear-gradient(135deg, var(--green) 0%, #059669 100%); }
+        .stat-card.rose { background: linear-gradient(135deg, var(--rose) 0%, #E11D48 100%); }
+        .stat-card .number { font-size: 64px; font-weight: 800; color: white; }
+        .stat-card .label { font-size: 22px; color: rgba(255,255,255,0.9); margin-top: 8px; }
+        .info-card { background: var(--amber-pale); border-radius: 16px; padding: 32px; border-left: 6px solid var(--amber); flex: 1; display: flex; flex-direction: column; }
+        .info-card.blue { background: var(--blue-light); border-left-color: var(--blue); }
+        .info-card.green { background: var(--green-light); border-left-color: var(--green); }
+        .info-card h4 { font-size: 26px; font-weight: 700; color: var(--text-dark); margin-bottom: 20px; }
+        .info-card ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+        .info-card li { font-size: 24px; color: var(--text-body); padding-left: 32px; position: relative; line-height: 1.4; }
+        .info-card li::before { content: "→"; color: var(--amber); position: absolute; left: 0; font-weight: 700; }
+        .info-card.blue li::before { color: var(--blue); }
+        .info-card.green li::before { color: var(--green); }
+        .comparison-grid { display: grid; grid-template-columns: 1fr 80px 1fr; gap: 0; flex: 1; align-items: stretch; }
+        .compare-column { background: var(--bg-slate); border-radius: 20px; padding: 40px; display: flex; flex-direction: column; }
+        .compare-column.left { border-top: 8px solid var(--text-light); }
+        .compare-column.right { border-top: 8px solid var(--teal); }
+        .compare-column h3 { font-size: 40px; font-weight: 700; margin-bottom: 28px; display: flex; align-items: center; gap: 16px; }
+        .compare-column.left h3 { color: var(--text-light); }
+        .compare-column.right h3 { color: var(--teal); }
+        .compare-column ul { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+        .compare-column li { font-size: 26px; color: var(--text-body); padding: 14px 18px; background: white; border-radius: 10px; display: flex; align-items: center; gap: 12px; }
+        .compare-column.left li::before { content: "•"; color: var(--text-light); font-size: 24px; }
+        .compare-column.right li::before { content: "✓"; color: var(--teal); font-weight: 700; }
+        .vs-divider { display: flex; align-items: center; justify-content: center; }
+        .vs-divider span { background: var(--primary); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700; }
+        .scenario-layout { display: grid; grid-template-columns: 1fr 400px; gap: 40px; flex: 1; }
+        .scenario-card { background: var(--amber-pale); border-radius: 20px; padding: 44px; border-left: 8px solid var(--amber); }
+        .scenario-card .name { font-size: 32px; font-weight: 700; color: var(--primary); margin-bottom: 24px; display: flex; align-items: center; gap: 16px; }
+        .scenario-card .name .icon { width: 48px; height: 48px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; }
+        .scenario-card p { font-size: 26px; color: var(--text-body); line-height: 1.7; }
+        .scenario-card .highlight-text { color: var(--primary); font-weight: 600; }
+        .scenario-outcomes { display: flex; flex-direction: column; gap: 20px; }
+        .outcome-box { border-radius: 16px; padding: 28px; text-align: center; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+        .outcome-box.before { background: var(--rose-light); border: 2px solid var(--rose); }
+        .outcome-box.after { background: var(--green-light); border: 2px solid var(--green); }
+        .outcome-box .label { font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .outcome-box.before .label { color: var(--rose); }
+        .outcome-box.after .label { color: var(--green); }
+        .outcome-box .value { font-size: 40px; font-weight: 800; color: var(--text-dark); }
+        .outcome-box .detail { font-size: 18px; color: var(--text-body); margin-top: 8px; }
+        .slide-discussion { background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 100px; }
+        .slide-discussion .badge { background: white; color: var(--teal-dark); padding: 18px 48px; font-size: 24px; font-weight: 700; text-transform: uppercase; letter-spacing: 4px; border-radius: 12px; margin-bottom: 48px; }
+        .slide-discussion .question { font-size: 48px; font-weight: 600; color: var(--white); line-height: 1.5; max-width: 1400px; }
+        .takeaway-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; flex: 1; }
+        .takeaway-item { display: flex; align-items: flex-start; gap: 24px; padding: 32px; background: var(--bg-slate); border-radius: 16px; }
+        .takeaway-item .number { width: 56px; height: 56px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 700; flex-shrink: 0; }
+        .takeaway-item .content h4 { font-size: 28px; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
+        .takeaway-item .content p { font-size: 24px; color: var(--text-body); line-height: 1.5; }
+        .activity-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; flex: 1; }
+        .activity-main { background: linear-gradient(135deg, var(--green-light) 0%, #A7F3D0 100%); border-radius: 20px; padding: 44px; border-left: 8px solid var(--green); }
+        .activity-main h3 { font-size: 36px; font-weight: 700; color: var(--text-dark); margin-bottom: 24px; display: flex; align-items: center; gap: 16px; }
+        .activity-main p { font-size: 26px; color: var(--text-dark); line-height: 1.6; }
+        .activity-steps { display: flex; flex-direction: column; gap: 16px; }
+        .activity-step { background: white; border-radius: 14px; padding: 26px 30px; display: flex; align-items: center; gap: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+        .activity-step .step-num { width: 48px; height: 48px; background: var(--teal); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700; flex-shrink: 0; }
+        .activity-step p { font-size: 24px; color: var(--text-dark); }
+        .slide-closing { background: linear-gradient(135deg, var(--primary) 0%, #6D29D8 50%, var(--primary-dark) 100%); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 80px; }
+        .slide-closing .logo-large { height: 100px; margin-bottom: 40px; }
+        .slide-closing .tagline { font-size: 44px; font-weight: 600; color: var(--white); margin-bottom: 24px; }
+        .slide-closing .website { font-size: 32px; color: var(--teal-light); font-weight: 600; margin-bottom: 16px; }
+        .slide-closing .copyright { position: absolute; bottom: 40px; font-size: 18px; color: rgba(255,255,255,0.5); }
+        .concept-full { background: var(--bg-slate); border-radius: 20px; padding: 44px; flex: 1; display: flex; flex-direction: column; gap: 24px; }
+        .concept-full h3 { font-size: 36px; font-weight: 700; color: var(--primary); }
+        .concept-full p { font-size: 28px; color: var(--text-body); line-height: 1.6; }
+        .concept-full .key-point { background: linear-gradient(135deg, var(--blue-light) 0%, #BFDBFE 100%); border-left: 6px solid var(--blue); padding: 24px 32px; border-radius: 0 16px 16px 0; margin-top: 12px; }
+        .concept-full .key-point p { font-size: 26px; color: var(--text-dark); font-weight: 500; }
+        .concept-full ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .concept-full li { font-size: 24px; color: var(--text-body); padding: 18px 22px; background: white; border-radius: 12px; border-left: 4px solid var(--teal); }
+        .check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; flex: 1; }
+        .check-item { background: var(--bg-slate); border-radius: 16px; padding: 32px; border-left: 6px solid var(--primary); }
+        .check-item .q-num { font-size: 20px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+        .check-item p { font-size: 26px; color: var(--text-dark); line-height: 1.5; }
+        @media print { .slide { page-break-after: always; page-break-inside: avoid; } }
+    </style>
+</head>
+<body>
+
+<!-- SLIDE 1: Title -->
+<div class="slide slide-title">
+    <div class="logo-container">
+        <svg class="logo-white" viewBox="0 0 1366 441.64" xmlns="http://www.w3.org/2000/svg">
+            <style>.wht{fill:#fff}</style>
+            <path class="wht" d="M116.66,174.42h-17.75v34.04h17.4c11.89,0,18.71-6.26,18.71-17.19s-6.7-16.85-18.37-16.85Z"/>
+            <path class="wht" d="M219.87,2.27C99.62,2.27,2.14,99.75,2.14,220s97.48,217.73,217.73,217.73,217.73-97.48,217.73-217.73S340.12,2.27,219.87,2.27ZM120.72,230.14h-21.8v60.28h-27.08v-139.02h46.85c13.87,0,24.7,3.89,32.21,11.58,7.23,7.41,11.06,17.14,11.06,28.13,0,23.71-16.18,39.04-41.24,39.04ZM277,177.04h-13.7c-9.24,0-24.66,4.37-24.98,33.1h38.68v22.19h-38.75c-.37,34.39-21.88,58.35-52.61,58.35h-11.21v-25.14h11.21c25.09,0,27.35-26.03,27.5-33.21h-38.7v-22.19h38.75c.31-35.94,19.44-58.24,50.12-58.24h13.7v25.14ZM304.17,290.42v-139.02h26.24v116.13h46.17v22.89h-72.41Z"/>
+            <path class="wht" d="M545.29,144.12h30.91l51.92,147.31h-31.11l-9.89-31.32h-53.15l-9.68,31.32h-30.29l51.3-147.31ZM540.96,237.25h38.94l-13.19-42.44c-2.47-7.83-5.98-22.67-5.98-22.67h-.41s-3.71,14.83-6.18,22.67l-13.19,42.44Z"/>
+            <path class="wht" d="M632.03,238.69c0-31.52,20.6-55.84,52.74-55.84,27.4,0,44.3,15.87,48,38.74h-27.4c-1.86-9.27-9.06-16.28-19.37-16.28-16.9,0-25.55,12.98-25.55,33.38s8.04,33.38,25.14,33.38c11.33,0,19.37-5.98,21.22-17.93h26.99c-1.86,22.46-19.37,40.38-47.59,40.38-33.38,0-54.19-24.31-54.19-55.84Z"/>
+            <path class="wht" d="M814.36,279.69h-.41c-5.36,8.04-12.98,14.22-31.11,14.22-21.63,0-36.88-11.34-36.88-32.35,0-23.28,18.96-30.7,42.44-34,17.52-2.47,25.55-3.91,25.55-11.95,0-7.62-5.98-12.57-17.72-12.57-13.19,0-19.57,4.74-20.4,14.83h-24.93c.82-18.54,14.63-34.82,45.53-34.82s44.51,14.22,44.51,38.94v53.77c0,8.04,1.23,12.78,3.71,14.63v1.03h-26.99c-1.65-2.06-2.68-7.01-3.3-11.75ZM814.56,254.14v-15.86c-4.95,2.88-12.57,4.53-19.57,6.18-14.63,3.3-21.84,6.59-21.84,16.48s6.59,13.39,16.48,13.39c16.07,0,24.93-9.89,24.93-20.19Z"/>
+            <path class="wht" d="M856.59,238.69c0-32.96,18.75-55.84,45.12-55.84,14.84,0,24.11,6.8,29.88,15.66h.62v-54.39h28.02v147.31h-26.99v-13.8h-.41c-6.18,10.09-16.69,16.9-31.52,16.9-26.57,0-44.71-21.64-44.71-55.84ZM932.82,239.31c0-20.19-6.59-33.79-24.52-33.79-15.45,0-23.28,13.6-23.28,33.17s8.04,32.35,22.45,32.35c16.69,0,25.34-12.36,25.34-31.73Z"/>
+            <path class="wht" d="M976.29,238.48c0-31.32,21.22-55.63,52.13-55.63,34,0,52.13,25.96,52.13,63.66h-76.64c2.06,16.28,11.13,26.37,26.99,26.37,10.92,0,17.31-4.94,20.4-12.98h27.61c-3.91,18.75-20.6,34.62-47.8,34.62-35.03,0-54.81-24.52-54.81-56.04ZM1004.3,227.15h46.98c-.82-13.39-9.68-22.66-22.45-22.66-14.84,0-22.05,8.86-24.52,22.66Z"/>
+            <path class="wht" d="M1096.6,185.74h26.99v14.22h.62c5.77-9.69,16.07-17.1,30.7-17.1,13.39,0,24.11,7.42,29.26,18.54h.42c7.21-11.54,18.34-18.54,31.73-18.54,22.26,0,34.82,14.42,34.82,37.5v71.08h-28.02v-66.34c0-11.95-5.98-18.13-16.28-18.13-11.75,0-18.96,9.07-18.96,23.08v61.4h-28.02v-66.34c0-11.95-5.98-18.13-16.28-18.13-11.33,0-18.96,9.07-18.96,23.08v61.4h-28.02v-105.7Z"/>
+            <path class="wht" d="M1271.73,304h9.89c11.13,0,15.66-5.77,15.66-14.42,0-5.77-2.06-12.57-8.04-28.64l-28.44-75.2h29.46l15.66,47.59c3.3,9.68,6.8,23.08,6.8,23.08h.41s2.88-13.39,6.18-23.08l14.83-47.59h28.23l-36.88,108.37c-8.04,23.49-15.86,31.94-37.29,31.94h-16.48v-22.05Z"/>
+        </svg>
+    </div>
+    <div class="chapter-label">Chapter 19</div>
+    <h1>Planning for<br>Retirement</h1>
+    <div class="subtitle">Building Your Financial Future Starting Now in {{STATE_NAME}}</div>
+    <div class="footer-bar">
+        <span>Standard 5: Saving & Investing</span>
+        <span>•</span>
+        <span>Personal Financial Literacy</span>
+    </div>
+</div>
+
+<!-- SLIDE 2: Hook -->
+<div class="slide slide-hook">
+    <div class="label">Essential Question</div>
+    <div class="question">Imagine yourself at <em>age 65</em>.<br><br>What kind of lifestyle do you envision?<br>What steps can you start taking <em>now</em>?</div>
+</div>
+
+<!-- SLIDE 3: Objectives -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>Learning Objectives</h2>
+        <span class="slide-number">3 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="objectives-expanded">
+            <div class="objective-card">
+                <div class="header">
+                    <div class="number">1</div>
+                    <h3>Differentiate</h3>
+                </div>
+                <p>Understand the key differences between saving and investing strategies and when to use each.</p>
+            </div>
+            <div class="objective-card">
+                <div class="header">
+                    <div class="number">2</div>
+                    <h3>Identify</h3>
+                </div>
+                <p>Recognize key financial concepts like liquidity, risk tolerance, and opportunity cost.</p>
+            </div>
+            <div class="objective-card">
+                <div class="header">
+                    <div class="number">3</div>
+                    <h3>Explain</h3>
+                </div>
+                <p>Describe the relationship between risk and return, and how time horizons affect financial strategies.</p>
+            </div>
+            <div class="objective-card">
+                <div class="header">
+                    <div class="number">4</div>
+                    <h3>Develop</h3>
+                </div>
+                <p>Create financial strategies for retirement based on different retirement account options.</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 4: Vocabulary 1 -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Key Terms</h2>
+        <span class="slide-number">4 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="vocab-container">
+            <div class="vocab-row">
+                <div class="vocab-term-box">
+                    <div class="term">Compounding</div>
+                </div>
+                <div class="vocab-def-box">
+                    <div class="label">Definition</div>
+                    <p>The process where returns on your money generate their own returns—earning interest on interest.</p>
+                </div>
+                <div class="vocab-example-box">
+                    <div class="label">The Magic</div>
+                    <p>$10,000 at 7% for 40 years = $150,000 (without adding any more money!)</p>
+                </div>
+            </div>
+            <div class="vocab-row">
+                <div class="vocab-term-box">
+                    <div class="term">Opportunity Cost</div>
+                </div>
+                <div class="vocab-def-box">
+                    <div class="label">Definition</div>
+                    <p>What you give up when making one financial choice over another—the road not taken.</p>
+                </div>
+                <div class="vocab-example-box">
+                    <div class="label">Example</div>
+                    <p>Spending $200 on sneakers means losing $200 that could have grown in your 401(k)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 5: Vocabulary 2 -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Key Terms</h2>
+        <span class="slide-number">5 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="vocab-container">
+            <div class="vocab-row">
+                <div class="vocab-term-box">
+                    <div class="term">401(k)</div>
+                </div>
+                <div class="vocab-def-box">
+                    <div class="label">Definition</div>
+                    <p>Employer-sponsored retirement account with tax benefits. Many employers match your contributions.</p>
+                </div>
+                <div class="vocab-example-box">
+                    <div class="label">2024 Limit</div>
+                    <p>$23,000/year contribution limit ($30,500 if 50+)</p>
+                </div>
+            </div>
+            <div class="vocab-row">
+                <div class="vocab-term-box">
+                    <div class="term">IRA</div>
+                </div>
+                <div class="vocab-def-box">
+                    <div class="label">Definition</div>
+                    <p>Individual Retirement Account you open yourself. Traditional = tax now, Roth = tax-free later.</p>
+                </div>
+                <div class="vocab-example-box">
+                    <div class="label">2024 Limit</div>
+                    <p>$7,000/year contribution limit ($8,000 if 50+)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 6: Why Start Early? -->
+<div class="slide slide-content">
+    <div class="slide-header blue">
+        <h2>Why Start Retirement Planning NOW?</h2>
+        <span class="slide-number">6 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="balanced-layout">
+            <div class="content-panel">
+                <h3>Time is Your Greatest Asset</h3>
+                <p>Starting early gives compound interest decades to work its magic. The difference between starting at 25 vs. 35 is <strong>enormous</strong>.</p>
+                <p style="margin-top: 16px;"><strong>Start at 25:</strong> Invest $200/month at 7% return = $525,000 by age 65</p>
+                <p><strong>Start at 35:</strong> Invest $200/month at 7% return = $244,000 by age 65</p>
+                <p style="margin-top: 16px;">Same monthly investment, 10 years earlier = <strong>more than DOUBLE the result!</strong></p>
+                <div class="highlight-box">
+                    <p>⏰ Every year you wait to start investing for retirement costs you thousands in potential growth!</p>
+                </div>
+            </div>
+            <div class="stats-panel">
+                <div class="stat-card green">
+                    <div class="number">$525K</div>
+                    <div class="label">Start at Age 25</div>
+                </div>
+                <div class="stat-card rose">
+                    <div class="number">$244K</div>
+                    <div class="label">Start at Age 35</div>
+                </div>
+                <div class="stat-card purple">
+                    <div class="number">2x</div>
+                    <div class="label">The 10-Year Difference</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 7: Saving vs Investing -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Saving vs. Investing for Retirement</h2>
+        <span class="slide-number">7 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="comparison-grid">
+            <div class="compare-column left">
+                <h3>🏦 Saving</h3>
+                <ul>
+                    <li>Short-term needs (1-3 years)</li>
+                    <li>Lower risk to principal</li>
+                    <li>Lower returns (1-5%)</li>
+                    <li>High liquidity (easy access)</li>
+                    <li>Goal: Preserve capital</li>
+                    <li>Examples: Savings accounts, CDs</li>
+                </ul>
+            </div>
+            <div class="vs-divider">
+                <span>VS</span>
+            </div>
+            <div class="compare-column right">
+                <h3>📈 Investing</h3>
+                <ul>
+                    <li>Long-term goals (3+ years)</li>
+                    <li>Higher risk (varies by type)</li>
+                    <li>Potential for higher returns (7-10%)</li>
+                    <li>Lower liquidity (tied up longer)</li>
+                    <li>Goal: Grow capital</li>
+                    <li>Examples: Stocks, bonds, mutual funds</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 8: Retirement Account Options -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>Retirement Account Options</h2>
+        <span class="slide-number">8 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="concept-full">
+            <h3>Your Retirement Toolkit</h3>
+            <p>You have several tax-advantaged options for retirement savings. Understanding each helps you maximize your strategy.</p>
+            <ul>
+                <li><strong>401(k):</strong> Employer-sponsored. Pre-tax contributions, employer match (FREE money!), $23,000 limit in 2024</li>
+                <li><strong>Traditional IRA:</strong> Tax-deductible contributions NOW, pay taxes when you withdraw in retirement</li>
+                <li><strong>Roth IRA:</strong> Pay taxes NOW, withdrawals in retirement are completely TAX-FREE (great for young people)</li>
+                <li><strong>Social Security:</strong> Government program, funded by payroll taxes. Provides baseline income in retirement</li>
+            </ul>
+            <div class="key-point">
+                <p>💡 Pro tip: If your employer offers a 401(k) match, ALWAYS contribute enough to get the full match—it's free money!</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 9: Traditional vs Roth -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Traditional vs. Roth: When to Use Each</h2>
+        <span class="slide-number">9 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="balanced-layout">
+            <div class="content-panel">
+                <h3>Traditional (401k or IRA)</h3>
+                <p><strong>How it works:</strong> Contribute pre-tax dollars now, pay taxes when you withdraw in retirement.</p>
+                <p style="margin-top: 12px;"><strong>Best for:</strong> People who expect to be in a LOWER tax bracket in retirement than they are now.</p>
+                <p style="margin-top: 12px;"><strong>Example:</strong> High earners in their peak earning years who will have lower income in retirement.</p>
+                <div class="highlight-box">
+                    <p>📊 Reduces your taxable income TODAY = lower current tax bill</p>
+                </div>
+            </div>
+            <div class="content-panel">
+                <h3>Roth (401k or IRA)</h3>
+                <p><strong>How it works:</strong> Contribute after-tax dollars now, withdrawals in retirement are completely tax-free.</p>
+                <p style="margin-top: 12px;"><strong>Best for:</strong> Young people who expect to be in a HIGHER tax bracket in retirement.</p>
+                <p style="margin-top: 12px;"><strong>Example:</strong> Students and young workers in low tax brackets now with high earning potential later.</p>
+                <div class="highlight-box">
+                    <p>🔮 Pay taxes while in low bracket = tax-free growth for decades!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 10: The 50/30/20 Rule -->
+<div class="slide slide-content">
+    <div class="slide-header blue">
+        <h2>The 50/30/20 Budget Rule</h2>
+        <span class="slide-number">10 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="balanced-layout">
+            <div class="content-panel">
+                <h3>A Framework for Saving</h3>
+                <p>The 50/30/20 rule is a simple budgeting guideline that helps you allocate your after-tax income:</p>
+                <p style="margin-top: 16px;"><strong>50% → Needs:</strong> Housing, utilities, food, transportation, insurance, minimum payments</p>
+                <p><strong>30% → Wants:</strong> Entertainment, dining out, hobbies, subscriptions, upgrades</p>
+                <p><strong>20% → Savings & Investing:</strong> Emergency fund, retirement contributions, extra debt payments</p>
+                <div class="highlight-box">
+                    <p>🎯 If you can put 20% toward savings/investing, you're building a strong financial foundation!</p>
+                </div>
+            </div>
+            <div class="stats-panel">
+                <div class="stat-card">
+                    <div class="number">50%</div>
+                    <div class="label">Needs (Essentials)</div>
+                </div>
+                <div class="stat-card purple">
+                    <div class="number">30%</div>
+                    <div class="label">Wants (Lifestyle)</div>
+                </div>
+                <div class="stat-card green">
+                    <div class="number">20%</div>
+                    <div class="label">Savings & Investing</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 11: Employer Match -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>The Power of Employer Match</h2>
+        <span class="slide-number">11 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="balanced-layout">
+            <div class="content-panel">
+                <h3>Free Money You Can't Ignore</h3>
+                <p>Many employers offer to <strong>match</strong> your 401(k) contributions up to a certain percentage. This is essentially free money!</p>
+                <p style="margin-top: 16px;"><strong>Example:</strong> Your employer matches 100% of contributions up to 4% of your salary.</p>
+                <p style="margin-top: 12px;">If you earn $50,000 and contribute 4% ($2,000), your employer adds another $2,000 = <strong>$4,000 total!</strong></p>
+                <p style="margin-top: 12px;">That's an immediate 100% return on your investment—no other investment can guarantee that.</p>
+                <div class="highlight-box">
+                    <p>⚠️ Not contributing enough to get the full employer match is literally leaving free money on the table!</p>
+                </div>
+            </div>
+            <div class="stats-panel">
+                <div class="stat-card green">
+                    <div class="number">100%</div>
+                    <div class="label">Instant Return from Match</div>
+                </div>
+                <div class="stat-card purple">
+                    <div class="number">$2K+</div>
+                    <div class="label">Average Annual Match Value</div>
+                </div>
+                <div class="info-card blue">
+                    <h4>Common Match Formulas:</h4>
+                    <ul>
+                        <li>100% of first 3-6% you contribute</li>
+                        <li>50% of first 6% you contribute</li>
+                        <li>Dollar-for-dollar up to $X</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 12: Time Horizons -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Time Horizons and Risk</h2>
+        <span class="slide-number">12 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="concept-full">
+            <h3>Your Timeline Affects Your Strategy</h3>
+            <p>How much time you have until retirement determines how much risk you can reasonably take with your investments.</p>
+            <ul>
+                <li><strong>40+ Years (Age 20-25):</strong> Can be aggressive (80-90% stocks). Plenty of time to recover from market dips.</li>
+                <li><strong>25-40 Years (Age 25-40):</strong> Growth-focused with some stability. Gradually increase bonds (70-80% stocks).</li>
+                <li><strong>10-25 Years (Age 40-55):</strong> Balanced approach. Protect gains while still growing (60-70% stocks).</li>
+                <li><strong>Under 10 Years (Age 55+):</strong> Conservative. Prioritize preserving what you've built (40-50% stocks).</li>
+            </ul>
+            <div class="key-point">
+                <p>🔄 Target-date funds automatically shift from aggressive to conservative as you approach retirement!</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 13: Example - Micah -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>Real-World Example</h2>
+        <span class="slide-number">13 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="scenario-layout">
+            <div class="scenario-card">
+                <div class="name">
+                    <div class="icon">👨‍💼</div>
+                    Micah's Smart Start at 22
+                </div>
+                <p>Micah gets his first job at 22, earning $45,000/year. His employer offers a 401(k) with 4% match.</p>
+                <p style="margin-top: 20px;">Micah contributes <span class="highlight-text">6% of his salary ($2,700/year)</span> to his 401(k). His employer matches 4% ($1,800/year). Total: $4,500/year going into retirement.</p>
+                <p style="margin-top: 20px;"><strong>Result:</strong> Even if Micah never gets a raise and contributes the same amount for 43 years until age 65, at 7% average returns his 401(k) would grow to over <strong>$1.1 million!</strong></p>
+            </div>
+            <div class="scenario-outcomes">
+                <div class="outcome-box before">
+                    <div class="label">Micah Contributes</div>
+                    <div class="value">$116K</div>
+                    <div class="detail">Over 43 years</div>
+                </div>
+                <div class="outcome-box after">
+                    <div class="label">Employer Adds</div>
+                    <div class="value">$77K</div>
+                    <div class="detail">Free match money!</div>
+                </div>
+                <div class="outcome-box after" style="background: var(--blue-light); border-color: var(--blue);">
+                    <div class="label" style="color: var(--blue);">Total at 65</div>
+                    <div class="value">$1.1M+</div>
+                    <div class="detail">Growth from compounding</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 14: Example - Delayed Start -->
+<div class="slide slide-content">
+    <div class="slide-header blue">
+        <h2>Real-World Example</h2>
+        <span class="slide-number">14 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="scenario-layout">
+            <div class="scenario-card">
+                <div class="name">
+                    <div class="icon">😬</div>
+                    Jordan Waits Until 32
+                </div>
+                <p>Jordan earns the same as Micah and has the same employer match. But Jordan waits until age 32 to start contributing.</p>
+                <p style="margin-top: 20px;">Jordan contributes the same <span class="highlight-text">$4,500/year ($2,700 + $1,800 match)</span> for 33 years until retirement.</p>
+                <p style="margin-top: 20px;"><strong>Result:</strong> At 7% average returns, Jordan's 401(k) grows to about <strong>$525,000</strong>—less than HALF of what Micah has, even though Jordan contributed for only 10 fewer years.</p>
+                <p style="margin-top: 20px;"><strong>The cost of waiting:</strong> Those 10 extra years of compounding are worth over $575,000!</p>
+            </div>
+            <div class="scenario-outcomes">
+                <div class="outcome-box before">
+                    <div class="label">Jordan's Total</div>
+                    <div class="value">$525K</div>
+                    <div class="detail">Started at 32</div>
+                </div>
+                <div class="outcome-box after">
+                    <div class="label">Micah's Total</div>
+                    <div class="value">$1.1M</div>
+                    <div class="detail">Started at 22</div>
+                </div>
+                <div class="outcome-box before">
+                    <div class="label">Cost of Waiting</div>
+                    <div class="value">$575K+</div>
+                    <div class="detail">10 years = massive difference</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 15: Discussion -->
+<div class="slide slide-discussion">
+    <div class="badge">Discussion</div>
+    <div class="question">Would you rather have a Traditional IRA (pay less tax now) or a Roth IRA (pay no tax in retirement)?<br><br>Why might your answer be different at age 22 vs. age 55?</div>
+</div>
+
+<!-- SLIDE 16: Personal Reflection -->
+<div class="slide slide-discussion" style="background: linear-gradient(135deg, var(--primary) 0%, #6D29D8 100%);">
+    <div class="badge">Personal Reflection</div>
+    <div class="question">Imagine yourself at age 65. What kind of lifestyle do you envision?<br><br>What steps can you start taking NOW to ensure you have enough savings to achieve that lifestyle?</div>
+</div>
+
+<!-- SLIDE 17: Check for Understanding -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Check for Understanding</h2>
+        <span class="slide-number">17 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="check-grid">
+            <div class="check-item">
+                <div class="q-num">Question 1</div>
+                <p>Why does starting to save for retirement at age 22 result in so much more money than starting at age 32?</p>
+            </div>
+            <div class="check-item">
+                <div class="q-num">Question 2</div>
+                <p>What is the difference between a Traditional IRA and a Roth IRA? When might you choose one over the other?</p>
+            </div>
+            <div class="check-item">
+                <div class="q-num">Question 3</div>
+                <p>Why should you always contribute enough to your 401(k) to get the full employer match?</p>
+            </div>
+            <div class="check-item">
+                <div class="q-num">Question 4</div>
+                <p>Using the 50/30/20 rule, if you want to save 20% and contribute $35,500/year to retirement, what income would you need?</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 18: Key Takeaways -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>Key Takeaways</h2>
+        <span class="slide-number">18 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="takeaway-grid">
+            <div class="takeaway-item">
+                <div class="number">1</div>
+                <div class="content">
+                    <h4>Start Early</h4>
+                    <p>Time is your greatest asset. Starting 10 years earlier can double your retirement savings through compounding.</p>
+                </div>
+            </div>
+            <div class="takeaway-item">
+                <div class="number">2</div>
+                <div class="content">
+                    <h4>Get the Match</h4>
+                    <p>Always contribute enough to get your full employer 401(k) match—it's free money with 100% instant return.</p>
+                </div>
+            </div>
+            <div class="takeaway-item">
+                <div class="number">3</div>
+                <div class="content">
+                    <h4>Choose Your Tax Timing</h4>
+                    <p>Young people often benefit from Roth accounts—pay taxes now while in a low bracket, enjoy tax-free growth.</p>
+                </div>
+            </div>
+            <div class="takeaway-item">
+                <div class="number">4</div>
+                <div class="content">
+                    <h4>Adjust Risk to Time</h4>
+                    <p>With decades until retirement, you can afford more stock exposure. Become more conservative as you approach 65.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 19: Activity -->
+<div class="slide slide-content">
+    <div class="slide-header blue">
+        <h2>Student Activity</h2>
+        <span class="slide-number">19 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="activity-layout">
+            <div class="activity-main">
+                <h3>📋 Retirement Planning Worksheet</h3>
+                <p>Explore different retirement options and compare their benefits, risks, and tax implications.</p>
+                <p style="margin-top: 20px;">Then calculate: Using the 50/30/20 rule, if you want to max out 401(k) + Traditional IRA + Roth IRA contributions, what annual income would you need?</p>
+            </div>
+            <div class="activity-steps">
+                <div class="activity-step">
+                    <div class="step-num">1</div>
+                    <p>Review retirement options: 401(k), IRAs, Social Security</p>
+                </div>
+                <div class="activity-step">
+                    <div class="step-num">2</div>
+                    <p>Compare benefits, risks, and tax implications</p>
+                </div>
+                <div class="activity-step">
+                    <div class="step-num">3</div>
+                    <p>Calculate max contributions: $23K + $7K + $7K = $37K</p>
+                </div>
+                <div class="activity-step">
+                    <div class="step-num">4</div>
+                    <p>Apply 50/30/20: $37K ÷ 0.20 = target income</p>
+                </div>
+                <div class="activity-step">
+                    <div class="step-num">5</div>
+                    <p>Reflect: Is this realistic? What's your strategy?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 20: Closing -->
+<div class="slide slide-closing">
+    <svg class="logo-large" viewBox="0 0 1366 441.64" xmlns="http://www.w3.org/2000/svg" style="height: 100px;">
+        <style>.wht{fill:#fff}</style>
+        <path class="wht" d="M116.66,174.42h-17.75v34.04h17.4c11.89,0,18.71-6.26,18.71-17.19s-6.7-16.85-18.37-16.85Z"/>
+        <path class="wht" d="M219.87,2.27C99.62,2.27,2.14,99.75,2.14,220s97.48,217.73,217.73,217.73,217.73-97.48,217.73-217.73S340.12,2.27,219.87,2.27ZM120.72,230.14h-21.8v60.28h-27.08v-139.02h46.85c13.87,0,24.7,3.89,32.21,11.58,7.23,7.41,11.06,17.14,11.06,28.13,0,23.71-16.18,39.04-41.24,39.04ZM277,177.04h-13.7c-9.24,0-24.66,4.37-24.98,33.1h38.68v22.19h-38.75c-.37,34.39-21.88,58.35-52.61,58.35h-11.21v-25.14h11.21c25.09,0,27.35-26.03,27.5-33.21h-38.7v-22.19h38.75c.31-35.94,19.44-58.24,50.12-58.24h13.7v25.14ZM304.17,290.42v-139.02h26.24v116.13h46.17v22.89h-72.41Z"/>
+        <path class="wht" d="M545.29,144.12h30.91l51.92,147.31h-31.11l-9.89-31.32h-53.15l-9.68,31.32h-30.29l51.3-147.31ZM540.96,237.25h38.94l-13.19-42.44c-2.47-7.83-5.98-22.67-5.98-22.67h-.41s-3.71,14.83-6.18,22.67l-13.19,42.44Z"/>
+        <path class="wht" d="M632.03,238.69c0-31.52,20.6-55.84,52.74-55.84,27.4,0,44.3,15.87,48,38.74h-27.4c-1.86-9.27-9.06-16.28-19.37-16.28-16.9,0-25.55,12.98-25.55,33.38s8.04,33.38,25.14,33.38c11.33,0,19.37-5.98,21.22-17.93h26.99c-1.86,22.46-19.37,40.38-47.59,40.38-33.38,0-54.19-24.31-54.19-55.84Z"/>
+        <path class="wht" d="M814.36,279.69h-.41c-5.36,8.04-12.98,14.22-31.11,14.22-21.63,0-36.88-11.34-36.88-32.35,0-23.28,18.96-30.7,42.44-34,17.52-2.47,25.55-3.91,25.55-11.95,0-7.62-5.98-12.57-17.72-12.57-13.19,0-19.57,4.74-20.4,14.83h-24.93c.82-18.54,14.63-34.82,45.53-34.82s44.51,14.22,44.51,38.94v53.77c0,8.04,1.23,12.78,3.71,14.63v1.03h-26.99c-1.65-2.06-2.68-7.01-3.3-11.75ZM814.56,254.14v-15.86c-4.95,2.88-12.57,4.53-19.57,6.18-14.63,3.3-21.84,6.59-21.84,16.48s6.59,13.39,16.48,13.39c16.07,0,24.93-9.89,24.93-20.19Z"/>
+        <path class="wht" d="M856.59,238.69c0-32.96,18.75-55.84,45.12-55.84,14.84,0,24.11,6.8,29.88,15.66h.62v-54.39h28.02v147.31h-26.99v-13.8h-.41c-6.18,10.09-16.69,16.9-31.52,16.9-26.57,0-44.71-21.64-44.71-55.84ZM932.82,239.31c0-20.19-6.59-33.79-24.52-33.79-15.45,0-23.28,13.6-23.28,33.17s8.04,32.35,22.45,32.35c16.69,0,25.34-12.36,25.34-31.73Z"/>
+        <path class="wht" d="M976.29,238.48c0-31.32,21.22-55.63,52.13-55.63,34,0,52.13,25.96,52.13,63.66h-76.64c2.06,16.28,11.13,26.37,26.99,26.37,10.92,0,17.31-4.94,20.4-12.98h27.61c-3.91,18.75-20.6,34.62-47.8,34.62-35.03,0-54.81-24.52-54.81-56.04ZM1004.3,227.15h46.98c-.82-13.39-9.68-22.66-22.45-22.66-14.84,0-22.05,8.86-24.52,22.66Z"/>
+        <path class="wht" d="M1096.6,185.74h26.99v14.22h.62c5.77-9.69,16.07-17.1,30.7-17.1,13.39,0,24.11,7.42,29.26,18.54h.42c7.21-11.54,18.34-18.54,31.73-18.54,22.26,0,34.82,14.42,34.82,37.5v71.08h-28.02v-66.34c0-11.95-5.98-18.13-16.28-18.13-11.75,0-18.96,9.07-18.96,23.08v61.4h-28.02v-66.34c0-11.95-5.98-18.13-16.28-18.13-11.33,0-18.96,9.07-18.96,23.08v61.4h-28.02v-105.7Z"/>
+        <path class="wht" d="M1271.73,304h9.89c11.13,0,15.66-5.77,15.66-14.42,0-5.77-2.06-12.57-8.04-28.64l-28.44-75.2h29.46l15.66,47.59c3.3,9.68,6.8,23.08,6.8,23.08h.41s2.88-13.39,6.18-23.08l14.83-47.59h28.23l-36.88,108.37c-8.04,23.49-15.86,31.94-37.29,31.94h-16.48v-22.05Z"/>
+    </svg>
+    <div class="tagline">Building Financial Futures, One Lesson at a Time</div>
+    <div class="website">www.pflacademy.co</div>
+    <div class="copyright">© 2025 PFL Academy. All rights reserved.</div>
+</div>
+
+</body>
+</html>

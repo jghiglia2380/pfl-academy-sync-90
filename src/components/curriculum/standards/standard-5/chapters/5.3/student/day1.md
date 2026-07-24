@@ -26,7 +26,7 @@ By the end of this lesson, you will be able to:
 - Diversification
 
 ### Introduction
-
+In {{STATE_NAME}}, 
 Saving and investing represent two different approaches to growing your money. While saving typically focuses on security and accessibility for short-term needs, investing aims for growth over longer periods but involves more risk. Understanding the relationship between risk and return is essential for making informed financial choices.
 
 ### Saving vs. Investing: What's the Difference?

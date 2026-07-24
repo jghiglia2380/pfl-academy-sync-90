@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>L-41: Career Exploration and Goal Setting | PFL Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Primary Brand Colors */
+            --primary: #4F46E5;
+            --primary-dark: #3730A3;
+            --primary-light: #818CF8;
+
+            /* Secondary - Teal/Green (use more) */
+            --teal: #0D9488;
+            --teal-dark: #0F766E;
+            --teal-light: #5EEAD4;
+            --green: #10B981;
+            --green-light: #D1FAE5;
+
+            /* Tertiary - Blue */
+            --blue: #3B82F6;
+            --blue-light: #DBEAFE;
+
+            /* Accent - Amber (use sparingly) */
+            --amber: #F59E0B;
+            --amber-light: #FEF3C7;
+            --amber-pale: #FFFBEB;
+
+            /* Rose/Pink for variety */
+            --rose: #F43F5E;
+            --rose-light: #FFE4E6;
+
+            /* Neutrals */
+            --text-dark: #1E293B;
+            --text-body: #475569;
+            --text-light: #64748B;
+            --bg-light: #F8FAFC;
+            --bg-slate: #F1F5F9;
+            --white: #FFFFFF;
+            --border: #E2E8F0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        /* Slide container - 16:9 landscape */
+        .slide {
+            width: 1920px;
+            height: 1080px;
+            page-break-after: always;
+            page-break-inside: avoid;
+            position: relative;
+            overflow: hidden;
+            background: var(--white);
+        }
+
+        .slide:last-child {
+            page-break-after: auto;
+        }
+
+        /* Logo styles */
+        .logo-white {
+            height: 60px;
+            width: auto;
+        }
+
+        .logo-color {
+            height: 50px;
+            width: auto;
+        }
+
+        /* ===== TITLE SLIDE ===== */
+        .slide-title {
+            background: linear-gradient(135deg, var(--primary) 0%, #6D29D8 50%, var(--primary-dark) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px;
+        }
+
+        .slide-title .logo-container {
+            position: absolute;
+            top: 50px;
+            right: 70px;
+        }
+
+        .slide-title .chapter-label {
+            font-size: 26px;
+            font-weight: 600;
+            color: var(--teal-light);
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin-bottom: 20px;
+        }
+
+        .slide-title h1 {
+            font-size: 100px;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 28px;
+            line-height: 1.1;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .slide-title .subtitle {
+            font-size: 38px;
+            color: var(--white);
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        .slide-title .footer-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+        }
+
+        .slide-title .footer-bar span {
+            font-size: 22px;
+            color: rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+
+        /* ===== STANDARD CONTENT SLIDE ===== */
+        .slide-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 36px 80px;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .slide-header.teal {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+        }
+
+        .slide-header.blue {
+            background: linear-gradient(135deg, var(--blue) 0%, #2563EB 100%);
+        }
+
+        .slide-header h2 {
+            font-size: 52px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .slide-header .slide-number {
+            font-size: 22px;
+            color: rgba(255,255,255,0.6);
+            font-weight: 500;
+        }
+
+        .slide-body {
+            flex: 1;
+            padding: 50px 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .slide-footer {
+            height: 12px;
+            background: linear-gradient(90deg, var(--teal) 0%, var(--primary) 50%, var(--teal) 100%);
+        }
+
+        /* ===== HOOK SLIDE ===== */
+        .slide-hook {
+            background: linear-gradient(135deg, #1E293B 0%, #334155 50%, #1E293B 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 100px;
+            text-align: center;
+        }
+
+        .slide-hook .label {
+            position: absolute;
+            top: 50px;
+            left: 70px;
+            background: var(--teal);
+            color: var(--white);
+            padding: 14px 36px;
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            border-radius: 6px;
+        }
+
+        .slide-hook .question {
+            font-size: 60px;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.4;
+            max-width: 1500px;
+        }
+
+        .slide-hook .question em {
+            color: var(--teal-light);
+            font-style: normal;
+        }
+
+        /* ===== OBJECTIVES SLIDE - EXPANDED ===== */
+        .objectives-expanded {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            flex: 1;
+        }
+
+        .objective-card {
+            background: var(--bg-slate);
+            border-radius: 20px;
+            padding: 36px;
+            border-left: 6px solid var(--teal);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .objective-card .header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .objective-card .number {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .objective-card h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--teal-dark);
+        }
+
+        .objective-card p {
+            font-size: 26px;
+            color: var(--text-body);
+            line-height: 1.6;
+        }
+
+        /* ===== VOCABULARY SLIDE ===== */
+        .vocab-container {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            flex: 1;
+        }
+
+        .vocab-row {
+            display: grid;
+            grid-template-columns: 280px 1fr 1fr;
+            gap: 24px;
+            align-items: stretch;
+            flex: 1;
+        }
+
+        .vocab-term-box {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vocab-term-box .term {
+            font-size: 30px;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+        }
+
+        .vocab-def-box {
+            background: var(--bg-slate);
+            border-radius: 16px;
+            padding: 28px 32px;
+            border-left: 5px solid var(--teal);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .vocab-def-box .label {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--teal);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .vocab-def-box p {
+            font-size: 24px;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        .vocab-example-box {
+            background: var(--green-light);
+            border-radius: 16px;
+            padding: 28px 32px;
+            border-left: 5px solid var(--green);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .vocab-example-box .label {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .vocab-example-box p {
+            font-size: 22px;
+            color: var(--text-dark);
+            line-height: 1.5;
+            font-style: italic;
+        }
+
+        /* ===== TWO-COLUMN BALANCED LAYOUT ===== */
+        .balanced-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            flex: 1;
+        }
+
+        .content-panel {
+            background: var(--bg-slate);
+            border-radius: 20px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .content-panel h3 {
+            font-size: 34px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .content-panel p {
+            font-size: 26px;
+            color: var(--text-body);
+            line-height: 1.6;
+        }
+
+        .content-panel .highlight-box {
+            background: var(--blue-light);
+            border-left: 5px solid var(--blue);
+            padding: 20px 24px;
+            border-radius: 0 12px 12px 0;
+            margin-top: auto;
+        }
+
+        .content-panel .highlight-box p {
+            font-size: 24px;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .stats-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .stat-card.purple {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        }
+
+        .stat-card.green {
+            background: linear-gradient(135deg, var(--green) 0%, #059669 100%);
+        }
+
+        .stat-card.rose {
+            background: linear-gradient(135deg, var(--rose) 0%, #E11D48 100%);
+        }
+
+        .stat-card .number {
+            font-size: 64px;
+            font-weight: 800;
+            color: white;
+        }
+
+        .stat-card .label {
+            font-size: 22px;
+            color: rgba(255,255,255,0.9);
+            margin-top: 8px;
+        }
+
+        .info-card {
+            background: var(--amber-pale);
+            border-radius: 16px;
+            padding: 32px;
+            border-left: 6px solid var(--amber);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-card.blue {
+            background: var(--blue-light);
+            border-left-color: var(--blue);
+        }
+
+        .info-card.green {
+            background: var(--green-light);
+            border-left-color: var(--green);
+        }
+
+        .info-card h4 {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .info-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .info-card li {
+            font-size: 24px;
+            color: var(--text-body);
+            padding-left: 32px;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .info-card li::before {
+            content: "→";
+            color: var(--amber);
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        .info-card.blue li::before {
+            color: var(--blue);
+        }
+
+        .info-card.green li::before {
+            color: var(--green);
+        }
+
+        /* ===== COMPARISON SLIDE ===== */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 80px 1fr;
+            gap: 0;
+            flex: 1;
+            align-items: stretch;
+        }
+
+        .compare-column {
+            background: var(--bg-slate);
+            border-radius: 20px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .compare-column.left {
+            border-top: 8px solid var(--green);
+        }
+
+        .compare-column.right {
+            border-top: 8px solid var(--primary);
+        }
+
+        .compare-column h3 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .compare-column.left h3 { color: var(--green); }
+        .compare-column.right h3 { color: var(--primary); }
+
+        .compare-column ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .compare-column li {
+            font-size: 26px;
+            color: var(--text-body);
+            padding: 14px 18px;
+            background: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .compare-column.left li::before {
+            content: "•";
+            color: var(--green);
+            font-weight: 700;
+            font-size: 32px;
+        }
+
+        .compare-column.right li::before {
+            content: "→";
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .vs-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vs-divider span {
+            background: var(--primary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        /* ===== SCENARIO/EXAMPLE SLIDE ===== */
+        .scenario-layout {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 40px;
+            flex: 1;
+        }
+
+        .scenario-card {
+            background: var(--amber-pale);
+            border-radius: 20px;
+            padding: 44px;
+            border-left: 8px solid var(--amber);
+        }
+
+        .scenario-card .name {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .scenario-card .name .icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        .scenario-card p {
+            font-size: 26px;
+            color: var(--text-body);
+            line-height: 1.7;
+        }
+
+        .scenario-card .highlight-text {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .scenario-outcomes {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .outcome-box {
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .outcome-box.before {
+            background: var(--rose-light);
+            border: 2px solid var(--rose);
+        }
+
+        .outcome-box.after {
+            background: var(--green-light);
+            border: 2px solid var(--green);
+        }
+
+        .outcome-box .label {
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .outcome-box.before .label { color: var(--rose); }
+        .outcome-box.after .label { color: var(--green); }
+
+        .outcome-box .value {
+            font-size: 40px;
+            font-weight: 800;
+            color: var(--text-dark);
+        }
+
+        .outcome-box .detail {
+            font-size: 18px;
+            color: var(--text-body);
+            margin-top: 8px;
+        }
+
+        /* ===== DISCUSSION SLIDE ===== */
+        .slide-discussion {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px;
+        }
+
+        .slide-discussion .badge {
+            background: white;
+            color: var(--teal-dark);
+            padding: 18px 48px;
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            border-radius: 12px;
+            margin-bottom: 48px;
+        }
+
+        .slide-discussion .question {
+            font-size: 48px;
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.5;
+            max-width: 1400px;
+        }
+
+        /* ===== TAKEAWAYS SLIDE ===== */
+        .takeaway-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            flex: 1;
+        }
+
+        .takeaway-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+            padding: 32px;
+            background: var(--bg-slate);
+            border-radius: 16px;
+        }
+
+        .takeaway-item .number {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .takeaway-item .content h4 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .takeaway-item .content p {
+            font-size: 24px;
+            color: var(--text-body);
+            line-height: 1.5;
+        }
+
+        /* ===== ACTIVITY SLIDE ===== */
+        .activity-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            flex: 1;
+        }
+
+        .activity-main {
+            background: linear-gradient(135deg, var(--green-light) 0%, #A7F3D0 100%);
+            border-radius: 20px;
+            padding: 44px;
+            border-left: 8px solid var(--green);
+        }
+
+        .activity-main h3 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .activity-main p {
+            font-size: 26px;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .activity-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .activity-step {
+            background: white;
+            border-radius: 14px;
+            padding: 26px 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .activity-step .step-num {
+            width: 48px;
+            height: 48px;
+            background: var(--teal);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .activity-step p {
+            font-size: 24px;
+            color: var(--text-dark);
+        }
+
+        /* ===== CLOSING SLIDE ===== */
+        .slide-closing {
+            background: linear-gradient(135deg, var(--primary) 0%, #6D29D8 50%, var(--primary-dark) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px;
+        }
+
+        .slide-closing .logo-large {
+            height: 100px;
+            margin-bottom: 40px;
+        }
+
+        .slide-closing .tagline {
+            font-size: 44px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .slide-closing .website {
+            font-size: 32px;
+            color: var(--teal-light);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .slide-closing .copyright {
+            position: absolute;
+            bottom: 40px;
+            font-size: 18px;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* Full-width concept card */
+        .concept-full {
+            background: var(--bg-slate);
+            border-radius: 20px;
+            padding: 44px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .concept-full h3 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .concept-full p {
+            font-size: 28px;
+            color: var(--text-body);
+            line-height: 1.6;
+        }
+
+        .concept-full .key-point {
+            background: linear-gradient(135deg, var(--blue-light) 0%, #BFDBFE 100%);
+            border-left: 6px solid var(--blue);
+            padding: 24px 32px;
+            border-radius: 0 16px 16px 0;
+            margin-top: 12px;
+        }
+
+        .concept-full .key-point p {
+            font-size: 26px;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .concept-full ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .concept-full li {
+            font-size: 24px;
+            color: var(--text-body);
+            padding: 18px 22px;
+            background: white;
+            border-radius: 12px;
+            border-left: 4px solid var(--teal);
+        }
+
+        /* SMART Grid */
+        .smart-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            flex: 1;
+        }
+
+        .smart-card {
+            background: var(--bg-slate);
+            border-radius: 16px;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .smart-card .letter {
+            font-size: 72px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .smart-card:nth-child(1) .letter { color: var(--primary); }
+        .smart-card:nth-child(2) .letter { color: var(--teal); }
+        .smart-card:nth-child(3) .letter { color: var(--green); }
+        .smart-card:nth-child(4) .letter { color: var(--blue); }
+        .smart-card:nth-child(5) .letter { color: var(--amber); }
+
+        .smart-card h4 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+
+        .smart-card p {
+            font-size: 20px;
+            color: var(--text-body);
+            line-height: 1.5;
+        }
+
+        /* Check for Understanding */
+        .check-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            flex: 1;
+        }
+
+        .check-item {
+            background: var(--bg-slate);
+            border-radius: 16px;
+            padding: 32px;
+            border-left: 6px solid var(--primary);
+        }
+
+        .check-item .q-num {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .check-item p {
+            font-size: 26px;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        @media print {
+            .slide {
+                page-break-after: always;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- SLIDE 1: Title -->
+<div class="slide slide-title">
+    <div class="logo-container">
+        <svg class="logo-white" viewBox="0 0 1366 441.64" xmlns="http://www.w3.org/2000/svg">
+            <style>.wht{fill:#fff}</style>
+            <path class="wht" d="M116.66,174.42h-17.75v34.04h17.4c11.89,0,18.71-6.26,18.71-17.19s-6.7-16.85-18.37-16.85Z"/>
+            <path class="wht" d="M219.87,2.27C99.62,2.27,2.14,99.75,2.14,220s97.48,217.73,217.73,217.73,217.73-97.48,217.73-217.73S340.12,2.27,219.87,2.27ZM120.72,230.14h-21.8v60.28h-27.08v-139.02h46.85c13.87,0,24.7,3.89,32.21,11.58,7.23,7.41,11.06,17.14,11.06,28.13,0,23.71-16.18,39.04-41.24,39.04ZM277,177.04h-13.7c-9.24,0-24.66,4.37-24.98,33.1h38.68v22.19h-38.75c-.37,34.39-21.88,58.35-52.61,58.35h-11.21v-25.14h11.21c25.09,0,27.35-26.03,27.5-33.21h-38.7v-22.19h38.75c.31-35.94,19.44-58.24,50.12-58.24h13.7v25.14ZM304.17,290.42v-139.02h26.24v116.13h46.17v22.89h-72.41Z"/>
+            <path class="wht" d="M545.29,144.12h30.91l51.92,147.31h-31.11l-9.89-31.32h-53.15l-9.68,31.32h-30.29l51.3-147.31ZM540.96,237.25h38.94l-13.19-42.44c-2.47-7.83-5.98-22.67-5.98-22.67h-.41s-3.71,14.83-6.18,22.67l-13.19,42.44Z"/>
+            <path class="wht" d="M632.03,238.69c0-31.52,20.6-55.84,52.74-55.84,27.4,0,44.3,15.87,48,38.74h-27.4c-1.86-9.27-9.06-16.28-19.37-16.28-16.9,0-25.55,12.98-25.55,33.38s8.04,33.38,25.14,33.38c11.33,0,19.37-5.98,21.22-17.93h26.99c-1.86,22.46-19.37,40.38-47.59,40.38-33.38,0-54.19-24.31-54.19-55.84Z"/>
+            <path class="wht" d="M814.36,279.69h-.41c-5.36,8.04-12.98,14.22-31.11,14.22-21.63,0-36.88-11.34-36.88-32.35,0-23.28,18.96-30.7,42.44-34,17.52-2.47,25.55-3.91,25.55-11.95,0-7.62-5.98-12.57-17.72-12.57-13.19,0-19.57,4.74-20.4,14.83h-24.93c.82-18.54,14.63-34.82,45.53-34.82s44.51,14.22,44.51,38.94v53.77c0,8.04,1.23,12.78,3.71,14.63v1.03h-26.99c-1.65-2.06-2.68-7.01-3.3-11.75ZM814.56,254.14v-15.86c-4.95,2.88-12.57,4.53-19.57,6.18-14.63,3.3-21.84,6.59-21.84,16.48s6.59,13.39,16.48,13.39c16.07,0,24.93-9.89,24.93-20.19Z"/>
+            <path class="wht" d="M856.59,238.69c0-32.96,18.75-55.84,45.12-55.84,14.84,0,24.11,6.8,29.88,15.66h.62v-54.39h28.02v147.31h-26.99v-13.8h-.41c-6.18,10.09-16.69,16.9-31.52,16.9-26.57,0-44.71-21.64-44.71-55.84ZM932.82,239.31c0-20.19-6.59-33.79-24.52-33.79-15.45,0-23.28,13.6-23.28,33.17s8.04,32.35,22.45,32.35c16.69,0,25.34-12.36,25.34-31.73Z"/>
+            <path class="wht" d="M976.29,238.48c0-31.32,21.22-55.63,52.13-55.63,34,0,52.13,25.96,52.13,63.66h-76.64c2.06,16.28,11.13,26.37,26.99,26.37,10.92,0,17.31-4.94,20.4-12.98h27.61c-3.91,18.75-20.6,34.62-47.8,34.62-35.03,0-54.81-24.52-54.81-56.04ZM1004.3,227.15h46.98c-.82-13.39-9.68-22.66-22.45-22.66-14.84,0-22.05,8.86-24.52,22.66Z"/>
+            <path class="wht" d="M1096.6,185.74h26.99v14.22h.62c5.77-9.69,16.07-17.1,30.7-17.1,13.39,0,24.11,7.42,29.26,18.54h.42c7.21-11.54,18.34-18.54,31.73-18.54,22.26,0,34.82,14.42,34.82,37.5v71.08h-28.02v-66.34c0-11.95-5.98-18.13-16.28-18.13-11.75,0-18.96,9.07-18.96,23.08v61.4h-28.02v-66.34c0-11.95-5.98-18.13-16.28-18.13-11.33,0-18.96,9.07-18.96,23.08v61.4h-28.02v-105.7Z"/>
+            <path class="wht" d="M1271.73,304h9.89c11.13,0,15.66-5.77,15.66-14.42,0-5.77-2.06-12.57-8.04-28.64l-28.44-75.2h29.46l15.66,47.59c3.3,9.68,6.8,23.08,6.8,23.08h.41s2.88-13.39,6.18-23.08l14.83-47.59h28.23l-36.88,108.37c-8.04,23.49-15.86,31.94-37.29,31.94h-16.48v-22.05Z"/>
+        </svg>
+    </div>
+    <div class="chapter-label">Chapter 41</div>
+    <h1>Career Exploration<br>and Goal Setting</h1>
+    <div class="subtitle">Building Your Path to Professional Success in {{STATE_NAME}}</div>
+    <div class="footer-bar">
+        <span>Standard 15: Career Readiness</span>
+        <span>•</span>
+        <span>Personal Financial Literacy</span>
+    </div>
+</div>
+
+<!-- SLIDE 2: Hook -->
+<div class="slide slide-hook">
+    <div class="label">Essential Question</div>
+    <div class="question">What's the difference between working a <em>job</em> and building a <em>career</em>?<br><br>How can you take control of your <em>professional future</em>?</div>
+</div>
+
+<!-- SLIDE 3: Objectives -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>Learning Objectives</h2>
+        <span class="slide-number">3 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="objectives-expanded">
+            <div class="objective-card">
+                <div class="header">
+                    <div class="number">1</div>
+                    <h3>Distinguish</h3>
+                </div>
+                <p>Understand the fundamental difference between a job and a career, and why it matters for your future.</p>
+            </div>
+            <div class="objective-card">
+                <div class="header">
+                    <div class="number">2</div>
+                    <h3>Self-Assess</h3>
+                </div>
+                <p>Identify your personal interests, skills, and values for informed career exploration.</p>
+            </div>
+            <div class="objective-card">
+                <div class="header">
+                    <div class="number">3</div>
+                    <h3>Research</h3>
+                </div>
+                <p>Use career exploration resources like O*NET, BLS, and informational interviews effectively.</p>
+            </div>
+            <div class="objective-card">
+                <div class="header">
+                    <div class="number">4</div>
+                    <h3>Plan</h3>
+                </div>
+                <p>Develop SMART career goals and create a comprehensive career development plan.</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 4: Vocabulary 1 -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Key Terms</h2>
+        <span class="slide-number">4 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="vocab-container">
+            <div class="vocab-row">
+                <div class="vocab-term-box">
+                    <div class="term">Career</div>
+                </div>
+                <div class="vocab-def-box">
+                    <div class="label">Definition</div>
+                    <p>A long-term professional journey encompassing multiple jobs, involving growth, development, and advancement over time.</p>
+                </div>
+                <div class="vocab-example-box">
+                    <div class="label">Example</div>
+                    <p>Starting as a staff accountant, then senior accountant, manager, and eventually CFO over 20 years</p>
+                </div>
+            </div>
+            <div class="vocab-row">
+                <div class="vocab-term-box">
+                    <div class="term">Job</div>
+                </div>
+                <div class="vocab-def-box">
+                    <div class="label">Definition</div>
+                    <p>A specific position or role with defined responsibilities, typically performed in exchange for payment.</p>
+                </div>
+                <div class="vocab-example-box">
+                    <div class="label">Example</div>
+                    <p>Working as a cashier at a retail store or an administrative assistant at a company</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 5: Vocabulary 2 -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Key Terms</h2>
+        <span class="slide-number">5 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="vocab-container">
+            <div class="vocab-row">
+                <div class="vocab-term-box">
+                    <div class="term">Self-Assessment</div>
+                </div>
+                <div class="vocab-def-box">
+                    <div class="label">Definition</div>
+                    <p>The process of evaluating your own interests, skills, values, and personality traits to guide career decisions.</p>
+                </div>
+                <div class="vocab-example-box">
+                    <div class="label">Example</div>
+                    <p>Taking personality tests, listing skills, reflecting on what motivates you</p>
+                </div>
+            </div>
+            <div class="vocab-row">
+                <div class="vocab-term-box">
+                    <div class="term">SMART Goals</div>
+                </div>
+                <div class="vocab-def-box">
+                    <div class="label">Definition</div>
+                    <p>Specific, Measurable, Achievable, Relevant, and Time-bound objectives for effective planning.</p>
+                </div>
+                <div class="vocab-example-box">
+                    <div class="label">Example</div>
+                    <p>"Complete my CPA certification exam within 18 months of graduation"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 6: Jobs vs Careers -->
+<div class="slide slide-content">
+    <div class="slide-header blue">
+        <h2>Jobs vs. Careers</h2>
+        <span class="slide-number">6 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="comparison-grid">
+            <div class="compare-column left" style="border-top-color: var(--amber);">
+                <h3 style="color: var(--amber);">💼 Job</h3>
+                <ul>
+                    <li style="">Specific position or role</li>
+                    <li style="">Focused on immediate income</li>
+                    <li style="">May be temporary or short-term</li>
+                    <li style="">Defined by tasks and duties</li>
+                    <li style="">May not align with long-term goals</li>
+                </ul>
+            </div>
+            <div class="vs-divider">
+                <span>VS</span>
+            </div>
+            <div class="compare-column right">
+                <h3>🚀 Career</h3>
+                <ul>
+                    <li>Long-term professional journey</li>
+                    <li>Encompasses multiple positions</li>
+                    <li>Involves progression and advancement</li>
+                    <li>Aligned with interests and goals</li>
+                    <li>Requires ongoing development</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 7: Self-Assessment -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>Self-Assessment: Know Yourself First</h2>
+        <span class="slide-number">7 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="balanced-layout">
+            <div class="content-panel">
+                <h3>Three Key Areas to Explore</h3>
+                <p><strong>1. Interests:</strong> What subjects do you enjoy? What activities make time fly? What problems do you like solving?</p>
+                <p><strong>2. Skills:</strong> What are you naturally good at? What have you learned through education or experience?</p>
+                <p><strong>3. Values:</strong> What matters most to you in work? What kind of environment do you thrive in?</p>
+                <div class="highlight-box">
+                    <p>💡 Self-awareness is the foundation of smart career planning. Know yourself before exploring careers.</p>
+                </div>
+            </div>
+            <div class="stats-panel">
+                <div class="info-card green">
+                    <h4>Questions to Ask Yourself:</h4>
+                    <ul>
+                        <li>What do I lose track of time doing?</li>
+                        <li>What topics do I enjoy learning about?</li>
+                        <li>What would I do even without pay?</li>
+                        <li>What kind of impact do I want to make?</li>
+                    </ul>
+                </div>
+                <div class="stat-card purple">
+                    <div class="number">2X</div>
+                    <div class="label">More satisfied in careers aligned with interests</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 8: Skills Types -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Two Types of Skills</h2>
+        <span class="slide-number">8 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="comparison-grid">
+            <div class="compare-column left">
+                <h3>🔧 Hard Skills</h3>
+                <ul>
+                    <li>Technical, teachable abilities</li>
+                    <li>Specific to certain jobs</li>
+                    <li>Computer programming</li>
+                    <li>Data analysis</li>
+                    <li>Foreign language proficiency</li>
+                    <li>Accounting or budgeting</li>
+                </ul>
+            </div>
+            <div class="vs-divider">
+                <span>+</span>
+            </div>
+            <div class="compare-column right" style="border-top-color: var(--teal);">
+                <h3 style="color: var(--teal);">🤝 Soft Skills</h3>
+                <ul>
+                    <li>Personal attributes and interpersonal</li>
+                    <li>Transferable across all jobs</li>
+                    <li>Communication</li>
+                    <li>Leadership</li>
+                    <li>Problem-solving</li>
+                    <li>Teamwork and adaptability</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 9: Career Exploration Resources -->
+<div class="slide slide-content">
+    <div class="slide-header blue">
+        <h2>Career Exploration Resources</h2>
+        <span class="slide-number">9 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="balanced-layout">
+            <div class="content-panel">
+                <h3>Online Research Tools</h3>
+                <p><strong>O*NET OnLine</strong> (onetonline.org): Comprehensive database with skills, education, salary, and outlook for hundreds of occupations.</p>
+                <p><strong>Bureau of Labor Statistics</strong>: Occupational Outlook Handbook with detailed career information and employment projections.</p>
+                <p><strong>CareerOneStop</strong>: Career assessments, training opportunities, and job search resources.</p>
+            </div>
+            <div class="content-panel">
+                <h3>Personal Research Methods</h3>
+                <p><strong>Informational Interviews:</strong> Conversations with professionals to learn about their daily work and career path.</p>
+                <p><strong>Job Shadowing:</strong> Observing professionals during a typical workday to experience the work environment.</p>
+                <p><strong>Professional Associations:</strong> Networking opportunities, mentorship, and industry-specific resources.</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 10: SMART Goals -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>SMART Career Goals</h2>
+        <span class="slide-number">10 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="smart-grid">
+            <div class="smart-card">
+                <div class="letter">S</div>
+                <h4>Specific</h4>
+                <p>What exactly do you want to accomplish? Who is involved? Why is this important?</p>
+            </div>
+            <div class="smart-card">
+                <div class="letter">M</div>
+                <h4>Measurable</h4>
+                <p>How will you track progress? What metrics will show you've achieved it?</p>
+            </div>
+            <div class="smart-card">
+                <div class="letter">A</div>
+                <h4>Achievable</h4>
+                <p>Is this realistic given your resources, time, and current situation?</p>
+            </div>
+            <div class="smart-card">
+                <div class="letter">R</div>
+                <h4>Relevant</h4>
+                <p>Does this align with your broader career aspirations and personal values?</p>
+            </div>
+            <div class="smart-card">
+                <div class="letter">T</div>
+                <h4>Time-bound</h4>
+                <p>What is your target date for completion? When will you reach milestones?</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 11: SMART Example -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>SMART Goal in Action</h2>
+        <span class="slide-number">11 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="balanced-layout">
+            <div class="content-panel" style="background: var(--rose-light);">
+                <h3 style="color: var(--rose);">❌ Vague Goal</h3>
+                <p style="font-size: 32px; font-weight: 600;">"I want to work in healthcare."</p>
+                <p style="margin-top: 20px;">This goal lacks specificity, measurability, and a timeline. It doesn't provide direction for action.</p>
+            </div>
+            <div class="content-panel" style="background: var(--green-light);">
+                <h3 style="color: var(--green);">✓ SMART Goal</h3>
+                <p style="font-size: 28px; font-weight: 600;">"I will complete a Certified Nursing Assistant program and pass the state exam within 12 months while working part-time at a clinic to gain direct patient experience."</p>
+                <p style="margin-top: 20px;"><strong>Specific:</strong> CNA certification • <strong>Measurable:</strong> Pass state exam • <strong>Achievable:</strong> Part-time work + study • <strong>Relevant:</strong> Healthcare goal • <strong>Time-bound:</strong> 12 months</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 12: Career Development Plan -->
+<div class="slide slide-content">
+    <div class="slide-header blue">
+        <h2>Career Development Plan Components</h2>
+        <span class="slide-number">12 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="concept-full">
+            <h3>Building Your Roadmap to Success</h3>
+            <ul style="grid-template-columns: 1fr 1fr 1fr;">
+                <li><strong>Career Objective</strong><br>Your ultimate career direction and aspiration</li>
+                <li><strong>Education & Training</strong><br>Degrees, certifications, and courses needed</li>
+                <li><strong>Experience Building</strong><br>Internships, jobs, and volunteer work</li>
+                <li><strong>Skill Development</strong><br>Technical and soft skills to acquire</li>
+                <li><strong>Networking</strong><br>Professional organizations and mentors</li>
+                <li><strong>Timeline & Milestones</strong><br>Short, mid, and long-term goals</li>
+            </ul>
+            <div class="key-point">
+                <p>📋 A career development plan is your personalized roadmap—it turns dreams into actionable steps.</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 13: Example 1 - Sarah -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>Real-World Example</h2>
+        <span class="slide-number">13 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="scenario-layout">
+            <div class="scenario-card" style="background: var(--green-light); border-left-color: var(--green);">
+                <div class="name">
+                    <div class="icon" style="background: var(--green);">👩‍⚕️</div>
+                    Sarah: From Job to Career
+                </div>
+                <p>Sarah started as a <span class="highlight-text">receptionist at a medical clinic</span> right after high school—viewing it as just a job to pay bills.</p>
+                <p style="margin-top: 16px;">After observing nurses and medical assistants, she became interested in <span class="highlight-text">healthcare as a career</span>. She created a development plan with short, mid, and long-term goals.</p>
+                <p style="margin-top: 16px;">Her transformation: complete nursing prerequisites, earn RN license, then specialize in pediatric oncology and eventually become a <strong>pediatric nurse practitioner</strong>.</p>
+            </div>
+            <div class="scenario-outcomes">
+                <div class="outcome-box after" style="background: var(--amber-pale); border-color: var(--amber);">
+                    <div class="label" style="color: var(--amber);">Short-Term (1-2 yrs)</div>
+                    <div class="value" style="font-size: 24px;">Prerequisites + Savings</div>
+                    <div class="detail">Gain patient experience</div>
+                </div>
+                <div class="outcome-box after" style="background: var(--blue-light); border-color: var(--blue);">
+                    <div class="label" style="color: var(--blue);">Mid-Term (3-5 yrs)</div>
+                    <div class="value" style="font-size: 24px;">RN Degree + License</div>
+                    <div class="detail">Pediatric nursing position</div>
+                </div>
+                <div class="outcome-box after">
+                    <div class="label">Long-Term (5+ yrs)</div>
+                    <div class="value" style="font-size: 24px;">Nurse Practitioner</div>
+                    <div class="detail">Children's hospital</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 14: Example 2 - Miguel -->
+<div class="slide slide-content">
+    <div class="slide-header blue">
+        <h2>Real-World Example</h2>
+        <span class="slide-number">14 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="scenario-layout">
+            <div class="scenario-card">
+                <div class="name">
+                    <div class="icon" style="background: var(--blue);">💻</div>
+                    Miguel: Career Exploration Process
+                </div>
+                <p>Miguel, a high school junior interested in technology, wasn't sure which specific career to pursue.</p>
+                <p style="margin-top: 16px;"><strong>Self-assessment:</strong> Identified strengths in problem-solving, communication, and creativity; interests in coding, design, and helping others use technology.</p>
+                <p style="margin-top: 16px;"><strong>Research:</strong> Used the Occupational Outlook Handbook to compare Software Developer, UX/UI Designer, IT Support Specialist, and Computer Science Teacher.</p>
+                <p style="margin-top: 16px;"><strong>Informational Interviews:</strong> Conversations revealed that <span class="highlight-text">UX/UI design</span> best combined his technical and creative interests.</p>
+            </div>
+            <div class="scenario-outcomes">
+                <div class="outcome-box after" style="background: var(--blue-light); border-color: var(--blue);">
+                    <div class="label" style="color: var(--blue);">SMART Goals Set</div>
+                    <div class="value" style="font-size: 20px;">UX Course in 6 months</div>
+                    <div class="detail">Portfolio with 3 projects by year end</div>
+                </div>
+                <div class="outcome-box after">
+                    <div class="label">Career Path Found</div>
+                    <div class="value" style="font-size: 24px;">UX/UI Designer</div>
+                    <div class="detail">Combines tech + creativity</div>
+                </div>
+                <div class="outcome-box after" style="background: var(--amber-pale); border-color: var(--amber);">
+                    <div class="label" style="color: var(--amber);">Next Step</div>
+                    <div class="value" style="font-size: 24px;">Summer Internship</div>
+                    <div class="detail">Design-focused programs</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 15: Discussion -->
+<div class="slide slide-discussion">
+    <div class="badge">Discussion</div>
+    <div class="question">Why is it important to have both short-term and long-term goals in your career development plan?<br><br>How can short-term goals help you stay motivated toward long-term aspirations?</div>
+</div>
+
+<!-- SLIDE 16: Key Takeaways -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>Key Takeaways</h2>
+        <span class="slide-number">16 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="takeaway-grid">
+            <div class="takeaway-item">
+                <div class="number">1</div>
+                <div class="content">
+                    <h4>Jobs ≠ Careers</h4>
+                    <p>Jobs provide immediate income; careers offer long-term growth aligned with your goals and values</p>
+                </div>
+            </div>
+            <div class="takeaway-item">
+                <div class="number">2</div>
+                <div class="content">
+                    <h4>Know Yourself First</h4>
+                    <p>Self-assessment of interests, skills, and values is the foundation of smart career planning</p>
+                </div>
+            </div>
+            <div class="takeaway-item">
+                <div class="number">3</div>
+                <div class="content">
+                    <h4>Research Thoroughly</h4>
+                    <p>Use O*NET, BLS, informational interviews, and job shadowing to explore careers</p>
+                </div>
+            </div>
+            <div class="takeaway-item">
+                <div class="number">4</div>
+                <div class="content">
+                    <h4>Plan with SMART Goals</h4>
+                    <p>Create Specific, Measurable, Achievable, Relevant, Time-bound goals with clear milestones</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 17: Activity -->
+<div class="slide slide-content">
+    <div class="slide-header blue">
+        <h2>Student Activity</h2>
+        <span class="slide-number">17 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="activity-layout">
+            <div class="activity-main">
+                <h3>🧭 Career Path Planner</h3>
+                <p>Use the Career Path Planner skill builder to create your own comprehensive career development plan.</p>
+                <p style="margin-top: 20px;">This interactive tool will guide you through self-assessment, career research, and goal-setting to build a personalized roadmap for your professional future.</p>
+            </div>
+            <div class="activity-steps">
+                <div class="activity-step">
+                    <div class="step-num">1</div>
+                    <p>Complete self-assessment: interests, skills, values</p>
+                </div>
+                <div class="activity-step">
+                    <div class="step-num">2</div>
+                    <p>Research 2-3 careers that align with your profile</p>
+                </div>
+                <div class="activity-step">
+                    <div class="step-num">3</div>
+                    <p>Write one SMART goal for short-term (1-2 yrs)</p>
+                </div>
+                <div class="activity-step">
+                    <div class="step-num">4</div>
+                    <p>Write one SMART goal for long-term (5+ yrs)</p>
+                </div>
+                <div class="activity-step">
+                    <div class="step-num">5</div>
+                    <p>Identify education and skills needed for your path</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 18: Closing -->
+<div class="slide slide-closing">
+    <svg class="logo-large" viewBox="0 0 1366 441.64" xmlns="http://www.w3.org/2000/svg" style="height: 100px;">
+        <style>.wht{fill:#fff}</style>
+        <path class="wht" d="M116.66,174.42h-17.75v34.04h17.4c11.89,0,18.71-6.26,18.71-17.19s-6.7-16.85-18.37-16.85Z"/>
+        <path class="wht" d="M219.87,2.27C99.62,2.27,2.14,99.75,2.14,220s97.48,217.73,217.73,217.73,217.73-97.48,217.73-217.73S340.12,2.27,219.87,2.27ZM120.72,230.14h-21.8v60.28h-27.08v-139.02h46.85c13.87,0,24.7,3.89,32.21,11.58,7.23,7.41,11.06,17.14,11.06,28.13,0,23.71-16.18,39.04-41.24,39.04ZM277,177.04h-13.7c-9.24,0-24.66,4.37-24.98,33.1h38.68v22.19h-38.75c-.37,34.39-21.88,58.35-52.61,58.35h-11.21v-25.14h11.21c25.09,0,27.35-26.03,27.5-33.21h-38.7v-22.19h38.75c.31-35.94,19.44-58.24,50.12-58.24h13.7v25.14ZM304.17,290.42v-139.02h26.24v116.13h46.17v22.89h-72.41Z"/>
+        <path class="wht" d="M545.29,144.12h30.91l51.92,147.31h-31.11l-9.89-31.32h-53.15l-9.68,31.32h-30.29l51.3-147.31ZM540.96,237.25h38.94l-13.19-42.44c-2.47-7.83-5.98-22.67-5.98-22.67h-.41s-3.71,14.83-6.18,22.67l-13.19,42.44Z"/>
+        <path class="wht" d="M632.03,238.69c0-31.52,20.6-55.84,52.74-55.84,27.4,0,44.3,15.87,48,38.74h-27.4c-1.86-9.27-9.06-16.28-19.37-16.28-16.9,0-25.55,12.98-25.55,33.38s8.04,33.38,25.14,33.38c11.33,0,19.37-5.98,21.22-17.93h26.99c-1.86,22.46-19.37,40.38-47.59,40.38-33.38,0-54.19-24.31-54.19-55.84Z"/>
+        <path class="wht" d="M814.36,279.69h-.41c-5.36,8.04-12.98,14.22-31.11,14.22-21.63,0-36.88-11.34-36.88-32.35,0-23.28,18.96-30.7,42.44-34,17.52-2.47,25.55-3.91,25.55-11.95,0-7.62-5.98-12.57-17.72-12.57-13.19,0-19.57,4.74-20.4,14.83h-24.93c.82-18.54,14.63-34.82,45.53-34.82s44.51,14.22,44.51,38.94v53.77c0,8.04,1.23,12.78,3.71,14.63v1.03h-26.99c-1.65-2.06-2.68-7.01-3.3-11.75ZM814.56,254.14v-15.86c-4.95,2.88-12.57,4.53-19.57,6.18-14.63,3.3-21.84,6.59-21.84,16.48s6.59,13.39,16.48,13.39c16.07,0,24.93-9.89,24.93-20.19Z"/>
+        <path class="wht" d="M856.59,238.69c0-32.96,18.75-55.84,45.12-55.84,14.84,0,24.11,6.8,29.88,15.66h.62v-54.39h28.02v147.31h-26.99v-13.8h-.41c-6.18,10.09-16.69,16.9-31.52,16.9-26.57,0-44.71-21.64-44.71-55.84ZM932.82,239.31c0-20.19-6.59-33.79-24.52-33.79-15.45,0-23.28,13.6-23.28,33.17s8.04,32.35,22.45,32.35c16.69,0,25.34-12.36,25.34-31.73Z"/>
+        <path class="wht" d="M976.29,238.48c0-31.32,21.22-55.63,52.13-55.63,34,0,52.13,25.96,52.13,63.66h-76.64c2.06,16.28,11.13,26.37,26.99,26.37,10.92,0,17.31-4.94,20.4-12.98h27.61c-3.91,18.75-20.6,34.62-47.8,34.62-35.03,0-54.81-24.52-54.81-56.04ZM1004.3,227.15h46.98c-.82-13.39-9.68-22.66-22.45-22.66-14.84,0-22.05,8.86-24.52,22.66Z"/>
+        <path class="wht" d="M1096.6,185.74h26.99v14.22h.62c5.77-9.69,16.07-17.1,30.7-17.1,13.39,0,24.11,7.42,29.26,18.54h.42c7.21-11.54,18.34-18.54,31.73-18.54,22.26,0,34.82,14.42,34.82,37.5v71.08h-28.02v-66.34c0-11.95-5.98-18.13-16.28-18.13-11.75,0-18.96,9.07-18.96,23.08v61.4h-28.02v-66.34c0-11.95-5.98-18.13-16.28-18.13-11.33,0-18.96,9.07-18.96,23.08v61.4h-28.02v-105.7Z"/>
+        <path class="wht" d="M1271.73,304h9.89c11.13,0,15.66-5.77,15.66-14.42,0-5.77-2.06-12.57-8.04-28.64l-28.44-75.2h29.46l15.66,47.59c3.3,9.68,6.8,23.08,6.8,23.08h.41s2.88-13.39,6.18-23.08l14.83-47.59h28.23l-36.88,108.37c-8.04,23.49-15.86,31.94-37.29,31.94h-16.48v-22.05Z"/>
+    </svg>
+    <div class="tagline">Building Financial Futures, One Lesson at a Time</div>
+    <div class="website">www.pflacademy.co</div>
+    <div class="copyright">© 2025 PFL Academy. All rights reserved.</div>
+</div>
+
+</body>
+</html>

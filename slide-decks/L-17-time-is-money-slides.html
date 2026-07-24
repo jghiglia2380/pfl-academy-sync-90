@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>L-17: Time is Money | PFL Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #4F46E5; --primary-dark: #3730A3; --primary-light: #818CF8;
+            --teal: #0D9488; --teal-dark: #0F766E; --teal-light: #5EEAD4;
+            --green: #10B981; --green-light: #D1FAE5;
+            --blue: #3B82F6; --blue-light: #DBEAFE;
+            --amber: #F59E0B; --amber-light: #FEF3C7; --amber-pale: #FFFBEB;
+            --rose: #F43F5E; --rose-light: #FFE4E6;
+            --text-dark: #1E293B; --text-body: #475569; --text-light: #64748B;
+            --bg-light: #F8FAFC; --bg-slate: #F1F5F9; --white: #FFFFFF; --border: #E2E8F0;
+        }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg-light); color: var(--text-dark); line-height: 1.5; }
+        .slide { width: 1920px; height: 1080px; page-break-after: always; page-break-inside: avoid; position: relative; overflow: hidden; background: var(--white); }
+        .slide:last-child { page-break-after: auto; }
+        .logo-white { height: 60px; width: auto; }
+        .slide-title { background: linear-gradient(135deg, var(--primary) 0%, #6D29D8 50%, var(--primary-dark) 100%); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 80px; }
+        .slide-title .logo-container { position: absolute; top: 50px; right: 70px; }
+        .slide-title .chapter-label { font-size: 26px; font-weight: 600; color: var(--teal-light); text-transform: uppercase; letter-spacing: 6px; margin-bottom: 20px; }
+        .slide-title h1 { font-size: 100px; font-weight: 800; color: var(--white); margin-bottom: 28px; line-height: 1.1; text-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+        .slide-title .subtitle { font-size: 38px; color: var(--white); font-weight: 500; opacity: 0.9; }
+        .slide-title .footer-bar { position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; gap: 60px; }
+        .slide-title .footer-bar span { font-size: 22px; color: rgba(255,255,255,0.8); font-weight: 500; }
+        .slide-content { display: flex; flex-direction: column; }
+        .slide-header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 36px 80px; min-height: 120px; display: flex; align-items: center; justify-content: space-between; }
+        .slide-header.teal { background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%); }
+        .slide-header.blue { background: linear-gradient(135deg, var(--blue) 0%, #2563EB 100%); }
+        .slide-header h2 { font-size: 52px; font-weight: 700; color: var(--white); }
+        .slide-header .slide-number { font-size: 22px; color: rgba(255,255,255,0.6); font-weight: 500; }
+        .slide-body { flex: 1; padding: 50px 80px; display: flex; flex-direction: column; gap: 32px; }
+        .slide-footer { height: 12px; background: linear-gradient(90deg, var(--teal) 0%, var(--primary) 50%, var(--teal) 100%); }
+        .slide-hook { background: linear-gradient(135deg, #1E293B 0%, #334155 50%, #1E293B 100%); display: flex; justify-content: center; align-items: center; padding: 100px; text-align: center; }
+        .slide-hook .label { position: absolute; top: 50px; left: 70px; background: var(--teal); color: var(--white); padding: 14px 36px; font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; border-radius: 6px; }
+        .slide-hook .question { font-size: 60px; font-weight: 700; color: var(--white); line-height: 1.4; max-width: 1500px; }
+        .slide-hook .question em { color: var(--teal-light); font-style: normal; }
+        .objectives-expanded { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; flex: 1; }
+        .objective-card { background: var(--bg-slate); border-radius: 20px; padding: 36px; border-left: 6px solid var(--teal); display: flex; flex-direction: column; gap: 16px; }
+        .objective-card .header { display: flex; align-items: center; gap: 16px; }
+        .objective-card .number { width: 56px; height: 56px; background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: white; font-size: 28px; font-weight: 700; flex-shrink: 0; }
+        .objective-card h3 { font-size: 32px; font-weight: 700; color: var(--teal-dark); }
+        .objective-card p { font-size: 26px; color: var(--text-body); line-height: 1.6; }
+        .vocab-container { display: flex; flex-direction: column; gap: 24px; flex: 1; }
+        .vocab-row { display: grid; grid-template-columns: 280px 1fr 1fr; gap: 24px; align-items: stretch; flex: 1; }
+        .vocab-term-box { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-radius: 16px; padding: 24px; display: flex; align-items: center; justify-content: center; }
+        .vocab-term-box .term { font-size: 32px; font-weight: 700; color: white; text-align: center; }
+        .vocab-def-box { background: var(--bg-slate); border-radius: 16px; padding: 28px 32px; border-left: 5px solid var(--teal); display: flex; flex-direction: column; justify-content: center; }
+        .vocab-def-box .label { font-size: 14px; font-weight: 700; color: var(--teal); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .vocab-def-box p { font-size: 26px; color: var(--text-dark); line-height: 1.5; }
+        .vocab-example-box { background: var(--green-light); border-radius: 16px; padding: 28px 32px; border-left: 5px solid var(--green); display: flex; flex-direction: column; justify-content: center; }
+        .vocab-example-box .label { font-size: 14px; font-weight: 700; color: var(--green); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .vocab-example-box p { font-size: 24px; color: var(--text-dark); line-height: 1.5; font-style: italic; }
+        .balanced-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; flex: 1; }
+        .content-panel { background: var(--bg-slate); border-radius: 20px; padding: 40px; display: flex; flex-direction: column; gap: 20px; }
+        .content-panel h3 { font-size: 34px; font-weight: 700; color: var(--primary); }
+        .content-panel p { font-size: 26px; color: var(--text-body); line-height: 1.6; }
+        .content-panel .highlight-box { background: var(--blue-light); border-left: 5px solid var(--blue); padding: 20px 24px; border-radius: 0 12px 12px 0; margin-top: auto; }
+        .content-panel .highlight-box p { font-size: 24px; color: var(--text-dark); font-weight: 500; }
+        .stats-panel { display: flex; flex-direction: column; gap: 20px; }
+        .stat-card { background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%); border-radius: 16px; padding: 32px; text-align: center; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+        .stat-card.purple { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); }
+        .stat-card.green { background: linear-gradient(135deg, var(--green) 0%, #059669 100%); }
+        .stat-card.rose { background: linear-gradient(135deg, var(--rose) 0%, #E11D48 100%); }
+        .stat-card .number { font-size: 64px; font-weight: 800; color: white; }
+        .stat-card .label { font-size: 22px; color: rgba(255,255,255,0.9); margin-top: 8px; }
+        .info-card { background: var(--amber-pale); border-radius: 16px; padding: 32px; border-left: 6px solid var(--amber); flex: 1; display: flex; flex-direction: column; }
+        .info-card.blue { background: var(--blue-light); border-left-color: var(--blue); }
+        .info-card.green { background: var(--green-light); border-left-color: var(--green); }
+        .info-card h4 { font-size: 26px; font-weight: 700; color: var(--text-dark); margin-bottom: 20px; }
+        .info-card ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+        .info-card li { font-size: 24px; color: var(--text-body); padding-left: 32px; position: relative; line-height: 1.4; }
+        .info-card li::before { content: "→"; color: var(--amber); position: absolute; left: 0; font-weight: 700; }
+        .info-card.blue li::before { color: var(--blue); }
+        .info-card.green li::before { color: var(--green); }
+        .comparison-grid { display: grid; grid-template-columns: 1fr 80px 1fr; gap: 0; flex: 1; align-items: stretch; }
+        .compare-column { background: var(--bg-slate); border-radius: 20px; padding: 40px; display: flex; flex-direction: column; }
+        .compare-column.left { border-top: 8px solid var(--text-light); }
+        .compare-column.right { border-top: 8px solid var(--teal); }
+        .compare-column h3 { font-size: 40px; font-weight: 700; margin-bottom: 28px; display: flex; align-items: center; gap: 16px; }
+        .compare-column.left h3 { color: var(--text-light); }
+        .compare-column.right h3 { color: var(--teal); }
+        .compare-column ul { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+        .compare-column li { font-size: 26px; color: var(--text-body); padding: 14px 18px; background: white; border-radius: 10px; display: flex; align-items: center; gap: 12px; }
+        .compare-column.left li::before { content: "•"; color: var(--text-light); font-size: 24px; }
+        .compare-column.right li::before { content: "✓"; color: var(--teal); font-weight: 700; }
+        .vs-divider { display: flex; align-items: center; justify-content: center; }
+        .vs-divider span { background: var(--primary); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700; }
+        .scenario-layout { display: grid; grid-template-columns: 1fr 400px; gap: 40px; flex: 1; }
+        .scenario-card { background: var(--amber-pale); border-radius: 20px; padding: 44px; border-left: 8px solid var(--amber); }
+        .scenario-card .name { font-size: 32px; font-weight: 700; color: var(--primary); margin-bottom: 24px; display: flex; align-items: center; gap: 16px; }
+        .scenario-card .name .icon { width: 48px; height: 48px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; }
+        .scenario-card p { font-size: 26px; color: var(--text-body); line-height: 1.7; }
+        .scenario-card .highlight-text { color: var(--primary); font-weight: 600; }
+        .scenario-outcomes { display: flex; flex-direction: column; gap: 20px; }
+        .outcome-box { border-radius: 16px; padding: 28px; text-align: center; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+        .outcome-box.before { background: var(--rose-light); border: 2px solid var(--rose); }
+        .outcome-box.after { background: var(--green-light); border: 2px solid var(--green); }
+        .outcome-box .label { font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .outcome-box.before .label { color: var(--rose); }
+        .outcome-box.after .label { color: var(--green); }
+        .outcome-box .value { font-size: 40px; font-weight: 800; color: var(--text-dark); }
+        .outcome-box .detail { font-size: 18px; color: var(--text-body); margin-top: 8px; }
+        .slide-discussion { background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 100px; }
+        .slide-discussion .badge { background: white; color: var(--teal-dark); padding: 18px 48px; font-size: 24px; font-weight: 700; text-transform: uppercase; letter-spacing: 4px; border-radius: 12px; margin-bottom: 48px; }
+        .slide-discussion .question { font-size: 48px; font-weight: 600; color: var(--white); line-height: 1.5; max-width: 1400px; }
+        .takeaway-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; flex: 1; }
+        .takeaway-item { display: flex; align-items: flex-start; gap: 24px; padding: 32px; background: var(--bg-slate); border-radius: 16px; }
+        .takeaway-item .number { width: 56px; height: 56px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 700; flex-shrink: 0; }
+        .takeaway-item .content h4 { font-size: 28px; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
+        .takeaway-item .content p { font-size: 24px; color: var(--text-body); line-height: 1.5; }
+        .activity-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; flex: 1; }
+        .activity-main { background: linear-gradient(135deg, var(--green-light) 0%, #A7F3D0 100%); border-radius: 20px; padding: 44px; border-left: 8px solid var(--green); }
+        .activity-main h3 { font-size: 36px; font-weight: 700; color: var(--text-dark); margin-bottom: 24px; display: flex; align-items: center; gap: 16px; }
+        .activity-main p { font-size: 26px; color: var(--text-dark); line-height: 1.6; }
+        .activity-steps { display: flex; flex-direction: column; gap: 16px; }
+        .activity-step { background: white; border-radius: 14px; padding: 26px 30px; display: flex; align-items: center; gap: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+        .activity-step .step-num { width: 48px; height: 48px; background: var(--teal); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700; flex-shrink: 0; }
+        .activity-step p { font-size: 24px; color: var(--text-dark); }
+        .slide-closing { background: linear-gradient(135deg, var(--primary) 0%, #6D29D8 50%, var(--primary-dark) 100%); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 80px; }
+        .slide-closing .logo-large { height: 100px; margin-bottom: 40px; }
+        .slide-closing .tagline { font-size: 44px; font-weight: 600; color: var(--white); margin-bottom: 24px; }
+        .slide-closing .website { font-size: 32px; color: var(--teal-light); font-weight: 600; margin-bottom: 16px; }
+        .slide-closing .copyright { position: absolute; bottom: 40px; font-size: 18px; color: rgba(255,255,255,0.5); }
+        .concept-full { background: var(--bg-slate); border-radius: 20px; padding: 44px; flex: 1; display: flex; flex-direction: column; gap: 24px; }
+        .concept-full h3 { font-size: 36px; font-weight: 700; color: var(--primary); }
+        .concept-full p { font-size: 28px; color: var(--text-body); line-height: 1.6; }
+        .concept-full .key-point { background: linear-gradient(135deg, var(--blue-light) 0%, #BFDBFE 100%); border-left: 6px solid var(--blue); padding: 24px 32px; border-radius: 0 16px 16px 0; margin-top: 12px; }
+        .concept-full .key-point p { font-size: 26px; color: var(--text-dark); font-weight: 500; }
+        .concept-full ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .concept-full li { font-size: 24px; color: var(--text-body); padding: 18px 22px; background: white; border-radius: 12px; border-left: 4px solid var(--teal); }
+        .check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; flex: 1; }
+        .check-item { background: var(--bg-slate); border-radius: 16px; padding: 32px; border-left: 6px solid var(--primary); }
+        .check-item .q-num { font-size: 20px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+        .check-item p { font-size: 26px; color: var(--text-dark); line-height: 1.5; }
+        @media print { .slide { page-break-after: always; page-break-inside: avoid; } }
+    </style>
+</head>
+<body>
+
+<!-- SLIDE 1: Title -->
+<div class="slide slide-title">
+    <div class="logo-container">
+        <svg class="logo-white" viewBox="0 0 1366 441.64" xmlns="http://www.w3.org/2000/svg">
+            <style>.wht{fill:#fff}</style>
+            <path class="wht" d="M116.66,174.42h-17.75v34.04h17.4c11.89,0,18.71-6.26,18.71-17.19s-6.7-16.85-18.37-16.85Z"/>
+            <path class="wht" d="M219.87,2.27C99.62,2.27,2.14,99.75,2.14,220s97.48,217.73,217.73,217.73,217.73-97.48,217.73-217.73S340.12,2.27,219.87,2.27ZM120.72,230.14h-21.8v60.28h-27.08v-139.02h46.85c13.87,0,24.7,3.89,32.21,11.58,7.23,7.41,11.06,17.14,11.06,28.13,0,23.71-16.18,39.04-41.24,39.04ZM277,177.04h-13.7c-9.24,0-24.66,4.37-24.98,33.1h38.68v22.19h-38.75c-.37,34.39-21.88,58.35-52.61,58.35h-11.21v-25.14h11.21c25.09,0,27.35-26.03,27.5-33.21h-38.7v-22.19h38.75c.31-35.94,19.44-58.24,50.12-58.24h13.7v25.14ZM304.17,290.42v-139.02h26.24v116.13h46.17v22.89h-72.41Z"/>
+            <path class="wht" d="M545.29,144.12h30.91l51.92,147.31h-31.11l-9.89-31.32h-53.15l-9.68,31.32h-30.29l51.3-147.31ZM540.96,237.25h38.94l-13.19-42.44c-2.47-7.83-5.98-22.67-5.98-22.67h-.41s-3.71,14.83-6.18,22.67l-13.19,42.44Z"/>
+            <path class="wht" d="M632.03,238.69c0-31.52,20.6-55.84,52.74-55.84,27.4,0,44.3,15.87,48,38.74h-27.4c-1.86-9.27-9.06-16.28-19.37-16.28-16.9,0-25.55,12.98-25.55,33.38s8.04,33.38,25.14,33.38c11.33,0,19.37-5.98,21.22-17.93h26.99c-1.86,22.46-19.37,40.38-47.59,40.38-33.38,0-54.19-24.31-54.19-55.84Z"/>
+            <path class="wht" d="M814.36,279.69h-.41c-5.36,8.04-12.98,14.22-31.11,14.22-21.63,0-36.88-11.34-36.88-32.35,0-23.28,18.96-30.7,42.44-34,17.52-2.47,25.55-3.91,25.55-11.95,0-7.62-5.98-12.57-17.72-12.57-13.19,0-19.57,4.74-20.4,14.83h-24.93c.82-18.54,14.63-34.82,45.53-34.82s44.51,14.22,44.51,38.94v53.77c0,8.04,1.23,12.78,3.71,14.63v1.03h-26.99c-1.65-2.06-2.68-7.01-3.3-11.75ZM814.56,254.14v-15.86c-4.95,2.88-12.57,4.53-19.57,6.18-14.63,3.3-21.84,6.59-21.84,16.48s6.59,13.39,16.48,13.39c16.07,0,24.93-9.89,24.93-20.19Z"/>
+            <path class="wht" d="M856.59,238.69c0-32.96,18.75-55.84,45.12-55.84,14.84,0,24.11,6.8,29.88,15.66h.62v-54.39h28.02v147.31h-26.99v-13.8h-.41c-6.18,10.09-16.69,16.9-31.52,16.9-26.57,0-44.71-21.64-44.71-55.84ZM932.82,239.31c0-20.19-6.59-33.79-24.52-33.79-15.45,0-23.28,13.6-23.28,33.17s8.04,32.35,22.45,32.35c16.69,0,25.34-12.36,25.34-31.73Z"/>
+            <path class="wht" d="M976.29,238.48c0-31.32,21.22-55.63,52.13-55.63,34,0,52.13,25.96,52.13,63.66h-76.64c2.06,16.28,11.13,26.37,26.99,26.37,10.92,0,17.31-4.94,20.4-12.98h27.61c-3.91,18.75-20.6,34.62-47.8,34.62-35.03,0-54.81-24.52-54.81-56.04ZM1004.3,227.15h46.98c-.82-13.39-9.68-22.66-22.45-22.66-14.84,0-22.05,8.86-24.52,22.66Z"/>
+            <path class="wht" d="M1096.6,185.74h26.99v14.22h.62c5.77-9.69,16.07-17.1,30.7-17.1,13.39,0,24.11,7.42,29.26,18.54h.42c7.21-11.54,18.34-18.54,31.73-18.54,22.26,0,34.82,14.42,34.82,37.5v71.08h-28.02v-66.34c0-11.95-5.98-18.13-16.28-18.13-11.75,0-18.96,9.07-18.96,23.08v61.4h-28.02v-66.34c0-11.95-5.98-18.13-16.28-18.13-11.33,0-18.96,9.07-18.96,23.08v61.4h-28.02v-105.7Z"/>
+            <path class="wht" d="M1271.73,304h9.89c11.13,0,15.66-5.77,15.66-14.42,0-5.77-2.06-12.57-8.04-28.64l-28.44-75.2h29.46l15.66,47.59c3.3,9.68,6.8,23.08,6.8,23.08h.41s2.88-13.39,6.18-23.08l14.83-47.59h28.23l-36.88,108.37c-8.04,23.49-15.86,31.94-37.29,31.94h-16.48v-22.05Z"/>
+        </svg>
+    </div>
+    <div class="chapter-label">Chapter 17</div>
+    <h1>Time is Money</h1>
+    <div class="subtitle">Developing a Savings and Investment Strategy in {{STATE_NAME}}</div>
+    <div class="footer-bar">
+        <span>Standard 5: Saving & Investing</span>
+        <span>•</span>
+        <span>Personal Financial Literacy</span>
+    </div>
+</div>
+
+<!-- SLIDE 2: Hook -->
+<div class="slide slide-hook">
+    <div class="label">Essential Question</div>
+    <div class="question">If I gave you <em>$1,000 today</em>, what would you do with it?<br><br>What if I gave you <em>$10,000</em> but you couldn't touch it for 20 years?</div>
+</div>
+
+<!-- SLIDE 3: Objectives -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>Learning Objectives</h2>
+        <span class="slide-number">3 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="objectives-expanded">
+            <div class="objective-card">
+                <div class="header">
+                    <div class="number">1</div>
+                    <h3>Understand</h3>
+                </div>
+                <p>Recognize how time horizon affects investment strategy and why different goals require different approaches.</p>
+            </div>
+            <div class="objective-card">
+                <div class="header">
+                    <div class="number">2</div>
+                    <h3>Identify</h3>
+                </div>
+                <p>Determine your personal risk tolerance and how it should guide your investment choices.</p>
+            </div>
+            <div class="objective-card">
+                <div class="header">
+                    <div class="number">3</div>
+                    <h3>Analyze</h3>
+                </div>
+                <p>Evaluate how inflation erodes purchasing power and why investments need to outpace it.</p>
+            </div>
+            <div class="objective-card">
+                <div class="header">
+                    <div class="number">4</div>
+                    <h3>Apply</h3>
+                </div>
+                <p>Match appropriate savings and investment strategies to specific financial goals based on timeline.</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 4: Vocabulary 1 -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Key Terms</h2>
+        <span class="slide-number">4 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="vocab-container">
+            <div class="vocab-row">
+                <div class="vocab-term-box">
+                    <div class="term">Time Horizon</div>
+                </div>
+                <div class="vocab-def-box">
+                    <div class="label">Definition</div>
+                    <p>The length of time before you need to access your invested money—determines how much risk you can take.</p>
+                </div>
+                <div class="vocab-example-box">
+                    <div class="label">Categories</div>
+                    <p>Short (1-3 yrs), Medium (3-10 yrs), Long (10+ yrs)</p>
+                </div>
+            </div>
+            <div class="vocab-row">
+                <div class="vocab-term-box">
+                    <div class="term">Risk Tolerance</div>
+                </div>
+                <div class="vocab-def-box">
+                    <div class="label">Definition</div>
+                    <p>Your personal comfort level with financial uncertainty and potential losses in exchange for higher returns.</p>
+                </div>
+                <div class="vocab-example-box">
+                    <div class="label">Levels</div>
+                    <p>Conservative, Moderate, Aggressive—based on age, goals, and personality</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 5: Vocabulary 2 -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Key Terms</h2>
+        <span class="slide-number">5 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="vocab-container">
+            <div class="vocab-row">
+                <div class="vocab-term-box">
+                    <div class="term">Inflation</div>
+                </div>
+                <div class="vocab-def-box">
+                    <div class="label">Definition</div>
+                    <p>The gradual increase in prices over time that reduces your money's purchasing power—the "silent tax."</p>
+                </div>
+                <div class="vocab-example-box">
+                    <div class="label">Example</div>
+                    <p>At 3% inflation, $100 today buys only $74 worth of goods in 10 years</p>
+                </div>
+            </div>
+            <div class="vocab-row">
+                <div class="vocab-term-box">
+                    <div class="term">Asset Classes</div>
+                </div>
+                <div class="vocab-def-box">
+                    <div class="label">Definition</div>
+                    <p>Categories of investments with similar characteristics: Fixed Income (bonds, CDs) vs. Equities (stocks, funds).</p>
+                </div>
+                <div class="vocab-example-box">
+                    <div class="label">Key Difference</div>
+                    <p>Fixed income = stable, lower returns. Equities = volatile, higher potential returns</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 6: Time Horizon Explained -->
+<div class="slide slide-content">
+    <div class="slide-header blue">
+        <h2>Understanding Time Horizon</h2>
+        <span class="slide-number">6 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="balanced-layout">
+            <div class="content-panel">
+                <h3>Your Blueprint for Financial Strategy</h3>
+                <p>How you save and invest depends on <strong>when you need the money</strong>. This is the most important factor in choosing a strategy.</p>
+                <p><strong>Short-term (1-3 years):</strong> Favor safety and liquidity—you can't afford to lose value right before you need it.</p>
+                <p><strong>Medium-term (3-10 years):</strong> Balance growth and protection—some risk is acceptable.</p>
+                <p><strong>Long-term (10+ years):</strong> Focus on growth potential—time to recover from market dips.</p>
+                <div class="highlight-box">
+                    <p>⏱️ The longer your time horizon, the more risk you can afford to take!</p>
+                </div>
+            </div>
+            <div class="stats-panel">
+                <div class="stat-card">
+                    <div class="number">1-3 yrs</div>
+                    <div class="label">Safety First</div>
+                </div>
+                <div class="stat-card purple">
+                    <div class="number">3-10 yrs</div>
+                    <div class="label">Balanced Approach</div>
+                </div>
+                <div class="stat-card green">
+                    <div class="number">10+ yrs</div>
+                    <div class="label">Growth Focus</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 7: Comparison - Fixed Income vs Equities -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Asset Classes: Fixed Income vs. Equities</h2>
+        <span class="slide-number">7 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="comparison-grid">
+            <div class="compare-column left">
+                <h3>🏦 Fixed Income</h3>
+                <ul>
+                    <li>Bonds, CDs, savings accounts</li>
+                    <li>Lower risk to principal</li>
+                    <li>Predictable income stream</li>
+                    <li>Lower potential returns (3-6%)</li>
+                    <li>Better for shorter time horizons</li>
+                    <li>Stable value, less volatility</li>
+                </ul>
+            </div>
+            <div class="vs-divider">
+                <span>VS</span>
+            </div>
+            <div class="compare-column right">
+                <h3>📈 Equities</h3>
+                <ul>
+                    <li>Stocks, mutual funds, ETFs</li>
+                    <li>Higher risk (value fluctuates)</li>
+                    <li>Variable returns based on market</li>
+                    <li>Higher potential returns (7-10%+)</li>
+                    <li>Better for longer time horizons</li>
+                    <li>More volatile, but growth potential</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 8: The Inflation Problem -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>The Hidden Threat: Inflation</h2>
+        <span class="slide-number">8 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="balanced-layout">
+            <div class="content-panel">
+                <h3>Your Money's Purchasing Power Shrinks</h3>
+                <p>Inflation is like a <strong>silent tax</strong> on your savings. Even when your account balance stays the same, your money buys less each year.</p>
+                <p>At 3% annual inflation:</p>
+                <ul style="list-style: none; margin-top: 12px; font-size: 24px;">
+                    <li style="padding: 8px 0;">• $100 today = $74 in 10 years</li>
+                    <li style="padding: 8px 0;">• $100 today = $55 in 20 years</li>
+                    <li style="padding: 8px 0;">• $100 today = $41 in 30 years</li>
+                </ul>
+                <div class="highlight-box">
+                    <p>⚠️ Long-term investments MUST outpace inflation or you're actually losing money in real terms!</p>
+                </div>
+            </div>
+            <div class="stats-panel">
+                <div class="stat-card rose">
+                    <div class="number">3%</div>
+                    <div class="label">Average Annual Inflation</div>
+                </div>
+                <div class="stat-card purple">
+                    <div class="number">-26%</div>
+                    <div class="label">Buying Power Lost in 10 Years</div>
+                </div>
+                <div class="info-card blue">
+                    <h4>Why This Matters:</h4>
+                    <ul>
+                        <li>Savings accounts earning 1% lose to inflation</li>
+                        <li>You need returns > 3% just to break even</li>
+                        <li>Long-term goals need growth investments</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 9: Risk Tolerance -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Know Your Risk Tolerance</h2>
+        <span class="slide-number">9 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="concept-full">
+            <h3>Your Comfort Level with Uncertainty</h3>
+            <p>Risk tolerance is personal—it depends on your age, financial situation, goals, and personality. Understanding yourself helps you choose investments you can stick with.</p>
+            <ul>
+                <li><strong>Conservative:</strong> Prioritizes protection of principal. Accepts lower returns to avoid losses. Better for those near retirement or needing money soon.</li>
+                <li><strong>Moderate:</strong> Balanced approach. Accepts some market volatility for better long-term returns. Most common for mid-career investors.</li>
+                <li><strong>Aggressive:</strong> Focuses on maximum growth. Can tolerate significant short-term losses. Best for young investors with long time horizons.</li>
+                <li><strong>Key insight:</strong> Your risk tolerance should match your time horizon—longer horizon = can handle more risk</li>
+            </ul>
+            <div class="key-point">
+                <p>🎯 The best investment strategy is one you'll actually stick with through market ups and downs!</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 10: Diversification -->
+<div class="slide slide-content">
+    <div class="slide-header blue">
+        <h2>Diversification: Don't Put All Eggs in One Basket</h2>
+        <span class="slide-number">10 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="balanced-layout">
+            <div class="content-panel">
+                <h3>Reducing Risk Through Variety</h3>
+                <p><strong>Diversification</strong> means spreading your investments across different asset types, industries, and regions.</p>
+                <p>When one investment goes down, others may go up—smoothing out your overall returns and reducing the impact of any single loss.</p>
+                <p>It's one of the few "free lunches" in investing: you can reduce risk without necessarily sacrificing returns.</p>
+                <div class="highlight-box">
+                    <p>🥚 If you put all your money in one company's stock and it fails, you lose everything. Diversify to protect yourself!</p>
+                </div>
+            </div>
+            <div class="stats-panel">
+                <div class="stat-card green">
+                    <div class="number">↓ Risk</div>
+                    <div class="label">With Diversification</div>
+                </div>
+                <div class="info-card green">
+                    <h4>Ways to Diversify:</h4>
+                    <ul>
+                        <li>Mix stocks AND bonds</li>
+                        <li>Own different sectors (tech, healthcare, etc.)</li>
+                        <li>Include international investments</li>
+                        <li>Use index funds or ETFs for instant diversity</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 11: Matching Strategies to Goals -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>Matching Strategies to Goals</h2>
+        <span class="slide-number">11 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="concept-full">
+            <h3>The Right Tool for the Right Job</h3>
+            <p>Different goals require different strategies. Match your investment vehicles to your timeline and risk tolerance.</p>
+            <ul>
+                <li><strong>Short-Term (1-3 years):</strong> Emergency fund, vacation, car → High-yield savings, money market, short-term CDs. Very low risk.</li>
+                <li><strong>Medium-Term (3-10 years):</strong> House down payment, grad school → Mix of CDs, bonds, conservative funds. Low to moderate risk.</li>
+                <li><strong>Long-Term (10+ years):</strong> Retirement, child's college → Diverse portfolio of stocks, bonds, index funds. Moderate to aggressive risk.</li>
+                <li><strong>Very Long-Term (20+ years):</strong> Financial independence → Stock-heavy portfolio, ride out all volatility. Focus on growth.</li>
+            </ul>
+            <div class="key-point">
+                <p>📅 The closer you are to needing the money, the more you should prioritize safety over growth!</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 12: Modern Strategy Context -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Building Your Strategy Today</h2>
+        <span class="slide-number">12 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="balanced-layout">
+            <div class="content-panel">
+                <h3>Start Now, Adjust as You Go</h3>
+                <p>Your financial strategy isn't set in stone—it should <strong>evolve as your life changes</strong>. What works at 20 won't work at 50.</p>
+                <p>The key is to start with a plan that matches your current situation, then adjust as your time horizon shortens or your goals change.</p>
+                <p>Many people use <strong>target-date funds</strong> that automatically shift from aggressive to conservative as retirement approaches.</p>
+                <div class="highlight-box">
+                    <p>🚀 The most important step? Start investing NOW. Even small amounts compound dramatically over time!</p>
+                </div>
+            </div>
+            <div class="stats-panel">
+                <div class="stat-card purple">
+                    <div class="number">Age 25</div>
+                    <div class="label">Start: 90% stocks, 10% bonds</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">Age 45</div>
+                    <div class="label">Shift: 70% stocks, 30% bonds</div>
+                </div>
+                <div class="stat-card green">
+                    <div class="number">Age 65</div>
+                    <div class="label">Retire: 50% stocks, 50% bonds</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 13: Example 1 - Alex -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>Real-World Example</h2>
+        <span class="slide-number">13 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="scenario-layout">
+            <div class="scenario-card">
+                <div class="name">
+                    <div class="icon">🚗</div>
+                    Alex's Short-Term Car Savings Strategy
+                </div>
+                <p><strong>Goal:</strong> Save $15,000 for a car in 3 years</p>
+                <p style="margin-top: 16px;"><strong>Time Horizon:</strong> Short-term (3 years)</p>
+                <p><strong>Risk Tolerance:</strong> Conservative—can't risk losing money before purchase</p>
+                <p style="margin-top: 16px;"><strong>Strategy:</strong> <span class="highlight-text">60% high-yield savings account, 40% short-term CDs</span></p>
+                <p style="margin-top: 16px;"><strong>Rationale:</strong> Alex needs certainty about the amount available in 3 years. Market downturns could derail the goal—safety comes first for short-term needs.</p>
+            </div>
+            <div class="scenario-outcomes">
+                <div class="outcome-box before">
+                    <div class="label">Time Horizon</div>
+                    <div class="value">3 Years</div>
+                    <div class="detail">Short-term = Low risk</div>
+                </div>
+                <div class="outcome-box after">
+                    <div class="label">Strategy</div>
+                    <div class="value">Safety First</div>
+                    <div class="detail">Savings + CDs</div>
+                </div>
+                <div class="outcome-box after" style="background: var(--blue-light); border-color: var(--blue);">
+                    <div class="label" style="color: var(--blue);">Expected Return</div>
+                    <div class="value">~4-5%</div>
+                    <div class="detail">Low but guaranteed</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 14: Example 2 - Taylor -->
+<div class="slide slide-content">
+    <div class="slide-header blue">
+        <h2>Real-World Example</h2>
+        <span class="slide-number">14 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="scenario-layout">
+            <div class="scenario-card">
+                <div class="name">
+                    <div class="icon">🏖️</div>
+                    Taylor's Long-Term Retirement Strategy
+                </div>
+                <p><strong>Goal:</strong> Build retirement savings over 40 years</p>
+                <p style="margin-top: 16px;"><strong>Time Horizon:</strong> Long-term (40 years)</p>
+                <p><strong>Risk Tolerance:</strong> Moderately aggressive—young, can handle volatility</p>
+                <p style="margin-top: 16px;"><strong>Strategy:</strong> <span class="highlight-text">Diversified portfolio: 70% index funds (stocks), 30% bonds</span></p>
+                <p style="margin-top: 16px;"><strong>Rationale:</strong> With 40 years to invest, Taylor can ride out market downturns. Needs growth to outpace inflation. Will gradually shift to more bonds as retirement approaches.</p>
+            </div>
+            <div class="scenario-outcomes">
+                <div class="outcome-box before">
+                    <div class="label">Time Horizon</div>
+                    <div class="value">40 Years</div>
+                    <div class="detail">Long-term = More risk OK</div>
+                </div>
+                <div class="outcome-box after">
+                    <div class="label">Strategy</div>
+                    <div class="value">Growth Focus</div>
+                    <div class="detail">70/30 stocks to bonds</div>
+                </div>
+                <div class="outcome-box after" style="background: var(--blue-light); border-color: var(--blue);">
+                    <div class="label" style="color: var(--blue);">Expected Return</div>
+                    <div class="value">~7-8%</div>
+                    <div class="detail">Higher growth potential</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 15: Discussion -->
+<div class="slide slide-discussion">
+    <div class="badge">Discussion</div>
+    <div class="question">Why does Alex use mostly savings accounts while Taylor uses mostly stocks?<br><br>How would Taylor's strategy change if retirement was only 5 years away?</div>
+</div>
+
+<!-- SLIDE 16: Personal Reflection -->
+<div class="slide slide-discussion" style="background: linear-gradient(135deg, var(--primary) 0%, #6D29D8 100%);">
+    <div class="badge">Personal Reflection</div>
+    <div class="question">Think about your own financial goals—both short-term and long-term.<br><br>How would your saving and investing strategies differ for each?</div>
+</div>
+
+<!-- SLIDE 17: Check for Understanding -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Check for Understanding</h2>
+        <span class="slide-number">17 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="check-grid">
+            <div class="check-item">
+                <div class="q-num">Question 1</div>
+                <p>Why should someone saving for a car in 2 years use different investments than someone saving for retirement in 40 years?</p>
+            </div>
+            <div class="check-item">
+                <div class="q-num">Question 2</div>
+                <p>What is inflation, and why does it mean keeping all your money in a basic savings account might actually cause you to lose purchasing power?</p>
+            </div>
+            <div class="check-item">
+                <div class="q-num">Question 3</div>
+                <p>What does it mean to diversify your investments, and how does this help reduce risk?</p>
+            </div>
+            <div class="check-item">
+                <div class="q-num">Question 4</div>
+                <p>How might someone's investment strategy change as they get older and closer to retirement?</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 18: Key Takeaways -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>Key Takeaways</h2>
+        <span class="slide-number">18 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="takeaway-grid">
+            <div class="takeaway-item">
+                <div class="number">1</div>
+                <div class="content">
+                    <h4>Time Horizon is Everything</h4>
+                    <p>How long until you need the money determines how much risk you can take with your investments</p>
+                </div>
+            </div>
+            <div class="takeaway-item">
+                <div class="number">2</div>
+                <div class="content">
+                    <h4>Inflation Erodes Savings</h4>
+                    <p>Long-term investments must outpace inflation (~3%) or your money loses purchasing power over time</p>
+                </div>
+            </div>
+            <div class="takeaway-item">
+                <div class="number">3</div>
+                <div class="content">
+                    <h4>Diversification Reduces Risk</h4>
+                    <p>Spreading investments across different types of assets protects you if any single investment fails</p>
+                </div>
+            </div>
+            <div class="takeaway-item">
+                <div class="number">4</div>
+                <div class="content">
+                    <h4>Match Strategy to Goals</h4>
+                    <p>Short-term goals need safety; long-term goals need growth—use the right tool for each job</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 19: Activity -->
+<div class="slide slide-content">
+    <div class="slide-header blue">
+        <h2>Student Activity</h2>
+        <span class="slide-number">19 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="activity-layout">
+            <div class="activity-main">
+                <h3>📋 Financial Planning Role-Play</h3>
+                <p>Choose a character (or create your own) and build a financial strategy that matches their goals, time horizon, and risk tolerance.</p>
+                <p style="margin-top: 20px;">Consider how your choices would change if the character's situation changed—what if their goal shifted from short-term to long-term?</p>
+            </div>
+            <div class="activity-steps">
+                <div class="activity-step">
+                    <div class="step-num">1</div>
+                    <p>Choose: Alex (car, 3 years) or Taylor (retirement, 40 years)</p>
+                </div>
+                <div class="activity-step">
+                    <div class="step-num">2</div>
+                    <p>Select one savings product for your character</p>
+                </div>
+                <div class="activity-step">
+                    <div class="step-num">3</div>
+                    <p>Select one investment product based on risk tolerance</p>
+                </div>
+                <div class="activity-step">
+                    <div class="step-num">4</div>
+                    <p>Write 1-2 sentences justifying each choice</p>
+                </div>
+                <div class="activity-step">
+                    <div class="step-num">5</div>
+                    <p>Reflect: How would strategy change if goals changed?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 20: Closing -->
+<div class="slide slide-closing">
+    <svg class="logo-large" viewBox="0 0 1366 441.64" xmlns="http://www.w3.org/2000/svg" style="height: 100px;">
+        <style>.wht{fill:#fff}</style>
+        <path class="wht" d="M116.66,174.42h-17.75v34.04h17.4c11.89,0,18.71-6.26,18.71-17.19s-6.7-16.85-18.37-16.85Z"/>
+        <path class="wht" d="M219.87,2.27C99.62,2.27,2.14,99.75,2.14,220s97.48,217.73,217.73,217.73,217.73-97.48,217.73-217.73S340.12,2.27,219.87,2.27ZM120.72,230.14h-21.8v60.28h-27.08v-139.02h46.85c13.87,0,24.7,3.89,32.21,11.58,7.23,7.41,11.06,17.14,11.06,28.13,0,23.71-16.18,39.04-41.24,39.04ZM277,177.04h-13.7c-9.24,0-24.66,4.37-24.98,33.1h38.68v22.19h-38.75c-.37,34.39-21.88,58.35-52.61,58.35h-11.21v-25.14h11.21c25.09,0,27.35-26.03,27.5-33.21h-38.7v-22.19h38.75c.31-35.94,19.44-58.24,50.12-58.24h13.7v25.14ZM304.17,290.42v-139.02h26.24v116.13h46.17v22.89h-72.41Z"/>
+        <path class="wht" d="M545.29,144.12h30.91l51.92,147.31h-31.11l-9.89-31.32h-53.15l-9.68,31.32h-30.29l51.3-147.31ZM540.96,237.25h38.94l-13.19-42.44c-2.47-7.83-5.98-22.67-5.98-22.67h-.41s-3.71,14.83-6.18,22.67l-13.19,42.44Z"/>
+        <path class="wht" d="M632.03,238.69c0-31.52,20.6-55.84,52.74-55.84,27.4,0,44.3,15.87,48,38.74h-27.4c-1.86-9.27-9.06-16.28-19.37-16.28-16.9,0-25.55,12.98-25.55,33.38s8.04,33.38,25.14,33.38c11.33,0,19.37-5.98,21.22-17.93h26.99c-1.86,22.46-19.37,40.38-47.59,40.38-33.38,0-54.19-24.31-54.19-55.84Z"/>
+        <path class="wht" d="M814.36,279.69h-.41c-5.36,8.04-12.98,14.22-31.11,14.22-21.63,0-36.88-11.34-36.88-32.35,0-23.28,18.96-30.7,42.44-34,17.52-2.47,25.55-3.91,25.55-11.95,0-7.62-5.98-12.57-17.72-12.57-13.19,0-19.57,4.74-20.4,14.83h-24.93c.82-18.54,14.63-34.82,45.53-34.82s44.51,14.22,44.51,38.94v53.77c0,8.04,1.23,12.78,3.71,14.63v1.03h-26.99c-1.65-2.06-2.68-7.01-3.3-11.75ZM814.56,254.14v-15.86c-4.95,2.88-12.57,4.53-19.57,6.18-14.63,3.3-21.84,6.59-21.84,16.48s6.59,13.39,16.48,13.39c16.07,0,24.93-9.89,24.93-20.19Z"/>
+        <path class="wht" d="M856.59,238.69c0-32.96,18.75-55.84,45.12-55.84,14.84,0,24.11,6.8,29.88,15.66h.62v-54.39h28.02v147.31h-26.99v-13.8h-.41c-6.18,10.09-16.69,16.9-31.52,16.9-26.57,0-44.71-21.64-44.71-55.84ZM932.82,239.31c0-20.19-6.59-33.79-24.52-33.79-15.45,0-23.28,13.6-23.28,33.17s8.04,32.35,22.45,32.35c16.69,0,25.34-12.36,25.34-31.73Z"/>
+        <path class="wht" d="M976.29,238.48c0-31.32,21.22-55.63,52.13-55.63,34,0,52.13,25.96,52.13,63.66h-76.64c2.06,16.28,11.13,26.37,26.99,26.37,10.92,0,17.31-4.94,20.4-12.98h27.61c-3.91,18.75-20.6,34.62-47.8,34.62-35.03,0-54.81-24.52-54.81-56.04ZM1004.3,227.15h46.98c-.82-13.39-9.68-22.66-22.45-22.66-14.84,0-22.05,8.86-24.52,22.66Z"/>
+        <path class="wht" d="M1096.6,185.74h26.99v14.22h.62c5.77-9.69,16.07-17.1,30.7-17.1,13.39,0,24.11,7.42,29.26,18.54h.42c7.21-11.54,18.34-18.54,31.73-18.54,22.26,0,34.82,14.42,34.82,37.5v71.08h-28.02v-66.34c0-11.95-5.98-18.13-16.28-18.13-11.75,0-18.96,9.07-18.96,23.08v61.4h-28.02v-66.34c0-11.95-5.98-18.13-16.28-18.13-11.33,0-18.96,9.07-18.96,23.08v61.4h-28.02v-105.7Z"/>
+        <path class="wht" d="M1271.73,304h9.89c11.13,0,15.66-5.77,15.66-14.42,0-5.77-2.06-12.57-8.04-28.64l-28.44-75.2h29.46l15.66,47.59c3.3,9.68,6.8,23.08,6.8,23.08h.41s2.88-13.39,6.18-23.08l14.83-47.59h28.23l-36.88,108.37c-8.04,23.49-15.86,31.94-37.29,31.94h-16.48v-22.05Z"/>
+    </svg>
+    <div class="tagline">Building Financial Futures, One Lesson at a Time</div>
+    <div class="website">www.pflacademy.co</div>
+    <div class="copyright">© 2025 PFL Academy. All rights reserved.</div>
+</div>
+
+</body>
+</html>

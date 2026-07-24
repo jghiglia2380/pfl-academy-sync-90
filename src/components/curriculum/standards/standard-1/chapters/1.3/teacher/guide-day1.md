@@ -14,7 +14,9 @@
 #### Introduction (5 minutes)
 
 - Quick poll: “Who has received a paycheck?” and “Were you surprised by your take-home pay?”
-- Introduce today’s focus: income, taxes, and how deductions affect net pay
+- In {{STATE_NAME}}, Introduce today’s focus: income, taxes, and how deductions affect net pay
+
+
 
 #### Key Terms and Concepts (10 minutes)
 

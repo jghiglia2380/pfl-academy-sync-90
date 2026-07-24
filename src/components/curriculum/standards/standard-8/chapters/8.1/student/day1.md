@@ -1,10 +1,14 @@
 # Credit Card Use and Management
 
 ## Introduction
-
+In {{STATE_NAME}}, 
 Credit cards are a common financial tool that can be powerful when used responsibly, but they can also lead to significant debt and financial stress when mismanaged. In this lesson, you'll explore how credit cards work, learn about important credit card terminology, and develop strategies for responsible credit card management.
 
 ## Key Terms
+
+
+
+In {{STATE_NAME}}, public university tuition averages {{TUITION_PUBLIC}} per year. With state programs like {{TAX_INCENTIVES}} and a minimum wage of {{MIN_WAGE}}, students have various options to manage education costs.
 
 - **Annual Percentage Rate (APR)**: The yearly interest rate charged on unpaid credit card balances
 - **Minimum Payment**: The smallest amount you can pay on your credit card bill to keep your account in good standing

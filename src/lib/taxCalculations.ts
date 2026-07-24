@@ -7,13 +7,13 @@ interface TaxBracket {
   headOfHousehold: number;
 }
 
-const TAX_BRACKETS_2024: TaxBracket[] = [
-  { rate: 0.10, single: 11600, marriedJoint: 23200, headOfHousehold: 16550 },
-  { rate: 0.12, single: 47150, marriedJoint: 94300, headOfHousehold: 63100 },
-  { rate: 0.22, single: 100525, marriedJoint: 201050, headOfHousehold: 95350 },
-  { rate: 0.24, single: 191950, marriedJoint: 383900, headOfHousehold: 182100 },
-  { rate: 0.32, single: 243725, marriedJoint: 487450, headOfHousehold: 231250 },
-  { rate: 0.35, single: 609350, marriedJoint: 731200, headOfHousehold: 578100 },
+const TAX_BRACKETS_2026: TaxBracket[] = [
+  { rate: 0.10, single: 12400, marriedJoint: 24800, headOfHousehold: 17700 },
+  { rate: 0.12, single: 50400, marriedJoint: 100800, headOfHousehold: 67450 },
+  { rate: 0.22, single: 105700, marriedJoint: 211400, headOfHousehold: 105700 },
+  { rate: 0.24, single: 201775, marriedJoint: 403550, headOfHousehold: 201750 },
+  { rate: 0.32, single: 256225, marriedJoint: 512450, headOfHousehold: 256200 },
+  { rate: 0.35, single: 640600, marriedJoint: 768700, headOfHousehold: 640600 },
   { rate: 0.37, single: Infinity, marriedJoint: Infinity, headOfHousehold: Infinity }
 ];
 
@@ -26,7 +26,7 @@ export const calculateTaxLiability = (
   let liability = 0;
   let previousBracketLimit = 0;
 
-  for (const bracket of TAX_BRACKETS_2024) {
+  for (const bracket of TAX_BRACKETS_2026) {
     const bracketLimit = bracket[filingStatus];
     const taxableInThisBracket = Math.min(
       Math.max(adjustedIncome - previousBracketLimit, 0),
@@ -58,7 +58,7 @@ export const calculateItemizedDeductions = (
   medicalExpenses: number = 0,
   agi: number = 0
 ): number => {
-  const saltCap = 10000; // State and Local Tax deduction cap
+  const saltCap = 40400; // 2026 SALT deduction cap (OBBBA 2026; single/MFJ, MFS 20200). Source: state-data/federal/federal_figures.json salt_deduction_cap
   const medicalThreshold = agi * 0.075; // 7.5% of AGI threshold for medical expenses
 
   return (
@@ -74,9 +74,9 @@ export const getOptimalDeductionMethod = (
   filingStatus: 'single' | 'marriedJoint' | 'headOfHousehold'
 ): { method: 'standard' | 'itemized'; amount: number } => {
   const standardDeductions = {
-    single: 14600,
-    marriedJoint: 29200,
-    headOfHousehold: 21900
+    single: 16100,
+    marriedJoint: 32200,
+    headOfHousehold: 24150
   };
 
   const standardAmount = standardDeductions[filingStatus];

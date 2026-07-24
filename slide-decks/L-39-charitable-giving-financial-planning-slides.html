@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>L-39: Charitable Giving and Financial Planning | PFL Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #4F46E5;
+            --primary-dark: #3730A3;
+            --primary-light: #818CF8;
+            --teal: #0D9488;
+            --teal-dark: #0F766E;
+            --teal-light: #5EEAD4;
+            --green: #10B981;
+            --green-light: #D1FAE5;
+            --blue: #3B82F6;
+            --blue-light: #DBEAFE;
+            --amber: #F59E0B;
+            --amber-light: #FEF3C7;
+            --amber-pale: #FFFBEB;
+            --rose: #F43F5E;
+            --rose-light: #FFE4E6;
+            --text-dark: #1E293B;
+            --text-body: #475569;
+            --text-light: #64748B;
+            --bg-light: #F8FAFC;
+            --bg-slate: #F1F5F9;
+            --white: #FFFFFF;
+            --border: #E2E8F0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        .slide {
+            width: 1920px;
+            height: 1080px;
+            page-break-after: always;
+            page-break-inside: avoid;
+            position: relative;
+            overflow: hidden;
+            background: var(--white);
+        }
+
+        .slide:last-child {
+            page-break-after: auto;
+        }
+
+        .logo-white { height: 60px; width: auto; }
+
+        .slide-title {
+            background: linear-gradient(135deg, var(--primary) 0%, #6D29D8 50%, var(--primary-dark) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px;
+        }
+
+        .slide-title .logo-container { position: absolute; top: 50px; right: 70px; }
+
+        .slide-title .chapter-label {
+            font-size: 26px;
+            font-weight: 600;
+            color: var(--teal-light);
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin-bottom: 20px;
+        }
+
+        .slide-title h1 {
+            font-size: 90px;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 28px;
+            line-height: 1.1;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .slide-title .subtitle {
+            font-size: 38px;
+            color: var(--white);
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        .slide-title .footer-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+        }
+
+        .slide-title .footer-bar span {
+            font-size: 22px;
+            color: rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+
+        .slide-content { display: flex; flex-direction: column; }
+
+        .slide-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 36px 80px;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .slide-header.teal { background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%); }
+        .slide-header.blue { background: linear-gradient(135deg, var(--blue) 0%, #2563EB 100%); }
+        .slide-header.green { background: linear-gradient(135deg, var(--green) 0%, #059669 100%); }
+
+        .slide-header h2 { font-size: 52px; font-weight: 700; color: var(--white); }
+        .slide-header .slide-number { font-size: 22px; color: rgba(255,255,255,0.6); font-weight: 500; }
+
+        .slide-body {
+            flex: 1;
+            padding: 50px 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .slide-footer {
+            height: 12px;
+            background: linear-gradient(90deg, var(--teal) 0%, var(--primary) 50%, var(--teal) 100%);
+        }
+
+        .slide-hook {
+            background: linear-gradient(135deg, #1E293B 0%, #334155 50%, #1E293B 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 100px;
+            text-align: center;
+        }
+
+        .slide-hook .label {
+            position: absolute;
+            top: 50px;
+            left: 70px;
+            background: var(--teal);
+            color: var(--white);
+            padding: 14px 36px;
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            border-radius: 6px;
+        }
+
+        .slide-hook .question {
+            font-size: 60px;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.4;
+            max-width: 1500px;
+        }
+
+        .slide-hook .question em { color: var(--teal-light); font-style: normal; }
+
+        .objectives-expanded {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            flex: 1;
+        }
+
+        .objective-card {
+            background: var(--bg-slate);
+            border-radius: 20px;
+            padding: 36px;
+            border-left: 6px solid var(--teal);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .objective-card .header { display: flex; align-items: center; gap: 16px; }
+
+        .objective-card .number {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .objective-card h3 { font-size: 32px; font-weight: 700; color: var(--teal-dark); }
+        .objective-card p { font-size: 26px; color: var(--text-body); line-height: 1.6; }
+
+        .vocab-container { display: flex; flex-direction: column; gap: 24px; flex: 1; }
+
+        .vocab-row {
+            display: grid;
+            grid-template-columns: 280px 1fr 1fr;
+            gap: 24px;
+            align-items: stretch;
+            flex: 1;
+        }
+
+        .vocab-term-box {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vocab-term-box .term { font-size: 28px; font-weight: 700; color: white; text-align: center; }
+
+        .vocab-def-box {
+            background: var(--bg-slate);
+            border-radius: 16px;
+            padding: 28px 32px;
+            border-left: 5px solid var(--teal);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .vocab-def-box .label {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--teal);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .vocab-def-box p { font-size: 24px; color: var(--text-dark); line-height: 1.5; }
+
+        .vocab-example-box {
+            background: var(--green-light);
+            border-radius: 16px;
+            padding: 28px 32px;
+            border-left: 5px solid var(--green);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .vocab-example-box .label {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .vocab-example-box p { font-size: 22px; color: var(--text-dark); line-height: 1.5; font-style: italic; }
+
+        .balanced-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; flex: 1; }
+
+        .content-panel {
+            background: var(--bg-slate);
+            border-radius: 20px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .content-panel h3 { font-size: 34px; font-weight: 700; color: var(--primary); }
+        .content-panel p { font-size: 26px; color: var(--text-body); line-height: 1.6; }
+
+        .content-panel .highlight-box {
+            background: var(--blue-light);
+            border-left: 5px solid var(--blue);
+            padding: 20px 24px;
+            border-radius: 0 12px 12px 0;
+            margin-top: auto;
+        }
+
+        .content-panel .highlight-box p { font-size: 24px; color: var(--text-dark); font-weight: 500; }
+
+        .stats-panel { display: flex; flex-direction: column; gap: 20px; }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .stat-card.purple { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); }
+        .stat-card.green { background: linear-gradient(135deg, var(--green) 0%, #059669 100%); }
+        .stat-card.rose { background: linear-gradient(135deg, var(--rose) 0%, #E11D48 100%); }
+
+        .stat-card .number { font-size: 64px; font-weight: 800; color: white; }
+        .stat-card .label { font-size: 22px; color: rgba(255,255,255,0.9); margin-top: 8px; }
+
+        .info-card {
+            background: var(--amber-pale);
+            border-radius: 16px;
+            padding: 32px;
+            border-left: 6px solid var(--amber);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-card.blue { background: var(--blue-light); border-left-color: var(--blue); }
+        .info-card.green { background: var(--green-light); border-left-color: var(--green); }
+
+        .info-card h4 { font-size: 26px; font-weight: 700; color: var(--text-dark); margin-bottom: 20px; }
+
+        .info-card ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+
+        .info-card li {
+            font-size: 24px;
+            color: var(--text-body);
+            padding-left: 32px;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .info-card li::before { content: "→"; color: var(--amber); position: absolute; left: 0; font-weight: 700; }
+        .info-card.blue li::before { color: var(--blue); }
+        .info-card.green li::before { color: var(--green); }
+
+        .concept-full {
+            background: var(--bg-slate);
+            border-radius: 20px;
+            padding: 44px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .concept-full h3 { font-size: 36px; font-weight: 700; color: var(--primary); }
+        .concept-full p { font-size: 28px; color: var(--text-body); line-height: 1.6; }
+
+        .concept-full .key-point {
+            background: linear-gradient(135deg, var(--blue-light) 0%, #BFDBFE 100%);
+            border-left: 6px solid var(--blue);
+            padding: 24px 32px;
+            border-radius: 0 16px 16px 0;
+            margin-top: 12px;
+        }
+
+        .concept-full .key-point p { font-size: 26px; color: var(--text-dark); font-weight: 500; }
+
+        .concept-full ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+        .concept-full li {
+            font-size: 24px;
+            color: var(--text-body);
+            padding: 18px 22px;
+            background: white;
+            border-radius: 12px;
+            border-left: 4px solid var(--teal);
+        }
+
+        .scenario-layout { display: grid; grid-template-columns: 1fr 400px; gap: 40px; flex: 1; }
+
+        .scenario-card {
+            background: var(--amber-pale);
+            border-radius: 20px;
+            padding: 44px;
+            border-left: 8px solid var(--amber);
+        }
+
+        .scenario-card .name {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .scenario-card .name .icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        .scenario-card p { font-size: 26px; color: var(--text-body); line-height: 1.7; }
+        .scenario-card .highlight-text { color: var(--primary); font-weight: 600; }
+
+        .scenario-outcomes { display: flex; flex-direction: column; gap: 20px; }
+
+        .outcome-box {
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .outcome-box.before { background: var(--rose-light); border: 2px solid var(--rose); }
+        .outcome-box.after { background: var(--green-light); border: 2px solid var(--green); }
+
+        .outcome-box .label { font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .outcome-box.before .label { color: var(--rose); }
+        .outcome-box.after .label { color: var(--green); }
+
+        .outcome-box .value { font-size: 40px; font-weight: 800; color: var(--text-dark); }
+        .outcome-box .detail { font-size: 18px; color: var(--text-body); margin-top: 8px; }
+
+        .slide-discussion {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px;
+        }
+
+        .slide-discussion .badge {
+            background: white;
+            color: var(--teal-dark);
+            padding: 18px 48px;
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            border-radius: 12px;
+            margin-bottom: 48px;
+        }
+
+        .slide-discussion .question {
+            font-size: 48px;
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.5;
+            max-width: 1400px;
+        }
+
+        .takeaway-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; flex: 1; }
+
+        .takeaway-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+            padding: 32px;
+            background: var(--bg-slate);
+            border-radius: 16px;
+        }
+
+        .takeaway-item .number {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .takeaway-item .content h4 { font-size: 28px; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
+        .takeaway-item .content p { font-size: 24px; color: var(--text-body); line-height: 1.5; }
+
+        .activity-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; flex: 1; }
+
+        .activity-main {
+            background: linear-gradient(135deg, var(--green-light) 0%, #A7F3D0 100%);
+            border-radius: 20px;
+            padding: 44px;
+            border-left: 8px solid var(--green);
+        }
+
+        .activity-main h3 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .activity-main p { font-size: 26px; color: var(--text-dark); line-height: 1.6; }
+
+        .activity-steps { display: flex; flex-direction: column; gap: 16px; }
+
+        .activity-step {
+            background: white;
+            border-radius: 14px;
+            padding: 26px 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .activity-step .step-num {
+            width: 48px;
+            height: 48px;
+            background: var(--teal);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .activity-step p { font-size: 24px; color: var(--text-dark); }
+
+        .slide-closing {
+            background: linear-gradient(135deg, var(--primary) 0%, #6D29D8 50%, var(--primary-dark) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px;
+        }
+
+        .slide-closing .logo-large { height: 100px; margin-bottom: 40px; }
+        .slide-closing .tagline { font-size: 44px; font-weight: 600; color: var(--white); margin-bottom: 24px; }
+        .slide-closing .website { font-size: 32px; color: var(--teal-light); font-weight: 600; margin-bottom: 16px; }
+        .slide-closing .copyright { position: absolute; bottom: 40px; font-size: 18px; color: rgba(255,255,255,0.5); }
+
+        .check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; flex: 1; }
+
+        .check-item { background: var(--bg-slate); border-radius: 16px; padding: 32px; border-left: 6px solid var(--primary); }
+        .check-item .q-num { font-size: 20px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+        .check-item p { font-size: 26px; color: var(--text-dark); line-height: 1.5; }
+
+        @media print {
+            .slide { page-break-after: always; page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- SLIDE 1: Title -->
+<div class="slide slide-title">
+    <div class="logo-container">
+        <svg class="logo-white" viewBox="0 0 1366 441.64" xmlns="http://www.w3.org/2000/svg">
+            <style>.wht{fill:#fff}</style>
+            <path class="wht" d="M116.66,174.42h-17.75v34.04h17.4c11.89,0,18.71-6.26,18.71-17.19s-6.7-16.85-18.37-16.85Z"/>
+            <path class="wht" d="M219.87,2.27C99.62,2.27,2.14,99.75,2.14,220s97.48,217.73,217.73,217.73,217.73-97.48,217.73-217.73S340.12,2.27,219.87,2.27ZM120.72,230.14h-21.8v60.28h-27.08v-139.02h46.85c13.87,0,24.7,3.89,32.21,11.58,7.23,7.41,11.06,17.14,11.06,28.13,0,23.71-16.18,39.04-41.24,39.04ZM277,177.04h-13.7c-9.24,0-24.66,4.37-24.98,33.1h38.68v22.19h-38.75c-.37,34.39-21.88,58.35-52.61,58.35h-11.21v-25.14h11.21c25.09,0,27.35-26.03,27.5-33.21h-38.7v-22.19h38.75c.31-35.94,19.44-58.24,50.12-58.24h13.7v25.14ZM304.17,290.42v-139.02h26.24v116.13h46.17v22.89h-72.41Z"/>
+            <path class="wht" d="M545.29,144.12h30.91l51.92,147.31h-31.11l-9.89-31.32h-53.15l-9.68,31.32h-30.29l51.3-147.31ZM540.96,237.25h38.94l-13.19-42.44c-2.47-7.83-5.98-22.67-5.98-22.67h-.41s-3.71,14.83-6.18,22.67l-13.19,42.44Z"/>
+            <path class="wht" d="M632.03,238.69c0-31.52,20.6-55.84,52.74-55.84,27.4,0,44.3,15.87,48,38.74h-27.4c-1.86-9.27-9.06-16.28-19.37-16.28-16.9,0-25.55,12.98-25.55,33.38s8.04,33.38,25.14,33.38c11.33,0,19.37-5.98,21.22-17.93h26.99c-1.86,22.46-19.37,40.38-47.59,40.38-33.38,0-54.19-24.31-54.19-55.84Z"/>
+            <path class="wht" d="M814.36,279.69h-.41c-5.36,8.04-12.98,14.22-31.11,14.22-21.63,0-36.88-11.34-36.88-32.35,0-23.28,18.96-30.7,42.44-34,17.52-2.47,25.55-3.91,25.55-11.95,0-7.62-5.98-12.57-17.72-12.57-13.19,0-19.57,4.74-20.4,14.83h-24.93c.82-18.54,14.63-34.82,45.53-34.82s44.51,14.22,44.51,38.94v53.77c0,8.04,1.23,12.78,3.71,14.63v1.03h-26.99c-1.65-2.06-2.68-7.01-3.3-11.75ZM814.56,254.14v-15.86c-4.95,2.88-12.57,4.53-19.57,6.18-14.63,3.3-21.84,6.59-21.84,16.48s6.59,13.39,16.48,13.39c16.07,0,24.93-9.89,24.93-20.19Z"/>
+            <path class="wht" d="M856.59,238.69c0-32.96,18.75-55.84,45.12-55.84,14.84,0,24.11,6.8,29.88,15.66h.62v-54.39h28.02v147.31h-26.99v-13.8h-.41c-6.18,10.09-16.69,16.9-31.52,16.9-26.57,0-44.71-21.64-44.71-55.84ZM932.82,239.31c0-20.19-6.59-33.79-24.52-33.79-15.45,0-23.28,13.6-23.28,33.17s8.04,32.35,22.45,32.35c16.69,0,25.34-12.36,25.34-31.73Z"/>
+            <path class="wht" d="M976.29,238.48c0-31.32,21.22-55.63,52.13-55.63,34,0,52.13,25.96,52.13,63.66h-76.64c2.06,16.28,11.13,26.37,26.99,26.37,10.92,0,17.31-4.94,20.4-12.98h27.61c-3.91,18.75-20.6,34.62-47.8,34.62-35.03,0-54.81-24.52-54.81-56.04ZM1004.3,227.15h46.98c-.82-13.39-9.68-22.66-22.45-22.66-14.84,0-22.05,8.86-24.52,22.66Z"/>
+            <path class="wht" d="M1096.6,185.74h26.99v14.22h.62c5.77-9.69,16.07-17.1,30.7-17.1,13.39,0,24.11,7.42,29.26,18.54h.42c7.21-11.54,18.34-18.54,31.73-18.54,22.26,0,34.82,14.42,34.82,37.5v71.08h-28.02v-66.34c0-11.95-5.98-18.13-16.28-18.13-11.75,0-18.96,9.07-18.96,23.08v61.4h-28.02v-66.34c0-11.95-5.98-18.13-16.28-18.13-11.33,0-18.96,9.07-18.96,23.08v61.4h-28.02v-105.7Z"/>
+            <path class="wht" d="M1271.73,304h9.89c11.13,0,15.66-5.77,15.66-14.42,0-5.77-2.06-12.57-8.04-28.64l-28.44-75.2h29.46l15.66,47.59c3.3,9.68,6.8,23.08,6.8,23.08h.41s2.88-13.39,6.18-23.08l14.83-47.59h28.23l-36.88,108.37c-8.04,23.49-15.86,31.94-37.29,31.94h-16.48v-22.05Z"/>
+        </svg>
+    </div>
+    <div class="chapter-label">Chapter 39</div>
+    <h1>Charitable Giving &<br>Financial Planning</h1>
+    <div class="subtitle">Making an Impact Through Purposeful Giving in {{STATE_NAME}}</div>
+    <div class="footer-bar">
+        <span>Standard 14: Philanthropy</span>
+        <span>•</span>
+        <span>Personal Financial Literacy</span>
+    </div>
+</div>
+
+<!-- SLIDE 2: Hook -->
+<div class="slide slide-hook">
+    <div class="label">Essential Question</div>
+    <div class="question">How can you make a <em>meaningful difference</em> in your community—<br>whether through money, time, or skills—<br>at <em>any stage</em> of your financial journey?</div>
+</div>
+
+<!-- SLIDE 3: Objectives -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>Learning Objectives</h2>
+        <span class="slide-number">3 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="objectives-expanded">
+            <div class="objective-card">
+                <div class="header">
+                    <div class="number">1</div>
+                    <h3>Understand</h3>
+                </div>
+                <p>Recognize various forms of charitable giving including monetary donations, volunteering, in-kind gifts, and planned giving.</p>
+            </div>
+            <div class="objective-card">
+                <div class="header">
+                    <div class="number">2</div>
+                    <h3>Integrate</h3>
+                </div>
+                <p>Learn how charitable giving can be incorporated into comprehensive financial planning at any income level.</p>
+            </div>
+            <div class="objective-card">
+                <div class="header">
+                    <div class="number">3</div>
+                    <h3>Explore</h3>
+                </div>
+                <p>Discover the personal and societal benefits that come from giving back to your community.</p>
+            </div>
+            <div class="objective-card">
+                <div class="header">
+                    <div class="number">4</div>
+                    <h3>Reflect</h3>
+                </div>
+                <p>Consider non-monetary ways to contribute to your community regardless of your financial situation.</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 4: Vocabulary 1 -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Key Terms</h2>
+        <span class="slide-number">4 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="vocab-container">
+            <div class="vocab-row">
+                <div class="vocab-term-box">
+                    <div class="term">Monetary Donation</div>
+                </div>
+                <div class="vocab-def-box">
+                    <div class="label">Definition</div>
+                    <p>Direct financial contributions made to a charitable organization to support their mission.</p>
+                </div>
+                <div class="vocab-example-box">
+                    <div class="label">Types</div>
+                    <p>One-time gifts, recurring donations, matching gifts through employers, crowdfunding contributions</p>
+                </div>
+            </div>
+            <div class="vocab-row">
+                <div class="vocab-term-box">
+                    <div class="term">In-Kind Donation</div>
+                </div>
+                <div class="vocab-def-box">
+                    <div class="label">Definition</div>
+                    <p>Contributions of goods or services rather than money, often equally valuable to organizations.</p>
+                </div>
+                <div class="vocab-example-box">
+                    <div class="label">Examples</div>
+                    <p>Clothing, food, professional services pro bono, technology equipment, blood donation</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 5: Vocabulary 2 -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Key Terms</h2>
+        <span class="slide-number">5 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="vocab-container">
+            <div class="vocab-row">
+                <div class="vocab-term-box">
+                    <div class="term">Volunteerism</div>
+                </div>
+                <div class="vocab-def-box">
+                    <div class="label">Definition</div>
+                    <p>Donating time or skills to support causes without receiving financial compensation.</p>
+                </div>
+                <div class="vocab-example-box">
+                    <div class="label">Benefits</div>
+                    <p>Direct impact, skill development, networking, mental health benefits, career exploration</p>
+                </div>
+            </div>
+            <div class="vocab-row">
+                <div class="vocab-term-box">
+                    <div class="term">Planned Giving</div>
+                </div>
+                <div class="vocab-def-box">
+                    <div class="label">Definition</div>
+                    <p>Charitable contributions arranged through long-term financial or estate planning.</p>
+                </div>
+                <div class="vocab-example-box">
+                    <div class="label">Methods</div>
+                    <p>Bequests in wills, charitable trusts, endowments, life insurance designations</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 6: Why People Give -->
+<div class="slide slide-content">
+    <div class="slide-header blue">
+        <h2>Why Do People Give?</h2>
+        <span class="slide-number">6 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="balanced-layout">
+            <div class="content-panel">
+                <h3>Motivations for Giving</h3>
+                <p>People choose to give to charitable causes for many personal and social reasons:</p>
+                <ul style="list-style: none; margin-top: 16px;">
+                    <li style="padding: 10px 0; font-size: 24px;">💚 <strong>Help others</strong> and make a positive difference in the world</li>
+                    <li style="padding: 10px 0; font-size: 24px;">🎯 <strong>Support causes</strong> aligned with personal values and beliefs</li>
+                    <li style="padding: 10px 0; font-size: 24px;">🙏 <strong>Give back</strong> to communities that have supported them</li>
+                    <li style="padding: 10px 0; font-size: 24px;">🌟 <strong>Create a legacy</strong> that extends beyond their lifetime</li>
+                    <li style="padding: 10px 0; font-size: 24px;">😊 <strong>Experience satisfaction</strong> from helping others</li>
+                </ul>
+            </div>
+            <div class="stats-panel">
+                <div class="stat-card green">
+                    <div class="number">$500B+</div>
+                    <div class="label">Annual US Charitable Giving</div>
+                </div>
+                <div class="stat-card purple">
+                    <div class="number">87%</div>
+                    <div class="label">Americans Who Give to Charity</div>
+                </div>
+                <div class="info-card blue">
+                    <h4>Research Shows:</h4>
+                    <ul>
+                        <li>Giving activates pleasure centers in the brain</li>
+                        <li>Givers report higher life satisfaction</li>
+                        <li>Volunteering linked to better health</li>
+                        <li>Generosity strengthens communities</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 7: Forms of Giving -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>Four Forms of Charitable Giving</h2>
+        <span class="slide-number">7 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="concept-full">
+            <h3>Everyone Can Give—Regardless of Financial Resources</h3>
+            <p>Charitable giving comes in many forms, each valuable and impactful in its own way.</p>
+            <ul>
+                <li><strong>💵 Monetary Donations:</strong> Direct financial contributions (one-time, recurring, matching)</li>
+                <li><strong>🤝 Volunteering:</strong> Donating time and skills to organizations and causes</li>
+                <li><strong>📦 In-Kind Donations:</strong> Contributing goods, services, or professional expertise</li>
+                <li><strong>📋 Planned Giving:</strong> Long-term arrangements through estate planning</li>
+            </ul>
+            <div class="key-point">
+                <p>💡 You don't need significant financial resources to make a difference. Time, skills, and goods can be equally valuable contributions to organizations in need.</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 8: Integrating Giving into Financial Planning -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Creating a Giving Budget</h2>
+        <span class="slide-number">8 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="balanced-layout">
+            <div class="content-panel">
+                <h3>Steps to Plan Your Giving</h3>
+                <p>Just as you budget for other expenses, it's helpful to plan for charitable giving:</p>
+                <ol style="margin-top: 16px; font-size: 24px; line-height: 2;">
+                    <li><strong>Assess</strong> your financial situation honestly</li>
+                    <li><strong>Set priorities</strong>—which causes matter most?</li>
+                    <li><strong>Establish giving goals</strong>—how much annually?</li>
+                    <li><strong>Create a timeline</strong>—one-time or recurring?</li>
+                    <li><strong>Review and adjust</strong> as circumstances change</li>
+                </ol>
+            </div>
+            <div class="content-panel" style="background: var(--green-light);">
+                <h3 style="color: var(--green);">Balance with Financial Priorities</h3>
+                <p>Giving is important, but should fit within your overall financial plan:</p>
+                <ul style="list-style: none; margin-top: 16px;">
+                    <li style="padding: 8px 0; font-size: 24px;">✓ Ensure basic needs are met first</li>
+                    <li style="padding: 8px 0; font-size: 24px;">✓ Maintain emergency savings</li>
+                    <li style="padding: 8px 0; font-size: 24px;">✓ Continue retirement contributions</li>
+                    <li style="padding: 8px 0; font-size: 24px;">✓ Pay down high-interest debt</li>
+                    <li style="padding: 8px 0; font-size: 24px;">✓ Set realistic giving goals</li>
+                </ul>
+                <div class="highlight-box" style="background: white; border-color: var(--green);">
+                    <p>💡 Even small donations make a difference—increase giving as your situation improves.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 9: Tax Benefits -->
+<div class="slide slide-content">
+    <div class="slide-header blue">
+        <h2>Tax Benefits of Charitable Giving</h2>
+        <span class="slide-number">9 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="balanced-layout">
+            <div class="content-panel">
+                <h3>Tax Deductions for Donations</h3>
+                <p>Many charitable donations are <strong>tax-deductible</strong>, reducing your taxable income. Key points:</p>
+                <ul style="list-style: none; margin-top: 16px;">
+                    <li style="padding: 8px 0; font-size: 24px;">📋 Must <strong>itemize deductions</strong> to claim contributions</li>
+                    <li style="padding: 8px 0; font-size: 24px;">✓ Only donations to <strong>qualified 501(c)(3)</strong> organizations are deductible</li>
+                    <li style="padding: 8px 0; font-size: 24px;">📄 <strong>Keep documentation</strong>—receipts and acknowledgment letters</li>
+                    <li style="padding: 8px 0; font-size: 24px;">💰 Different rules for <strong>cash, property, and stock</strong> donations</li>
+                </ul>
+            </div>
+            <div class="stats-panel">
+                <div class="stat-card">
+                    <div class="number">60%</div>
+                    <div class="label">Max Deduction (% of AGI)</div>
+                </div>
+                <div class="info-card">
+                    <h4>Important Notes:</h4>
+                    <ul>
+                        <li>Tax benefits should enhance giving, not drive it</li>
+                        <li>Many people use standard deduction</li>
+                        <li>Donating appreciated stock can avoid capital gains</li>
+                        <li>Limits vary by donation type</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 10: Benefits of Giving -->
+<div class="slide slide-content">
+    <div class="slide-header green">
+        <h2>Benefits of Charitable Giving</h2>
+        <span class="slide-number">10 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="balanced-layout">
+            <div class="content-panel">
+                <h3>Personal Benefits</h3>
+                <p><strong>Increased happiness:</strong> Research shows giving activates pleasure centers in the brain—the "helper's high"</p>
+                <p><strong>Reduced stress:</strong> Helping others provides perspective and purpose</p>
+                <p><strong>Development of empathy:</strong> Engaging with different communities broadens understanding</p>
+                <p><strong>Community connections:</strong> Volunteering and giving create meaningful social bonds</p>
+            </div>
+            <div class="content-panel">
+                <h3>Societal Benefits</h3>
+                <p><strong>Addressing needs:</strong> Filling gaps that might otherwise go unmet</p>
+                <p><strong>Supporting innovation:</strong> Funding research and new approaches</p>
+                <p><strong>Preserving resources:</strong> Protecting cultural and environmental assets</p>
+                <p><strong>Strengthening communities:</strong> Creating more connected, resilient neighborhoods</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 11: Example 1 - Maria Volunteering -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>Real-World Example</h2>
+        <span class="slide-number">11 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="scenario-layout">
+            <div class="scenario-card" style="background: var(--green-light); border-left-color: var(--green);">
+                <div class="name">
+                    <div class="icon" style="background: var(--green);">🤝</div>
+                    Maria: The Power of Volunteering
+                </div>
+                <p>Maria, a college student with <strong>limited financial resources</strong>, volunteers 5 hours each week at a local food bank.</p>
+                <p style="margin-top: 16px;">Although she can't make substantial monetary donations, her <span class="highlight-text">consistent time commitment</span> helps the organization serve hundreds of meals each month.</p>
+                <p style="margin-top: 16px;">Within six months, she was given more responsibility and now <strong>coordinates other volunteers</strong> during her shifts. She also gained experience that helped her secure an internship in nonprofit management.</p>
+            </div>
+            <div class="scenario-outcomes">
+                <div class="outcome-box after">
+                    <div class="label">Weekly Commitment</div>
+                    <div class="value">5 Hours</div>
+                    <div class="detail">Consistent volunteering</div>
+                </div>
+                <div class="outcome-box after">
+                    <div class="label">Value to Organization</div>
+                    <div class="value">$3,000</div>
+                    <div class="detail">Annual savings in staffing</div>
+                </div>
+                <div class="outcome-box after" style="background: var(--blue-light); border-color: var(--blue);">
+                    <div class="label" style="color: var(--blue);">Personal Benefit</div>
+                    <div class="value">Internship</div>
+                    <div class="detail">Career advancement</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 12: Example 2 - James Skills-Based -->
+<div class="slide slide-content">
+    <div class="slide-header blue">
+        <h2>Real-World Example</h2>
+        <span class="slide-number">12 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="scenario-layout">
+            <div class="scenario-card">
+                <div class="name">
+                    <div class="icon">💻</div>
+                    James: Skills-Based Giving
+                </div>
+                <p>James, a high school student, doesn't have extra money to donate, but he's <strong>skilled at web design</strong>. He volunteered to rebuild the website for a local animal shelter.</p>
+                <p style="margin-top: 16px;">His contribution took approximately <span class="highlight-text">40 hours over two months</span>, but the results were significant:</p>
+                <ul style="margin: 16px 0; font-size: 24px; list-style: none;">
+                    <li style="padding: 6px 0;">• Website visitors increased by <strong>75%</strong></li>
+                    <li style="padding: 6px 0;">• Online adoption applications <strong>doubled</strong></li>
+                    <li style="padding: 6px 0;">• Professional site helped secure a <strong>$5,000 grant</strong></li>
+                </ul>
+            </div>
+            <div class="scenario-outcomes">
+                <div class="outcome-box after">
+                    <div class="label">Time Invested</div>
+                    <div class="value">40 Hours</div>
+                    <div class="detail">Over two months</div>
+                </div>
+                <div class="outcome-box after">
+                    <div class="label">Value to Shelter</div>
+                    <div class="value">$3,500+</div>
+                    <div class="detail">Professional web design cost</div>
+                </div>
+                <div class="outcome-box after" style="background: var(--blue-light); border-color: var(--blue);">
+                    <div class="label" style="color: var(--blue);">Impact</div>
+                    <div class="value">+25%</div>
+                    <div class="detail">Adoption rate increase</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 13: Discussion -->
+<div class="slide slide-discussion">
+    <div class="badge">Discussion</div>
+    <div class="question">What causes or issues matter most to you personally?<br><br>How might charitable giving related to these causes fit into your future financial plans?<br>What forms of giving would be most meaningful to you?</div>
+</div>
+
+<!-- SLIDE 14: Check for Understanding -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Check for Understanding</h2>
+        <span class="slide-number">14 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="check-grid">
+            <div class="check-item">
+                <div class="q-num">Question 1</div>
+                <p>What are the four main forms of charitable giving discussed in this lesson?</p>
+            </div>
+            <div class="check-item">
+                <div class="q-num">Question 2</div>
+                <p>Why is it important to balance charitable giving with other financial priorities?</p>
+            </div>
+            <div class="check-item">
+                <div class="q-num">Question 3</div>
+                <p>How can someone with limited financial resources still make a meaningful contribution to causes they care about?</p>
+            </div>
+            <div class="check-item">
+                <div class="q-num">Question 4</div>
+                <p>What personal benefits do people often experience from charitable giving?</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 15: Key Takeaways -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>Key Takeaways</h2>
+        <span class="slide-number">15 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="takeaway-grid">
+            <div class="takeaway-item">
+                <div class="number">1</div>
+                <div class="content">
+                    <h4>Everyone Can Give</h4>
+                    <p>Charitable giving comes in many forms—money, time, skills, and goods all create meaningful impact</p>
+                </div>
+            </div>
+            <div class="takeaway-item">
+                <div class="number">2</div>
+                <div class="content">
+                    <h4>Plan Your Giving</h4>
+                    <p>Integrate charitable giving into your budget and balance it with other financial priorities</p>
+                </div>
+            </div>
+            <div class="takeaway-item">
+                <div class="number">3</div>
+                <div class="content">
+                    <h4>Benefits Flow Both Ways</h4>
+                    <p>Givers experience happiness, connection, and purpose while recipients get needed support</p>
+                </div>
+            </div>
+            <div class="takeaway-item">
+                <div class="number">4</div>
+                <div class="content">
+                    <h4>Start Small, Stay Consistent</h4>
+                    <p>Even small contributions add up over time—you can increase giving as your situation improves</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 16: Activity -->
+<div class="slide slide-content">
+    <div class="slide-header blue">
+        <h2>Student Activity</h2>
+        <span class="slide-number">16 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="activity-layout">
+            <div class="activity-main">
+                <h3>📋 Personal Charitable Giving Plan</h3>
+                <p>Create a personal charitable giving plan that aligns with your values, interests, and resources—whether those are financial, time-based, or skill-based.</p>
+                <p style="margin-top: 20px;">This plan should be realistic for your current situation while reflecting causes you genuinely care about.</p>
+            </div>
+            <div class="activity-steps">
+                <div class="activity-step">
+                    <div class="step-num">1</div>
+                    <p>Choose a cause or organization you feel passionate about</p>
+                </div>
+                <div class="activity-step">
+                    <div class="step-num">2</div>
+                    <p>Determine what type of contribution you can make</p>
+                </div>
+                <div class="activity-step">
+                    <div class="step-num">3</div>
+                    <p>Set specific and realistic goals for your contribution</p>
+                </div>
+                <div class="activity-step">
+                    <div class="step-num">4</div>
+                    <p>Write a paragraph explaining your giving strategy</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 17: Making Small Contributions Count -->
+<div class="slide slide-content">
+    <div class="slide-header green">
+        <h2>Making Small Contributions Count</h2>
+        <span class="slide-number">17 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="concept-full">
+            <h3>Impact Doesn't Require Wealth</h3>
+            <p>Even small monetary or time contributions can have significant impact when done strategically:</p>
+            <ul>
+                <li><strong>🤝 Collective giving:</strong> Join giving circles or crowdfunding campaigns with others</li>
+                <li><strong>🎯 Targeted donations:</strong> Support specific projects with clear, measurable outcomes</li>
+                <li><strong>🏠 Support local:</strong> Small donations often make bigger differences at local organizations</li>
+                <li><strong>📅 Stay consistent:</strong> Regular small gifts build up significantly over time</li>
+                <li><strong>✖️2 Find matching:</strong> Look for employer matching that doubles your donation</li>
+                <li><strong>📣 Raise awareness:</strong> Share information about causes you care about</li>
+            </ul>
+            <div class="key-point">
+                <p>💡 A $10/month donation = $120/year = $1,200 over a decade. Consistency matters more than amount.</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 18: Closing -->
+<div class="slide slide-closing">
+    <svg class="logo-large" viewBox="0 0 1366 441.64" xmlns="http://www.w3.org/2000/svg" style="height: 100px;">
+        <style>.wht{fill:#fff}</style>
+        <path class="wht" d="M116.66,174.42h-17.75v34.04h17.4c11.89,0,18.71-6.26,18.71-17.19s-6.7-16.85-18.37-16.85Z"/>
+        <path class="wht" d="M219.87,2.27C99.62,2.27,2.14,99.75,2.14,220s97.48,217.73,217.73,217.73,217.73-97.48,217.73-217.73S340.12,2.27,219.87,2.27ZM120.72,230.14h-21.8v60.28h-27.08v-139.02h46.85c13.87,0,24.7,3.89,32.21,11.58,7.23,7.41,11.06,17.14,11.06,28.13,0,23.71-16.18,39.04-41.24,39.04ZM277,177.04h-13.7c-9.24,0-24.66,4.37-24.98,33.1h38.68v22.19h-38.75c-.37,34.39-21.88,58.35-52.61,58.35h-11.21v-25.14h11.21c25.09,0,27.35-26.03,27.5-33.21h-38.7v-22.19h38.75c.31-35.94,19.44-58.24,50.12-58.24h13.7v25.14ZM304.17,290.42v-139.02h26.24v116.13h46.17v22.89h-72.41Z"/>
+        <path class="wht" d="M545.29,144.12h30.91l51.92,147.31h-31.11l-9.89-31.32h-53.15l-9.68,31.32h-30.29l51.3-147.31ZM540.96,237.25h38.94l-13.19-42.44c-2.47-7.83-5.98-22.67-5.98-22.67h-.41s-3.71,14.83-6.18,22.67l-13.19,42.44Z"/>
+        <path class="wht" d="M632.03,238.69c0-31.52,20.6-55.84,52.74-55.84,27.4,0,44.3,15.87,48,38.74h-27.4c-1.86-9.27-9.06-16.28-19.37-16.28-16.9,0-25.55,12.98-25.55,33.38s8.04,33.38,25.14,33.38c11.33,0,19.37-5.98,21.22-17.93h26.99c-1.86,22.46-19.37,40.38-47.59,40.38-33.38,0-54.19-24.31-54.19-55.84Z"/>
+        <path class="wht" d="M814.36,279.69h-.41c-5.36,8.04-12.98,14.22-31.11,14.22-21.63,0-36.88-11.34-36.88-32.35,0-23.28,18.96-30.7,42.44-34,17.52-2.47,25.55-3.91,25.55-11.95,0-7.62-5.98-12.57-17.72-12.57-13.19,0-19.57,4.74-20.4,14.83h-24.93c.82-18.54,14.63-34.82,45.53-34.82s44.51,14.22,44.51,38.94v53.77c0,8.04,1.23,12.78,3.71,14.63v1.03h-26.99c-1.65-2.06-2.68-7.01-3.3-11.75ZM814.56,254.14v-15.86c-4.95,2.88-12.57,4.53-19.57,6.18-14.63,3.3-21.84,6.59-21.84,16.48s6.59,13.39,16.48,13.39c16.07,0,24.93-9.89,24.93-20.19Z"/>
+        <path class="wht" d="M856.59,238.69c0-32.96,18.75-55.84,45.12-55.84,14.84,0,24.11,6.8,29.88,15.66h.62v-54.39h28.02v147.31h-26.99v-13.8h-.41c-6.18,10.09-16.69,16.9-31.52,16.9-26.57,0-44.71-21.64-44.71-55.84ZM932.82,239.31c0-20.19-6.59-33.79-24.52-33.79-15.45,0-23.28,13.6-23.28,33.17s8.04,32.35,22.45,32.35c16.69,0,25.34-12.36,25.34-31.73Z"/>
+        <path class="wht" d="M976.29,238.48c0-31.32,21.22-55.63,52.13-55.63,34,0,52.13,25.96,52.13,63.66h-76.64c2.06,16.28,11.13,26.37,26.99,26.37,10.92,0,17.31-4.94,20.4-12.98h27.61c-3.91,18.75-20.6,34.62-47.8,34.62-35.03,0-54.81-24.52-54.81-56.04ZM1004.3,227.15h46.98c-.82-13.39-9.68-22.66-22.45-22.66-14.84,0-22.05,8.86-24.52,22.66Z"/>
+        <path class="wht" d="M1096.6,185.74h26.99v14.22h.62c5.77-9.69,16.07-17.1,30.7-17.1,13.39,0,24.11,7.42,29.26,18.54h.42c7.21-11.54,18.34-18.54,31.73-18.54,22.26,0,34.82,14.42,34.82,37.5v71.08h-28.02v-66.34c0-11.95-5.98-18.13-16.28-18.13-11.75,0-18.96,9.07-18.96,23.08v61.4h-28.02v-66.34c0-11.95-5.98-18.13-16.28-18.13-11.33,0-18.96,9.07-18.96,23.08v61.4h-28.02v-105.7Z"/>
+        <path class="wht" d="M1271.73,304h9.89c11.13,0,15.66-5.77,15.66-14.42,0-5.77-2.06-12.57-8.04-28.64l-28.44-75.2h29.46l15.66,47.59c3.3,9.68,6.8,23.08,6.8,23.08h.41s2.88-13.39,6.18-23.08l14.83-47.59h28.23l-36.88,108.37c-8.04,23.49-15.86,31.94-37.29,31.94h-16.48v-22.05Z"/>
+    </svg>
+    <div class="tagline">Building Financial Futures, One Lesson at a Time</div>
+    <div class="website">www.pflacademy.co</div>
+    <div class="copyright">© 2025 PFL Academy. All rights reserved.</div>
+</div>
+
+</body>
+</html>

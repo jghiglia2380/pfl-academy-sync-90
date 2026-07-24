@@ -23,7 +23,7 @@ By the end of this lesson, you will be able to:
 - **Bootstrapping**: Building a company from the ground up with personal finances and revenue
 
 ## Introduction
-
+In {{STATE_NAME}}, 
 Welcome to Chapter 15.5: Entrepreneurship and Side Hustles! In today's lesson, we'll explore the entrepreneurial mindset and how to identify opportunities for starting your own business or side hustle. Entrepreneurship offers an alternative or complement to traditional employment, allowing you to pursue your passions, develop new skills, and potentially create additional income streams.
 
 Whether you're interested in starting a full-time business or a part-time side hustle, understanding the entrepreneurial approach will help you evaluate opportunities and take the first steps toward building your own venture. In our increasingly flexible economy, entrepreneurial skills are valuable not only for starting businesses but also for creating resilience and adaptability in your career journey.

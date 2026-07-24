@@ -12,10 +12,14 @@ By the end of this lesson, you will be able to:
 - Identify and avoid common banking fees
 
 ### Introduction
-
+In {{STATE_NAME}}, 
 Banking tools help you keep track of your money, make payments, and monitor your spending. Understanding how to use these tools effectively is essential for managing your finances and avoiding unnecessary fees.
 
 ### Key Banking Tools
+
+
+
+Here in {{STATE_NAME}}, the average monthly account fee is {{AVG_MONTHLY_FEE}}, and overdraft fees average {{AVG_OVERDRAFT_FEE}}. Understanding these costs helps you choose the right banking services.
 
 1. **Checks**: Written orders instructing your bank to pay a specific amount to a person or organization
 2. **Debit Cards**: Cards linked directly to your checking account that allow you to make purchases or withdraw cash

@@ -25,10 +25,14 @@ By the end of this lesson, you will be able to:
 - **Variance**: A measure of how much outcomes can differ from the expected value
 
 ## Introduction
-
+In {{STATE_NAME}}, 
 Gambling is a common recreational activity that involves risking money or valuables on an uncertain outcome in hopes of winning more. While it can be entertaining, gambling also involves significant financial risks. This lesson explores the mathematics behind gambling, including probability, the house edge, and expected value. Understanding these concepts will help you make more informed decisions about gambling and recognize its potential financial consequences.
 
 Probability is the foundation of gambling. It represents the likelihood of a specific outcome occurring and is expressed as a number between 0 (impossible) and 1 (certain), or as a percentage between 0% and 100%. By understanding the mathematical principles behind gambling, you can better evaluate the risks involved and make more informed choices.
+
+
+
+In {{STATE_NAME}}, homeowners insurance averages {{HOMEOWNERS_AVG_MONTHLY}} per month, while teen auto insurance averages {{INSURANCE_AVG_TEEN}}. With a median home price of {{MEDIAN_HOME_PRICE}}, proper insurance coverage is essential.
 
 ## Deeper Exploration
 

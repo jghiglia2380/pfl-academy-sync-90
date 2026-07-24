@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>L-43: Job Application Process | PFL Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #4F46E5;
+            --primary-dark: #3730A3;
+            --primary-light: #818CF8;
+            --teal: #0D9488;
+            --teal-dark: #0F766E;
+            --teal-light: #5EEAD4;
+            --green: #10B981;
+            --green-light: #D1FAE5;
+            --blue: #3B82F6;
+            --blue-light: #DBEAFE;
+            --amber: #F59E0B;
+            --amber-light: #FEF3C7;
+            --amber-pale: #FFFBEB;
+            --rose: #F43F5E;
+            --rose-light: #FFE4E6;
+            --text-dark: #1E293B;
+            --text-body: #475569;
+            --text-light: #64748B;
+            --bg-light: #F8FAFC;
+            --bg-slate: #F1F5F9;
+            --white: #FFFFFF;
+            --border: #E2E8F0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        .slide {
+            width: 1920px;
+            height: 1080px;
+            page-break-after: always;
+            page-break-inside: avoid;
+            position: relative;
+            overflow: hidden;
+            background: var(--white);
+        }
+
+        .slide:last-child {
+            page-break-after: auto;
+        }
+
+        .logo-white { height: 60px; width: auto; }
+
+        /* Title Slide */
+        .slide-title {
+            background: linear-gradient(135deg, var(--primary) 0%, #6D29D8 50%, var(--primary-dark) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px;
+        }
+
+        .slide-title .logo-container {
+            position: absolute;
+            top: 50px;
+            right: 70px;
+        }
+
+        .slide-title .chapter-label {
+            font-size: 26px;
+            font-weight: 600;
+            color: var(--teal-light);
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin-bottom: 20px;
+        }
+
+        .slide-title h1 {
+            font-size: 100px;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 28px;
+            line-height: 1.1;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .slide-title .subtitle {
+            font-size: 38px;
+            color: var(--white);
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        .slide-title .footer-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+        }
+
+        .slide-title .footer-bar span {
+            font-size: 22px;
+            color: rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+
+        /* Content Slide */
+        .slide-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 36px 80px;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .slide-header.teal {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+        }
+
+        .slide-header.blue {
+            background: linear-gradient(135deg, var(--blue) 0%, #2563EB 100%);
+        }
+
+        .slide-header h2 {
+            font-size: 52px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .slide-header .slide-number {
+            font-size: 22px;
+            color: rgba(255,255,255,0.6);
+            font-weight: 500;
+        }
+
+        .slide-body {
+            flex: 1;
+            padding: 50px 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .slide-footer {
+            height: 12px;
+            background: linear-gradient(90deg, var(--teal) 0%, var(--primary) 50%, var(--teal) 100%);
+        }
+
+        /* Hook Slide */
+        .slide-hook {
+            background: linear-gradient(135deg, #1E293B 0%, #334155 50%, #1E293B 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 100px;
+            text-align: center;
+        }
+
+        .slide-hook .label {
+            position: absolute;
+            top: 50px;
+            left: 70px;
+            background: var(--teal);
+            color: var(--white);
+            padding: 14px 36px;
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            border-radius: 6px;
+        }
+
+        .slide-hook .question {
+            font-size: 60px;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.4;
+            max-width: 1500px;
+        }
+
+        .slide-hook .question em {
+            color: var(--teal-light);
+            font-style: normal;
+        }
+
+        /* Objectives */
+        .objectives-expanded {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            flex: 1;
+        }
+
+        .objective-card {
+            background: var(--bg-slate);
+            border-radius: 20px;
+            padding: 36px;
+            border-left: 6px solid var(--teal);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .objective-card .header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .objective-card .number {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .objective-card h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--teal-dark);
+        }
+
+        .objective-card p {
+            font-size: 26px;
+            color: var(--text-body);
+            line-height: 1.6;
+        }
+
+        /* Vocabulary */
+        .vocab-container {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            flex: 1;
+        }
+
+        .vocab-row {
+            display: grid;
+            grid-template-columns: 280px 1fr 1fr;
+            gap: 24px;
+            align-items: stretch;
+            flex: 1;
+        }
+
+        .vocab-term-box {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vocab-term-box .term {
+            font-size: 26px;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+        }
+
+        .vocab-def-box {
+            background: var(--bg-slate);
+            border-radius: 16px;
+            padding: 28px 32px;
+            border-left: 5px solid var(--teal);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .vocab-def-box .label {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--teal);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .vocab-def-box p {
+            font-size: 22px;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        .vocab-example-box {
+            background: var(--green-light);
+            border-radius: 16px;
+            padding: 28px 32px;
+            border-left: 5px solid var(--green);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .vocab-example-box .label {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .vocab-example-box p {
+            font-size: 20px;
+            color: var(--text-dark);
+            line-height: 1.5;
+            font-style: italic;
+        }
+
+        /* Two-Column Layout */
+        .balanced-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            flex: 1;
+        }
+
+        .content-panel {
+            background: var(--bg-slate);
+            border-radius: 20px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .content-panel h3 {
+            font-size: 34px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .content-panel p {
+            font-size: 26px;
+            color: var(--text-body);
+            line-height: 1.6;
+        }
+
+        .content-panel .highlight-box {
+            background: var(--blue-light);
+            border-left: 5px solid var(--blue);
+            padding: 20px 24px;
+            border-radius: 0 12px 12px 0;
+            margin-top: auto;
+        }
+
+        .content-panel .highlight-box p {
+            font-size: 24px;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .stats-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .stat-card.purple {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        }
+
+        .stat-card.green {
+            background: linear-gradient(135deg, var(--green) 0%, #059669 100%);
+        }
+
+        .stat-card.rose {
+            background: linear-gradient(135deg, var(--rose) 0%, #E11D48 100%);
+        }
+
+        .stat-card .number {
+            font-size: 64px;
+            font-weight: 800;
+            color: white;
+        }
+
+        .stat-card .label {
+            font-size: 22px;
+            color: rgba(255,255,255,0.9);
+            margin-top: 8px;
+        }
+
+        .info-card {
+            background: var(--amber-pale);
+            border-radius: 16px;
+            padding: 32px;
+            border-left: 6px solid var(--amber);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-card.blue {
+            background: var(--blue-light);
+            border-left-color: var(--blue);
+        }
+
+        .info-card.green {
+            background: var(--green-light);
+            border-left-color: var(--green);
+        }
+
+        .info-card h4 {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .info-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .info-card li {
+            font-size: 22px;
+            color: var(--text-body);
+            padding-left: 32px;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .info-card li::before {
+            content: "→";
+            color: var(--amber);
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        .info-card.blue li::before { color: var(--blue); }
+        .info-card.green li::before { color: var(--green); }
+
+        /* Process Steps */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 16px;
+            flex: 1;
+            align-items: stretch;
+        }
+
+        .process-step {
+            background: var(--bg-slate);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .process-step .step-num {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .process-step h4 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        .process-step p {
+            font-size: 16px;
+            color: var(--text-body);
+            line-height: 1.4;
+        }
+
+        /* List Grid */
+        .list-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            flex: 1;
+        }
+
+        .list-card {
+            background: var(--bg-slate);
+            border-radius: 16px;
+            padding: 32px;
+            border-top: 6px solid var(--teal);
+        }
+
+        .list-card.purple { border-top-color: var(--primary); }
+        .list-card.blue { border-top-color: var(--blue); }
+        .list-card.amber { border-top-color: var(--amber); }
+
+        .list-card h4 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .list-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .list-card li {
+            font-size: 22px;
+            color: var(--text-body);
+            padding-left: 24px;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .list-card li::before {
+            content: "•";
+            color: var(--teal);
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            font-size: 28px;
+            line-height: 1;
+        }
+
+        .list-card.purple li::before { color: var(--primary); }
+        .list-card.blue li::before { color: var(--blue); }
+        .list-card.amber li::before { color: var(--amber); }
+
+        /* Scenario/Example */
+        .scenario-layout {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 40px;
+            flex: 1;
+        }
+
+        .scenario-card {
+            background: var(--amber-pale);
+            border-radius: 20px;
+            padding: 44px;
+            border-left: 8px solid var(--amber);
+        }
+
+        .scenario-card .name {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .scenario-card .name .icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        .scenario-card p {
+            font-size: 26px;
+            color: var(--text-body);
+            line-height: 1.7;
+        }
+
+        .scenario-card .highlight-text {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .scenario-outcomes {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .outcome-box {
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .outcome-box.before {
+            background: var(--rose-light);
+            border: 2px solid var(--rose);
+        }
+
+        .outcome-box.after {
+            background: var(--green-light);
+            border: 2px solid var(--green);
+        }
+
+        .outcome-box .label {
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .outcome-box.before .label { color: var(--rose); }
+        .outcome-box.after .label { color: var(--green); }
+
+        .outcome-box .value {
+            font-size: 40px;
+            font-weight: 800;
+            color: var(--text-dark);
+        }
+
+        .outcome-box .detail {
+            font-size: 18px;
+            color: var(--text-body);
+            margin-top: 8px;
+        }
+
+        /* Discussion Slide */
+        .slide-discussion {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px;
+        }
+
+        .slide-discussion .badge {
+            background: white;
+            color: var(--teal-dark);
+            padding: 18px 48px;
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            border-radius: 12px;
+            margin-bottom: 48px;
+        }
+
+        .slide-discussion .question {
+            font-size: 48px;
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.5;
+            max-width: 1400px;
+        }
+
+        /* Takeaways */
+        .takeaway-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            flex: 1;
+        }
+
+        .takeaway-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+            padding: 32px;
+            background: var(--bg-slate);
+            border-radius: 16px;
+        }
+
+        .takeaway-item .number {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .takeaway-item .content h4 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .takeaway-item .content p {
+            font-size: 24px;
+            color: var(--text-body);
+            line-height: 1.5;
+        }
+
+        /* Activity */
+        .activity-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            flex: 1;
+        }
+
+        .activity-main {
+            background: linear-gradient(135deg, var(--green-light) 0%, #A7F3D0 100%);
+            border-radius: 20px;
+            padding: 44px;
+            border-left: 8px solid var(--green);
+        }
+
+        .activity-main h3 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .activity-main p {
+            font-size: 26px;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .activity-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .activity-step {
+            background: white;
+            border-radius: 14px;
+            padding: 26px 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .activity-step .step-num {
+            width: 48px;
+            height: 48px;
+            background: var(--teal);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .activity-step p {
+            font-size: 24px;
+            color: var(--text-dark);
+        }
+
+        /* Closing */
+        .slide-closing {
+            background: linear-gradient(135deg, var(--primary) 0%, #6D29D8 50%, var(--primary-dark) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px;
+        }
+
+        .slide-closing .logo-large {
+            height: 100px;
+            margin-bottom: 40px;
+        }
+
+        .slide-closing .tagline {
+            font-size: 44px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .slide-closing .website {
+            font-size: 32px;
+            color: var(--teal-light);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .slide-closing .copyright {
+            position: absolute;
+            bottom: 40px;
+            font-size: 18px;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* Full-width concept card */
+        .concept-full {
+            background: var(--bg-slate);
+            border-radius: 20px;
+            padding: 44px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .concept-full h3 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .concept-full p {
+            font-size: 28px;
+            color: var(--text-body);
+            line-height: 1.6;
+        }
+
+        .concept-full .key-point {
+            background: linear-gradient(135deg, var(--blue-light) 0%, #BFDBFE 100%);
+            border-left: 6px solid var(--blue);
+            padding: 24px 32px;
+            border-radius: 0 16px 16px 0;
+            margin-top: 12px;
+        }
+
+        .concept-full .key-point p {
+            font-size: 26px;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .concept-full ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .concept-full li {
+            font-size: 24px;
+            color: var(--text-body);
+            padding: 18px 22px;
+            background: white;
+            border-radius: 12px;
+            border-left: 4px solid var(--teal);
+        }
+
+        /* ATS Tips */
+        .ats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            flex: 1;
+        }
+
+        .ats-tip {
+            background: var(--bg-slate);
+            border-radius: 16px;
+            padding: 28px;
+            border-top: 5px solid var(--primary);
+        }
+
+        .ats-tip h4 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .ats-tip ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .ats-tip li {
+            font-size: 20px;
+            color: var(--text-body);
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .ats-tip li::before {
+            content: "✓";
+            color: var(--green);
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        @media print {
+            .slide {
+                page-break-after: always;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- SLIDE 1: Title -->
+<div class="slide slide-title">
+    <div class="logo-container">
+        <svg class="logo-white" viewBox="0 0 1366 441.64" xmlns="http://www.w3.org/2000/svg">
+            <style>.wht{fill:#fff}</style>
+            <path class="wht" d="M116.66,174.42h-17.75v34.04h17.4c11.89,0,18.71-6.26,18.71-17.19s-6.7-16.85-18.37-16.85Z"/>
+            <path class="wht" d="M219.87,2.27C99.62,2.27,2.14,99.75,2.14,220s97.48,217.73,217.73,217.73,217.73-97.48,217.73-217.73S340.12,2.27,219.87,2.27ZM120.72,230.14h-21.8v60.28h-27.08v-139.02h46.85c13.87,0,24.7,3.89,32.21,11.58,7.23,7.41,11.06,17.14,11.06,28.13,0,23.71-16.18,39.04-41.24,39.04ZM277,177.04h-13.7c-9.24,0-24.66,4.37-24.98,33.1h38.68v22.19h-38.75c-.37,34.39-21.88,58.35-52.61,58.35h-11.21v-25.14h11.21c25.09,0,27.35-26.03,27.5-33.21h-38.7v-22.19h38.75c.31-35.94,19.44-58.24,50.12-58.24h13.7v25.14ZM304.17,290.42v-139.02h26.24v116.13h46.17v22.89h-72.41Z"/>
+            <path class="wht" d="M545.29,144.12h30.91l51.92,147.31h-31.11l-9.89-31.32h-53.15l-9.68,31.32h-30.29l51.3-147.31ZM540.96,237.25h38.94l-13.19-42.44c-2.47-7.83-5.98-22.67-5.98-22.67h-.41s-3.71,14.83-6.18,22.67l-13.19,42.44Z"/>
+            <path class="wht" d="M632.03,238.69c0-31.52,20.6-55.84,52.74-55.84,27.4,0,44.3,15.87,48,38.74h-27.4c-1.86-9.27-9.06-16.28-19.37-16.28-16.9,0-25.55,12.98-25.55,33.38s8.04,33.38,25.14,33.38c11.33,0,19.37-5.98,21.22-17.93h26.99c-1.86,22.46-19.37,40.38-47.59,40.38-33.38,0-54.19-24.31-54.19-55.84Z"/>
+            <path class="wht" d="M814.36,279.69h-.41c-5.36,8.04-12.98,14.22-31.11,14.22-21.63,0-36.88-11.34-36.88-32.35,0-23.28,18.96-30.7,42.44-34,17.52-2.47,25.55-3.91,25.55-11.95,0-7.62-5.98-12.57-17.72-12.57-13.19,0-19.57,4.74-20.4,14.83h-24.93c.82-18.54,14.63-34.82,45.53-34.82s44.51,14.22,44.51,38.94v53.77c0,8.04,1.23,12.78,3.71,14.63v1.03h-26.99c-1.65-2.06-2.68-7.01-3.3-11.75ZM814.56,254.14v-15.86c-4.95,2.88-12.57,4.53-19.57,6.18-14.63,3.3-21.84,6.59-21.84,16.48s6.59,13.39,16.48,13.39c16.07,0,24.93-9.89,24.93-20.19Z"/>
+            <path class="wht" d="M856.59,238.69c0-32.96,18.75-55.84,45.12-55.84,14.84,0,24.11,6.8,29.88,15.66h.62v-54.39h28.02v147.31h-26.99v-13.8h-.41c-6.18,10.09-16.69,16.9-31.52,16.9-26.57,0-44.71-21.64-44.71-55.84ZM932.82,239.31c0-20.19-6.59-33.79-24.52-33.79-15.45,0-23.28,13.6-23.28,33.17s8.04,32.35,22.45,32.35c16.69,0,25.34-12.36,25.34-31.73Z"/>
+            <path class="wht" d="M976.29,238.48c0-31.32,21.22-55.63,52.13-55.63,34,0,52.13,25.96,52.13,63.66h-76.64c2.06,16.28,11.13,26.37,26.99,26.37,10.92,0,17.31-4.94,20.4-12.98h27.61c-3.91,18.75-20.6,34.62-47.8,34.62-35.03,0-54.81-24.52-54.81-56.04ZM1004.3,227.15h46.98c-.82-13.39-9.68-22.66-22.45-22.66-14.84,0-22.05,8.86-24.52,22.66Z"/>
+            <path class="wht" d="M1096.6,185.74h26.99v14.22h.62c5.77-9.69,16.07-17.1,30.7-17.1,13.39,0,24.11,7.42,29.26,18.54h.42c7.21-11.54,18.34-18.54,31.73-18.54,22.26,0,34.82,14.42,34.82,37.5v71.08h-28.02v-66.34c0-11.95-5.98-18.13-16.28-18.13-11.75,0-18.96,9.07-18.96,23.08v61.4h-28.02v-66.34c0-11.95-5.98-18.13-16.28-18.13-11.33,0-18.96,9.07-18.96,23.08v61.4h-28.02v-105.7Z"/>
+            <path class="wht" d="M1271.73,304h9.89c11.13,0,15.66-5.77,15.66-14.42,0-5.77-2.06-12.57-8.04-28.64l-28.44-75.2h29.46l15.66,47.59c3.3,9.68,6.8,23.08,6.8,23.08h.41s2.88-13.39,6.18-23.08l14.83-47.59h28.23l-36.88,108.37c-8.04,23.49-15.86,31.94-37.29,31.94h-16.48v-22.05Z"/>
+        </svg>
+    </div>
+    <div class="chapter-label">Chapter 43</div>
+    <h1>Job Application<br>Process</h1>
+    <div class="subtitle">From Finding Opportunities to Landing Interviews in {{STATE_NAME}}</div>
+    <div class="footer-bar">
+        <span>Standard 15: Career Readiness</span>
+        <span>•</span>
+        <span>Personal Financial Literacy</span>
+    </div>
+</div>
+
+<!-- SLIDE 2: Hook -->
+<div class="slide slide-hook">
+    <div class="label">Essential Question</div>
+    <div class="question">If <em>70-80% of jobs</em> are never publicly advertised,<br>how can you access the <em>hidden job market</em><br>and stand out in a competitive application process?</div>
+</div>
+
+<!-- SLIDE 3: Objectives -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>Learning Objectives</h2>
+        <span class="slide-number">3 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="objectives-expanded">
+            <div class="objective-card">
+                <div class="header">
+                    <div class="number">1</div>
+                    <h3>Discover</h3>
+                </div>
+                <p>Identify effective strategies for finding job opportunities across different industries and channels.</p>
+            </div>
+            <div class="objective-card">
+                <div class="header">
+                    <div class="number">2</div>
+                    <h3>Interpret</h3>
+                </div>
+                <p>Learn how to read and decode job descriptions to understand true requirements and expectations.</p>
+            </div>
+            <div class="objective-card">
+                <div class="header">
+                    <div class="number">3</div>
+                    <h3>Customize</h3>
+                </div>
+                <p>Develop techniques for tailoring application materials for specific positions and companies.</p>
+            </div>
+            <div class="objective-card">
+                <div class="header">
+                    <div class="number">4</div>
+                    <h3>Navigate</h3>
+                </div>
+                <p>Learn best practices for online applications and Applicant Tracking Systems (ATS).</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 4: Vocabulary 1 -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Key Terms</h2>
+        <span class="slide-number">4 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="vocab-container">
+            <div class="vocab-row">
+                <div class="vocab-term-box">
+                    <div class="term">Applicant Tracking System (ATS)</div>
+                </div>
+                <div class="vocab-def-box">
+                    <div class="label">Definition</div>
+                    <p>Software used by employers to collect, sort, scan, and filter job applications based on keywords and qualifications.</p>
+                </div>
+                <div class="vocab-example-box">
+                    <div class="label">Why It Matters</div>
+                    <p>Up to 75% of resumes are filtered out by ATS before a human ever sees them</p>
+                </div>
+            </div>
+            <div class="vocab-row">
+                <div class="vocab-term-box">
+                    <div class="term">Keywords</div>
+                </div>
+                <div class="vocab-def-box">
+                    <div class="label">Definition</div>
+                    <p>Specific terms in job descriptions that highlight required skills, qualifications, and experience that ATS scans for.</p>
+                </div>
+                <div class="vocab-example-box">
+                    <div class="label">Examples</div>
+                    <p>"Project management," "JavaScript," "Customer service," "Leadership," "Budget analysis"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 5: Vocabulary 2 -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Key Terms</h2>
+        <span class="slide-number">5 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="vocab-container">
+            <div class="vocab-row">
+                <div class="vocab-term-box">
+                    <div class="term">Cover Letter</div>
+                </div>
+                <div class="vocab-def-box">
+                    <div class="label">Definition</div>
+                    <p>A document submitted alongside a resume that introduces the applicant and highlights relevant qualifications.</p>
+                </div>
+                <div class="vocab-example-box">
+                    <div class="label">Purpose</div>
+                    <p>Explains WHY you want this job and HOW your experience makes you the ideal candidate</p>
+                </div>
+            </div>
+            <div class="vocab-row">
+                <div class="vocab-term-box">
+                    <div class="term">Networking</div>
+                </div>
+                <div class="vocab-def-box">
+                    <div class="label">Definition</div>
+                    <p>Building professional relationships to exchange information, advice, support, and job referrals.</p>
+                </div>
+                <div class="vocab-example-box">
+                    <div class="label">Statistic</div>
+                    <p>~70% of people land jobs through networking connections rather than applications alone</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 6: Application Process Overview -->
+<div class="slide slide-content">
+    <div class="slide-header blue">
+        <h2>The Job Application Process</h2>
+        <span class="slide-number">6 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="process-grid">
+            <div class="process-step">
+                <div class="step-num">1</div>
+                <h4>Job Search</h4>
+                <p>Identify opportunities through multiple channels</p>
+            </div>
+            <div class="process-step">
+                <div class="step-num">2</div>
+                <h4>Research</h4>
+                <p>Analyze requirements and company culture</p>
+            </div>
+            <div class="process-step">
+                <div class="step-num">3</div>
+                <h4>Prepare</h4>
+                <p>Tailor resume and cover letter</p>
+            </div>
+            <div class="process-step">
+                <div class="step-num">4</div>
+                <h4>Submit</h4>
+                <p>Apply through appropriate channels</p>
+            </div>
+            <div class="process-step">
+                <div class="step-num">5</div>
+                <h4>Follow Up</h4>
+                <p>Send professional thank-you and inquiry</p>
+            </div>
+            <div class="process-step">
+                <div class="step-num">6</div>
+                <h4>Interview</h4>
+                <p>Prepare and present yourself</p>
+            </div>
+            <div class="process-step">
+                <div class="step-num">7</div>
+                <h4>Decide</h4>
+                <p>Evaluate offers and negotiate</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 7: Job Search Methods -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>Strategic Job Search Methods</h2>
+        <span class="slide-number">7 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="list-grid">
+            <div class="list-card">
+                <h4>🌐 Online Job Boards</h4>
+                <ul>
+                    <li><strong>General:</strong> Indeed, LinkedIn, Monster, ZipRecruiter</li>
+                    <li><strong>Industry-Specific:</strong> Dice (tech), Health eCareers</li>
+                    <li><strong>Company Career Pages:</strong> Direct applications</li>
+                    <li>Set up job alerts with keywords</li>
+                </ul>
+            </div>
+            <div class="list-card purple">
+                <h4>🤝 Networking</h4>
+                <ul>
+                    <li>Professional associations</li>
+                    <li>Alumni networks</li>
+                    <li>Informational interviews</li>
+                    <li>Job fairs and career events</li>
+                    <li>LinkedIn connections</li>
+                </ul>
+            </div>
+            <div class="list-card blue">
+                <h4>📋 Alternative Methods</h4>
+                <ul>
+                    <li>Recruitment agencies</li>
+                    <li>Internships/volunteering</li>
+                    <li>Social media following</li>
+                    <li>Cold outreach to companies</li>
+                    <li>Professional forums/blogs</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 8: Hidden Job Market -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>The Hidden Job Market</h2>
+        <span class="slide-number">8 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="balanced-layout">
+            <div class="content-panel">
+                <h3>Why Networking Matters Most</h3>
+                <p>Approximately <strong>70-80% of jobs are never publicly advertised</strong>. These positions are filled through:</p>
+                <p>• Internal promotions and referrals</p>
+                <p>• Professional network connections</p>
+                <p>• Direct outreach from candidates</p>
+                <p>• Recruiter relationships</p>
+                <div class="highlight-box">
+                    <p>💡 Networking isn't just helpful—it's essential for accessing the majority of opportunities!</p>
+                </div>
+            </div>
+            <div class="stats-panel">
+                <div class="stat-card rose">
+                    <div class="number">70-80%</div>
+                    <div class="label">Jobs never publicly posted</div>
+                </div>
+                <div class="stat-card green">
+                    <div class="number">70%</div>
+                    <div class="label">Jobs landed through networking</div>
+                </div>
+                <div class="stat-card purple">
+                    <div class="number">40%</div>
+                    <div class="label">Higher chance with referral</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 9: Job Description Components -->
+<div class="slide slide-content">
+    <div class="slide-header blue">
+        <h2>Decoding Job Descriptions</h2>
+        <span class="slide-number">9 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="concept-full">
+            <h3>Key Components to Analyze</h3>
+            <ul style="grid-template-columns: 1fr 1fr;">
+                <li><strong>Job Title</strong> – Official name of the position</li>
+                <li><strong>Company Overview</strong> – Brief description of organization</li>
+                <li><strong>Job Summary</strong> – Overview of the role's purpose</li>
+                <li><strong>Responsibilities</strong> – Day-to-day tasks and expectations</li>
+                <li><strong>Required Qualifications</strong> – Must-have education, experience, skills</li>
+                <li><strong>Preferred Qualifications</strong> – Nice-to-have but not mandatory</li>
+                <li><strong>Compensation & Benefits</strong> – Salary range (not always included)</li>
+                <li><strong>Application Instructions</strong> – How to apply and what to submit</li>
+            </ul>
+            <div class="key-point">
+                <p>📌 Rule of Thumb: Apply if you meet ~70-80% of the requirements, especially the essential ones. Don't self-select out!</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 10: Customizing Applications -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>Customizing Your Application</h2>
+        <span class="slide-number">10 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="balanced-layout">
+            <div class="content-panel">
+                <h3>Resume Customization</h3>
+                <p><strong>1. Prioritize Experience:</strong> Rearrange sections to highlight most relevant experience first</p>
+                <p><strong>2. Integrate Keywords:</strong> Incorporate exact terms from the job description</p>
+                <p><strong>3. Align Achievements:</strong> Emphasize accomplishments that demonstrate required skills</p>
+                <p><strong>4. Tailor Summary:</strong> Customize your professional summary for each position</p>
+            </div>
+            <div class="content-panel">
+                <h3>Cover Letter Essentials</h3>
+                <p><strong>Opening:</strong> Introduce yourself and specify the position</p>
+                <p><strong>Why This Company:</strong> Show genuine interest and research</p>
+                <p><strong>Your Fit:</strong> Highlight 2-3 key qualifications with specific examples</p>
+                <p><strong>Call to Action:</strong> Express enthusiasm and request interview</p>
+                <div class="highlight-box">
+                    <p>⚠️ Never send the same generic application to multiple jobs!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 11: ATS Optimization -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Navigating Applicant Tracking Systems</h2>
+        <span class="slide-number">11 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="ats-grid">
+            <div class="ats-tip">
+                <h4>📐 Standard Formatting</h4>
+                <ul>
+                    <li>Simple, clean layouts</li>
+                    <li>Standard section headings</li>
+                    <li>Common fonts (Arial, Calibri)</li>
+                    <li>Avoid tables and text boxes</li>
+                </ul>
+            </div>
+            <div class="ats-tip">
+                <h4>🔑 Keyword Optimization</h4>
+                <ul>
+                    <li>Include exact keywords from job description</li>
+                    <li>Use both spelled-out and acronyms</li>
+                    <li>Place keywords in context</li>
+                    <li>Don't stuff or overuse terms</li>
+                </ul>
+            </div>
+            <div class="ats-tip">
+                <h4>📄 File Format</h4>
+                <ul>
+                    <li>Use .docx or .pdf (check instructions)</li>
+                    <li>Professional file name</li>
+                    <li>"JohnSmith_Resume.pdf"</li>
+                    <li>Avoid special characters</li>
+                </ul>
+            </div>
+            <div class="ats-tip">
+                <h4>✅ Follow Instructions</h4>
+                <ul>
+                    <li>Complete ALL required fields</li>
+                    <li>Answer all questions</li>
+                    <li>Submit all documents</li>
+                    <li>Double-check before submitting</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 12: Follow-Up -->
+<div class="slide slide-content">
+    <div class="slide-header blue">
+        <h2>Professional Follow-Up</h2>
+        <span class="slide-number">12 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="balanced-layout">
+            <div class="content-panel">
+                <h3>Why Follow Up?</h3>
+                <p>Professional follow-up demonstrates your continued interest and proactive attitude.</p>
+                <p><strong>Timing:</strong> Wait 1-2 weeks after the application deadline</p>
+                <p><strong>Method:</strong> Email is typically most appropriate</p>
+                <p><strong>Tone:</strong> Polite, brief, and professional</p>
+                <p><strong>Content:</strong> Reference specific position, express interest, offer additional info</p>
+            </div>
+            <div class="info-card blue" style="flex: unset;">
+                <h4>Sample Follow-Up Email:</h4>
+                <p style="font-size: 20px; line-height: 1.6; color: var(--text-body);">
+                    Subject: Follow-Up on [Position Title] - [Your Name]<br><br>
+                    Dear [Hiring Manager],<br><br>
+                    I recently applied for the [Position] role at [Company] and wanted to express my continued interest. My experience in [relevant skill] aligns well with your requirements, and I'm excited about the opportunity to [specific aspect].<br><br>
+                    Please let me know if you need any additional information.<br><br>
+                    Best regards,<br>
+                    [Your Name]
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 13: Example 1 - Alex -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>Real-World Example</h2>
+        <span class="slide-number">13 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="scenario-layout">
+            <div class="scenario-card" style="background: var(--green-light); border-left-color: var(--green);">
+                <div class="name">
+                    <div class="icon" style="background: var(--green);">💻</div>
+                    Alex: Strategic Job Search Approach
+                </div>
+                <p>Alex, a recent computer science graduate, wanted a junior software developer position. Instead of randomly applying, he implemented a <span class="highlight-text">strategic approach</span>:</p>
+                <p style="margin-top: 16px;"><strong>Research:</strong> Identified companies known for mentoring junior developers.</p>
+                <p style="margin-top: 12px;"><strong>Multi-Channel Search:</strong> Created alerts on 3 job boards, followed 15 target companies on LinkedIn, joined 2 local tech meetups.</p>
+                <p style="margin-top: 12px;"><strong>Customization:</strong> For TechStart Inc., analyzed the job description, tailored resume to highlight relevant projects, and connected with an employee at a meetup.</p>
+            </div>
+            <div class="scenario-outcomes">
+                <div class="outcome-box after">
+                    <div class="label">Strategy Used</div>
+                    <div class="value" style="font-size: 24px;">Multi-Channel</div>
+                    <div class="detail">Job boards + networking + direct</div>
+                </div>
+                <div class="outcome-box after" style="background: var(--blue-light); border-color: var(--blue);">
+                    <div class="label" style="color: var(--blue);">Applicants</div>
+                    <div class="value">200+</div>
+                    <div class="detail">For the same position</div>
+                </div>
+                <div class="outcome-box after">
+                    <div class="label">Result</div>
+                    <div class="value" style="font-size: 24px;">Job Offer!</div>
+                    <div class="detail">Within 2 weeks</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 14: Example 2 - Maya -->
+<div class="slide slide-content">
+    <div class="slide-header blue">
+        <h2>Real-World Example</h2>
+        <span class="slide-number">14 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="scenario-layout">
+            <div class="scenario-card">
+                <div class="name">
+                    <div class="icon" style="background: var(--primary);">📊</div>
+                    Maya: ATS Optimization Success
+                </div>
+                <p>Maya was applying for a digital marketing coordinator position with a major retail company. Knowing they used an ATS, she employed these strategies:</p>
+                <p style="margin-top: 16px;"><strong>Formatting:</strong> Used clean template without graphics, standard sections, named file "Maya_Johnson_Marketing_Coordinator_Resume.docx"</p>
+                <p style="margin-top: 12px;"><strong>Keywords:</strong> Incorporated exact terms: <span class="highlight-text">"social media management," "campaign analytics," "content creation," "SEO"</span></p>
+                <p style="margin-top: 12px;"><strong>Quantified Results:</strong> "Increased Instagram engagement by 32%", "Managed $5,000 monthly ad budget with 45% CTR increase"</p>
+            </div>
+            <div class="scenario-outcomes">
+                <div class="outcome-box after" style="background: var(--amber-pale); border-color: var(--amber);">
+                    <div class="label" style="color: var(--amber);">ATS Strategy</div>
+                    <div class="value" style="font-size: 20px;">Keywords + Clean Format</div>
+                    <div class="detail">Passed initial screening</div>
+                </div>
+                <div class="outcome-box after">
+                    <div class="label">Follow-Up</div>
+                    <div class="value" style="font-size: 24px;">Week 2</div>
+                    <div class="detail">Professional email sent</div>
+                </div>
+                <div class="outcome-box after" style="background: var(--blue-light); border-color: var(--blue);">
+                    <div class="label" style="color: var(--blue);">Outcome</div>
+                    <div class="value" style="font-size: 20px;">Interview Secured</div>
+                    <div class="detail">Manager praised her approach</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 15: Discussion -->
+<div class="slide slide-discussion">
+    <div class="badge">Discussion</div>
+    <div class="question">What specific obstacles might YOU face in the job application process?<br><br>How could you proactively address challenges like experience gaps, competitive industries, or limited networking connections?</div>
+</div>
+
+<!-- SLIDE 16: Key Takeaways -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>Key Takeaways</h2>
+        <span class="slide-number">16 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="takeaway-grid">
+            <div class="takeaway-item">
+                <div class="number">1</div>
+                <div class="content">
+                    <h4>Multi-Channel Search</h4>
+                    <p>Use job boards, networking, company sites, and recruiters—most jobs are never posted publicly</p>
+                </div>
+            </div>
+            <div class="takeaway-item">
+                <div class="number">2</div>
+                <div class="content">
+                    <h4>Decode & Customize</h4>
+                    <p>Analyze job descriptions for keywords and tailor every application to the specific position</p>
+                </div>
+            </div>
+            <div class="takeaway-item">
+                <div class="number">3</div>
+                <div class="content">
+                    <h4>Optimize for ATS</h4>
+                    <p>Use standard formatting, include keywords, and follow all application instructions carefully</p>
+                </div>
+            </div>
+            <div class="takeaway-item">
+                <div class="number">4</div>
+                <div class="content">
+                    <h4>Follow Up Professionally</h4>
+                    <p>A polite follow-up shows continued interest and helps you stand out from other applicants</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 17: Activity -->
+<div class="slide slide-content">
+    <div class="slide-header blue">
+        <h2>Student Activity</h2>
+        <span class="slide-number">17 / 18</span>
+    </div>
+    <div class="slide-body">
+        <div class="activity-layout">
+            <div class="activity-main">
+                <h3>📋 Application Simulator</h3>
+                <p>Use the Application Simulator skill builder to practice navigating a realistic online application interface.</p>
+                <p style="margin-top: 20px;">Experience how an ATS processes applications and receive feedback on your effectiveness in tailoring materials and using keywords.</p>
+            </div>
+            <div class="activity-steps">
+                <div class="activity-step">
+                    <div class="step-num">1</div>
+                    <p>Select a sample job description to analyze</p>
+                </div>
+                <div class="activity-step">
+                    <div class="step-num">2</div>
+                    <p>Identify required vs. preferred qualifications</p>
+                </div>
+                <div class="activity-step">
+                    <div class="step-num">3</div>
+                    <p>Highlight keywords that appear multiple times</p>
+                </div>
+                <div class="activity-step">
+                    <div class="step-num">4</div>
+                    <p>Complete the simulated application with tailored materials</p>
+                </div>
+                <div class="activity-step">
+                    <div class="step-num">5</div>
+                    <p>Review feedback and refine your approach</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 18: Closing -->
+<div class="slide slide-closing">
+    <svg class="logo-large" viewBox="0 0 1366 441.64" xmlns="http://www.w3.org/2000/svg" style="height: 100px;">
+        <style>.wht{fill:#fff}</style>
+        <path class="wht" d="M116.66,174.42h-17.75v34.04h17.4c11.89,0,18.71-6.26,18.71-17.19s-6.7-16.85-18.37-16.85Z"/>
+        <path class="wht" d="M219.87,2.27C99.62,2.27,2.14,99.75,2.14,220s97.48,217.73,217.73,217.73,217.73-97.48,217.73-217.73S340.12,2.27,219.87,2.27ZM120.72,230.14h-21.8v60.28h-27.08v-139.02h46.85c13.87,0,24.7,3.89,32.21,11.58,7.23,7.41,11.06,17.14,11.06,28.13,0,23.71-16.18,39.04-41.24,39.04ZM277,177.04h-13.7c-9.24,0-24.66,4.37-24.98,33.1h38.68v22.19h-38.75c-.37,34.39-21.88,58.35-52.61,58.35h-11.21v-25.14h11.21c25.09,0,27.35-26.03,27.5-33.21h-38.7v-22.19h38.75c.31-35.94,19.44-58.24,50.12-58.24h13.7v25.14ZM304.17,290.42v-139.02h26.24v116.13h46.17v22.89h-72.41Z"/>
+        <path class="wht" d="M545.29,144.12h30.91l51.92,147.31h-31.11l-9.89-31.32h-53.15l-9.68,31.32h-30.29l51.3-147.31ZM540.96,237.25h38.94l-13.19-42.44c-2.47-7.83-5.98-22.67-5.98-22.67h-.41s-3.71,14.83-6.18,22.67l-13.19,42.44Z"/>
+        <path class="wht" d="M632.03,238.69c0-31.52,20.6-55.84,52.74-55.84,27.4,0,44.3,15.87,48,38.74h-27.4c-1.86-9.27-9.06-16.28-19.37-16.28-16.9,0-25.55,12.98-25.55,33.38s8.04,33.38,25.14,33.38c11.33,0,19.37-5.98,21.22-17.93h26.99c-1.86,22.46-19.37,40.38-47.59,40.38-33.38,0-54.19-24.31-54.19-55.84Z"/>
+        <path class="wht" d="M814.36,279.69h-.41c-5.36,8.04-12.98,14.22-31.11,14.22-21.63,0-36.88-11.34-36.88-32.35,0-23.28,18.96-30.7,42.44-34,17.52-2.47,25.55-3.91,25.55-11.95,0-7.62-5.98-12.57-17.72-12.57-13.19,0-19.57,4.74-20.4,14.83h-24.93c.82-18.54,14.63-34.82,45.53-34.82s44.51,14.22,44.51,38.94v53.77c0,8.04,1.23,12.78,3.71,14.63v1.03h-26.99c-1.65-2.06-2.68-7.01-3.3-11.75ZM814.56,254.14v-15.86c-4.95,2.88-12.57,4.53-19.57,6.18-14.63,3.3-21.84,6.59-21.84,16.48s6.59,13.39,16.48,13.39c16.07,0,24.93-9.89,24.93-20.19Z"/>
+        <path class="wht" d="M856.59,238.69c0-32.96,18.75-55.84,45.12-55.84,14.84,0,24.11,6.8,29.88,15.66h.62v-54.39h28.02v147.31h-26.99v-13.8h-.41c-6.18,10.09-16.69,16.9-31.52,16.9-26.57,0-44.71-21.64-44.71-55.84ZM932.82,239.31c0-20.19-6.59-33.79-24.52-33.79-15.45,0-23.28,13.6-23.28,33.17s8.04,32.35,22.45,32.35c16.69,0,25.34-12.36,25.34-31.73Z"/>
+        <path class="wht" d="M976.29,238.48c0-31.32,21.22-55.63,52.13-55.63,34,0,52.13,25.96,52.13,63.66h-76.64c2.06,16.28,11.13,26.37,26.99,26.37,10.92,0,17.31-4.94,20.4-12.98h27.61c-3.91,18.75-20.6,34.62-47.8,34.62-35.03,0-54.81-24.52-54.81-56.04ZM1004.3,227.15h46.98c-.82-13.39-9.68-22.66-22.45-22.66-14.84,0-22.05,8.86-24.52,22.66Z"/>
+        <path class="wht" d="M1096.6,185.74h26.99v14.22h.62c5.77-9.69,16.07-17.1,30.7-17.1,13.39,0,24.11,7.42,29.26,18.54h.42c7.21-11.54,18.34-18.54,31.73-18.54,22.26,0,34.82,14.42,34.82,37.5v71.08h-28.02v-66.34c0-11.95-5.98-18.13-16.28-18.13-11.75,0-18.96,9.07-18.96,23.08v61.4h-28.02v-66.34c0-11.95-5.98-18.13-16.28-18.13-11.33,0-18.96,9.07-18.96,23.08v61.4h-28.02v-105.7Z"/>
+        <path class="wht" d="M1271.73,304h9.89c11.13,0,15.66-5.77,15.66-14.42,0-5.77-2.06-12.57-8.04-28.64l-28.44-75.2h29.46l15.66,47.59c3.3,9.68,6.8,23.08,6.8,23.08h.41s2.88-13.39,6.18-23.08l14.83-47.59h28.23l-36.88,108.37c-8.04,23.49-15.86,31.94-37.29,31.94h-16.48v-22.05Z"/>
+    </svg>
+    <div class="tagline">Building Financial Futures, One Lesson at a Time</div>
+    <div class="website">www.pflacademy.co</div>
+    <div class="copyright">© 2025 PFL Academy. All rights reserved.</div>
+</div>
+
+</body>
+</html>

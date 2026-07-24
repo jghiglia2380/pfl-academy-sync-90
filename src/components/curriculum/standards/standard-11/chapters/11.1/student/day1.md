@@ -25,10 +25,14 @@ By the end of this lesson, you will be able to:
 - **Premium**: The periodic payment required to maintain insurance coverage
 
 ## Introduction
-
+In {{STATE_NAME}}, 
 Risk is a natural part of life. Every decision we make involves some level of uncertainty about outcomes. From crossing the street to investing in the stock market, risks surround us daily. This lesson explores what risk means, the different types of risk we face, and strategies for managing risk effectively. Understanding risk allows us to make informed decisions rather than simply avoiding all risks, which would mean missing valuable opportunities.
 
 Risk is the uncertainty about outcomes that could lead to loss or gain. It's important to understand that risk itself is neutral—it simply represents uncertainty. Our perception of risk often focuses on potential negative outcomes, but risk can also create opportunities for growth, learning, and financial reward.
+
+
+
+Here in {{STATE_NAME}}, the median rent is {{MEDIAN_RENT}} per month. Understanding your rights as a tenant is crucial, and resources like {{CONSUMER_PROTECTION_AGENCY}} can help protect you.
 
 Risk exists in nearly every aspect of our lives:
 - Walking to school (risk of injury)

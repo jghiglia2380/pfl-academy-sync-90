@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 2.3: Understanding Tax Filing Requirements - PFL Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f3f4f6;
+            color: #1f2937;
+            line-height: 1.5;
+        }
+
+        .slide {
+            width: 1920px;
+            height: 1080px;
+            position: relative;
+            overflow: hidden;
+            background: white;
+            page-break-after: always;
+            margin: 0 auto 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Title Slide */
+        .slide-title {
+            background: linear-gradient(135deg, #4F46E5 0%, #3730A3 50%, #312E81 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 100px;
+        }
+
+        .slide-title .logo {
+            position: absolute;
+            top: 50px;
+            right: 60px;
+        }
+
+        .slide-title .chapter-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        .slide-title h1 {
+            font-size: 90px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            max-width: 85%;
+        }
+
+        .slide-title .subtitle {
+            font-size: 36px;
+            opacity: 0.9;
+            margin-bottom: 50px;
+            max-width: 70%;
+        }
+
+        .slide-title .standard-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255,255,255,0.15);
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 20px;
+        }
+
+        /* Hook Slide */
+        .slide-hook {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px;
+        }
+
+        .slide-hook .hook-label {
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #0D9488;
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        .slide-hook .essential-question {
+            font-size: 60px;
+            font-weight: 700;
+            line-height: 1.3;
+            max-width: 1400px;
+        }
+
+        .slide-hook .subtext {
+            margin-top: 50px;
+            font-size: 28px;
+            color: #94a3b8;
+            max-width: 1000px;
+        }
+
+        /* Content Slides */
+        .slide-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-header {
+            background: linear-gradient(135deg, #4F46E5, #4338CA);
+            color: white;
+            padding: 35px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 120px;
+        }
+
+        .slide-header.teal {
+            background: linear-gradient(135deg, #0D9488, #0F766E);
+        }
+
+        .slide-header.blue {
+            background: linear-gradient(135deg, #3B82F6, #2563EB);
+        }
+
+        .slide-header h2 {
+            font-size: 52px;
+            font-weight: 700;
+        }
+
+        .slide-header .slide-number {
+            font-size: 24px;
+            opacity: 0.9;
+            font-weight: 600;
+        }
+
+        .slide-body {
+            flex: 1;
+            padding: 50px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-footer {
+            height: 12px;
+            background: linear-gradient(90deg, #0D9488 0%, #4F46E5 50%, #0D9488 100%);
+        }
+
+        /* Objectives Grid */
+        .objectives-expanded {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            flex: 1;
+        }
+
+        .objective-card {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            border-radius: 20px;
+            padding: 40px;
+            border-left: 6px solid #4F46E5;
+        }
+
+        .objective-card h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #4F46E5;
+            margin-bottom: 15px;
+        }
+
+        .objective-card p {
+            font-size: 26px;
+            color: #475569;
+            line-height: 1.5;
+        }
+
+        /* Vocabulary Slides */
+        .vocab-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .vocab-row {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 50px;
+            align-items: start;
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            padding: 35px;
+            border-radius: 20px;
+        }
+
+        .vocab-term {
+            background: linear-gradient(135deg, #4F46E5, #4338CA);
+            color: white;
+            padding: 25px 30px;
+            border-radius: 15px;
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .vocab-content h4 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 12px;
+        }
+
+        .vocab-content p {
+            font-size: 24px;
+            color: #475569;
+            margin-bottom: 15px;
+        }
+
+        .vocab-content .example {
+            background: #dbeafe;
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-size: 22px;
+            color: #1e40af;
+        }
+
+        /* Balanced Layout */
+        .balanced-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            flex: 1;
+            align-items: center;
+        }
+
+        .content-panel h3 {
+            font-size: 38px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 25px;
+        }
+
+        .content-panel p {
+            font-size: 26px;
+            color: #475569;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .content-panel ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .content-panel li {
+            font-size: 24px;
+            color: #475569;
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+        }
+
+        .content-panel li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #0D9488;
+            font-weight: 700;
+        }
+
+        .stats-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #0D9488, #0F766E);
+            color: white;
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .stat-card.purple {
+            background: linear-gradient(135deg, #7C3AED, #6D28D9);
+        }
+
+        .stat-card.blue {
+            background: linear-gradient(135deg, #3B82F6, #2563EB);
+        }
+
+        .stat-card.green {
+            background: linear-gradient(135deg, #10B981, #059669);
+        }
+
+        .stat-card.rose {
+            background: linear-gradient(135deg, #F43F5E, #E11D48);
+        }
+
+        .stat-card .stat-number {
+            font-size: 52px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .stat-card .stat-label {
+            font-size: 22px;
+            opacity: 0.95;
+        }
+
+        /* Filing Threshold Table */
+        .threshold-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .threshold-table th {
+            background: linear-gradient(135deg, #4F46E5, #4338CA);
+            color: white;
+            padding: 18px;
+            font-size: 22px;
+            font-weight: 700;
+            text-align: left;
+        }
+
+        .threshold-table td {
+            padding: 16px 18px;
+            font-size: 21px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .threshold-table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .threshold-table .amount {
+            font-weight: 700;
+            color: #0D9488;
+        }
+
+        /* Form Cards */
+        .form-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            flex: 1;
+        }
+
+        .form-card {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            border-radius: 20px;
+            padding: 35px;
+            border-top: 6px solid #4F46E5;
+        }
+
+        .form-card:nth-child(2) {
+            border-top-color: #0D9488;
+        }
+
+        .form-card:nth-child(3) {
+            border-top-color: #3B82F6;
+        }
+
+        .form-card .form-name {
+            font-size: 32px;
+            font-weight: 800;
+            color: #4F46E5;
+            margin-bottom: 10px;
+        }
+
+        .form-card:nth-child(2) .form-name { color: #0D9488; }
+        .form-card:nth-child(3) .form-name { color: #3B82F6; }
+
+        .form-card h4 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+
+        .form-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .form-card li {
+            font-size: 20px;
+            color: #475569;
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .form-card li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #4F46E5;
+            font-weight: 700;
+        }
+
+        .form-card:nth-child(2) li::before { color: #0D9488; }
+        .form-card:nth-child(3) li::before { color: #3B82F6; }
+
+        /* Info Cards */
+        .info-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            padding: 25px 30px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .info-card.green {
+            background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+        }
+
+        .info-card.purple {
+            background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+        }
+
+        .info-card.teal {
+            background: linear-gradient(135deg, #ccfbf1, #99f6e4);
+        }
+
+        .info-card.rose {
+            background: linear-gradient(135deg, #ffe4e6, #fecdd3);
+        }
+
+        .info-card .icon {
+            font-size: 36px;
+        }
+
+        .info-card .content {
+            flex: 1;
+        }
+
+        .info-card h4 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 5px;
+        }
+
+        .info-card p {
+            font-size: 20px;
+            color: #475569;
+        }
+
+        /* Scenario Layout */
+        .scenario-layout {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .scenario-header {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+
+        .scenario-avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #0D9488, #0F766E);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 42px;
+            color: white;
+            font-weight: 700;
+        }
+
+        .scenario-avatar.alt {
+            background: linear-gradient(135deg, #3B82F6, #2563EB);
+        }
+
+        .scenario-intro h3 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+
+        .scenario-intro p {
+            font-size: 24px;
+            color: #64748b;
+        }
+
+        .scenario-content {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            padding: 35px;
+            border-radius: 20px;
+            flex: 1;
+        }
+
+        .scenario-content p {
+            font-size: 25px;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        .outcome-boxes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .outcome-box {
+            background: white;
+            padding: 22px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid #e2e8f0;
+        }
+
+        .outcome-box.success {
+            border-color: #10B981;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+        }
+
+        .outcome-box.info {
+            border-color: #3B82F6;
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+        }
+
+        .outcome-box.warning {
+            border-color: #F59E0B;
+            background: linear-gradient(135deg, #fffbeb, #fef3c7);
+        }
+
+        .outcome-box .label {
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+
+        .outcome-box .value {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .outcome-box.success .value { color: #059669; }
+        .outcome-box.info .value { color: #2563EB; }
+        .outcome-box.warning .value { color: #D97706; }
+
+        /* Discussion Slides */
+        .slide-discussion {
+            background: linear-gradient(135deg, #0D9488, #0F766E);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px;
+        }
+
+        .slide-discussion.purple {
+            background: linear-gradient(135deg, #7C3AED, #5B21B6);
+        }
+
+        .slide-discussion .badge {
+            background: rgba(255,255,255,0.2);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .slide-discussion .discussion-question {
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.3;
+            max-width: 1400px;
+            margin-bottom: 50px;
+        }
+
+        .slide-discussion .prompts {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .slide-discussion .prompt {
+            background: rgba(255,255,255,0.15);
+            padding: 20px 35px;
+            border-radius: 15px;
+            font-size: 24px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Check for Understanding */
+        .check-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+            flex: 1;
+        }
+
+        .check-item {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            padding: 35px;
+            border-radius: 20px;
+            border-left: 5px solid #4F46E5;
+        }
+
+        .check-item:nth-child(2) { border-left-color: #0D9488; }
+        .check-item:nth-child(3) { border-left-color: #3B82F6; }
+        .check-item:nth-child(4) { border-left-color: #10B981; }
+
+        .check-item .number {
+            font-size: 22px;
+            font-weight: 700;
+            color: #4F46E5;
+            margin-bottom: 15px;
+        }
+
+        .check-item:nth-child(2) .number { color: #0D9488; }
+        .check-item:nth-child(3) .number { color: #3B82F6; }
+        .check-item:nth-child(4) .number { color: #10B981; }
+
+        .check-item p {
+            font-size: 26px;
+            color: #1e293b;
+            line-height: 1.5;
+        }
+
+        /* Takeaway Grid */
+        .takeaway-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+            flex: 1;
+        }
+
+        .takeaway-item {
+            background: linear-gradient(135deg, #4F46E5, #4338CA);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .takeaway-item:nth-child(2) {
+            background: linear-gradient(135deg, #0D9488, #0F766E);
+        }
+
+        .takeaway-item:nth-child(3) {
+            background: linear-gradient(135deg, #3B82F6, #2563EB);
+        }
+
+        .takeaway-item:nth-child(4) {
+            background: linear-gradient(135deg, #10B981, #059669);
+        }
+
+        .takeaway-item .icon {
+            font-size: 36px;
+            line-height: 1;
+        }
+
+        .takeaway-item p {
+            font-size: 26px;
+            line-height: 1.5;
+        }
+
+        /* Activity Slide */
+        .activity-layout {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .activity-info h3 {
+            font-size: 40px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+
+        .activity-info .description {
+            font-size: 26px;
+            color: #475569;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .activity-info .materials {
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            padding: 20px 25px;
+            border-radius: 12px;
+            font-size: 22px;
+            color: #1e40af;
+        }
+
+        .activity-steps {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            padding: 40px;
+            border-radius: 24px;
+        }
+
+        .activity-steps h4 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 25px;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .step:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #4F46E5, #4338CA);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .step p {
+            font-size: 22px;
+            color: #475569;
+            padding-top: 6px;
+        }
+
+        /* Closing Slide */
+        .slide-closing {
+            background: linear-gradient(135deg, #4F46E5 0%, #3730A3 50%, #312E81 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px;
+        }
+
+        .slide-closing .logo-large {
+            margin-bottom: 50px;
+        }
+
+        .slide-closing .tagline {
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .slide-closing .website {
+            font-size: 36px;
+            opacity: 0.9;
+            margin-bottom: 50px;
+        }
+
+        .slide-closing .copyright {
+            font-size: 22px;
+            opacity: 0.7;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+            .slide {
+                box-shadow: none;
+                margin: 0;
+                page-break-after: always;
+                page-break-inside: avoid;
+            }
+        }
+
+        /* Logo SVG Styles */
+        .logo svg {
+            height: 70px;
+            width: auto;
+        }
+
+        .logo-large svg {
+            height: 120px;
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Slide 1: Title -->
+    <div class="slide slide-title">
+        <div class="logo">
+            <svg viewBox="0 0 200 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 35C10 20 25 10 40 10C55 10 65 20 65 30C65 45 45 50 40 65C35 50 15 45 15 30" stroke="white" stroke-width="3" fill="none"/>
+                <path d="M40 25C45 25 50 30 50 35C50 42 43 45 40 52C37 45 30 42 30 35C30 30 35 25 40 25Z" fill="white"/>
+                <text x="80" y="45" font-family="Inter" font-size="32" font-weight="800" fill="white">PFL Academy</text>
+            </svg>
+        </div>
+        <div class="chapter-badge">Chapter 2.3</div>
+        <h1>Understanding Tax Filing Requirements</h1>
+        <p class="subtitle">Know when to file, what forms to use, and how to navigate tax season with confidence in {{STATE_NAME}}</p>
+        <div class="standard-badge">
+            <span>Standard 2: Understanding Taxation</span>
+        </div>
+    </div>
+
+    <!-- Slide 2: Hook -->
+    <div class="slide slide-hook">
+        <div class="hook-label">Essential Question</div>
+        <p class="essential-question">How do you know if you need to file taxes—and what could you be leaving on the table if you don't?</p>
+        <p class="subtext">Many young adults miss out on hundreds of dollars in refunds simply because they don't know when or how to file.</p>
+    </div>
+
+    <!-- Slide 3: Learning Objectives -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>Learning Objectives</h2>
+            <span class="slide-number">3 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="objectives-expanded">
+                <div class="objective-card">
+                    <h3>Determine</h3>
+                    <p>Determine who needs to file a tax return based on income thresholds, age, and filing status</p>
+                </div>
+                <div class="objective-card">
+                    <h3>Identify</h3>
+                    <p>Identify common tax forms including W-2s, 1099s, and Form 1040</p>
+                </div>
+                <div class="objective-card">
+                    <h3>Recognize</h3>
+                    <p>Recognize important tax deadlines and the consequences of missing them</p>
+                </div>
+                <div class="objective-card">
+                    <h3>Explain</h3>
+                    <p>Explain when filing might benefit you even if it's not legally required</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 4: Key Terms 1 -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Key Terms</h2>
+            <span class="slide-number">4 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="vocab-container">
+                <div class="vocab-row">
+                    <div class="vocab-term">W-2 Form</div>
+                    <div class="vocab-content">
+                        <h4>Document from your employer reporting wages and taxes withheld</h4>
+                        <p>Provided by January 31 each year; shows your earnings and what was already paid to IRS</p>
+                        <div class="example">Key boxes: Box 1 (wages), Box 2 (federal tax withheld)</div>
+                    </div>
+                </div>
+                <div class="vocab-row">
+                    <div class="vocab-term">1099 Forms</div>
+                    <div class="vocab-content">
+                        <h4>Documents reporting income from sources other than employment</h4>
+                        <p>Freelance work, investments, bank interest, etc.—no taxes are automatically withheld</p>
+                        <div class="example">Common types: 1099-NEC (freelance), 1099-INT (interest), 1099-DIV (dividends)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 5: Key Terms 2 -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Key Terms</h2>
+            <span class="slide-number">5 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="vocab-container">
+                <div class="vocab-row">
+                    <div class="vocab-term">Form 1040</div>
+                    <div class="vocab-content">
+                        <h4>The main federal income tax return form for individuals</h4>
+                        <p>Report all income, claim deductions and credits, calculate what you owe (or are owed)</p>
+                        <div class="example">May include schedules: A (itemized), C (self-employment), D (capital gains)</div>
+                    </div>
+                </div>
+                <div class="vocab-row">
+                    <div class="vocab-term">Filing Threshold</div>
+                    <div class="vocab-content">
+                        <h4>Minimum income level at which you're required to file a tax return</h4>
+                        <p>Based on age, filing status, and income type—adjusted annually for inflation</p>
+                        <div class="example">2024: Single under 65 = $14,600; Self-employed $400+ always must file</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 6: Who Needs to File? -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>Who Needs to File?</h2>
+            <span class="slide-number">6 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="balanced-layout">
+                <div class="content-panel">
+                    <h3>2024 Filing Thresholds (Gross Income)</h3>
+                    <table class="threshold-table">
+                        <tr>
+                            <th>Filing Status</th>
+                            <th>Under 65</th>
+                            <th>65+</th>
+                        </tr>
+                        <tr>
+                            <td>Single</td>
+                            <td class="amount">$14,600</td>
+                            <td class="amount">$16,550</td>
+                        </tr>
+                        <tr>
+                            <td>Head of Household</td>
+                            <td class="amount">$21,900</td>
+                            <td class="amount">$23,850</td>
+                        </tr>
+                        <tr>
+                            <td>Married Filing Jointly</td>
+                            <td class="amount">$29,200</td>
+                            <td class="amount">$30,750+</td>
+                        </tr>
+                        <tr>
+                            <td>Married Filing Separately</td>
+                            <td class="amount">$5</td>
+                            <td class="amount">$5</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card rose">
+                        <div class="stat-number">$400</div>
+                        <div class="stat-label">Self-employment threshold—always must file</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">Jan 31</div>
+                        <div class="stat-label">Deadline for employers to send W-2s</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 7: Tax Forms Overview -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Essential Tax Forms</h2>
+            <span class="slide-number">7 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="form-cards">
+                <div class="form-card">
+                    <div class="form-name">W-2</div>
+                    <h4>From Your Employer</h4>
+                    <ul>
+                        <li>Total earnings for the year</li>
+                        <li>Federal/state taxes withheld</li>
+                        <li>Social Security & Medicare taxes</li>
+                        <li>Retirement contributions</li>
+                        <li>Health insurance deductions</li>
+                    </ul>
+                </div>
+                <div class="form-card">
+                    <div class="form-name">1099s</div>
+                    <h4>Non-Employment Income</h4>
+                    <ul>
+                        <li>1099-NEC: Freelance ($600+)</li>
+                        <li>1099-INT: Bank interest</li>
+                        <li>1099-DIV: Stock dividends</li>
+                        <li>1099-G: Unemployment</li>
+                        <li>No taxes auto-withheld!</li>
+                    </ul>
+                </div>
+                <div class="form-card">
+                    <div class="form-name">1040</div>
+                    <h4>Your Tax Return</h4>
+                    <ul>
+                        <li>Report all income sources</li>
+                        <li>Claim deductions/credits</li>
+                        <li>Calculate tax owed</li>
+                        <li>Request refund if applicable</li>
+                        <li>Due April 15</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 8: Filing Status -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Filing Status Impact</h2>
+            <span class="slide-number">8 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="balanced-layout">
+                <div class="content-panel">
+                    <h3>5 Filing Statuses</h3>
+                    <ul>
+                        <li><strong>Single:</strong> Unmarried, divorced, or legally separated</li>
+                        <li><strong>Married Filing Jointly:</strong> Combined income, one return</li>
+                        <li><strong>Married Filing Separately:</strong> Separate returns</li>
+                        <li><strong>Head of Household:</strong> Unmarried, support dependents</li>
+                        <li><strong>Qualifying Widow(er):</strong> Spouse died in past 2 years, have dependent</li>
+                    </ul>
+                    <p style="margin-top: 25px; font-weight: 600; color: #4F46E5;">Your status affects tax rates, standard deduction, and credit eligibility!</p>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card">
+                        <div class="stat-number">$14,600</div>
+                        <div class="stat-label">Single standard deduction (2024)</div>
+                    </div>
+                    <div class="stat-card purple">
+                        <div class="stat-number">$29,200</div>
+                        <div class="stat-label">Married Filing Jointly deduction</div>
+                    </div>
+                    <div class="stat-card green">
+                        <div class="stat-number">$21,900</div>
+                        <div class="stat-label">Head of Household deduction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 9: Important Deadlines -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>Critical Tax Deadlines</h2>
+            <span class="slide-number">9 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="balanced-layout">
+                <div class="content-panel">
+                    <h3>Mark Your Calendar</h3>
+                    <div class="info-cards" style="margin-top: 20px;">
+                        <div class="info-card teal">
+                            <div class="icon">📅</div>
+                            <div class="content">
+                                <h4>January 31</h4>
+                                <p>Employers must send W-2s and 1099s</p>
+                            </div>
+                        </div>
+                        <div class="info-card purple">
+                            <div class="icon">📅</div>
+                            <div class="content">
+                                <h4>April 15</h4>
+                                <p>Federal tax return and payment due</p>
+                            </div>
+                        </div>
+                        <div class="info-card green">
+                            <div class="icon">📅</div>
+                            <div class="content">
+                                <h4>October 15</h4>
+                                <p>Extended filing deadline (if requested)</p>
+                            </div>
+                        </div>
+                        <div class="info-card rose">
+                            <div class="icon">⚠️</div>
+                            <div class="content">
+                                <h4>Extension ≠ Payment Extension</h4>
+                                <p>Taxes owed still due April 15!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card rose">
+                        <div class="stat-number">5%</div>
+                        <div class="stat-label">Monthly penalty for failure to file</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">25%</div>
+                        <div class="stat-label">Maximum failure-to-file penalty</div>
+                    </div>
+                    <div class="stat-card blue">
+                        <div class="stat-number">3 yrs</div>
+                        <div class="stat-label">Deadline to claim unclaimed refunds</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 10: When to File Even if Not Required -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Why File Even If Not Required?</h2>
+            <span class="slide-number">10 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="balanced-layout">
+                <div class="content-panel">
+                    <h3>Don't Leave Money on the Table!</h3>
+                    <ul>
+                        <li><strong>Get your withheld taxes back:</strong> If employer withheld taxes but you owe nothing, only way to get it back is to file</li>
+                        <li><strong>Claim refundable credits:</strong> Earned Income Tax Credit can give you a refund even if you owe $0</li>
+                        <li><strong>Prevent identity theft:</strong> File first so no one can fraudulently use your SSN</li>
+                        <li><strong>Start the clock:</strong> IRS has 3 years from filing to audit</li>
+                        <li><strong>Build your record:</strong> Tax returns verify income for loans, FAFSA, apartments</li>
+                    </ul>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card green">
+                        <div class="stat-number">$$$</div>
+                        <div class="stat-label">Potential refund you might be missing</div>
+                    </div>
+                    <div class="stat-card purple">
+                        <div class="stat-number">Free</div>
+                        <div class="stat-label">Filing options for simple returns</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">10 min</div>
+                        <div class="stat-label">Simple returns often take to file</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 11: Why It Matters -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Why It Matters</h2>
+            <span class="slide-number">11 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="balanced-layout">
+                <div class="content-panel">
+                    <h3>Tax Filing = Financial Foundation</h3>
+                    <p>Understanding tax filing is an essential life skill with far-reaching implications.</p>
+                    <ul>
+                        <li><strong>Financial Planning:</strong> Budget for taxes, avoid surprises</li>
+                        <li><strong>Career Decisions:</strong> W-2 vs. 1099 has different tax impacts</li>
+                        <li><strong>Legal Compliance:</strong> Avoid penalties and potential criminal charges</li>
+                        <li><strong>Financial Aid:</strong> FAFSA requires tax return info</li>
+                        <li><strong>Major Purchases:</strong> Mortgages, loans require tax returns</li>
+                    </ul>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card">
+                        <div class="stat-number">1st</div>
+                        <div class="stat-label">Major gov't financial interaction for most adults</div>
+                    </div>
+                    <div class="stat-card purple">
+                        <div class="stat-number">Life</div>
+                        <div class="stat-label">Your tax history follows you forever</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 12: Self-Employment Considerations -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>Self-Employment: Special Rules</h2>
+            <span class="slide-number">12 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="balanced-layout">
+                <div class="content-panel">
+                    <h3>Freelance? Side Hustle? Gig Work?</h3>
+                    <p>Self-employment has different tax requirements:</p>
+                    <ul>
+                        <li><strong>$400+ = must file</strong> regardless of other income thresholds</li>
+                        <li><strong>Self-employment tax:</strong> ~15.3% for Social Security + Medicare</li>
+                        <li><strong>No withholding:</strong> You must save and pay taxes yourself</li>
+                        <li><strong>Quarterly payments:</strong> May need to pay estimated taxes 4x/year</li>
+                        <li><strong>Schedule C:</strong> Report income and deduct business expenses</li>
+                    </ul>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card rose">
+                        <div class="stat-number">15.3%</div>
+                        <div class="stat-label">Self-employment tax rate (FICA)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">25-30%</div>
+                        <div class="stat-label">Recommended to set aside from 1099 income</div>
+                    </div>
+                    <div class="stat-card green">
+                        <div class="stat-number">Deduct</div>
+                        <div class="stat-label">Business expenses reduce taxable income</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 13: Real-World Example 1 - Ava -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Real-World Example</h2>
+            <span class="slide-number">13 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="scenario-layout">
+                <div class="scenario-header">
+                    <div class="scenario-avatar">A</div>
+                    <div class="scenario-intro">
+                        <h3>Ava: Filing for a Refund</h3>
+                        <p>High school student, part-time job at coffee shop</p>
+                    </div>
+                </div>
+                <div class="scenario-content">
+                    <p>Ava earned $4,500 last year—well below the $14,600 filing threshold. Her employer withheld $380 in federal taxes from her paychecks throughout the year.</p>
+                    <p style="margin-top: 15px;">Even though she's NOT required to file, she SHOULD file. Why? At her income level, she owes $0 in taxes. Filing lets her get all $380 back! If she doesn't file within 3 years, that money becomes property of the U.S. Treasury.</p>
+                </div>
+                <div class="outcome-boxes">
+                    <div class="outcome-box info">
+                        <div class="label">Income</div>
+                        <div class="value">$4,500</div>
+                    </div>
+                    <div class="outcome-box success">
+                        <div class="label">Tax Owed</div>
+                        <div class="value">$0</div>
+                    </div>
+                    <div class="outcome-box success">
+                        <div class="label">Potential Refund</div>
+                        <div class="value">$380</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 14: Real-World Example 2 - Ben -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Real-World Example</h2>
+            <span class="slide-number">14 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="scenario-layout">
+                <div class="scenario-header">
+                    <div class="scenario-avatar alt">B</div>
+                    <div class="scenario-intro">
+                        <h3>Ben: Multiple Income Sources</h3>
+                        <p>Full-time retail job + freelance graphic design</p>
+                    </div>
+                </div>
+                <div class="scenario-content">
+                    <p>Ben earned $32,000 from his retail job (W-2) plus $5,000 from freelance design (1099-NEC). He must file for two reasons: total income exceeds threshold AND self-employment income exceeds $400.</p>
+                    <p style="margin-top: 15px;">Ben needs Form 1040, Schedule C (business income/expenses), and Schedule SE (self-employment tax). He'll owe ~$765 in self-employment tax on his freelance income, but can deduct business expenses like software and equipment.</p>
+                </div>
+                <div class="outcome-boxes">
+                    <div class="outcome-box info">
+                        <div class="label">W-2 Income</div>
+                        <div class="value">$32,000</div>
+                    </div>
+                    <div class="outcome-box warning">
+                        <div class="label">1099 Income</div>
+                        <div class="value">$5,000</div>
+                    </div>
+                    <div class="outcome-box warning">
+                        <div class="label">SE Tax Owed</div>
+                        <div class="value">~$765</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 15: Discussion -->
+    <div class="slide slide-discussion">
+        <div class="badge">Discussion</div>
+        <p class="discussion-question">Do you think you'll need to file taxes this year or next? What steps can you take now to prepare?</p>
+        <div class="prompts">
+            <div class="prompt">What income sources do you have?</div>
+            <div class="prompt">Have you received a W-2 before?</div>
+            <div class="prompt">Where would you go for help filing?</div>
+        </div>
+    </div>
+
+    <!-- Slide 16: Personal Reflection -->
+    <div class="slide slide-discussion purple">
+        <div class="badge">Personal Reflection</div>
+        <p class="discussion-question">How does your filing situation change as you move through different life stages?</p>
+        <div class="prompts">
+            <div class="prompt">Student → First job → Marriage → Parenthood</div>
+            <div class="prompt">How might your filing status change?</div>
+            <div class="prompt">What new forms or requirements might apply?</div>
+        </div>
+    </div>
+
+    <!-- Slide 17: Check for Understanding -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <h2>Check for Understanding</h2>
+            <span class="slide-number">17 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="check-grid">
+                <div class="check-item">
+                    <div class="number">Question 1</div>
+                    <p>What's the difference between a W-2 and a 1099? Which one means taxes are already withheld?</p>
+                </div>
+                <div class="check-item">
+                    <div class="number">Question 2</div>
+                    <p>Why might someone file a tax return even if their income is below the filing threshold?</p>
+                </div>
+                <div class="check-item">
+                    <div class="number">Question 3</div>
+                    <p>What's the deadline for filing taxes, and what happens if you miss it?</p>
+                </div>
+                <div class="check-item">
+                    <div class="number">Question 4</div>
+                    <p>At what amount of self-employment income are you required to file, regardless of total income?</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 18: Key Takeaways -->
+    <div class="slide slide-content">
+        <div class="slide-header teal">
+            <h2>Key Takeaways</h2>
+            <span class="slide-number">18 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="takeaway-grid">
+                <div class="takeaway-item">
+                    <span class="icon">📋</span>
+                    <p>Filing requirements depend on income, age, and filing status—but self-employment income of $400+ always requires filing</p>
+                </div>
+                <div class="takeaway-item">
+                    <span class="icon">📄</span>
+                    <p>Know your forms: W-2 (employment), 1099 (other income), 1040 (your tax return)—keep them organized!</p>
+                </div>
+                <div class="takeaway-item">
+                    <span class="icon">📅</span>
+                    <p>April 15 is the deadline. Missing it means penalties. Extensions to file don't extend payment deadline.</p>
+                </div>
+                <div class="takeaway-item">
+                    <span class="icon">💰</span>
+                    <p>File even if not required to get refunds of withheld taxes, claim credits, and prevent identity theft</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 19: Student Activity -->
+    <div class="slide slide-content">
+        <div class="slide-header blue">
+            <h2>Skill Builder: Tax Documentation Hunt</h2>
+            <span class="slide-number">19 / 20</span>
+        </div>
+        <div class="slide-body">
+            <div class="activity-layout">
+                <div class="activity-info">
+                    <h3>Find and Analyze Tax Forms</h3>
+                    <p class="description">Search for sample W-2, 1099-NEC, and Form 1040 forms online. Take screenshots and identify key information fields on each form.</p>
+                    <div class="materials">
+                        <strong>Resources:</strong> IRS.gov has sample forms. Search "IRS W-2 sample" or "IRS Form 1040"
+                    </div>
+                </div>
+                <div class="activity-steps">
+                    <h4>For Each Form:</h4>
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <p>Find an example of the form online</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <p>Take a screenshot focusing on key fields</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <p>Write a one-sentence explanation of the form's purpose</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <p>Identify 3-5 key fields and what info they contain</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <p>Apply to scenario: Which forms would Jamie, Alex, or Taylor need?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- Slide 20: Closing -->
+    <div class="slide slide-closing">
+        <div class="logo-large">
+            <svg viewBox="0 0 200 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 35C10 20 25 10 40 10C55 10 65 20 65 30C65 45 45 50 40 65C35 50 15 45 15 30" stroke="white" stroke-width="3" fill="none"/>
+                <path d="M40 25C45 25 50 30 50 35C50 42 43 45 40 52C37 45 30 42 30 35C30 30 35 25 40 25Z" fill="white"/>
+                <text x="80" y="45" font-family="Inter" font-size="32" font-weight="800" fill="white">PFL Academy</text>
+            </svg>
+        </div>
+        <p class="tagline">Know the Rules. File on Time. Get What's Yours.</p>
+        <p class="website">www.pflacademy.co</p>
+        <p class="copyright">© 2025 PFL Academy. All rights reserved.</p>
+    </div>
+
+</body>
+</html>

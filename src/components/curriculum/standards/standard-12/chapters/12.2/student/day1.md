@@ -22,7 +22,7 @@ By the end of this lesson, you will be able to:
 - **Economic Impact**: The overall effect of gambling on a community's economy, including job creation, tax revenue, and tourism
 
 ## Introduction
-
+In {{STATE_NAME}}, 
 Gambling is a common recreational activity in many societies, but it comes with both costs and benefits. This lesson explores gambling from multiple perspectives, examining its impact on individuals and communities. While gambling can provide entertainment and economic benefits, it also carries risks including financial loss and potential addiction. Understanding these dynamics helps you make informed decisions about gambling and recognize strategies to keep it a safe form of entertainment.
 
 When approached responsibly, gambling is best viewed as a form of entertainment rather than a way to make money. By understanding both the individual and community impacts of gambling, you can better evaluate its role in society and make informed personal choices about participation.

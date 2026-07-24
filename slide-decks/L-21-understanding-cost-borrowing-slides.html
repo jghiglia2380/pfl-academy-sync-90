@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>L-21: Understanding the Cost of Borrowing | PFL Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #4F46E5;
+            --primary-dark: #3730A3;
+            --primary-light: #818CF8;
+            --teal: #0D9488;
+            --teal-dark: #0F766E;
+            --teal-light: #5EEAD4;
+            --green: #10B981;
+            --green-light: #D1FAE5;
+            --blue: #3B82F6;
+            --blue-light: #DBEAFE;
+            --amber: #F59E0B;
+            --amber-light: #FEF3C7;
+            --amber-pale: #FFFBEB;
+            --rose: #F43F5E;
+            --rose-light: #FFE4E6;
+            --text-dark: #1E293B;
+            --text-body: #475569;
+            --text-light: #64748B;
+            --bg-light: #F8FAFC;
+            --bg-slate: #F1F5F9;
+            --white: #FFFFFF;
+            --border: #E2E8F0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        .slide {
+            width: 1920px;
+            height: 1080px;
+            page-break-after: always;
+            page-break-inside: avoid;
+            position: relative;
+            overflow: hidden;
+            background: var(--white);
+        }
+
+        .slide:last-child {
+            page-break-after: auto;
+        }
+
+        .logo-white { height: 60px; width: auto; }
+
+        .slide-title {
+            background: linear-gradient(135deg, var(--primary) 0%, #6D29D8 50%, var(--primary-dark) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px;
+        }
+
+        .slide-title .logo-container {
+            position: absolute;
+            top: 50px;
+            right: 70px;
+        }
+
+        .slide-title .chapter-label {
+            font-size: 26px;
+            font-weight: 600;
+            color: var(--teal-light);
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin-bottom: 20px;
+        }
+
+        .slide-title h1 {
+            font-size: 90px;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 28px;
+            line-height: 1.1;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .slide-title .subtitle {
+            font-size: 38px;
+            color: var(--white);
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        .slide-title .footer-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+        }
+
+        .slide-title .footer-bar span {
+            font-size: 22px;
+            color: rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+
+        .slide-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 36px 80px;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .slide-header.teal {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+        }
+
+        .slide-header.blue {
+            background: linear-gradient(135deg, var(--blue) 0%, #2563EB 100%);
+        }
+
+        .slide-header h2 {
+            font-size: 52px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .slide-header .slide-number {
+            font-size: 22px;
+            color: rgba(255,255,255,0.6);
+            font-weight: 500;
+        }
+
+        .slide-body {
+            flex: 1;
+            padding: 50px 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .slide-footer {
+            height: 12px;
+            background: linear-gradient(90deg, var(--teal) 0%, var(--primary) 50%, var(--teal) 100%);
+        }
+
+        .slide-hook {
+            background: linear-gradient(135deg, #1E293B 0%, #334155 50%, #1E293B 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 100px;
+            text-align: center;
+        }
+
+        .slide-hook .label {
+            position: absolute;
+            top: 50px;
+            left: 70px;
+            background: var(--teal);
+            color: var(--white);
+            padding: 14px 36px;
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            border-radius: 6px;
+        }
+
+        .slide-hook .question {
+            font-size: 60px;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.4;
+            max-width: 1500px;
+        }
+
+        .slide-hook .question em {
+            color: var(--teal-light);
+            font-style: normal;
+        }
+
+        .objectives-expanded {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            flex: 1;
+        }
+
+        .objective-card {
+            background: var(--bg-slate);
+            border-radius: 20px;
+            padding: 36px;
+            border-left: 6px solid var(--teal);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .objective-card .header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .objective-card .number {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .objective-card h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--teal-dark);
+        }
+
+        .objective-card p {
+            font-size: 26px;
+            color: var(--text-body);
+            line-height: 1.6;
+        }
+
+        .vocab-container {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            flex: 1;
+        }
+
+        .vocab-row {
+            display: grid;
+            grid-template-columns: 280px 1fr 1fr;
+            gap: 24px;
+            align-items: stretch;
+            flex: 1;
+        }
+
+        .vocab-term-box {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vocab-term-box .term {
+            font-size: 32px;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+        }
+
+        .vocab-def-box {
+            background: var(--bg-slate);
+            border-radius: 16px;
+            padding: 28px 32px;
+            border-left: 5px solid var(--teal);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .vocab-def-box .label {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--teal);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .vocab-def-box p {
+            font-size: 26px;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        .vocab-example-box {
+            background: var(--green-light);
+            border-radius: 16px;
+            padding: 28px 32px;
+            border-left: 5px solid var(--green);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .vocab-example-box .label {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .vocab-example-box p {
+            font-size: 24px;
+            color: var(--text-dark);
+            line-height: 1.5;
+            font-style: italic;
+        }
+
+        .balanced-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            flex: 1;
+        }
+
+        .content-panel {
+            background: var(--bg-slate);
+            border-radius: 20px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .content-panel h3 {
+            font-size: 34px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .content-panel p {
+            font-size: 26px;
+            color: var(--text-body);
+            line-height: 1.6;
+        }
+
+        .content-panel .highlight-box {
+            background: var(--blue-light);
+            border-left: 5px solid var(--blue);
+            padding: 20px 24px;
+            border-radius: 0 12px 12px 0;
+            margin-top: auto;
+        }
+
+        .content-panel .highlight-box p {
+            font-size: 24px;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .stats-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .stat-card.purple {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        }
+
+        .stat-card.green {
+            background: linear-gradient(135deg, var(--green) 0%, #059669 100%);
+        }
+
+        .stat-card.rose {
+            background: linear-gradient(135deg, var(--rose) 0%, #E11D48 100%);
+        }
+
+        .stat-card .number {
+            font-size: 64px;
+            font-weight: 800;
+            color: white;
+        }
+
+        .stat-card .label {
+            font-size: 22px;
+            color: rgba(255,255,255,0.9);
+            margin-top: 8px;
+        }
+
+        .info-card {
+            background: var(--amber-pale);
+            border-radius: 16px;
+            padding: 32px;
+            border-left: 6px solid var(--amber);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-card.blue {
+            background: var(--blue-light);
+            border-left-color: var(--blue);
+        }
+
+        .info-card.green {
+            background: var(--green-light);
+            border-left-color: var(--green);
+        }
+
+        .info-card h4 {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .info-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .info-card li {
+            font-size: 24px;
+            color: var(--text-body);
+            padding-left: 32px;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .info-card li::before {
+            content: "→";
+            color: var(--amber);
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        .info-card.blue li::before { color: var(--blue); }
+        .info-card.green li::before { color: var(--green); }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 80px 1fr;
+            gap: 0;
+            flex: 1;
+            align-items: stretch;
+        }
+
+        .compare-column {
+            background: var(--bg-slate);
+            border-radius: 20px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .compare-column.left {
+            border-top: 8px solid var(--teal);
+        }
+
+        .compare-column.right {
+            border-top: 8px solid var(--rose);
+        }
+
+        .compare-column h3 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .compare-column.left h3 { color: var(--teal); }
+        .compare-column.right h3 { color: var(--rose); }
+
+        .compare-column ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .compare-column li {
+            font-size: 26px;
+            color: var(--text-body);
+            padding: 14px 18px;
+            background: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .compare-column.left li::before {
+            content: "✓";
+            color: var(--teal);
+            font-weight: 700;
+        }
+
+        .compare-column.right li::before {
+            content: "⚠";
+            color: var(--rose);
+            font-size: 24px;
+        }
+
+        .vs-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vs-divider span {
+            background: var(--primary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .scenario-layout {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 40px;
+            flex: 1;
+        }
+
+        .scenario-card {
+            background: var(--amber-pale);
+            border-radius: 20px;
+            padding: 44px;
+            border-left: 8px solid var(--amber);
+        }
+
+        .scenario-card .name {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .scenario-card .name .icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        .scenario-card p {
+            font-size: 26px;
+            color: var(--text-body);
+            line-height: 1.7;
+        }
+
+        .scenario-card .highlight-text {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .scenario-outcomes {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .outcome-box {
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .outcome-box.before {
+            background: var(--rose-light);
+            border: 2px solid var(--rose);
+        }
+
+        .outcome-box.after {
+            background: var(--green-light);
+            border: 2px solid var(--green);
+        }
+
+        .outcome-box .label {
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .outcome-box.before .label { color: var(--rose); }
+        .outcome-box.after .label { color: var(--green); }
+
+        .outcome-box .value {
+            font-size: 40px;
+            font-weight: 800;
+            color: var(--text-dark);
+        }
+
+        .outcome-box .detail {
+            font-size: 18px;
+            color: var(--text-body);
+            margin-top: 8px;
+        }
+
+        .slide-discussion {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px;
+        }
+
+        .slide-discussion .badge {
+            background: white;
+            color: var(--teal-dark);
+            padding: 18px 48px;
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            border-radius: 12px;
+            margin-bottom: 48px;
+        }
+
+        .slide-discussion .question {
+            font-size: 48px;
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.5;
+            max-width: 1400px;
+        }
+
+        .takeaway-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            flex: 1;
+        }
+
+        .takeaway-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+            padding: 32px;
+            background: var(--bg-slate);
+            border-radius: 16px;
+        }
+
+        .takeaway-item .number {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .takeaway-item .content h4 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .takeaway-item .content p {
+            font-size: 24px;
+            color: var(--text-body);
+            line-height: 1.5;
+        }
+
+        .activity-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            flex: 1;
+        }
+
+        .activity-main {
+            background: linear-gradient(135deg, var(--green-light) 0%, #A7F3D0 100%);
+            border-radius: 20px;
+            padding: 44px;
+            border-left: 8px solid var(--green);
+        }
+
+        .activity-main h3 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .activity-main p {
+            font-size: 26px;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .activity-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .activity-step {
+            background: white;
+            border-radius: 14px;
+            padding: 26px 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .activity-step .step-num {
+            width: 48px;
+            height: 48px;
+            background: var(--teal);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .activity-step p {
+            font-size: 24px;
+            color: var(--text-dark);
+        }
+
+        .slide-closing {
+            background: linear-gradient(135deg, var(--primary) 0%, #6D29D8 50%, var(--primary-dark) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px;
+        }
+
+        .slide-closing .logo-large { height: 100px; margin-bottom: 40px; }
+        .slide-closing .tagline { font-size: 44px; font-weight: 600; color: var(--white); margin-bottom: 24px; }
+        .slide-closing .website { font-size: 32px; color: var(--teal-light); font-weight: 600; margin-bottom: 16px; }
+        .slide-closing .copyright { position: absolute; bottom: 40px; font-size: 18px; color: rgba(255,255,255,0.5); }
+
+        .concept-full {
+            background: var(--bg-slate);
+            border-radius: 20px;
+            padding: 44px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .concept-full h3 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .concept-full p {
+            font-size: 28px;
+            color: var(--text-body);
+            line-height: 1.6;
+        }
+
+        .concept-full .key-point {
+            background: linear-gradient(135deg, var(--blue-light) 0%, #BFDBFE 100%);
+            border-left: 6px solid var(--blue);
+            padding: 24px 32px;
+            border-radius: 0 16px 16px 0;
+            margin-top: 12px;
+        }
+
+        .concept-full .key-point p {
+            font-size: 26px;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .concept-full ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .concept-full li {
+            font-size: 24px;
+            color: var(--text-body);
+            padding: 18px 22px;
+            background: white;
+            border-radius: 12px;
+            border-left: 4px solid var(--teal);
+        }
+
+        .check-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            flex: 1;
+        }
+
+        .check-item {
+            background: var(--bg-slate);
+            border-radius: 16px;
+            padding: 32px;
+            border-left: 6px solid var(--primary);
+        }
+
+        .check-item .q-num {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .check-item p {
+            font-size: 26px;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        @media print {
+            .slide {
+                page-break-after: always;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- SLIDE 1: Title -->
+<div class="slide slide-title">
+    <div class="logo-container">
+        <svg class="logo-white" viewBox="0 0 1366 441.64" xmlns="http://www.w3.org/2000/svg">
+            <style>.wht{fill:#fff}</style>
+            <path class="wht" d="M116.66,174.42h-17.75v34.04h17.4c11.89,0,18.71-6.26,18.71-17.19s-6.7-16.85-18.37-16.85Z"/>
+            <path class="wht" d="M219.87,2.27C99.62,2.27,2.14,99.75,2.14,220s97.48,217.73,217.73,217.73,217.73-97.48,217.73-217.73S340.12,2.27,219.87,2.27ZM120.72,230.14h-21.8v60.28h-27.08v-139.02h46.85c13.87,0,24.7,3.89,32.21,11.58,7.23,7.41,11.06,17.14,11.06,28.13,0,23.71-16.18,39.04-41.24,39.04ZM277,177.04h-13.7c-9.24,0-24.66,4.37-24.98,33.1h38.68v22.19h-38.75c-.37,34.39-21.88,58.35-52.61,58.35h-11.21v-25.14h11.21c25.09,0,27.35-26.03,27.5-33.21h-38.7v-22.19h38.75c.31-35.94,19.44-58.24,50.12-58.24h13.7v25.14ZM304.17,290.42v-139.02h26.24v116.13h46.17v22.89h-72.41Z"/>
+            <path class="wht" d="M545.29,144.12h30.91l51.92,147.31h-31.11l-9.89-31.32h-53.15l-9.68,31.32h-30.29l51.3-147.31ZM540.96,237.25h38.94l-13.19-42.44c-2.47-7.83-5.98-22.67-5.98-22.67h-.41s-3.71,14.83-6.18,22.67l-13.19,42.44Z"/>
+            <path class="wht" d="M632.03,238.69c0-31.52,20.6-55.84,52.74-55.84,27.4,0,44.3,15.87,48,38.74h-27.4c-1.86-9.27-9.06-16.28-19.37-16.28-16.9,0-25.55,12.98-25.55,33.38s8.04,33.38,25.14,33.38c11.33,0,19.37-5.98,21.22-17.93h26.99c-1.86,22.46-19.37,40.38-47.59,40.38-33.38,0-54.19-24.31-54.19-55.84Z"/>
+            <path class="wht" d="M814.36,279.69h-.41c-5.36,8.04-12.98,14.22-31.11,14.22-21.63,0-36.88-11.34-36.88-32.35,0-23.28,18.96-30.7,42.44-34,17.52-2.47,25.55-3.91,25.55-11.95,0-7.62-5.98-12.57-17.72-12.57-13.19,0-19.57,4.74-20.4,14.83h-24.93c.82-18.54,14.63-34.82,45.53-34.82s44.51,14.22,44.51,38.94v53.77c0,8.04,1.23,12.78,3.71,14.63v1.03h-26.99c-1.65-2.06-2.68-7.01-3.3-11.75ZM814.56,254.14v-15.86c-4.95,2.88-12.57,4.53-19.57,6.18-14.63,3.3-21.84,6.59-21.84,16.48s6.59,13.39,16.48,13.39c16.07,0,24.93-9.89,24.93-20.19Z"/>
+            <path class="wht" d="M856.59,238.69c0-32.96,18.75-55.84,45.12-55.84,14.84,0,24.11,6.8,29.88,15.66h.62v-54.39h28.02v147.31h-26.99v-13.8h-.41c-6.18,10.09-16.69,16.9-31.52,16.9-26.57,0-44.71-21.64-44.71-55.84ZM932.82,239.31c0-20.19-6.59-33.79-24.52-33.79-15.45,0-23.28,13.6-23.28,33.17s8.04,32.35,22.45,32.35c16.69,0,25.34-12.36,25.34-31.73Z"/>
+            <path class="wht" d="M976.29,238.48c0-31.32,21.22-55.63,52.13-55.63,34,0,52.13,25.96,52.13,63.66h-76.64c2.06,16.28,11.13,26.37,26.99,26.37,10.92,0,17.31-4.94,20.4-12.98h27.61c-3.91,18.75-20.6,34.62-47.8,34.62-35.03,0-54.81-24.52-54.81-56.04ZM1004.3,227.15h46.98c-.82-13.39-9.68-22.66-22.45-22.66-14.84,0-22.05,8.86-24.52,22.66Z"/>
+            <path class="wht" d="M1096.6,185.74h26.99v14.22h.62c5.77-9.69,16.07-17.1,30.7-17.1,13.39,0,24.11,7.42,29.26,18.54h.42c7.21-11.54,18.34-18.54,31.73-18.54,22.26,0,34.82,14.42,34.82,37.5v71.08h-28.02v-66.34c0-11.95-5.98-18.13-16.28-18.13-11.75,0-18.96,9.07-18.96,23.08v61.4h-28.02v-66.34c0-11.95-5.98-18.13-16.28-18.13-11.33,0-18.96,9.07-18.96,23.08v61.4h-28.02v-105.7Z"/>
+            <path class="wht" d="M1271.73,304h9.89c11.13,0,15.66-5.77,15.66-14.42,0-5.77-2.06-12.57-8.04-28.64l-28.44-75.2h29.46l15.66,47.59c3.3,9.68,6.8,23.08,6.8,23.08h.41s2.88-13.39,6.18-23.08l14.83-47.59h28.23l-36.88,108.37c-8.04,23.49-15.86,31.94-37.29,31.94h-16.48v-22.05Z"/>
+        </svg>
+    </div>
+    <div class="chapter-label">Chapter 7.1</div>
+    <h1>Cost of Borrowing</h1>
+    <div class="subtitle">Understanding Interest, Fees, and Loan Types in {{STATE_NAME}}</div>
+    <div class="footer-bar">
+        <span>Standard 7: Borrowing</span>
+        <span>•</span>
+        <span>Personal Financial Literacy</span>
+    </div>
+</div>
+
+<!-- SLIDE 2: Hook -->
+<div class="slide slide-hook">
+    <div class="label">Essential Question</div>
+    <div class="question">How can borrowing the <em>same $10,000</em> cost you $2,400... or <em>$15,000</em> in interest?</div>
+</div>
+
+<!-- SLIDE 3: Objectives -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>Learning Objectives</h2>
+        <span class="slide-number">3 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="objectives-expanded">
+            <div class="objective-card">
+                <div class="header">
+                    <div class="number">1</div>
+                    <h3>Differentiate</h3>
+                </div>
+                <p>Distinguish between secured and unsecured credit and explain how collateral affects interest rates.</p>
+            </div>
+            <div class="objective-card">
+                <div class="header">
+                    <div class="number">2</div>
+                    <h3>Calculate</h3>
+                </div>
+                <p>Determine the total cost of borrowing using interest rates, loan terms, and repayment strategies.</p>
+            </div>
+            <div class="objective-card">
+                <div class="header">
+                    <div class="number">3</div>
+                    <h3>Compare</h3>
+                </div>
+                <p>Analyze installment vs. non-installment credit options and their impact on budgeting and total cost.</p>
+            </div>
+            <div class="objective-card">
+                <div class="header">
+                    <div class="number">4</div>
+                    <h3>Evaluate</h3>
+                </div>
+                <p>Assess when borrowing money is appropriate versus when it should be avoided based on purpose and terms.</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 4: Vocabulary 1 -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Key Terms</h2>
+        <span class="slide-number">4 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="vocab-container">
+            <div class="vocab-row">
+                <div class="vocab-term-box">
+                    <div class="term">Principal</div>
+                </div>
+                <div class="vocab-def-box">
+                    <div class="label">Definition</div>
+                    <p>The original amount of money borrowed, before any interest or fees are added.</p>
+                </div>
+                <div class="vocab-example-box">
+                    <div class="label">Example</div>
+                    <p>You borrow $20,000 for a car—$20,000 is your principal amount</p>
+                </div>
+            </div>
+            <div class="vocab-row">
+                <div class="vocab-term-box">
+                    <div class="term">APR</div>
+                </div>
+                <div class="vocab-def-box">
+                    <div class="label">Definition</div>
+                    <p>Annual Percentage Rate—the yearly cost of borrowing, including interest AND fees.</p>
+                </div>
+                <div class="vocab-example-box">
+                    <div class="label">Why It Matters</div>
+                    <p>APR lets you compare true costs; a 6% rate with fees may have a 7% APR</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 5: Vocabulary 2 -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Key Terms</h2>
+        <span class="slide-number">5 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="vocab-container">
+            <div class="vocab-row">
+                <div class="vocab-term-box">
+                    <div class="term">Secured Credit</div>
+                </div>
+                <div class="vocab-def-box">
+                    <div class="label">Definition</div>
+                    <p>Credit backed by collateral that the lender can claim if you don't repay.</p>
+                </div>
+                <div class="vocab-example-box">
+                    <div class="label">Examples</div>
+                    <p>Auto loans, mortgages—the car or house is the collateral</p>
+                </div>
+            </div>
+            <div class="vocab-row">
+                <div class="vocab-term-box">
+                    <div class="term">Unsecured Credit</div>
+                </div>
+                <div class="vocab-def-box">
+                    <div class="label">Definition</div>
+                    <p>Credit not backed by collateral; lender relies on your promise to repay.</p>
+                </div>
+                <div class="vocab-example-box">
+                    <div class="label">Examples</div>
+                    <p>Credit cards, personal loans, student loans—higher interest rates</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 6: Secured vs Unsecured Credit -->
+<div class="slide slide-content">
+    <div class="slide-header blue">
+        <h2>Secured vs. Unsecured Credit</h2>
+        <span class="slide-number">6 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="balanced-layout">
+            <div class="content-panel">
+                <h3>Collateral Affects Everything</h3>
+                <p><strong>Secured credit</strong> requires you to pledge an asset. If you fail to pay, the lender can take the asset—this reduces their risk.</p>
+                <p><strong>Unsecured credit</strong> has no collateral backing it. The lender has only your promise to repay, increasing their risk.</p>
+                <div class="highlight-box">
+                    <p>💡 Lower lender risk = lower interest rates for YOU. Secured loans almost always have lower rates than unsecured loans.</p>
+                </div>
+            </div>
+            <div class="stats-panel">
+                <div class="stat-card">
+                    <div class="number">3-7%</div>
+                    <div class="label">Typical Auto Loan (Secured)</div>
+                </div>
+                <div class="stat-card rose">
+                    <div class="number">15-25%</div>
+                    <div class="label">Typical Credit Card (Unsecured)</div>
+                </div>
+                <div class="info-card blue">
+                    <h4>Secured Loan Examples:</h4>
+                    <ul>
+                        <li>Mortgage (house is collateral)</li>
+                        <li>Auto loan (car is collateral)</li>
+                        <li>Secured credit card (cash deposit)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 7: Installment vs Non-Installment -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Installment vs. Non-Installment Credit</h2>
+        <span class="slide-number">7 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="comparison-grid">
+            <div class="compare-column left">
+                <h3>📅 Installment Credit</h3>
+                <ul>
+                    <li>Fixed payment amount each month</li>
+                    <li>Set number of payments (e.g., 60 months)</li>
+                    <li>You know exactly when it's paid off</li>
+                    <li>Easier to budget and plan</li>
+                    <li>Examples: auto loans, mortgages</li>
+                </ul>
+            </div>
+            <div class="vs-divider">
+                <span>VS</span>
+            </div>
+            <div class="compare-column right">
+                <h3>🔄 Non-Installment Credit</h3>
+                <ul>
+                    <li>Variable payments (often just minimum)</li>
+                    <li>Revolving: pay down, borrow again</li>
+                    <li>No set payoff date</li>
+                    <li>Can lead to perpetual debt</li>
+                    <li>Examples: credit cards, lines of credit</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 8: The Impact of Interest Rates -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>The True Cost of Borrowing</h2>
+        <span class="slide-number">8 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="balanced-layout">
+            <div class="content-panel">
+                <h3>Same $10,000 — Wildly Different Costs</h3>
+                <p>The interest rate and repayment strategy dramatically affect how much you actually pay:</p>
+                <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 14px;">
+                    <div style="background: var(--green-light); padding: 16px 20px; border-radius: 12px; border-left: 4px solid var(--green);">
+                        <p style="font-size: 24px; margin: 0;"><strong>Student Loan @ 4.5%, 10 years:</strong></p>
+                        <p style="font-size: 22px; margin: 8px 0 0;">Total Interest: $2,437 | Total Paid: $12,437</p>
+                    </div>
+                    <div style="background: var(--rose-light); padding: 16px 20px; border-radius: 12px; border-left: 4px solid var(--rose);">
+                        <p style="font-size: 24px; margin: 0;"><strong>Credit Card @ 18%, min payments:</strong></p>
+                        <p style="font-size: 22px; margin: 8px 0 0;">Total Interest: $15,432 | Total Paid: $25,432</p>
+                    </div>
+                </div>
+            </div>
+            <div class="stats-panel">
+                <div class="stat-card green">
+                    <div class="number">$2.4K</div>
+                    <div class="label">Student Loan Interest</div>
+                </div>
+                <div class="stat-card rose">
+                    <div class="number">$15.4K</div>
+                    <div class="label">Credit Card Interest</div>
+                </div>
+                <div class="info-card">
+                    <h4>The Credit Card Trap:</h4>
+                    <ul>
+                        <li>Same $10,000 borrowed</li>
+                        <li>28 years to pay off with minimums!</li>
+                        <li>Pay 6x more in interest</li>
+                        <li>Higher rate + slow repayment = disaster</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 9: When Borrowing Makes Sense -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>When Borrowing Makes Sense</h2>
+        <span class="slide-number">9 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="concept-full">
+            <h3>Strategic Borrowing Can Build Wealth</h3>
+            <p>Not all debt is bad. Borrowing can be a <strong>strategic financial decision</strong> when it ultimately improves your financial position:</p>
+            <ul>
+                <li><strong>Education:</strong> Student loans may increase earning potential by $500K+ over your lifetime</li>
+                <li><strong>Housing:</strong> Mortgages build equity; you own an asset instead of paying rent forever</li>
+                <li><strong>Transportation:</strong> Auto loans provide reliable transportation for work</li>
+                <li><strong>Business:</strong> Business loans fund ventures that generate income</li>
+                <li><strong>Emergencies:</strong> Some urgent situations (medical, essential repairs) require immediate funds</li>
+                <li><strong>Appreciating assets:</strong> Borrowing for things that gain value over time</li>
+            </ul>
+            <div class="key-point">
+                <p>🎯 Ask yourself: "Will this loan help me earn more, save more, or build wealth over time?"</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 10: When to Avoid Borrowing -->
+<div class="slide slide-content">
+    <div class="slide-header blue">
+        <h2>When to Avoid Borrowing</h2>
+        <span class="slide-number">10 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="balanced-layout">
+            <div class="content-panel">
+                <h3>Red Flags for Borrowing</h3>
+                <p>Borrowing should generally be <strong>avoided</strong> in these situations:</p>
+                <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 14px;">
+                    <div style="display: flex; gap: 12px; align-items: center;">
+                        <span style="background: var(--rose); color: white; padding: 8px 16px; border-radius: 8px; font-weight: 700; font-size: 18px;">❌</span>
+                        <span style="font-size: 24px; color: var(--text-body);">Luxuries and wants (vacations, entertainment)</span>
+                    </div>
+                    <div style="display: flex; gap: 12px; align-items: center;">
+                        <span style="background: var(--rose); color: white; padding: 8px 16px; border-radius: 8px; font-weight: 700; font-size: 18px;">❌</span>
+                        <span style="font-size: 24px; color: var(--text-body);">Regular expenses (groceries, utilities)</span>
+                    </div>
+                    <div style="display: flex; gap: 12px; align-items: center;">
+                        <span style="background: var(--rose); color: white; padding: 8px 16px; border-radius: 8px; font-weight: 700; font-size: 18px;">❌</span>
+                        <span style="font-size: 24px; color: var(--text-body);">Impulse purchases you haven't planned for</span>
+                    </div>
+                    <div style="display: flex; gap: 12px; align-items: center;">
+                        <span style="background: var(--rose); color: white; padding: 8px 16px; border-radius: 8px; font-weight: 700; font-size: 18px;">❌</span>
+                        <span style="font-size: 24px; color: var(--text-body);">When already financially strained</span>
+                    </div>
+                </div>
+            </div>
+            <div class="stats-panel">
+                <div class="stat-card rose">
+                    <div class="number">-50%</div>
+                    <div class="label">Car Value After 3 Years</div>
+                </div>
+                <div class="stat-card purple">
+                    <div class="number">$0</div>
+                    <div class="label">Value of Consumed Goods</div>
+                </div>
+                <div class="info-card">
+                    <h4>The Rule of Thumb:</h4>
+                    <ul>
+                        <li>Don't borrow for depreciating assets</li>
+                        <li>Don't borrow for things you consume</li>
+                        <li>If it won't exist in 5 years, don't finance it</li>
+                        <li>Use cash for "wants"</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 11: Why This Matters -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>Why Understanding Borrowing Matters</h2>
+        <span class="slide-number">11 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="concept-full">
+            <h3>Your Borrowing Decisions Shape Your Future</h3>
+            <p>The decisions you make about borrowing will affect your financial life for <strong>years or even decades</strong>. Understanding the true cost gives you power:</p>
+            <ul>
+                <li><strong>Avoid costly mistakes:</strong> A bad car loan can cost you thousands more than necessary</li>
+                <li><strong>Negotiate better terms:</strong> Knowledge helps you get lower rates and better deals</li>
+                <li><strong>Build credit wisely:</strong> Strategic borrowing and repayment builds your credit score</li>
+                <li><strong>Achieve goals faster:</strong> Smart borrowing for education or housing accelerates wealth-building</li>
+                <li><strong>Avoid debt traps:</strong> Recognize predatory lending and high-cost options like payday loans</li>
+                <li><strong>Maintain financial freedom:</strong> Keep debt manageable so you have options in life</li>
+            </ul>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 12: Understanding Loan Terms -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Key Factors That Affect Loan Costs</h2>
+        <span class="slide-number">12 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="balanced-layout">
+            <div class="content-panel">
+                <h3>What Determines Your True Cost?</h3>
+                <p>Several factors combine to determine how much you'll actually pay when you borrow money:</p>
+                <p><strong>Interest Rate:</strong> The percentage the lender charges for borrowing money.</p>
+                <p><strong>Loan Term:</strong> Longer terms = lower payments but MORE total interest.</p>
+                <p><strong>Payment Strategy:</strong> Paying more than minimum saves thousands.</p>
+                <div class="highlight-box">
+                    <p>💰 On a $20,000 loan, choosing 3 years vs. 6 years could save you $2,000+ in interest.</p>
+                </div>
+            </div>
+            <div class="stats-panel">
+                <div class="info-card blue">
+                    <h4>Your Credit Score Matters:</h4>
+                    <ul>
+                        <li>Excellent (750+): Best rates available</li>
+                        <li>Good (700-749): Favorable rates</li>
+                        <li>Fair (650-699): Higher rates</li>
+                        <li>Poor (below 650): Highest rates or denial</li>
+                    </ul>
+                </div>
+                <div class="info-card green">
+                    <h4>Ways to Lower Your Cost:</h4>
+                    <ul>
+                        <li>Improve credit score before borrowing</li>
+                        <li>Choose shorter loan terms</li>
+                        <li>Make larger down payments</li>
+                        <li>Pay more than the minimum</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 13: Example 1 - Julia -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>Real-World Example</h2>
+        <span class="slide-number">13 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="scenario-layout">
+            <div class="scenario-card">
+                <div class="name">
+                    <div class="icon">👩‍🎓</div>
+                    Julia's Student Loan Decision
+                </div>
+                <p>Julia is choosing between two options for a <strong>$20,000 student loan</strong> to be repaid over 10 years:</p>
+                <ul style="margin: 16px 0; font-size: 24px; list-style: none;">
+                    <li style="padding: 8px 0;"><strong>Federal loan:</strong> 4.5% interest, deferred payments until graduation</li>
+                    <li style="padding: 8px 0;"><strong>Private loan:</strong> 6.8% interest, payments start immediately</li>
+                </ul>
+                <p>Julia calculated the total cost and considered additional benefits. The federal loan also offers <span class="highlight-text">income-driven repayment options and potential loan forgiveness</span>.</p>
+            </div>
+            <div class="scenario-outcomes">
+                <div class="outcome-box after">
+                    <div class="label">Federal Loan Total</div>
+                    <div class="value">$24,874</div>
+                    <div class="detail">$4,874 in interest</div>
+                </div>
+                <div class="outcome-box before">
+                    <div class="label">Private Loan Total</div>
+                    <div class="value">$27,619</div>
+                    <div class="detail">$7,619 in interest</div>
+                </div>
+                <div class="outcome-box after" style="background: var(--blue-light); border-color: var(--blue);">
+                    <div class="label" style="color: var(--blue);">Julia's Savings</div>
+                    <div class="value">$2,745</div>
+                    <div class="detail">By choosing federal loan</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 14: Example 2 - Ravi -->
+<div class="slide slide-content">
+    <div class="slide-header blue">
+        <h2>Real-World Example</h2>
+        <span class="slide-number">14 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="scenario-layout">
+            <div class="scenario-card">
+                <div class="name">
+                    <div class="icon">🚗</div>
+                    Ravi's Car Purchase Decision
+                </div>
+                <p>Ravi needs a reliable car for work. He has <strong>$15,000 saved</strong> and is deciding between two options:</p>
+                <ul style="margin: 16px 0; font-size: 24px; list-style: none;">
+                    <li style="padding: 8px 0;"><strong>Option A:</strong> Pay $15,000 cash for a used car</li>
+                    <li style="padding: 8px 0;"><strong>Option B:</strong> Finance $25,000 for a newer car at 5.9% for 5 years ($483/month)</li>
+                </ul>
+                <p>Ravi chose the <span class="highlight-text">used car paid in cash</span> because it preserved his cash flow flexibility and avoided years of payments and interest costs.</p>
+            </div>
+            <div class="scenario-outcomes">
+                <div class="outcome-box after">
+                    <div class="label">Cash Purchase</div>
+                    <div class="value">$15,000</div>
+                    <div class="detail">$0 interest, no payments</div>
+                </div>
+                <div class="outcome-box before">
+                    <div class="label">Financed Purchase</div>
+                    <div class="value">$28,978</div>
+                    <div class="detail">$3,978 in interest over 5 years</div>
+                </div>
+                <div class="outcome-box after" style="background: var(--blue-light); border-color: var(--blue);">
+                    <div class="label" style="color: var(--blue);">Ravi's Savings</div>
+                    <div class="value">$13,978</div>
+                    <div class="detail">By paying cash + lower insurance</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 15: Discussion -->
+<div class="slide slide-discussion">
+    <div class="badge">Discussion</div>
+    <div class="question">What factors did Julia and Ravi consider beyond just the interest rate when making their borrowing decisions?<br><br>When might Ravi's financing option have been the better choice?</div>
+</div>
+
+<!-- SLIDE 16: Discussion 2 -->
+<div class="slide slide-discussion" style="background: linear-gradient(135deg, var(--primary) 0%, #6D29D8 100%);">
+    <div class="badge">Personal Reflection</div>
+    <div class="question">Think about a situation where borrowing money might be a good idea and one where it would be a bad idea.<br><br>What factors make the difference between smart and harmful borrowing?</div>
+</div>
+
+<!-- SLIDE 17: Check for Understanding -->
+<div class="slide slide-content">
+    <div class="slide-header">
+        <h2>Check for Understanding</h2>
+        <span class="slide-number">17 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="check-grid">
+            <div class="check-item">
+                <div class="q-num">Question 1</div>
+                <p>Why do secured loans typically have lower interest rates than unsecured loans?</p>
+            </div>
+            <div class="check-item">
+                <div class="q-num">Question 2</div>
+                <p>What's the difference between installment credit and non-installment (revolving) credit?</p>
+            </div>
+            <div class="check-item">
+                <div class="q-num">Question 3</div>
+                <p>Give two examples of when borrowing money makes financial sense and two when it doesn't.</p>
+            </div>
+            <div class="check-item">
+                <div class="q-num">Question 4</div>
+                <p>Why is making only minimum payments on credit card debt financially dangerous?</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 18: Key Takeaways -->
+<div class="slide slide-content">
+    <div class="slide-header teal">
+        <h2>Key Takeaways</h2>
+        <span class="slide-number">18 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="takeaway-grid">
+            <div class="takeaway-item">
+                <div class="number">1</div>
+                <div class="content">
+                    <h4>Collateral Matters</h4>
+                    <p>Secured loans have lower rates because lenders have less risk—they can take your asset if you don't pay</p>
+                </div>
+            </div>
+            <div class="takeaway-item">
+                <div class="number">2</div>
+                <div class="content">
+                    <h4>Interest Rates Add Up</h4>
+                    <p>The same $10,000 can cost $2,400 or $15,400 in interest depending on rate and repayment strategy</p>
+                </div>
+            </div>
+            <div class="takeaway-item">
+                <div class="number">3</div>
+                <div class="content">
+                    <h4>Borrow Strategically</h4>
+                    <p>Borrow for education, housing, and wealth-building—avoid borrowing for wants and consumables</p>
+                </div>
+            </div>
+            <div class="takeaway-item">
+                <div class="number">4</div>
+                <div class="content">
+                    <h4>Compare All Costs</h4>
+                    <p>Look at APR (not just interest rate), loan terms, fees, and total cost before choosing a loan</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 19: Activity -->
+<div class="slide slide-content">
+    <div class="slide-header blue">
+        <h2>Student Activity</h2>
+        <span class="slide-number">19 / 20</span>
+    </div>
+    <div class="slide-body">
+        <div class="activity-layout">
+            <div class="activity-main">
+                <h3>📊 Loan Comparison Chart Analysis</h3>
+                <p>Review the Loan Comparison Chart showing different loan types, their typical interest rates, terms, fees, and ideal uses.</p>
+                <p style="margin-top: 20px;">Analyze which loan types would be <strong>most challenging to manage</strong> and which would be <strong>most appropriate</strong> for different borrowing needs.</p>
+            </div>
+            <div class="activity-steps">
+                <div class="activity-step">
+                    <div class="step-num">1</div>
+                    <p>Study each loan type in the chart</p>
+                </div>
+                <div class="activity-step">
+                    <div class="step-num">2</div>
+                    <p>Compare interest rates and terms</p>
+                </div>
+                <div class="activity-step">
+                    <div class="step-num">3</div>
+                    <p>Identify which loan is most risky</p>
+                </div>
+                <div class="activity-step">
+                    <div class="step-num">4</div>
+                    <p>Choose a loan type for a scenario you might face</p>
+                </div>
+                <div class="activity-step">
+                    <div class="step-num">5</div>
+                    <p>Write reflection on your decision factors</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"></div>
+</div>
+
+<!-- SLIDE 20: Closing -->
+<div class="slide slide-closing">
+    <svg class="logo-large" viewBox="0 0 1366 441.64" xmlns="http://www.w3.org/2000/svg" style="height: 100px;">
+        <style>.wht{fill:#fff}</style>
+        <path class="wht" d="M116.66,174.42h-17.75v34.04h17.4c11.89,0,18.71-6.26,18.71-17.19s-6.7-16.85-18.37-16.85Z"/>
+        <path class="wht" d="M219.87,2.27C99.62,2.27,2.14,99.75,2.14,220s97.48,217.73,217.73,217.73,217.73-97.48,217.73-217.73S340.12,2.27,219.87,2.27ZM120.72,230.14h-21.8v60.28h-27.08v-139.02h46.85c13.87,0,24.7,3.89,32.21,11.58,7.23,7.41,11.06,17.14,11.06,28.13,0,23.71-16.18,39.04-41.24,39.04ZM277,177.04h-13.7c-9.24,0-24.66,4.37-24.98,33.1h38.68v22.19h-38.75c-.37,34.39-21.88,58.35-52.61,58.35h-11.21v-25.14h11.21c25.09,0,27.35-26.03,27.5-33.21h-38.7v-22.19h38.75c.31-35.94,19.44-58.24,50.12-58.24h13.7v25.14ZM304.17,290.42v-139.02h26.24v116.13h46.17v22.89h-72.41Z"/>
+        <path class="wht" d="M545.29,144.12h30.91l51.92,147.31h-31.11l-9.89-31.32h-53.15l-9.68,31.32h-30.29l51.3-147.31ZM540.96,237.25h38.94l-13.19-42.44c-2.47-7.83-5.98-22.67-5.98-22.67h-.41s-3.71,14.83-6.18,22.67l-13.19,42.44Z"/>
+        <path class="wht" d="M632.03,238.69c0-31.52,20.6-55.84,52.74-55.84,27.4,0,44.3,15.87,48,38.74h-27.4c-1.86-9.27-9.06-16.28-19.37-16.28-16.9,0-25.55,12.98-25.55,33.38s8.04,33.38,25.14,33.38c11.33,0,19.37-5.98,21.22-17.93h26.99c-1.86,22.46-19.37,40.38-47.59,40.38-33.38,0-54.19-24.31-54.19-55.84Z"/>
+        <path class="wht" d="M814.36,279.69h-.41c-5.36,8.04-12.98,14.22-31.11,14.22-21.63,0-36.88-11.34-36.88-32.35,0-23.28,18.96-30.7,42.44-34,17.52-2.47,25.55-3.91,25.55-11.95,0-7.62-5.98-12.57-17.72-12.57-13.19,0-19.57,4.74-20.4,14.83h-24.93c.82-18.54,14.63-34.82,45.53-34.82s44.51,14.22,44.51,38.94v53.77c0,8.04,1.23,12.78,3.71,14.63v1.03h-26.99c-1.65-2.06-2.68-7.01-3.3-11.75ZM814.56,254.14v-15.86c-4.95,2.88-12.57,4.53-19.57,6.18-14.63,3.3-21.84,6.59-21.84,16.48s6.59,13.39,16.48,13.39c16.07,0,24.93-9.89,24.93-20.19Z"/>
+        <path class="wht" d="M856.59,238.69c0-32.96,18.75-55.84,45.12-55.84,14.84,0,24.11,6.8,29.88,15.66h.62v-54.39h28.02v147.31h-26.99v-13.8h-.41c-6.18,10.09-16.69,16.9-31.52,16.9-26.57,0-44.71-21.64-44.71-55.84ZM932.82,239.31c0-20.19-6.59-33.79-24.52-33.79-15.45,0-23.28,13.6-23.28,33.17s8.04,32.35,22.45,32.35c16.69,0,25.34-12.36,25.34-31.73Z"/>
+        <path class="wht" d="M976.29,238.48c0-31.32,21.22-55.63,52.13-55.63,34,0,52.13,25.96,52.13,63.66h-76.64c2.06,16.28,11.13,26.37,26.99,26.37,10.92,0,17.31-4.94,20.4-12.98h27.61c-3.91,18.75-20.6,34.62-47.8,34.62-35.03,0-54.81-24.52-54.81-56.04ZM1004.3,227.15h46.98c-.82-13.39-9.68-22.66-22.45-22.66-14.84,0-22.05,8.86-24.52,22.66Z"/>
+        <path class="wht" d="M1096.6,185.74h26.99v14.22h.62c5.77-9.69,16.07-17.1,30.7-17.1,13.39,0,24.11,7.42,29.26,18.54h.42c7.21-11.54,18.34-18.54,31.73-18.54,22.26,0,34.82,14.42,34.82,37.5v71.08h-28.02v-66.34c0-11.95-5.98-18.13-16.28-18.13-11.75,0-18.96,9.07-18.96,23.08v61.4h-28.02v-66.34c0-11.95-5.98-18.13-16.28-18.13-11.33,0-18.96,9.07-18.96,23.08v61.4h-28.02v-105.7Z"/>
+        <path class="wht" d="M1271.73,304h9.89c11.13,0,15.66-5.77,15.66-14.42,0-5.77-2.06-12.57-8.04-28.64l-28.44-75.2h29.46l15.66,47.59c3.3,9.68,6.8,23.08,6.8,23.08h.41s2.88-13.39,6.18-23.08l14.83-47.59h28.23l-36.88,108.37c-8.04,23.49-15.86,31.94-37.29,31.94h-16.48v-22.05Z"/>
+    </svg>
+    <div class="tagline">Building Financial Futures, One Lesson at a Time</div>
+    <div class="website">www.pflacademy.co</div>
+    <div class="copyright">© 2025 PFL Academy. All rights reserved.</div>
+</div>
+
+</body>
+</html>
